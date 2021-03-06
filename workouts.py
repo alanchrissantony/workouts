@@ -1186,3 +1186,21 @@ def ad(array):
             i=i-1
         i=i+1
     print(len(array), array)
+
+
+# --- Next Function Block ---
+
+
+def ae(array):
+    count=0
+    for i in range(len(array)):
+        for j in range(len(array)):
+
+            if(array[i]>array[j]):
+                if(array[i]%2==0):
+                    array[i]=int(array[i]/2)
+                    array.insert(i+1, int(array[i]))
+                else:
+                    array[i]=int((array[i]+1)/2)-1
+                    array.insert(i+1, int(array[i]+1))
+    print(array)
