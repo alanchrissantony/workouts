@@ -16846,3 +16846,20 @@ def count_non_identical_partners(nums: list) -> int:
                 if nums[j] not in arr:
                     arr.append(nums[j])
     return len(arr)
+
+
+# --- Next Function Block ---
+
+
+
+# 19. Check if all characters in a string have the same frequency.
+def all_equal_frequency(s: str) -> bool:
+    """
+    Returns True if every character in s occurs the same number of times; otherwise False.
+    """
+    freq = {ch: s.count(ch) for ch in s}
+    first = next(iter(freq.values()))
+    for count in freq.values():
+        if count != first:
+            return False
+    return True
