@@ -29069,3 +29069,27 @@ def rearrange_based_on(arr1: list, arr2: list) -> list:
             continue
     # First k elements (in reverse order) concatenated with the sorted rest.
     return arr1[:k][::-1] + sorted(arr1[k:])
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 5: Check if any subarray's average is an integer.
+def exists_subarray_integer_average(nums: list, k: int) -> bool:
+    """
+    For each contiguous subarray of nums, checks whether the average (sum divided by length)
+    is an integer. If at least one such subarray exists, returns True, else False.
+    
+    Note: The snippet appears to check if sum(nums[i:j])/k equals sum(nums[i:j])//k,
+    but k is given. Here we interpret it as: for any subarray, if its average is an integer,
+    return True.
+    """
+    n = len(nums)
+    for i in range(n):
+        for j in range(i+1, n+1):
+            s = sum(nums[i:j])
+            length = j - i
+            if s / length == s // length:
+                return True
+    return False
