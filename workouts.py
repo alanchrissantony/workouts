@@ -23616,3 +23616,25 @@ def unique_prefix_substrings_with_reverse(s: str) -> list:
                 seen.add(substr)
                 result.append((substr, substr[::-1]))
     return result
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 4:
+# Get all prefixes for every suffix of a string.
+def all_prefixes(s: str) -> list:
+    """
+    For each starting index in s, collects all prefixes (contiguous substrings beginning at that index).
+    Returns a list of these prefixes.
+    
+    Example:
+      s = "bbbab"
+      Returns a list including: "b", "bb", "bbb", "bbba", "bbbab", "b", "bb", "bba", etc.
+    """
+    prefixes = []
+    for i in range(len(s)):
+        for j in range(1, len(s) - i + 1):
+            prefixes.append(s[i:i+j])
+    return prefixes
