@@ -18955,3 +18955,21 @@ def self_dividing_numbers(left: int, right: int) -> list:
         if flag:
             result.append(num)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# 7. Count, for a number, how many of its digits divide the number.
+def count_divisible_digits(num: int) -> int:
+    """
+    Returns the count of digits in num that evenly divide num.
+    """
+    s = str(num)
+    count = 0
+    for ch in s:
+        digit = int(ch)
+        if digit != 0 and num % digit == 0:
+            count += 1
+    return count
