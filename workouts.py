@@ -23793,3 +23793,29 @@ def pairwise_swap_after_sort(nums: list) -> list:
         i += 2
         j -= 1
     return nums
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 11:
+# Generate all unique contiguous substrings (prefixes of each suffix) of a string
+# and return them along with their reverses.
+def unique_prefix_substrings_with_reverse(s: str) -> list:
+    """
+    For each starting index in s, generates all contiguous substrings starting at that index.
+    Returns a list of tuples (substring, reversed substring) for each unique substring.
+    
+    Example:
+      s = "aaa" may produce [("a", "a"), ("aa", "aa"), ("aaa", "aaa")].
+    """
+    seen = set()
+    results = []
+    for i in range(len(s)):
+        for j in range(1, len(s) - i + 1):
+            sub = s[i:i+j]
+            if sub not in seen:
+                seen.add(sub)
+                results.append((sub, sub[::-1]))
+    return results
