@@ -10286,3 +10286,14 @@ def intersection(nums1: list, nums2: list) -> list:
     Returns a list of unique elements common to both nums1 and nums2.
     """
     return list(set(nums1).intersection(set(nums2)))
+
+
+# --- Next Function Block ---
+
+
+# 7. Palindrome Check
+def is_palindrome(s: str) -> bool:
+    """
+    Returns True if s is a palindrome.
+    """
+    return s == s[::-1]
