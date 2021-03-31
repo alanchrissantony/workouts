@@ -19296,3 +19296,17 @@ def letter_to_index_dict() -> dict:
         mapping[ch] = j
         j += 1
     return mapping
+
+
+# --- Next Function Block ---
+
+
+# 2. Recursive factorial function.
+def factorial(n: int) -> int:
+    """
+    Returns the factorial of n (n!).
+    If n < 1, returns 1.
+    """
+    if n < 1:
+        return 1
+    return n * factorial(n - 1)
