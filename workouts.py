@@ -9400,3 +9400,18 @@ def tribonacci(n: int) -> int:
     for i in range(2, n + 1):
         trib.append(trib[i-2] + trib[i-1] + trib[i])
     return trib[n+1]
+
+
+# --- Next Function Block ---
+
+
+# factorial_division.py
+def compute_factorial_divided(n: int) -> int:
+    """
+    Computes (2*n)! divided by 2^n.
+    """
+    num = n * 2
+    factorial = 1
+    for i in range(num, 0, -1):
+        factorial *= i
+    return factorial // (2 ** n)
