@@ -9415,3 +9415,23 @@ def compute_factorial_divided(n: int) -> int:
     for i in range(num, 0, -1):
         factorial *= i
     return factorial // (2 ** n)
+
+
+# --- Next Function Block ---
+
+
+# min_frequency_element.py
+def min_frequency_element(nums: list):
+    """
+    Returns the element with the minimum frequency in nums.
+    """
+    freq = {}
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+    min_count = float('inf')
+    element = None
+    for num, count in freq.items():
+        if count < min_count:
+            min_count = count
+            element = num
+    return element
