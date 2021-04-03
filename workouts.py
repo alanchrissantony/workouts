@@ -2681,3 +2681,21 @@ def rotate_right(nums: list, k: int) -> list:
     n = len(nums)
     k = k % n  # Handle cases where k >= n
     return nums[-k:] + nums[:-k]
+
+
+# --- Next Function Block ---
+
+
+# 24. Element Equal to Its Frequency
+def element_equal_to_frequency(arr: list) -> int:
+    """
+    Returns the first element whose value equals its frequency in the array.
+    If none exists, returns -1.
+    """
+    freq = {}
+    for num in arr:
+        freq[num] = freq.get(num, 0) + 1
+    for num in arr:
+        if num == freq[num]:
+            return num
+    return -1
