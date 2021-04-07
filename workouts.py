@@ -17193,3 +17193,29 @@ def validate_parentheses(s: str) -> bool:
 # 4. Reverse a number's string representation.
 def reverse_number(num: int) -> str:
     return str(num)[::-1]
+
+
+# --- Next Function Block ---
+
+
+
+# 5. Simulate stack operations to build an array.
+def simulate_stack_ops(n: int, target: list) -> list:
+    """
+    Simulates "Push" and "Pop" operations to build an array from 1 to n until the array equals target.
+    (This logic is taken from the snippet; note that with target == [] the loop never runs.)
+    """
+    res = []
+    arr = []
+    i = 1
+    k = 0
+    while i <= n and arr != target:
+        arr.append(i)
+        res.append("Push")
+        if target and arr[k] != target[k]:
+            arr.pop()
+            res.append("Pop")
+        else:
+            k += 1
+        i += 1
+    return res
