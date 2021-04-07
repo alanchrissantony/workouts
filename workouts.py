@@ -24395,3 +24395,30 @@ def evaluate_expression(expr: str):
       expr = "-9.1234" → returns -9.1234
     """
     return eval(expr)
+
+
+# --- Next Function Block ---
+
+
+
+
+# -----------------------------------------------------
+# Function 1: Get first and last index of target in a sorted list.
+def target_first_last_indices(nums: list, target: int) -> tuple:
+    """
+    Given a list of numbers and a target, returns a tuple:
+      (first_index, last_index)
+    where first_index is the index of the first occurrence of target,
+    and last_index is the index of the last occurrence.
+    
+    Example:
+      nums = [5,7,7,8,8,10], target = 8 
+      returns (3, 4)
+    """
+    if target in nums:
+        first = nums.index(target)
+        # For last index, reverse the list and subtract from len(nums)-1.
+        last = len(nums) - 1 - nums[::-1].index(target)
+        return (first, last)
+    else:
+        return (-1, -1)
