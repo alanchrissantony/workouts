@@ -7326,3 +7326,21 @@ def longest_common_prefix_brute(strs: list) -> str:
             if not prefix:
                 return ""
     return prefix
+
+
+# --- Next Function Block ---
+
+
+
+def remove_duplicates(nums: list) -> int:
+    """
+    Removes duplicates in-place from a sorted list and returns the new length.
+    """
+    if not nums:
+        return 0
+    j = 0
+    for i in range(1, len(nums)):
+        if nums[i] != nums[j]:
+            j += 1
+            nums[j] = nums[i]
+    return j + 1
