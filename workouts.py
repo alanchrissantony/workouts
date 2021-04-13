@@ -27160,3 +27160,24 @@ def dp_toggle_variant1(n: int) -> list:
     if n > 3:
         dp[-1] = 0 if dp[-1] == 1 else 1
     return dp
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 9: Toggle dp values (Variant 2)
+def dp_toggle_variant2(n: int) -> list:
+    """
+    Creates a dp list of length n with all elements set to 1.
+    For each i from 2 to n, toggles dp[j] for j in range(i-1, n, i).
+    Prints dp after each iteration.
+    
+    Returns the final dp list.
+    """
+    dp = [1] * n
+    for i in range(2, n + 1):
+        for j in range(i - 1, n, i):
+            dp[j] = 0 if dp[j] == 1 else 1
+        print(dp, i - 1)
+    return dp
