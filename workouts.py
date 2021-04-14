@@ -10553,3 +10553,16 @@ def average_salary(salaries: list) -> float:
     Returns the average of the salaries in the list.
     """
     return sum(salaries) / len(salaries) if salaries else 0
+
+
+# --- Next Function Block ---
+
+
+# 23. Rotate Array Right by k
+def rotate_right(nums: list, k: int) -> list:
+    """
+    Rotates the list nums to the right by k positions.
+    """
+    n = len(nums)
+    k = k % n  # Handle cases where k >= n
+    return nums[-k:] + nums[:-k]
