@@ -10275,3 +10275,14 @@ def count_smaller_numbers(nums: list) -> list:
         count = sum(1 for j in range(len(nums)) if nums[i] > nums[j])
         result.append(count)
     return result
+
+
+# --- Next Function Block ---
+
+
+# 6. Intersection of Two Lists (unique common elements)
+def intersection(nums1: list, nums2: list) -> list:
+    """
+    Returns a list of unique elements common to both nums1 and nums2.
+    """
+    return list(set(nums1).intersection(set(nums2)))
