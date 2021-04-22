@@ -732,3 +732,15 @@ def d(n):
         for j in range(1, i):
             print(j,end=" ")
         print(1)
+
+
+# --- Next Function Block ---
+
+
+def e(n):
+    a=0
+    for i in range(n):
+        for j in range(i):
+            a=a+1
+            print(a,end=" ")
+        print("\n")
