@@ -17469,3 +17469,23 @@ def split_words_by_separator(words: list, separator: str) -> list:
             if seg:
                 result.append(seg)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# 22. Transform string groups: reverse the first k characters of each group then append the rest.
+def transform_string_groups(s: str, k: int) -> str:
+    count = 0
+    res = ""
+    out = ""
+    for ch in s:
+        res += ch
+        count += 1
+        if count == k:
+            out += res[::-1]
+            res = ""
+            count = 0
+    out += res
+    return out
