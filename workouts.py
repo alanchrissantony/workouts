@@ -20111,3 +20111,23 @@ def merge_sort(arr: list) -> list:
     left = merge_sort(arr[:mid])
     right = merge_sort(arr[mid:])
     return merge(left, right)
+
+
+# --- Next Function Block ---
+
+
+
+
+
+# ----- Miscellaneous Functions -----
+
+def print_prefix_sublists(nums: list) -> None:
+    """
+    For each index i in nums, prints all sublists of nums[0:i].
+    For example, if nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4],
+    for i=3, it prints all slices of nums[0:3].
+    """
+    for i in range(len(nums)):
+        prefix = nums[:i]
+        for j in range(len(prefix)):
+            print(prefix[j:])
