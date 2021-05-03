@@ -18550,3 +18550,12 @@ def total_bottles(numBottles: int, numExchange: int) -> int:
         total += new
         bottles = bottles % numExchange + new
     return total
+
+
+# --- Next Function Block ---
+
+
+# 7. Reverse words order in a sentence.
+def reverse_words(sentence: str) -> str:
+    words = sentence.split()
+    return " ".join(words[::-1])
