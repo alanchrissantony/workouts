@@ -27972,3 +27972,32 @@ def build_description_dict(a: list, b: list) -> dict:
     for i in range(len(a)):
         c[i] = (a[i], b[i])
     return c
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 2: Sliding window median (or median-like) using SortedList
+def sliding_window_medians(nums: list, k: int) -> list:
+    """
+    Given a list of numbers and a window size k, returns a list of the median (or average of two middle elements if k is even)
+    for each sliding window. Uses SortedList from the sortedcontainers module.
+    
+    Example:
+      nums = [1,3,-1,-3,5,3,6,7], k = 3
+    """
+    n = len(nums)
+    if n < k or k <= 0:
+        return []
+    result = [0] * (n - k + 1)
+    window = SortedList(nums[:k])
+    for i in range(n - k + 1):
+        if k % 2 == 0:
+            result[i] = (window[k // 2] + window[(k // 2) - 1]) / 2
+        else:
+            result[i] = window[k // 2]
+        if i + k < n:
+            window.remove(nums[i])
+            window.add(nums[i + k])
+    return result
