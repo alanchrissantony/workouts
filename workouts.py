@@ -18473,3 +18473,17 @@ def multiset_intersection(nums1: list, nums2: list) -> list:
     for x in c1:
         result.extend([x] * min(c1[x], c2.get(x, 0)))
     return result
+
+
+# --- Next Function Block ---
+
+
+# 2. Common elements in all rows of a matrix
+def common_elements(matrix: list) -> list:
+    if not matrix:
+        return []
+    result = []
+    for x in matrix[0]:
+        if all(x in row for row in matrix) and x not in result:
+            result.append(x)
+    return result
