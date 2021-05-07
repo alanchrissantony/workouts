@@ -20602,3 +20602,25 @@ def remove_increasing_pairs(nums: list) -> list:
                 j += 1
         i += 1
     return nums
+
+
+# --- Next Function Block ---
+
+
+# --- Frequency Difference ---
+def frequency_difference(nums: list) -> int:
+    """
+    Calculates the frequency counts for each number in nums.
+    Then, using the sorted frequencies (highest first), sets 'total' equal to the frequency
+    of the most frequent element and subtracts the frequencies of the others.
+    
+    Returns the final computed value.
+    """
+    freq = dict(sorted(dict(Counter(nums)).items(), key=lambda item: item[1], reverse=True))
+    total = None
+    for key in freq:
+        if total is None:
+            total = freq[key]
+        else:
+            total -= freq[key]
+    return total
