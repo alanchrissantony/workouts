@@ -4621,3 +4621,26 @@ def count_rl_patterns(s: str) -> int:
         if pattern:
             total += s.count(pattern)
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def count_items_by_rule(items: list, ruleKey: str, ruleValue: str) -> int:
+    """
+    For a list of items (each item is a list) and a ruleKey ("type", "color", or other),
+    selects the element at index 0 for "type", index 1 for "color", and index 2 otherwise,
+    then counts how many items have that element equal to ruleValue.
+    """
+    if ruleKey == "type":
+        pos = 0
+    elif ruleKey == "color":
+        pos = 1
+    else:
+        pos = 2
+    count = 0
+    for item in items:
+        if pos < len(item) and item[pos] == ruleValue:
+            count += 1
+    return count
