@@ -17122,3 +17122,20 @@ def all_common_prefixes(strs: list) -> list:
         if all(s.startswith(prefix) for s in strs):
             common.append(prefix)
     return common
+
+
+# --- Next Function Block ---
+
+
+
+# 75. For each number in nums, compute the sum of absolute differences with all numbers.
+def sum_abs_differences(nums: list) -> list:
+    """
+    Returns a list where for each element in nums, the value is the sum of absolute differences
+    between that element and every element in nums.
+    """
+    result = []
+    for i in nums:
+        total = sum(abs(i - j) for j in nums)
+        result.append(total)
+    return result
