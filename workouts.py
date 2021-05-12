@@ -1768,3 +1768,14 @@ def int_to_roman(num: int) -> str:
             n -= 1
             out += mapping[1]
     return out
+
+
+# --- Next Function Block ---
+
+
+
+def multiply_str_numbers(num1: str, num2: str) -> int:
+    """
+    Converts two string numbers to integers and returns their product.
+    """
+    return int(num1) * int(num2)
