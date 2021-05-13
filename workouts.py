@@ -9663,3 +9663,25 @@ def multiply_str_numbers(num1: str, num2: str) -> int:
     Converts two string numbers to integers and returns their product.
     """
     return int(num1) * int(num2)
+
+
+# --- Next Function Block ---
+
+
+
+def min_diff_pair(arr: list) -> list:
+    """
+    Given a sorted array, finds and returns the pair of numbers with the minimum difference.
+    """
+    arr = sorted(arr)
+    diffs = []
+    pairs = []
+    for i in range(len(arr)-1):
+        diff = arr[i+1] - arr[i]
+        diffs.append(diff)
+        pairs.append([arr[i], arr[i+1]])
+    min_diff = min(diffs) if diffs else None
+    for pair in pairs:
+        if pair[1] - pair[0] == min_diff:
+            return pair
+    return []
