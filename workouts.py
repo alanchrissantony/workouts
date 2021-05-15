@@ -1911,3 +1911,20 @@ def max_profit_difference(arr: list) -> int:
     if res <= 0:
         res = 0
     return res
+
+
+# --- Next Function Block ---
+
+
+
+def find_min_in_list(arr: list) -> int:
+    """
+    Returns the minimum value in the list.
+    """
+    if not arr:
+        return None
+    min_val = arr[0]
+    for i in arr:
+        if i < min_val:
+            min_val = i
+    return min_val
