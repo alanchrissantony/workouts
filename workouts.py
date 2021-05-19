@@ -9518,3 +9518,15 @@ def sort_vowels_in_string(s: str) -> str:
         else:
             res += ch
     return res
+
+
+# --- Next Function Block ---
+
+
+
+def unique_chars(s: str) -> str:
+    """
+    Returns a string made of unique characters in s (order arbitrary).
+    Example: "pwwkew" -> a string with unique letters.
+    """
+    return "".join(set(s))
