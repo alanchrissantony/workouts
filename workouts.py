@@ -8469,3 +8469,18 @@ def sum_of_divisible_elements(n: int) -> int:
         else:
             sum_non += i
     return sum_non - sum_div
+
+
+# --- Next Function Block ---
+
+
+def first_duplicate_in_list(nums: list):
+    """
+    Returns the first duplicate element in nums. If none found, returns None.
+    """
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return num
+        seen.add(num)
+    return None
