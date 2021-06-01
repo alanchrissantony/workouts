@@ -17517,3 +17517,16 @@ def custom_sort_string(s: str) -> str:
         res += arr[i]
     res += arr[-1]
     return res
+
+
+# --- Next Function Block ---
+
+
+
+# 25. Check if any pair (i, j) satisfies i^2 + j^2 == c.
+def check_sum_of_squares(c: int) -> bool:
+    for i in range(0, c + 1):
+        for j in range(1, c + 1):
+            if i * i + j * j == c:
+                return True
+    return False
