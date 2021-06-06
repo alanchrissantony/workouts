@@ -22462,3 +22462,25 @@ def transform_binary_and_count(n: int) -> int:
             count += 1
         i += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 16. Find duplicates and missing numbers in a list
+def find_duplicates_and_missing(nums: list) -> list:
+    """
+    Given a sorted list nums, returns a list containing:
+      - Each element that appears more than once (once only),
+      - And any numbers (from 1 to len(nums)) that are missing.
+    """
+    duplicates = []
+    for num in nums:
+        if nums.count(num) > 1 and num not in duplicates:
+            duplicates.append(num)
+    missing = []
+    for i in range(1, len(nums) + 1):
+        if i not in nums:
+            missing.append(i)
+    return duplicates + missing
