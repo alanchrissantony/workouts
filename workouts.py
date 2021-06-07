@@ -20512,3 +20512,35 @@ def merge_sort(arr: list) -> list:
     left = merge_sort(arr[:mid])
     right = merge_sort(arr[mid:])
     return join_sorted(left, right)
+
+
+# --- Next Function Block ---
+
+
+
+
+# --- Restaurant Intersection ---
+def find_restaurant_with_min_index_sum(list1: list, list2: list) -> str:
+    """
+    Given two lists of restaurant names, returns the restaurant with the smallest index sum.
+    To optimize, iterate over the smaller list.
+    
+    Example:
+      list1 = ["Shogun","Tapioca Express","Burger King","KFC"]
+      list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+      Returns "Shogun" because its index sum (0 + 3) is minimal.
+    """
+    # Ensure we iterate over the shorter list.
+    if len(list1) > len(list2):
+        list1, list2 = list2, list1
+    res = ""
+    min_sum = len(list1) + len(list2)  # upper bound for index sum
+    i = 0
+    while i < len(list1):
+        if list1[i] in list2:
+            index_sum = i + list2.index(list1[i])
+            if index_sum < min_sum:
+                min_sum = index_sum
+                res = list1[i]
+        i += 1
+    return res
