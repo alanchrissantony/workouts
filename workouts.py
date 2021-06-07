@@ -20289,3 +20289,26 @@ def merge_sort(arr: list) -> list:
     left = merge_sort(arr[:mid])
     right = merge_sort(arr[mid:])
     return merge(left, right)
+
+
+# --- Next Function Block ---
+
+
+
+
+
+
+def print_prefix_sublists(nums: list) -> None:
+    """
+    For each index i in nums, prints all sublists (slices) of the prefix nums[:i].
+    For example, if nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4],
+    for each i, prints all slices of nums[0:i].
+    """
+    i = 0
+    while i < len(nums):
+        j = 0
+        while j < len(nums[:i]):
+            # Print the sublist starting at index j of the prefix nums[:i]
+            print(nums[:i][j:])
+            j += 1
+        i += 1
