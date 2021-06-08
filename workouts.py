@@ -18606,3 +18606,22 @@ def interleave_even_odd(nums: list) -> list:
         if i < len(odd):
             result.append(odd[i])
     return result
+
+
+# --- Next Function Block ---
+
+
+# 11. Elimination game: repeatedly remove alternate elements and reverse until one remains.
+def elimination_game(n: int) -> int:
+    # Using a known algorithm for the elimination game problem.
+    # For demonstration, we simulate a simple elimination: remove every other element, then reverse.
+    arr = list(range(1, n+1))
+    reverse = False
+    while len(arr) > 1:
+        if not reverse:
+            arr = arr[1::2]
+        else:
+            arr = arr[::2]
+        arr.reverse()
+        reverse = not reverse
+    return arr[0]
