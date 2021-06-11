@@ -10699,3 +10699,22 @@ def most_frequent_element(nums: list) -> int:
             max_count = freq[num]
             max_elem = num
     return max_elem
+
+
+# --- Next Function Block ---
+
+
+# 31. Print Duplicates in a List
+def print_duplicates(nums: list) -> None:
+    """
+    Prints elements that appear more than once in the list.
+    """
+    seen = set()
+    duplicates = set()
+    for num in nums:
+        if num in seen:
+            duplicates.add(num)
+        else:
+            seen.add(num)
+    for dup in duplicates:
+        print(dup)
