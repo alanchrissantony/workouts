@@ -1136,3 +1136,19 @@ def aa(n):
     if den==0:
         den=1
     print(pro/den)
+
+
+# --- Next Function Block ---
+
+
+def ab(s):
+    resp=""
+    spc=[",",".",";",":","-","_"]
+    for i in s:
+        if i!=" " and i not in spc:
+            resp=resp+i
+    resp=resp.lower()
+    if resp==resp[::-1]:
+        print( True)
+    else:
+        print( False,resp)
