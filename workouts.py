@@ -18812,3 +18812,15 @@ def reduce_sum(arr: list) -> int:
 # 29. Count frequency of elements in a list (returns dictionary).
 def frequency_dict(arr: list) -> dict:
     return dict(Counter(arr))
+
+
+# --- Next Function Block ---
+
+
+# 30. Demonstrate a simple iterator over a list.
+def iterate_with_iterator(arr: list) -> list:
+    it = iter(arr)
+    result = []
+    for _ in range(len(arr)):
+        result.append(next(it))
+    return result
