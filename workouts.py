@@ -24627,3 +24627,15 @@ def evaluate_expression(expr: str):
       expr = "-9.1234" → returns -9.1234
     """
     return eval(expr)
+
+
+# --- Next Function Block ---
+
+
+
+
+
+def swap(left, right):
+    temp=arr[left]
+    arr[left]=arr[right]
+    arr[right]=temp
