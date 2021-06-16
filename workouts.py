@@ -25375,3 +25375,34 @@ def minCostClimbingStairs(cost):
         dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
 
     return dp[n]
+
+
+# --- Next Function Block ---
+
+
+
+
+# -----------------------------------------------------
+# Function 1: Process a string by repeatedly removing its first and last characters.
+def process_string(s: str) -> str:
+    """
+    Given a string s, prints its first character and then repeatedly checks:
+      if s[i] equals the last character of s, removes the first and last characters;
+      otherwise, stops processing.
+    Returns the final processed string.
+    
+    Example:
+      s = "a" → prints "a" and returns "" (if removal occurs).
+    """
+    if not s:
+        return s
+    print("First character:", s[0])
+    i = 0
+    # Continue processing while s is not empty.
+    while i < len(s) and len(s) >= 2:
+        if s[i] == s[-1]:
+            s = s[i+1:-1]
+        else:
+            break
+        i += 1
+    return s
