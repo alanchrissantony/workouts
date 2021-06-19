@@ -24801,3 +24801,37 @@ def process_array(arr: list) -> list:
         if not removed:
             i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 3: Find the divisor that divides the most numbers.
+def find_max_divisor(nums: list, divisors: list) -> int:
+    """
+    Given a list of numbers and a list of divisors, counts for each divisor how many numbers
+    in 'nums' are divisible by it. Returns the divisor with the highest count.
+    
+    Example:
+      nums = [20, 14, 21, 10], divisors = [5,7,5]
+    """
+    max_count = 0
+    result = None
+    i = 0
+    seen = {}
+    while i < len(divisors):
+        d = divisors[i]
+        if d not in seen:
+            count = 0
+            j = 0
+            while j < len(nums):
+                if nums[j] % d == 0:
+                    count += 1
+                j += 1
+            seen[d] = count
+            if count > max_count:
+                max_count = count
+                result = d
+        i += 1
+    return result
