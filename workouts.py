@@ -411,3 +411,45 @@ def merge_lists(list1: list, list2: list, a: int, b: int) -> list:
       Returns: list1[:3] + list2 + list1[5:]
     """
     return list1[:a] + list2 + list1[b+1:]
+
+
+# --- Next Function Block ---
+
+
+
+
+# -----------------------------------------------------
+# Function 1: Find the nth number in a custom sequence.
+def find_nth_number(n: int) -> int:
+    """
+    Finds and returns the nth number in a sequence defined by:
+      - For numbers less than 7, every number is counted.
+      - For numbers >= 7, if the number is divisible by 7, it is skipped.
+      - Otherwise, if the number is composite (i.e. it has a divisor other than 1 and itself), it is counted.
+    
+    This is one interpretation of the snippet.
+    """
+    count = 0
+    i = 1
+    while count < n:
+        if i < 7:
+            count += 1
+        else:
+            # Skip numbers divisible by 7.
+            if i % 7 == 0:
+                i += 1
+                continue
+            prime_flag = False  # Actually, true means composite.
+            j = 2
+            while j < i:
+                if i % j == 0:
+                    prime_flag = True
+                    break
+                j += 1
+            if prime_flag:
+                count += 1
+                print("Counting:", i)
+        if count == n:
+            break
+        i += 1
+    return i
