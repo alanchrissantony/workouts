@@ -19493,3 +19493,29 @@ def find_ones_indices(mat: list) -> (list, list, int, int):
     unique_row_count = sum(1 for x in arri if arri.count(x) == 1)
     unique_col_count = sum(1 for x in arrj if arrj.count(x) == 1)
     return arri, arrj, unique_row_count, unique_col_count
+
+
+# --- Next Function Block ---
+
+
+
+def count_lucky_numbers(low: int, high: int) -> int:
+    """
+    For each number in the inclusive range [low, high] that has an even number of digits,
+    splits it into two equal halves and sums the digits in each half.
+    If the two sums are equal, counts the number as "lucky."
+    
+    Returns the total count of lucky numbers.
+    """
+    count = 0
+    for num in range(low, high + 1):
+        s = str(num)
+        if len(s) % 2 == 0:
+            half = len(s) // 2
+            first_half = s[:half]
+            second_half = s[half:]
+            sum_first = sum(int(ch) for ch in first_half)
+            sum_second = sum(int(ch) for ch in second_half)
+            if sum_first == sum_second:
+                count += 1
+    return count
