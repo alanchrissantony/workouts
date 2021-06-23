@@ -17315,3 +17315,19 @@ def first_missing_positive(nums: list) -> int:
         if i not in nums_set:
             return i
         i += 1
+
+
+# --- Next Function Block ---
+
+
+
+# 12. Brute-force approach for longest palindromic substring.
+def longest_palindromic_substring(s: str) -> str:
+    out = ""
+    for i in range(len(s)):
+        res = ""
+        for j in range(i, len(s)):
+            res += s[j]
+            if res == res[::-1] and len(res) > len(out):
+                out = res
+    return out
