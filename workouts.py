@@ -11014,3 +11014,19 @@ def kids_with_greatest_candies(candies: list, extraCandies: int) -> list:
     for c in candies:
         result.append(c + extraCandies >= max_candies)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def running_sum(nums: list) -> list:
+    """
+    Returns a list where each element at index i is the sum of nums[0:i+1].
+    """
+    total = 0
+    result = []
+    for num in nums:
+        total += num
+        result.append(total)
+    return result
