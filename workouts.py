@@ -20755,3 +20755,30 @@ def sum_elements_with_index_ones(nums: list, k: int) -> int:
             total += nums[i]
         i += 1
     return total
+
+
+# --- Next Function Block ---
+
+
+# --- Transpose Matrix ---
+def transpose_matrix(matrix: list) -> list:
+    """
+    Given a 2D matrix, returns its transpose.
+    The snippet provided builds columns by iterating over indices.
+    """
+    if not matrix:
+        return []
+    transposed = []
+    # Assume matrix has at least one row.
+    num_rows = len(matrix)
+    num_cols = len(matrix[0])
+    j = 0
+    while j < num_cols:
+        temp = []
+        i = 0
+        while i < num_rows:
+            temp.append(matrix[i][j])
+            i += 1
+        transposed.append(temp)
+        j += 1
+    return transposed
