@@ -1676,3 +1676,20 @@ def move_zeros_nested(nums: list) -> list:
             if nums[i] == 0 and nums[j] != 0:
                 nums[i], nums[j] = nums[j], 0
     return nums
+
+
+# --- Next Function Block ---
+
+
+
+def move_zeros_remove(nums: list) -> list:
+    """
+    Moves zeros to the end by removing and appending.
+    Example: [0,1,0,3,12] becomes [1,3,12,0,0].
+    """
+    nums = nums[:]  # copy
+    for i in nums[:]:
+        if i == 0:
+            nums.remove(i)
+            nums.append(0)
+    return nums
