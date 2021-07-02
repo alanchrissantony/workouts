@@ -1551,3 +1551,22 @@ def min_frequency_element(nums: list):
             min_count = count
             element = num
     return element
+
+
+# --- Next Function Block ---
+
+
+# search_insert.py
+def search_insert(nums: list, target: int):
+    """
+    Returns a tuple (position, new_list) where position is the index of target in the sorted list.
+    If target is not in nums, it is inserted into the correct sorted position.
+    """
+    if target in nums:
+        return nums.index(target), nums
+    for i, num in enumerate(nums):
+        if target < num:
+            nums.insert(i, target)
+            return i, nums
+    nums.append(target)
+    return len(nums) - 1, nums
