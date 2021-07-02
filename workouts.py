@@ -18053,3 +18053,17 @@ def sum_from_max(nums: list, k: int) -> int:
     for i in range(start, start + k):
         total += i
     return total
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 4 ---
+def count_ones_in_binary(n: int) -> int:
+    """
+    Returns the count of '1's in the binary representation of n.
+    """
+    b = bin(n)
+    counts = Counter(b)
+    return counts['1'] if '1' in counts else 0
