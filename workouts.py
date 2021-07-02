@@ -9956,3 +9956,26 @@ def longest_common_prefix(strs: list) -> str:
             if prefix == "":
                 return ""
     return prefix
+
+
+# --- Next Function Block ---
+
+
+
+def max_right(arr: list) -> list:
+    """
+    Given an array, returns a new list where each element at index i is
+    replaced by the maximum element to its right; the last element is -1.
+    Example: [7,3,5,2,10] -> [10,10,10,10,-1]
+    """
+    size = len(arr)
+    if size == 0:
+        return []
+    result = [None] * size
+    result[-1] = -1
+    max_so_far = arr[-1]
+    for i in range(size - 2, -1, -1):
+        if arr[i] > max_so_far:
+            max_so_far = arr[i]
+        result[i] = max_so_far
+    return result
