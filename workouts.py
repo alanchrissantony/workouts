@@ -2896,3 +2896,22 @@ def extract_number(s: str) -> int:
         except ValueError:
             continue
     return num
+
+
+# --- Next Function Block ---
+
+
+# 36. Longest Common Prefix (Brute Force)
+def longest_common_prefix_brute(strs: list) -> str:
+    """
+    Finds the longest common prefix among a list of strings using brute force.
+    """
+    if not strs:
+        return ""
+    prefix = strs[0]
+    for s in strs[1:]:
+        while not s.startswith(prefix):
+            prefix = prefix[:-1]
+            if not prefix:
+                return ""
+    return prefix
