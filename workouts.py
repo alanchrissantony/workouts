@@ -2017,3 +2017,19 @@ def sum_of_multiples(n: int) -> int:
         if i % 3 == 0 or i % 5 == 0 or i % 7 == 0:
             total += i
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def nine_minus_one(n: int) -> int:
+    """
+    For a given integer n, creates a number with the same number of digits all '9's
+    and a number with the same number of digits all '1's, then returns their difference.
+    Example: n=555 -> "999" - "111" = 888.
+    """
+    s = str(n)
+    large = int("9" * len(s))
+    small = int("1" * len(s))
+    return large - small
