@@ -23063,3 +23063,20 @@ def count_sequential_matches(text1: str, text2: str) -> int:
             j += 1  # Move j forward for the next match.
         i += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 8. Count Ones in Binary Representations for 0 to n
+def count_ones_in_binary_range(n: int) -> list:
+    """
+    Returns a list where each element is the count of '1's in the binary representation
+    (without the '0b' prefix) of the numbers from 0 to n (inclusive).
+    """
+    result = []
+    for i in range(n+1):
+        ones = bin(i)[2:].count('1')
+        result.append(ones)
+    return result
