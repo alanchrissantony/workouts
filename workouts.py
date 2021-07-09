@@ -23162,3 +23162,31 @@ def longest_palindrome_length(s: str) -> int:
             length += count - 1
             odd_found = True
     return length + 1 if odd_found else length
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 13. Largest Palindrome from Digits of a Number (Greedy Construction)
+def largest_palindrome_from_digits(num_str: str) -> str:
+    """
+    Given a number as a string, attempts to form the largest palindrome from its digits.
+    This implementation uses a greedy approach by counting digit frequencies.
+    
+    Example:
+      num_str = "444947137"
+      (One possible output is a palindrome constructed from these digits.)
+    """
+    freq = Counter(num_str)
+    left = []
+    middle = ""
+    # Process digits in descending order.
+    for digit in sorted(freq.keys(), reverse=True):
+        count = freq[digit]
+        left.extend([digit] * (count // 2))
+        if count % 2 == 1 and middle == "":
+            middle = digit
+    right = left.copy()
+    right.reverse()
+    return "".join(left) + middle + "".join(right)
