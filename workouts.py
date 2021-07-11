@@ -1005,3 +1005,48 @@ def v():
                 count = count+1
                 print(i,j)
     print(count,"*")
+
+
+# --- Next Function Block ---
+
+
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+        array=[]
+        count=0
+        if(len(s)%2==0):
+            flag=True
+            for i in s:
+                array.append(i)
+            i=0
+            while i<len(array):
+                if(i%2==0 and array[i]=="(" and array[i+1]==")" or array[i]=="[" and array[i+1]=="]" or array[i]=="{" and array[i+1]=="}" or i<=len(array)/2 and array[i]=="(" and array[(len(array)-1)-i]==")" or array[i]=="[" and array[(len(array)-1)-i]=="]" or array[i]=="{" and array[(len(array)-1)-i]=="}"):
+                    if(ord(array[i+1])-ord(array[i])<5 and ord(array[i+1])-ord(array[i])>0):
+                        i=i+1
+                else:
+                    print(i)
+                    flag=False
+                i=i+1
+        else:
+            flag=False
+        if(flag):
+            print(True)
+        else:
+            print(False)
+    s="([])"
+    isValid(0, s)
+
+def w(nums1, nums2):
+    m=0
+    n=1
+    k=0
+    for i in range(m,m+n):
+        nums1[i] = nums2[k]
+        k=k+1
+    for s in range((m+n)-1):
+        for j in range(s+1, m+n):
+            if(nums1[s]>nums1[j]):
+                temp=nums1[s]
+                nums1[s]=nums1[j]
+                nums1[j]=temp
