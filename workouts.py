@@ -4869,3 +4869,24 @@ def max_digit_count(s: str) -> int:
     Returns the maximum count between occurrences of '1' and '0' in the string s.
     """
     return max(s.count("1"), s.count("0"))
+
+
+# --- Next Function Block ---
+
+
+
+def can_transform(s1: str, s2: str, max_changes: int = 3) -> bool:
+    """
+    Returns True if s2 can be transformed into s1 by changing at most max_changes characters.
+    """
+    if len(s1) != len(s2):
+        return False
+    changes = 0
+    s2_list = list(s2)
+    for i in range(len(s1)):
+        if s1[i] != s2_list[i]:
+            changes += 1
+            s2_list[i] = s1[i]
+            if changes > max_changes:
+                return False
+    return "".join(s2_list) == s1
