@@ -21833,3 +21833,23 @@ def transpose_matrix(matrix: list) -> list:
         result.append(temp)
         j += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+# --- Longest Palindrome Length ---
+def longest_palindrome_length(s: str) -> int:
+    """
+    Returns the length of the longest palindrome that can be built with the letters in s.
+    """
+    counts = Counter(s)
+    length = 0
+    odd_found = False
+    for count in counts.values():
+        if count % 2 == 0:
+            length += count
+        else:
+            length += count - 1
+            odd_found = True
+    return length + 1 if odd_found else length
