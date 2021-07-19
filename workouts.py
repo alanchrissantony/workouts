@@ -17331,3 +17331,23 @@ def longest_palindromic_substring(s: str) -> str:
             if res == res[::-1] and len(res) > len(out):
                 out = res
     return out
+
+
+# --- Next Function Block ---
+
+
+
+# 13. Split string into chunks of length k; pad the last chunk with fill if necessary.
+def split_and_pad(s: str, k: int, fill: str = "x") -> list:
+    arr = []
+    res = ""
+    for ch in s:
+        if len(res) >= k:
+            arr.append(res)
+            res = ch
+        else:
+            res += ch
+    if len(res) < k:
+        res += fill * (k - len(res))
+    arr.append(res)
+    return arr
