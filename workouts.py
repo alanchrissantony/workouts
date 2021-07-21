@@ -3916,3 +3916,17 @@ def equal_vowel_halves(s: str) -> bool:
     first_half = s[:half]
     second_half = s[half:]
     return sum(1 for ch in first_half if ch in vowels) == sum(1 for ch in second_half if ch in vowels)
+
+
+# --- Next Function Block ---
+
+
+
+def majority_vote(votes: list) -> str:
+    """
+    Given a list of vote strings, returns the vote with the highest frequency.
+    """
+    counts = {}
+    for vote in votes:
+        counts[vote] = counts.get(vote, 0) + 1
+    return max(counts.items(), key=lambda x: x[1])[0]
