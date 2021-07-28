@@ -7095,3 +7095,20 @@ def count_allowed_words(allowed: str, words: list) -> int:
     Returns the number of words that contain only characters found in allowed.
     """
     return sum(1 for word in words if all(ch in allowed for ch in word))
+
+
+# --- Next Function Block ---
+
+
+
+def sum_of_odd_length_subarrays(arr: list) -> int:
+    """
+    Returns the sum of all subarrays of arr that have an odd length.
+    """
+    total = 0
+    n = len(arr)
+    for i in range(n):
+        for j in range(i, n):
+            if (j - i + 1) % 2 == 1:
+                total += sum(arr[i:j+1])
+    return total
