@@ -18701,3 +18701,15 @@ def k_most_frequent(nums: list, k: int) -> list:
     freq = Counter(nums)
     sorted_items = sorted(freq.items(), key=lambda item: item[1], reverse=True)
     return [item[0] for item in sorted_items[:k]]
+
+
+# --- Next Function Block ---
+
+
+# 17. First unique character's index.
+def first_unique_char(s: str) -> int:
+    freq = Counter(s)
+    for ch in s:
+        if freq[ch] == 1:
+            return s.index(ch)
+    return -1
