@@ -17889,3 +17889,12 @@ def print_squares(arr):
     for x in arr:
         for square in generator_square(x):
             print(square)
+
+
+# --- Next Function Block ---
+
+
+
+# 20. Use reduce to sum a list.
+def reduce_sum_example(arr):
+    return functools.reduce(lambda x, y: x + y, arr)
