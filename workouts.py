@@ -19310,3 +19310,26 @@ def factorial(n: int) -> int:
     if n < 1:
         return 1
     return n * factorial(n - 1)
+
+
+# --- Next Function Block ---
+
+
+# 3. Maximum Units on a Truck.
+def max_units_on_truck(boxTypes: list, truckSize: int) -> int:
+    """
+    Given a list of boxTypes where each element is a list [number_of_boxes, units_per_box]
+    and an integer truckSize (maximum number of boxes the truck can carry),
+    returns the maximum number of units that can be loaded onto the truck.
+    """
+    # Sort boxTypes by units per box in descending order.
+    sorted_boxes = sorted(boxTypes, key=lambda item: item[1], reverse=True)
+    total_units = 0
+    for num_boxes, units in sorted_boxes:
+        if truckSize <= 0:
+            break
+        # Take as many boxes as possible, up to the truckSize remaining.
+        boxes_to_take = min(num_boxes, truckSize)
+        total_units += boxes_to_take * units
+        truckSize -= boxes_to_take
+    return total_units
