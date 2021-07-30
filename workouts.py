@@ -17489,3 +17489,16 @@ def transform_string_groups(s: str, k: int) -> str:
             count = 0
     out += res
     return out
+
+
+# --- Next Function Block ---
+
+
+
+# 23. Sum squares of numbers in list if list length divides index+1.
+def sum_condition_square(nums: list) -> int:
+    total = 0
+    for i in range(len(nums)):
+        if len(nums) % (i + 1) == 0:
+            total += nums[i] * nums[i]
+    return total
