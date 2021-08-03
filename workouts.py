@@ -26726,3 +26726,235 @@ def binary_search_demo(arr: list, target: int) -> int:
         if left >= right - 1:
             print("Not found after", count, "iterations")
             return -1
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------
+
+
+class Node:
+    def __init__(self, data=None):
+        self.child={}
+        self.end=False
+
+class Trie:
+    def __init__(self):
+        self.root=Node()
+
+    def append(self, data):
+        current=self.root
+        parrent=None
+        for key in data:
+            parrent=current
+            if key in current.child:
+                current=current.child[key]
+            else:
+                current.child[key]=Node()
+                current=current.child[key]
+        parrent.end=True
+
+    def print(self):
+        def helper(current):
+            if current:
+                for key in current.child:
+                    print(key)
+                    if current.end:
+                        print()
+                    helper(current.child[key])
+        helper(self.root)
+
+    def exist(self, data):
+        current=self.root
+        parrent=None
+        for key in data:
+            parrent=current
+            if current and key not in current.child:
+                return(False)
+            current=current.child[key]
+        if parrent and parrent.end:
+            return(True)
+        else:
+            return(False)
+        
+        
+
+
+class Node:
+    def __init__(self):
+        self.child={}
+        self.end=False
+
+class Trie:
+    def __init__(self):
+        self.root=Node()
+
+    def append(self, data):
+        current=self.root
+        parent=None
+        for key in data:
+            parent=current
+            if key in current.child:
+                current=current.child[key]
+            else:
+                current.child[key]=Node()
+                current=current.child[key]
+        parent.end=True
+            
+    
+    def search(self, data):
+        current=self.root
+        parent=None
+        for key in data:
+            parent=current
+            if current and key in current.child:
+                current=current.child[key]
+            else:
+                return False
+        if parent and parent.end:
+            return True
+        return False
+    
+    def print(self):
+        def helper(current):
+            if current:
+                for key in current.child:
+                    print(key,end="")
+                    if current.end:
+                        print()
+                    helper(current.child[key])
+        helper(self.root)
+
+    def remove(self, data):
+        current=self.root
+        parent=None
+        for key in data:
+            parent=current
+            if current and key in current.child:
+                current=current.child[key]
+            else:
+                return
+        parent.end=False
+
+    
+        
+
+class Vertex:
+    def __init__(self, data=None):
+        self.data=data
+        self.edge={}
+
+class Graph:
+    def __init__(self):
+        self.root=None
+        self.index={}
+
+    def append(self, data, edge):
+        if self.root is None:
+            self.root=Vertex(data)
+            self.index[data]=self.root
+            self.root.edge[edge]=Vertex(edge)
+            self.index[edge]=self.root.edge[edge]
+            return
+        if data not in self.index:
+            vertex=Vertex(data)
+            self.index[data]=vertex
+            if edge not in self.index:
+                vertex.edge[edge]=Vertex(edge)
+                self.index[edge]=vertex.edge[edge]
+            else:
+                vertex.edge[edge]=self.index[edge]
+        else:
+            vertex=self.index[data]
+            
+            if edge not in self.index:
+                vertex.edge[edge]=Vertex(edge)
+                self.index[edge]=vertex.edge[edge]
+            else:
+                vertex.edge[edge]=self.index[edge]
+
+    def print(self):
+        dict={}
+        def helper(current):
+            nonlocal dict
+            if current:
+                for edge in current.edge:
+                    print(current.data)
+                    if current not in dict:
+                        dict[current]=current.data
+                        helper(current.edge[edge])
+        for current in self.index:
+            helper(self.index[current])
+
+
+
+class Vertex:
+    def __init__(self, data=None):
+        self.data=data
+        self.edges={}
+
+class Graph:
+    def __init__(self):
+        self.index={}
+
+    def append(self, data, edge):
+        if data in self.index:
+            vertex=self.index[data]
+        else:
+            vertex=Vertex(data)
+            self.index[data]=vertex
+        if edge in self.index:
+            node=self.index[edge]
+            vertex.edges[edge]=node
+        else:
+            node=Vertex(edge)
+            self.index[edge]=node
+            vertex.edges[edge]=node
+
+    def print(self):
+        dict={}
+        def helper(current):
+            nonlocal dict
+            if current:
+                for edge in current.edges:
+                    print(current.data, end=" ")
+                    if current not in dict:
+                        dict[current]=current.data
+                        helper(current.edges[edge])
+                    else:
+                        break
+        for current in self.index:
+            print(self.index[current])
+            helper(self.index[current])
+
+
+
+
+
+# -----------------------------------------------------
+# Function 1: Process two strings by removing matching characters.
+def process_order_and_string(order: str, s: str) -> str:
+    """
+    Iterates over the characters in 'order'. For each character:
+      - If the character exists in 's', remove its first occurrence from 's'.
+      - Otherwise, remove its first occurrence from 'order'.
+    Finally, returns the concatenation of the modified order and s.
+    
+    Example:
+      order = "kqep", s = "pekeq"
+      (The function processes both strings and returns the concatenated result.)
+    """
+    order = list(order)
+    s = list(s)
+    i = 0
+    while i < len(order):
+        ch = order[i]
+        if ch in s:
+            s.pop(s.index(ch))
+        else:
+            order.pop(i)
+            # Do not increment i if we removed the current character
+            continue
+        i += 1
+    return "".join(order + s)
