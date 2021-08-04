@@ -17020,3 +17020,18 @@ def merge_pair_lists(nums1: list, nums2: list) -> list:
         ind = pair[0] - 1
         longest.insert(ind, pair)
     return longest
+
+
+# --- Next Function Block ---
+
+
+
+# 28. Print every 5th element’s first two numbers from an array.
+def print_every_fifth(arr: list) -> None:
+    """
+    Iterates over arr with a step of 5 and prints arr[i] and arr[i+1] if available.
+    """
+    for i in range(0, len(arr), 5):
+        if i + 1 < len(arr):
+            print(arr[i])
+            print(arr[i+1])
