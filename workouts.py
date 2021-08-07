@@ -5736,3 +5736,15 @@ def repeat_alternate(nums: list) -> list:
         if i + 1 < len(nums):
             result.extend([nums[i+1]] * nums[i])
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def first_k_words(s: str, k: int) -> str:
+    """
+    Returns the first k words from the string s.
+    """
+    words = s.split()
+    return " ".join(words[:k])
