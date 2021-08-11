@@ -1801,3 +1801,23 @@ def min_diff_pair(arr: list) -> list:
         if pair[1] - pair[0] == min_diff:
             return pair
     return []
+
+
+# --- Next Function Block ---
+
+
+
+def insert_zeros_after_even(nums: list) -> list:
+    """
+    Inserts two zeros immediately after every even number in the list.
+    """
+    i = 0
+    nums = nums[:]  # copy
+    while i < len(nums):
+        if nums[i] % 2 == 0:
+            nums.insert(i+1, 0)
+            nums.insert(i+2, 0)
+            i += 3
+        else:
+            i += 1
+    return nums
