@@ -17821,3 +17821,17 @@ def hello():
     Example function to be decorated.
     """
     print("hello")
+
+
+# --- Next Function Block ---
+
+
+
+# 17. Sort a list in reverse and extend it.
+def sort_and_extend(arr, extension):
+    """
+    Sorts arr in reverse, extends it with extension, and returns the new list.
+    """
+    arr.sort(reverse=True)
+    arr.extend(extension)
+    return arr
