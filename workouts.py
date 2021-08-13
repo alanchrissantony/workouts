@@ -18855,3 +18855,23 @@ def count_subtraction_operations(nums: list) -> int:
             i += 1
         count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+# 2. Repeatedly remove the first occurrence of a substring from a string.
+def remove_substring_repeatedly(s: str, part: str) -> str:
+    """
+    Repeatedly removes the first occurrence of 'part' from 's'
+    until 'part' is no longer present. Returns the final string.
+    """
+    while part in s:
+        i = 0
+        while i < len(s):
+            if s[i:i+len(part)] == part:
+                s = s[:i] + s[i+len(part):]
+                break
+            i += 1
+    return s
