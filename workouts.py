@@ -10922,3 +10922,18 @@ def xor_of_sequence(n: int, start: int = 3, step: int = 2) -> int:
         xor_val ^= i
         i += step
     return xor_val
+
+
+# --- Next Function Block ---
+
+
+
+def count_elements_geq(arr: list, target) -> int:
+    """
+    Counts the number of elements in arr that are greater than or equal to target.
+    """
+    count = 0
+    for elem in arr:
+        if elem >= target:
+            count += 1
+    return count
