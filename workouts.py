@@ -17382,3 +17382,12 @@ def line_length(lines: list, index: int) -> int:
     if index < len(lines):
         return len(lines[index])
     return 0
+
+
+# --- Next Function Block ---
+
+
+
+# 16. Check if two strings have the same character frequencies.
+def same_frequency(s: str, t: str) -> bool:
+    return Counter(s) == Counter(t)
