@@ -24590,3 +24590,25 @@ def binary_search(nums: list, target: int) -> int:
         else:
             end = mid - 1
     return -1
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 10: Rank an array (alternative implementation).
+def rank_array_alternative(arr: list) -> (list, dict):
+    """
+    Another implementation for ranking elements of 'arr'.
+    Assigns a rank (starting at 1) to each unique element based on sorted order,
+    and then replaces each element with its rank.
+    
+    Example:
+      arr = [40,10,20,30] → returns ([4,1,2,3], {10:1, 20:2, 30:3, 40:4})
+    """
+    dictionary = {}
+    sorted_arr = sorted(arr)
+    for i in range(len(sorted_arr)):
+        dictionary[sorted_arr[i]] = i + 1
+    ranked_arr = [dictionary[x] for x in arr]
+    return ranked_arr, dictionary
