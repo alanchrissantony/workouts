@@ -17692,3 +17692,25 @@ def reduce_string(s):
                 i += 1
         s = res
     return len(s)
+
+
+# --- Next Function Block ---
+
+
+
+# 9. Process two strings with backspace (#) operations.
+def process_backspaces(s, t):
+    """
+    Processes strings s and t such that every '#' represents a backspace.
+    Returns the final processed strings as a tuple.
+    """
+    def process(s):
+        res = []
+        for ch in s:
+            if ch == "#":
+                if res:
+                    res.pop()
+            else:
+                res.append(ch)
+        return "".join(res)
+    return process(s), process(t)
