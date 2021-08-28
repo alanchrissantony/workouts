@@ -20131,3 +20131,18 @@ def print_prefix_sublists(nums: list) -> None:
         prefix = nums[:i]
         for j in range(len(prefix)):
             print(prefix[j:])
+
+
+# --- Next Function Block ---
+
+
+def get_sorted_frequency(word: str) -> dict:
+    """
+    Returns a dictionary of character frequencies in word, sorted by the character.
+    For example:
+        word1 = "cabbba"  --> {'a': 1, 'b': 3, 'c': 1}
+        word2 = "abbccc"  --> {'a': 1, 'b': 1, 'c': 3}
+    """
+    freq = dict(Counter(word))
+    # Sort dictionary by keys (alphabetically)
+    return dict(sorted(freq.items(), key=lambda item: item[0]))
