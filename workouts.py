@@ -16656,3 +16656,19 @@ def decode_string(s: str) -> str:
             ind = alpha.index(prev) + int(s[i])
             res += alpha[ind % 26]
     return res
+
+
+# --- Next Function Block ---
+
+
+
+# 9. Find the first index of target in nums, starting at index start.
+def find_index(nums: list, target: int, start: int) -> int:
+    """
+    Returns the first index of target in nums, starting from start.
+    If not found, returns -1.
+    """
+    for i in range(start, len(nums)):
+        if nums[i] == target:
+            return i
+    return -1
