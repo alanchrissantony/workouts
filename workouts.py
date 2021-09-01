@@ -18755,3 +18755,19 @@ def min_operations_to_zero(nums: list) -> int:
                 nums[i] -= sub
         operations += 1
     return operations
+
+
+# --- Next Function Block ---
+
+
+# 21. Find XOR sequence given a mapping.
+def find_xor_sequence(pref: list, mapping: dict) -> list:
+    xor_val = 0
+    result = []
+    for val in pref:
+        j = mapping[len(str(xor_val))]
+        while xor_val ^ j != val:
+            j += 1
+        xor_val ^= j
+        result.append(j)
+    return result
