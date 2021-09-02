@@ -8022,3 +8022,24 @@ def count_frequency_and_elements(nums: list) -> int:
             total += 1
             print(i, num)
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def validate_pieces(arr: list, pieces: list) -> bool:
+    """
+    Given an array 'arr' and a list of lists 'pieces', attempts to reassemble arr
+    by selecting pieces (each piece is a list of integers) if their elements appear in arr.
+    Returns True if the concatenated pieces equal arr; otherwise, False.
+    (Logic is based on the snippet and may need adjustment.)
+    """
+    assembled = []
+    used = []
+    # For each piece in pieces, if not already used and if its elements appear in arr, add it.
+    for piece in pieces:
+        if piece not in used and all(x in arr for x in piece):
+            assembled.extend(piece)
+            used.append(piece)
+    return assembled == arr
