@@ -18997,3 +18997,23 @@ def elimination_game_odds(n: int) -> int:
             i += 2
         arr = new_arr[::-1]
     return arr[0] if arr else None
+
+
+# --- Next Function Block ---
+
+
+
+# 9. Given a binary matrix, return the column indices where the count of 1's is odd.
+def odd_columns(mat: list) -> list:
+    """
+    Returns a list of column indices for which the sum of 1's in that column is odd.
+    """
+    if not mat:
+        return []
+    cols = len(mat[0])
+    result = []
+    for j in range(cols):
+        col_sum = sum(mat[i][j] for i in range(len(mat)))
+        if col_sum % 2 == 1:
+            result.append(j)
+    return result
