@@ -4236,3 +4236,22 @@ def min_alternating_mismatches(s: str) -> int:
     mismatches1 = sum(1 for a, b in zip(s, pattern1) if a != b)
     mismatches2 = sum(1 for a, b in zip(s, pattern2) if a != b)
     return min(mismatches1, mismatches2)
+
+
+# --- Next Function Block ---
+
+
+
+def flip_adjacent_duplicates(s: str) -> (str, int):
+    """
+    Iterates over the string s and when consecutive duplicate characters are found,
+    flips the second one ("0" becomes "1" and vice versa) and counts the flips.
+    Returns the modified string and the count of flips.
+    """
+    s_list = list(s)
+    count = 0
+    for i in range(len(s_list) - 1):
+        if s_list[i] == s_list[i + 1]:
+            count += 1
+            s_list[i + 1] = "1" if s_list[i + 1] == "0" else "0"
+    return "".join(s_list), count
