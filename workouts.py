@@ -17930,3 +17930,24 @@ def extract_sorted_numbers(s):
         except ValueError:
             continue
     return sorted(set(numbers))
+
+
+# --- Next Function Block ---
+
+
+
+# 23. Reverse each word in a sentence, sort the reversed words, and reconstruct a new string.
+def sort_by_reversed_words(s):
+    """
+    Given a string with words that contain numbers, reverse each word,
+    sort the reversed words, then reverse them back and drop the last character.
+    (This implementation is one interpretation of the snippet.)
+    """
+    words = s.split()
+    reversed_words = [word[::-1] for word in words]
+    reversed_words.sort()
+    result = []
+    for word in reversed_words:
+        # Remove the last character from each reversed word (except last, per snippet)
+        result.append(word[::-1][:-1])
+    return " ".join(result)
