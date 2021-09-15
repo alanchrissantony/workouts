@@ -28052,3 +28052,43 @@ def combination_sum_variants(candidates: list, target: int) -> None:
                     # Print combination as (k copies of candidates[i], followed by segment candidates[i:j])
                     print("Combination found:", str(candidates[i]) * k, candidates[i:j])
                 k += 1
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 5: Text Justification (simple version)
+def justify_text(words: list, maxWidth: int) -> list:
+    """
+    Given a list of words and a maximum width, attempts to build lines by greedily adding words
+    until the line would exceed maxWidth. Then, it joins the words with extra spaces.
+    
+    This is a simplified version of text justification.
+    """
+    result = []
+    i = 0
+    n = len(words)
+    while i < n:
+        count = 0
+        j = i
+        # Determine how many words can fit in the line
+        while j < n and count + len(words[j]) + (j - i) <= maxWidth:
+            count += len(words[j])
+            j += 1
+        # Build the line; if only one word or last line, left-justify.
+        line_words = words[i:j]
+        if j == n or len(line_words) == 1:
+            line = " ".join(line_words)
+            line += " " * (maxWidth - len(line))
+        else:
+            total_spaces = maxWidth - sum(len(word) for word in line_words)
+            spaces_between = len(line_words) - 1
+            space, extra = divmod(total_spaces, spaces_between)
+            line = ""
+            for index in range(len(line_words)-1):
+                line += line_words[index] + " " * (space + (1 if index < extra else 0))
+            line += line_words[-1]
+        result.append(line)
+        i = j
+    return result
