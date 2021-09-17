@@ -3857,3 +3857,20 @@ def count_word_occurrences_replace(sequence: str, word: str) -> int:
     """
     reduced = sequence.replace(word, "")
     return (len(sequence) - len(reduced)) // len(word)
+
+
+# --- Next Function Block ---
+
+
+
+def compute_subtractions(n: int) -> int:
+    """
+    Repeatedly subtracts floor(i/2) from i until i <= 1, summing all subtractions.
+    """
+    count = 0
+    i = n
+    while i > 1:
+        sub = i // 2
+        i = i - sub
+        count += sub
+    return count
