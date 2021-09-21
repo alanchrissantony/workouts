@@ -194,3 +194,34 @@ def print_increasing_slices(head: list) -> None:
         print(head[i:j])
         i += 1
         j += (j - i)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 10: Remove up to k occurrences across groups and return distinct group count.
+def remove_k_occurrences(arr: list, k: int) -> int:
+    """
+    Counts the occurrences of each element in arr and then “removes” up to k occurrences across groups.
+    Returns the number of groups (distinct elements) remaining after removals.
+    
+    This function uses the Counter to get counts, then iterates through the sorted counts.
+    (Based on snippet logic, returns len(count) - j, where j is incremented when count goes below 1.)
+    """
+    counts = dict(sorted(Counter(arr).items(), key=lambda item: item[1]))
+    j = 0
+    flag = False
+    for key in counts:
+        while counts[key] > 0:
+            if k > 0:
+                counts[key] -= 1
+                k -= 1
+                if counts[key] < 1:
+                    j += 1
+            else:
+                flag = True
+                break
+        if flag:
+            break
+    return len(counts) - j
