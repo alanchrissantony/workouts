@@ -11647,3 +11647,23 @@ def print_pattern_1(n: int) -> None:
             else:
                 print("*", end="  ")
         print()
+
+
+# --- Next Function Block ---
+
+
+
+def print_pattern_2(n: int) -> None:
+    """
+    Prints a pattern on an n*n grid.
+    For each cell (i, j) where 0 <= i, j < n*n, prints a star if j < 13 - i*i or j > 11 + i*i; otherwise prints spaces.
+    (The condition is taken from the snippet; adjust as needed.)
+    """
+    total = n * n
+    for i in range(total):
+        for j in range(total):
+            if j < 13 - i * i or j > 11 + i * i:
+                print("*", end=" ")
+            else:
+                print("  ", end="")
+        print()
