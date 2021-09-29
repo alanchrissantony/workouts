@@ -17167,3 +17167,20 @@ def process_string(s: str) -> list:
     # The original logic attempted removals based on a dictionary,
     # but since it was unclear, we return the sorted list as a placeholder.
     return sorted(arr)
+
+
+# --- Next Function Block ---
+
+
+
+# 3. Validate parentheses using a stack (an alternative to the given complex snippet)
+def validate_parentheses(s: str) -> bool:
+    mapping = {"(": ")", "[": "]", "{": "}"}
+    stack = []
+    for char in s:
+        if char in mapping:
+            stack.append(mapping[char])
+        else:
+            if not stack or char != stack.pop():
+                return False
+    return not stack
