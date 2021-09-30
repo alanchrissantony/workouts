@@ -19731,3 +19731,31 @@ def compute_sum_from_counts(numOnes: int, numZeros: int, numNegOnes: int, k: int
             numNegOnes -= 1
         i += 1
     return total
+
+
+# --- Next Function Block ---
+
+
+
+# 5. Find the maximum even length of a contiguous block pattern.
+def max_contiguous_even_block_length(s: str) -> int:
+    """
+    Given a string s, starting from half its length (integer division) and decrementing,
+    checks if either pattern "1"*i + "0"*i or "0"*i + "1"*i exists in s.
+    If found, prints (or returns) i*2.
+    Returns the maximum even length found; if none, returns 0.
+    
+    Example:
+      s = "01000111"
+      It checks for patterns like "11"+"00" or "00"+"11".
+    """
+    max_length = 0
+    i = len(s) // 2
+    while i > 0:
+        pattern1 = "1" * i + "0" * i
+        pattern2 = "0" * i + "1" * i
+        if pattern1 in s or pattern2 in s:
+            max_length = i * 2
+            break
+        i -= 1
+    return max_length
