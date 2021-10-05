@@ -16951,3 +16951,22 @@ def max_index_gap_different(colors: list) -> int:
             if colors[i] != colors[j] and (j - i) > max_gap:
                 max_gap = j - i
     return max_gap
+
+
+# --- Next Function Block ---
+
+
+
+# 25. Shifting letters: using shifts list to transform s.
+def shifting_letters(s: str, shifts: list) -> str:
+    """
+    For each index i in s, sums shifts from i to end, adds the index of s[i] in the alphabet,
+    takes modulo 26, and returns the corresponding letter. Builds the final string.
+    """
+    alphabet = [chr(i) for i in range(ord('a'), ord('z')+1)]
+    res = ""
+    for i in range(len(s)):
+        total = sum(shifts[i:]) + alphabet.index(s[i])
+        total %= 26
+        res += alphabet[total]
+    return res
