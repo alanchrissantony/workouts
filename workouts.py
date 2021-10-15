@@ -9289,3 +9289,25 @@ def are_anagrams(s: str, t: str) -> bool:
         tdict[t[i]] = tcount
 
     return sdict == tdict
+
+
+# --- Next Function Block ---
+
+
+# dominoes.py
+def count_domino_pairs(dominoes: list) -> int:
+    """
+    Counts the number of equivalent domino pairs.
+    Dominoes are considered equivalent if their sorted values are equal.
+    """
+    domino_count = {}
+    count = 0
+    for domino in dominoes:
+        # Sort to get a consistent representation
+        sorted_domino = tuple(sorted(domino))
+        if sorted_domino in domino_count:
+            count += domino_count[sorted_domino]
+            domino_count[sorted_domino] += 1
+        else:
+            domino_count[sorted_domino] = 1
+    return count
