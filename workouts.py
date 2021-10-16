@@ -10484,3 +10484,25 @@ def common_divisors(a: int, b: int) -> list:
         if a % i == 0 and b % i == 0:
             divisors.append(i)
     return divisors
+
+
+# --- Next Function Block ---
+
+
+# 18. ID with Maximum Gap in Logs
+def id_of_max_gap(logs: list) -> int:
+    """
+    Given logs as [id, time] pairs, returns the id corresponding to the maximum gap between times.
+    Assumes logs are ordered by time.
+    """
+    kdiff = 0
+    selected_id = 0
+    pos = 0
+    for log in logs:
+        current_id, time = log
+        gap = time - pos
+        if gap > kdiff:
+            kdiff = gap
+            selected_id = current_id
+        pos = time
+    return selected_id
