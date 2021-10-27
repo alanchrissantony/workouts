@@ -19160,3 +19160,32 @@ def find_ones_indices(mat: list):
                 arri.append(i)
                 arrj.append(j)
     return arri, arrj
+
+
+# --- Next Function Block ---
+
+
+
+# ---------------------------
+# Snippet 2:
+# Count numbers between low and high (inclusive) that are "lucky" – having an even number of digits
+# and the sum of the first half equals the sum of the second half.
+def count_lucky_numbers(low: int, high: int) -> int:
+    """
+    For each number between low and high (inclusive) with an even number of digits,
+    splits the number into two halves (as strings), sums the digits in each half, and
+    counts the number of numbers where the two sums are equal.
+    Returns the count.
+    """
+    count = 0
+    for num in range(low, high + 1):
+        s = str(num)
+        if len(s) % 2 == 0:
+            half = len(s) // 2
+            first_half = s[:half]
+            second_half = s[half:]
+            sum_first = sum(int(ch) for ch in first_half)
+            sum_second = sum(int(ch) for ch in second_half)
+            if sum_first == sum_second:
+                count += 1
+    return count
