@@ -7846,3 +7846,22 @@ def count_elements_geq_lowest_freq(nums: list) -> int:
     low = sorted(freq.items(), key=lambda x: x[1])[0]
     total = sum(1 for num in nums if num >= low[0])
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def print_pattern_1(n: int) -> None:
+    """
+    Prints a pattern for n rows.
+    (Based on the snippet with two nested loops and conditional spacing.)
+    """
+    for i in range(1, n + 1):
+        for j in range(n):
+            # Example condition: for i <= 3, print spaces for j < i; for i > 3, print spaces for j <= n-i.
+            if (j < i and i <= 3) or (i > 3 and j <= n - i):
+                print(" ", end="  ")
+            else:
+                print("*", end="  ")
+        print("\n", end="")
