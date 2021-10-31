@@ -23937,3 +23937,27 @@ def year_difference_in_days(date1: str, date2: str) -> int:
     y1 = int(date1[:4])
     y2 = int(date2[:4])
     return (y2 - y1) * 365
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 17:
+# Remove elements from a list that occur more than a given maximum frequency.
+def remove_excess_duplicates(nums: list, max_allowed: int = 2) -> int:
+    """
+    Iterates over nums and removes elements if their total count exceeds max_allowed.
+    Returns the length of the resulting list.
+    
+    Example:
+      nums = [1,1,1,2,2,3] with max_allowed = 2 returns 5.
+    """
+    nums = nums.copy()
+    i = 0
+    while i < len(nums):
+        if nums.count(nums[i]) > max_allowed:
+            del nums[i]
+        else:
+            i += 1
+    return len(nums)
