@@ -28999,3 +28999,22 @@ def blur_image(image: list) -> list:
                 count += 1
             result[i][j] = total // count
     return result
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 2: Sum differences of adjacent character ordinals
+def adjacent_char_diff(s: str) -> int:
+    """
+    Computes the sum of absolute differences between adjacent characters (using their ordinals)
+    in the string s.
+    
+    Example:
+      s = "hello" → returns |ord('h')-ord('e')| + |ord('e')-ord('l')| + ... 
+    """
+    total = 0
+    for i in range(len(s) - 1):
+        total += abs(ord(s[i]) - ord(s[i+1]))
+    return total
