@@ -22401,3 +22401,34 @@ def reconstruct_number_from_frequencies(num_str: str) -> str:
     for digit, count in sorted_digits:
         result += digit * count
     return result
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 14. Next Greater Element for each element in nums1 based on nums2
+def next_greater_element(nums1: list, nums2: list) -> list:
+    """
+    For each element in nums1, finds the first element in nums2 (starting from the index where the element
+    appears) that is greater than that element. If no such element exists, returns -1 for that element.
+    
+    Example:
+      nums1 = [2,4]
+      nums2 = [1,2,3,4]
+      Returns: [3, -1]
+    """
+    result = []
+    for num in nums1:
+        try:
+            start_index = nums2.index(num)
+        except ValueError:
+            result.append(-1)
+            continue
+        found = -1
+        for val in nums2[start_index:]:
+            if val > num:
+                found = val
+                break
+        result.append(found)
+    return result
