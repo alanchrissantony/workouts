@@ -17868,3 +17868,12 @@ def test_sum_class():
     Calls the Sum.sum method.
     """
     Sum.sum(1, 2)
+
+
+# --- Next Function Block ---
+
+
+
+# 19. Generator that yields the square of a number.
+def generator_square(x):
+    yield x * x
