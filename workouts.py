@@ -19208,3 +19208,28 @@ def linear_search_index(array: list, target) -> int:
         if val == target:
             return i
     return -1
+
+
+# --- Next Function Block ---
+
+
+def binary_search_value(array: list, target) -> int:
+    """
+    Assumes array is sorted in ascending order.
+    Uses a binary search–like approach (by slicing the array) to find target.
+    Returns the target value if found, else raises ValueError.
+    Note: This implementation modifies the array slice at each iteration.
+    """
+    arr = array[:]  # copy the array
+    while len(arr) > 1:
+        i = (len(arr) // 2) - 1  # use (mid-1) as in the snippet
+        if arr[i] == target:
+            return arr[i]
+        elif arr[i] < target:
+            arr = arr[i:]  # take the right half (including arr[i])
+        else:
+            arr = arr[:i+1]  # take the left half (include arr[i])
+    # When the loop exits, if the remaining element equals target, return it.
+    if arr and arr[0] == target:
+        return arr[0]
+    raise ValueError("Target not found in array")
