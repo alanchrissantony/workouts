@@ -17912,3 +17912,21 @@ def check_ordered_chars(s):
     a_part = "a" * s.count("a")
     b_part = "b" * s.count("b")
     return s == a_part + b_part
+
+
+# --- Next Function Block ---
+
+
+
+# 22. Extract sorted numbers from a sentence.
+def extract_sorted_numbers(s):
+    """
+    Extracts integers from the string s and returns them sorted.
+    """
+    numbers = []
+    for token in s.split():
+        try:
+            numbers.append(int(token))
+        except ValueError:
+            continue
+    return sorted(set(numbers))
