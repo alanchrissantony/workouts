@@ -4052,3 +4052,17 @@ def sum_difference(n: int, m: int) -> int:
     s1 = sum(i for i in range(1, n + 1) if i % m != 0)
     s2 = sum(i for i in range(1, n + 1) if i % m == 0)
     return s1 - s2
+
+
+# --- Next Function Block ---
+
+
+
+def first_multiple_in_array(n: int, arr: list) -> int:
+    """
+    Returns the first multiple of n (for i from 1 to 31) that exists in arr.
+    """
+    for i in range(1, 32):
+        if i * n in arr:
+            return i * n
+    return None
