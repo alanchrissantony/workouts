@@ -13304,3 +13304,15 @@ def gcd_low_high(nums: list) -> int:
         if high % i == 0 and low % i == 0:
             return i
     return 1
+
+
+# --- Next Function Block ---
+
+
+
+def has_exactly_three_divisors(n: int) -> bool:
+    """
+    Returns True if n has exactly three divisors.
+    """
+    count = sum(1 for i in range(1, n + 1) if n % i == 0)
+    return count == 3
