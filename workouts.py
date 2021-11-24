@@ -1362,3 +1362,17 @@ def aj(x):
         res=res-2
 
     print(res)
+
+
+# --- Next Function Block ---
+
+
+def ak(array):
+    count=0
+    size=len(array)-1
+    for i in range(size):
+        if(count>0 and array[i-1] == array[i]):
+            array[i]=array[i+1]
+            size=size-1
+        print(array[i])
+        count=count+1
