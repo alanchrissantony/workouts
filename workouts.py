@@ -8449,3 +8449,23 @@ def check_frequency_uniqueness(arr: list) -> bool:
     freq_vals = sorted(freq.values())
     unique_vals = sorted(set(freq_vals))
     return freq_vals == unique_vals
+
+
+# --- Next Function Block ---
+
+
+def sum_of_divisible_elements(n: int) -> int:
+    """
+    For n = 7 (example), sums numbers from 1 to n and returns the difference between sum of numbers
+    not divisible by a given condition and those that are divisible.
+    (Based on the snippet where numbers divisible by m are summed separately.)
+    This version uses m = 3 as in the snippet.
+    """
+    sum_non = 0
+    sum_div = 0
+    for i in range(1, n + 1):
+        if i % 3 == 0:
+            sum_div += i
+        else:
+            sum_non += i
+    return sum_non - sum_div
