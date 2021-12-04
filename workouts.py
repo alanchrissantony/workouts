@@ -23190,3 +23190,22 @@ def largest_palindrome_from_digits(num_str: str) -> str:
     right = left.copy()
     right.reverse()
     return "".join(left) + middle + "".join(right)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 14. Bit Flip Operations: Count differing bits between padded binary representations.
+def bit_flip_operations(start: int, goal: int, pad_length: int = 30) -> int:
+    """
+    Converts start and goal into binary strings padded to pad_length, then counts the number of positions
+    at which they differ.
+    """
+    bin_start = str(0) * (pad_length - len(bin(start)[2:])) + bin(start)[2:]
+    bin_goal  = str(0) * (pad_length - len(bin(goal)[2:])) + bin(goal)[2:]
+    count = 0
+    for i in range(pad_length):
+        if bin_start[i] != bin_goal[i]:
+            count += 1
+    return count
