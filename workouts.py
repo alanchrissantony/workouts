@@ -15960,3 +15960,25 @@ def are_all_arithmetic(lists: list) -> list:
     for lst in lists:
         result.append(is_arithmetic_sequence(lst))
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def max_occurrences_of_word(sequence: str, word: str) -> int:
+    """
+    Returns the maximum number of non-overlapping occurrences of 'word' in 'sequence'.
+    (Uses both a replace method and the built-in count for verification.)
+    """
+    count_builtin = sequence.count(word)
+    # Alternatively, you might iterate over sequence to count non-overlapping occurrences.
+    i, count = 0, 0
+    while i <= len(sequence) - len(word):
+        if sequence[i:i+len(word)] == word:
+            count += 1
+            i += len(word)
+        else:
+            i += 1
+    # Return whichever count is higher (they should be equal if word does not overlap)
+    return max(count, count_builtin)
