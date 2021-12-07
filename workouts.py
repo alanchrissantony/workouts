@@ -28416,3 +28416,31 @@ def remove_excess_duplicates(nums: list, max_allowed: int = 2) -> int:
         else:
             i += 1
     return len(nums)
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 10: Ugly Number Generator (Dynamic Programming Version)
+def nth_ugly_number(n: int) -> int:
+    """
+    Returns the nth ugly number.
+    Ugly numbers are numbers whose only prime factors are 2, 3, and 5.
+    Uses dynamic programming with three pointers.
+    
+    Example:
+      n = 10 returns the 10th ugly number.
+    """
+    dp = [0] * n
+    dp[0] = 1
+    x = y = z = 0
+    for i in range(1, n):
+        dp[i] = min(dp[x]*2, dp[y]*3, dp[z]*5)
+        if dp[i] == dp[x] * 2:
+            x += 1
+        if dp[i] == dp[y] * 3:
+            y += 1
+        if dp[i] == dp[z] * 5:
+            z += 1
+    return dp[-1]
