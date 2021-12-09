@@ -18205,3 +18205,22 @@ def process_prev_words_variant(words: list) -> list:
                 pass
             i += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 11 ---
+def calculate_remaining_amt(amt: int, purchaseAmount: int) -> int:
+    """
+    Given a total amt and a purchase amount, subtracts 10 times the integer division of purchaseAmount by 10,
+    and if the remainder is at least 5, subtracts an additional 10.
+    Returns the remaining amount.
+    """
+    val = purchaseAmount // 10
+    dec = purchaseAmount % 10
+    amt -= 10 * val
+    if dec >= 5:
+        amt -= 10
+    return amt
