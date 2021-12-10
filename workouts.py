@@ -9017,3 +9017,17 @@ def differences_in_groups(nums: list, k: int) -> list:
         for j in range(i+1, i+1+k):
             result.append(nums[i] - nums[j])
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# 22. Reverse substring up to a given character.
+def reverse_up_to_char(word: str, ch: str) -> str:
+    """
+    Finds the first occurrence of ch in word, reverses the substring up to and including that character,
+    then concatenates the remainder.
+    """
+    ind = word.index(ch)
+    return word[:ind+1][::-1] + word[ind+1:]
