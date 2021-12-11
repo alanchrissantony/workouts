@@ -8806,3 +8806,24 @@ def last_odd_substring(num: str) -> str:
         if int(num[i]) % 2 == 1:
             return num[:i+1]
     return ""
+
+
+# --- Next Function Block ---
+
+
+
+# 11. Return the maximum digit that appears at least 3 times in num, repeated three times.
+def triple_max_frequent_digit(num: str) -> str:
+    """
+    Finds all digits that appear at least 3 times in num.
+    Returns the maximum such digit repeated three times.
+    """
+    freq = {}
+    candidates = []
+    for ch in num:
+        freq[ch] = freq.get(ch, 0) + 1
+        if freq[ch] >= 3 and int(ch) not in candidates:
+            candidates.append(int(ch))
+    if candidates:
+        return str(max(candidates)) * 3
+    return ""
