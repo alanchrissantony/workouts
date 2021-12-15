@@ -10395,3 +10395,20 @@ def count_pairs_with_sum_less_than(nums: list, target: int) -> int:
             if nums[i] + nums[j] < target:
                 count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# 12. Count Pairs with Sum in [lower, upper]
+def count_pairs_in_range(nums: list, lower: int, upper: int) -> int:
+    """
+    Counts the number of unique pairs (i, j) with i < j such that the sum is between lower and upper (inclusive).
+    """
+    count = 0
+    for i in range(len(nums)-1):
+        for j in range(i+1, len(nums)):
+            s = nums[i] + nums[j]
+            if lower <= s <= upper:
+                count += 1
+    return count
