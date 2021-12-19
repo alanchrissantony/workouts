@@ -27892,3 +27892,24 @@ def copy_to_fixed_length(nums: list, length: int) -> list:
     for i in range(len(nums)):
         arr[i] = nums[i]
     return arr[:len(nums)]  # return only the portion that was filled
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 6: Print prefix and suffix sums.
+def print_prefix_suffix_sums(n: int) -> None:
+    """
+    Builds a list of numbers from 1 to n and for each index prints:
+      - The prefix (elements from start up to i+1)
+      - The suffix (elements from i+1 to end)
+      - The sum of the prefix and the sum of the suffix.
+    """
+    arr = [i + 1 for i in range(n)]
+    for i in range(1, len(arr) + 1):
+        prefix = arr[:i]
+        suffix = arr[i:]
+        prefix_sum = functools.reduce(lambda x, y: x + y, prefix)
+        suffix_sum = functools.reduce(lambda x, y: x + y, suffix) if suffix else 0
+        print(f"Prefix: {prefix}, Suffix: {suffix}, Prefix sum: {prefix_sum}, Suffix sum: {suffix_sum}")
