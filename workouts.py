@@ -10316,3 +10316,23 @@ def interleave_strings(word1: str, word2: str) -> str:
         if i < len(word2):
             result.append(word2[i])
     return "".join(result)
+
+
+# --- Next Function Block ---
+
+
+# 9. Maximum Sum with Reversed Numbers
+def max_sum_with_reversed(nums: list) -> int:
+    """
+    For each number in nums that has more than one digit, reverse its digits.
+    If the reversed number is also in nums, track the maximum sum of the original
+    and reversed numbers.
+    """
+    max_sum = -1
+    for num in nums:
+        s = str(num)
+        if len(s) > 1:
+            rev = int(s[::-1])
+            if rev in nums:
+                max_sum = max(max_sum, num + rev)
+    return max_sum
