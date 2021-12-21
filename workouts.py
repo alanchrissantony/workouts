@@ -18037,3 +18037,19 @@ def alternate_sorted_elements(nums: list) -> list:
         flag = not flag
         i += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 3 ---
+def sum_from_max(nums: list, k: int) -> int:
+    """
+    Sums k consecutive integers starting from the maximum element in nums.
+    """
+    start = max(nums)
+    total = 0
+    for i in range(start, start + k):
+        total += i
+    return total
