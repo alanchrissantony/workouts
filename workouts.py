@@ -62,3 +62,18 @@ def pairwise_swap(head: list) -> list:
         del head[j + 1]
         i += 2
     return head
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 3: Demonstrate closure with a global variable.
+def demonstrate_closure() -> None:
+    """
+    Demonstrates variable lookup in a closure by printing a global variable.
+    """
+    def f():
+        print(x)
+    x = 1
+    f()
