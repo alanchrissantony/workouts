@@ -2621,3 +2621,17 @@ def id_of_max_gap(logs: list) -> int:
             selected_id = current_id
         pos = time
     return selected_id
+
+
+# --- Next Function Block ---
+
+
+# 19. Print Negative Pairs
+def print_negative_pairs(nums: list) -> None:
+    """
+    For each number in nums, if its negative exists in nums, prints the negative value with a tag.
+    """
+    nums_sorted = sorted(nums, reverse=True)
+    for num in nums_sorted:
+        if -num in nums:
+            print(-num, "9")
