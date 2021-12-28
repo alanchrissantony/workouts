@@ -20312,3 +20312,30 @@ def print_prefix_sublists(nums: list) -> None:
             print(nums[:i][j:])
             j += 1
         i += 1
+
+
+# --- Next Function Block ---
+
+
+def frequency_difference(s: str, t: str) -> int:
+    """
+    Computes the total extra frequency in string s compared to string t.
+    For each character in s, if t contains that character, adds the difference 
+    (sCount - tCount) if s has more; if t does not contain it, adds the full count.
+    Returns the total difference.
+    
+    Example:
+      s = "bab", t = "aba" → frequency(s): {'b': 2, 'a': 1}
+                           frequency(t): {'a': 2, 'b': 1}
+      Difference = (for 'b': 2-1 = 1) + (for 'a': 0 since 1<2) = 1
+    """
+    sCount = dict(Counter(s))
+    tCount = dict(Counter(t))
+    total_diff = 0
+    for ch in sCount:
+        if ch in tCount:
+            if sCount[ch] > tCount[ch]:
+                total_diff += sCount[ch] - tCount[ch]
+        else:
+            total_diff += sCount[ch]
+    return total_diff
