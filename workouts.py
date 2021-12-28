@@ -25874,3 +25874,40 @@ def merge(arr):
     right = arr[mid:]
 
     return join(merge(left), merge(right))
+
+
+# --- Next Function Block ---
+
+
+
+
+def min_window_substring(s, t):
+    if not s or not t:
+        return ""
+    
+    target_counts = Counter(t)
+    required_chars = len(target_counts)
+    
+    min_length = float('inf')
+    min_window = ""
+    
+    left = 0
+    char_count = 0
+    window_counts = Counter()
+    
+    for right, char in enumerate(s):
+        window_counts[char] += 1
+        if window_counts[char] == target_counts[char]:
+            char_count += 1
+        
+        while char_count == required_chars:
+            if right - left + 1 < min_length:
+                min_length = right - left + 1
+                min_window = s[left:right+1]
+            
+            if window_counts[s[left]] == target_counts[s[left]]:
+                char_count -= 1
+            window_counts[s[left]] -= 1
+            left += 1
+    
+    return min_window
