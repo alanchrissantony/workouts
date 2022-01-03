@@ -13656,3 +13656,20 @@ def sum_minus_digit_sum(nums: list) -> int:
     total = sum(nums)
     digit_sum = sum(int(ch) for num in nums for ch in str(num))
     return total - digit_sum
+
+
+# --- Next Function Block ---
+
+
+
+def count_pairs_with_difference(nums: list, k: int) -> int:
+    """
+    Counts unique pairs (i, j) with i < j in nums such that abs(nums[i] - nums[j]) == k.
+    """
+    count = 0
+    n = len(nums)
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            if abs(nums[i] - nums[j]) == k:
+                count += 1
+    return count
