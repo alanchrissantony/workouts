@@ -25205,3 +25205,27 @@ def validate_bst_traversal(arr) -> bool:
       return False  # Current value must be greater than the previous encountered value in in-order traversal
     prev = val
   return True
+
+
+# --- Next Function Block ---
+
+
+
+# -----------------------------------------------------
+# Function 1: Minimum Cost Climbing Stairs
+def min_cost_climbing_stairs(cost: list) -> int:
+    """
+    Given a list 'cost' where cost[i] is the cost of stepping on index i,
+    calculates the minimum cost to reach the top (beyond the last index).
+    Uses a bottom-up DP approach.
+    
+    Example:
+      cost = [1,10,15,7]
+      Returns 15.
+    """
+    n = len(cost)
+    dp = [0] * (n + 1)
+    # dp[i] is the cost to reach step i.
+    for i in range(2, n + 1):
+        dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
+    return dp[n]
