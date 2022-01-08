@@ -23095,3 +23095,21 @@ def xor_with_k(nums: list, k: int) -> list:
       nums = [7,12,9,8,9,15], k = 4 → returns list of [7^4, 12^4, ...]
     """
     return [x ^ k for x in nums]
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 10. Sum Values at Indices with Exactly k Ones in Binary Representation
+def sum_by_index_bitcount(nums: list, k: int) -> int:
+    """
+    For each index i in nums, if the binary representation of i (without the '0b' prefix)
+    contains exactly k '1's, adds nums[i] to a total sum.
+    Returns the total sum.
+    """
+    total = 0
+    for i in range(len(nums)):
+        if bin(i)[2:].count("1") == k:
+            total += nums[i]
+    return total
