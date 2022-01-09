@@ -16056,3 +16056,22 @@ def election_winner(votes: list) -> str:
     # Find candidate with maximum votes
     winner = max(vote_counts.items(), key=lambda x: x[1])[0]
     return winner
+
+
+# --- Next Function Block ---
+
+
+
+def count_special_substrings(s: str, r: str = "R", l: str = "L") -> int:
+    """
+    Constructs substrings of the form r repeated i times concatenated with l repeated i times,
+    counts occurrences in s.
+    """
+    count_total = 0
+    for i in range(1, len(s) + 1):
+        substr = r * i + l * i
+        if substr in s:
+            occurrence = s.count(substr)
+            print(substr, occurrence)
+            count_total += occurrence
+    return count_total
