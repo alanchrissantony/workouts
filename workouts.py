@@ -18224,3 +18224,24 @@ def calculate_remaining_amt(amt: int, purchaseAmount: int) -> int:
     if dec >= 5:
         amt -= 10
     return amt
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 12 ---
+# (This snippet is ambiguous because it uses indices from the list values; skipping or revising.)
+# We skip a function for the snippet with nested loops using nums and index lookup based on list values.
+
+
+# --- Snippet 13 ---
+def sort_by_height(names: list, heights: list) -> (list, list):
+    """
+    Sorts names and heights in descending order by height.
+    Returns the sorted names and heights.
+    """
+    combined = list(zip(heights, names))
+    combined.sort(reverse=True, key=lambda x: x[0])
+    sorted_heights, sorted_names = zip(*combined)
+    return list(sorted_names), list(sorted_heights)
