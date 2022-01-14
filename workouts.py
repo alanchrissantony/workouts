@@ -20497,3 +20497,18 @@ def join_sorted(left: list, right: list) -> list:
     merged.extend(left[i:])
     merged.extend(right[j:])
     return merged
+
+
+# --- Next Function Block ---
+
+
+def merge_sort(arr: list) -> list:
+    """
+    Performs merge sort on arr and returns a new sorted list.
+    """
+    if len(arr) <= 1:
+        return arr
+    mid = len(arr) // 2
+    left = merge_sort(arr[:mid])
+    right = merge_sort(arr[mid:])
+    return join_sorted(left, right)
