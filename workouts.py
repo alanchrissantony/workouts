@@ -16758,3 +16758,28 @@ def check_range(ranges: list, left: int, right: int) -> bool:
             if right in r:
                 isRight = True
     return isLeft and isRight
+
+
+# --- Next Function Block ---
+
+
+
+# 15. Simulate a lock. Given a starting lock (e.g. ["0","0","0","0"]) and a target lock as a string,
+#     increment digits until lock equals target; count the moves.
+def open_lock(target: str) -> (list, int):
+    """
+    Starting from ["0", "0", "0", "0"], increments individual digits (left-to-right)
+    until the lock matches target. Returns the final lock state (as a list of strings) and the move count.
+    """
+    lock = ["0", "0", "0", "0"]
+    target_list = list(target)
+    count = 0
+    i = 0
+    while lock != target_list and i < len(lock):
+        if lock[i] != target_list[i]:
+            # Increment digit by 1 (as string)
+            lock[i] = str(int(lock[i]) + 1)
+            count += 1
+        else:
+            i += 1
+    return lock, count
