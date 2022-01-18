@@ -2774,3 +2774,24 @@ def custom_fib(n: int) -> int:
     for i in range(2, n):
         seq.append(seq[-1] + seq[-2])
     return seq[-1]
+
+
+# --- Next Function Block ---
+
+
+# 29. Vehicle Class with Destructor
+class Vehicle:
+    def __init__(self):
+        print("Vehicle created.")
+    def __del__(self):
+        print("Destructor called, vehicle deleted.")
+    def display(self):
+        print("Hello")
+
+def test_vehicle_class():
+    """
+    Creates a Vehicle instance, calls display, then deletes it.
+    """
+    car = Vehicle()
+    car.display()
+    del car
