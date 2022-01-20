@@ -14570,3 +14570,22 @@ def extract_number(s: str) -> int:
         except ValueError:
             continue
     return 0
+
+
+# --- Next Function Block ---
+
+
+
+def longest_common_prefix_brute(strs: list) -> str:
+    """
+    Finds the longest common prefix among the given list of strings.
+    """
+    if not strs:
+        return ""
+    prefix = strs[0]
+    for s in strs[1:]:
+        while not s.startswith(prefix):
+            prefix = prefix[:-1]
+            if prefix == "":
+                return ""
+    return prefix
