@@ -24977,3 +24977,195 @@ def dp_toggle_variant2(n: int) -> list:
             dp[j] = 0 if dp[j] == 1 else 1
         print("After toggling for i =", i, ":", dp)
     return dp
+
+
+# --- Next Function Block ---
+
+
+
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class Binary:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.root==None:
+            self.root=node
+            return
+        current=self.root
+        while True:
+            if data<current.data:
+                if current.left==None:
+                    current.left=node
+                    break
+                else:
+                    current=current.left
+            else:
+                if current.right==None:
+                    current.right=node
+                    break
+                else:
+                    current=current.right
+
+    def exists(self, data):
+        current=self.root
+        while current:
+            if data < current.data:
+                current=current.left
+            elif data > current.data:
+                current=current.right
+            else:
+                return current.data
+        return False
+    
+    def remove(self, data):
+
+        def get_min(current):
+            if current.left:
+                get_min(current.left)
+            else:
+                return(current.data)
+            
+        def remove_helper(data, current, parent):
+            current=self.root
+            while current:
+                parent=current
+                if data<current.data:
+                    current=current.left
+                elif data>current.data:
+                    current=current.right
+                else:
+                    if current.left != None and current.right != None: 
+                        current.data = get_min(current.right)
+                        remove_helper(current.data, )
+                    
+
+                    return
+        
+    def in_order(self):
+        def in_order_helper(current):
+            if current:
+                in_order_helper(current.left)
+                print(current.data)
+                in_order_helper(current.right)
+        
+        in_order_helper(self.root)
+            
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root=None
+    
+    def append(self, data):
+        node=Node(data)
+        if self.root == None:
+            self.root=node
+            return
+        current=self.root
+        while True:
+            if data < current.data:
+                if current.left == None:
+                    current.left = node
+                    break
+                else:
+                    current = current.left
+            else:
+                if current.right == None:
+                    current.right = node
+                    break
+                else:
+                    current = current.right
+
+    def in_order(self):
+        def helper(current):
+            if current:
+                helper(current.left)
+                print(current.data)
+                helper(current.right)
+        helper(self.root)
+
+
+    def remove(self, data):
+
+        def get_min(current):
+            if current.left==None:
+                return current.data
+            else:
+                return get_min(current.left)
+
+        def helper(data, current, parrent):
+            while current != None:
+                if data<current.data:
+                    parrent=current
+                    current=current.left
+                elif data>current.data:
+                    parrent=current
+                    current=current.right
+                else:
+                    if current.left != None and current.right != None:
+                        current.data=get_min(current.right)
+                        return helper(current.data, current.right, current)
+                    else:
+                        if parrent == None:
+                            if current.left == None:
+                                self.root = current.right
+                            else:
+                                self.root = current.left
+                        else:
+                            if parrent.left == current:
+                                if current.left == None:
+                                    parrent.left = current.right
+                                    current=current.right
+                                else:
+                                    parrent.left = current.left
+                                    current=current.left
+                            else:
+                                if current.left == None:
+                                    parrent.right = current.right
+                                    current=current.right
+                                else:
+                                    parrent.right = current.left
+                                    current=current.left
+
+
+
+        parrent=None
+        current=self.root       
+        helper(data, current, parrent)
+
+
+
+
+        
+def join(left, right):
+    array=[]
+    i,j = 0,0
+    while i<len(left) and j<len(right):
+        if left[i] < right[j]:
+            array.append(left[i])
+            i+=1
+        else:
+            array.append(right[j])
+            j+=1
+    while i<len(left):
+        array.append(left[i])
+        i+=1
+    while j<len(right):
+        array.append(right[j])
+        j+=1
+    return array
