@@ -28748,3 +28748,254 @@ def bfs(start, graph):
             visited.add(current)
             print(current)
             queue.extend(graph[current])
+
+
+# --- Next Function Block ---
+
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.root is None:
+            self.root=node
+            return
+        current=self.root
+        while True:
+            if data < current.data:
+                if current.left:
+                    current=current.left
+                else:
+                    current.left=node
+                    break
+            else:
+                if current.right:
+                    current=current.right
+                else:
+                    current.right=node
+                    break
+        
+    def remove(self, data):
+        def get_min(current):
+            if current.left:
+                return get_min(current.left)
+            else:
+                return current.data
+
+        def helper(data, current, parent):
+            while current:
+                if data < current.data:
+                    parent=current
+                    current=current.left
+                elif data > current.data:
+                    parent=current
+                    current=current.right
+                else:
+                    if current.left and current.right:
+                        current.data=get_min(current.right)
+                        return helper(current.data, current.right, current)
+                    else:
+                        if parent is None:
+                            if current.left:
+                                self.root=current.left
+                            else:
+                                self.root=current.right
+                        else:
+                            if parent.left == current:
+                                if current.left:
+                                    parent.left=current.left
+                                    current=current.left
+                                else:
+                                    parent.left=current.right
+                                    current=current.right
+                            else:
+                                if current.left:
+                                    parent.right=current.left
+                                    current=current.left
+                                else:
+                                    parent.right=current.right
+                                    current=current.right
+
+
+        helper(data, self.root, None)
+
+    def print(self):
+        def helper(current):
+            if current:
+                print(current.data)
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+
+
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None) -> None:
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.root is None:
+            self.root=node
+            return
+        current=self.root
+        while True:
+            if data<current.data:
+                if current.left:
+                    current=current.left
+                else:
+                    current.left=node
+                    break
+            else:
+                if current.right:
+                    current=current.right
+                else:
+                    current.right=node
+                    break
+
+    def display(self):
+        def helper(current):
+            if current:
+                print(current.data)
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+    
+    def remove(self, data):
+        def get_min(current):
+            if current.left:
+                return get_min(current.left)
+            else:
+                return current.data
+            
+        def helper(data, current, parent):
+            while current:
+                if data < current.data:
+                    parent=current
+                    current=current.left
+                elif data > current.data:
+                    parent=current
+                    current=current.right
+                else:
+                    if current.left and current.right:
+                        current.data=get_min(current.right)
+                        return helper(current.data, current.right, current)
+                    else:
+                        if parent is None:
+                            if current.left:
+                                self.root=current.left
+                            else:
+                                self.root=current.right
+                        else:
+                            if parent.left == current:
+                                if current.left:
+                                    parent.left=current.left
+                                    current=current.left
+                                else:
+                                    parent.left=current.right 
+                                    current=current.right
+                            else:
+                                if current.left:
+                                    parent.right=current.left
+                                    current=current.left
+                                else:
+                                    parent.right=current.right
+                                    current=current.right
+        helper(data, self.root, None)
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BST:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.root is None:
+            self.root=node
+            return
+        current=self.root
+        while True:
+            if data < current.data:
+                if current.left:
+                    current=current.left
+
+
+
+# --------------------------------------------------
+# Function 1: Blur an image (compute average of a pixel with its neighbors)
+def blur_image(image: list) -> list:
+    """
+    Given a square image (2D list) of integers, computes the average value (using integer division)
+    for each pixel with its 8 neighbors (if they exist) and returns a new image (as a list of lists)
+    of the same size.
+    
+    Example:
+      image = [
+         [100, 200, 100],
+         [200, 50, 200],
+         [100, 200, 100]
+      ]
+      Each output pixel is the integer average of itself and its available neighbors.
+    """
+    n = len(image)
+    result = [[0] * n for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            total = image[i][j]
+            count = 1
+            # Up
+            if i > 0:
+                total += image[i-1][j]
+                count += 1
+            # Down
+            if i < n-1:
+                total += image[i+1][j]
+                count += 1
+            # Left
+            if j > 0:
+                total += image[i][j-1]
+                count += 1
+            # Right
+            if j < n-1:
+                total += image[i][j+1]
+                count += 1
+            # Top-left
+            if i > 0 and j > 0:
+                total += image[i-1][j-1]
+                count += 1
+            # Top-right
+            if i > 0 and j < n-1:
+                total += image[i-1][j+1]
+                count += 1
+            # Bottom-left
+            if i < n-1 and j > 0:
+                total += image[i+1][j-1]
+                count += 1
+            # Bottom-right
+            if i < n-1 and j < n-1:
+                total += image[i+1][j+1]
+                count += 1
+            result[i][j] = total // count
+    return result
