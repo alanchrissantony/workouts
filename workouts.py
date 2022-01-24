@@ -484,3 +484,18 @@ def process_folders(folders: list) -> dict:
             d[key] = folders[i]
         i += 1
     return d
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 3: Print binary representations of numbers.
+def print_binary(nums: list) -> None:
+    """
+    Given a list of numbers, prints each number along with its binary representation.
+    """
+    i = 0
+    while i < len(nums):
+        print(bin(nums[i]), nums[i])
+        i += 1
