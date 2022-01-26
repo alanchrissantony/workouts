@@ -10531,3 +10531,14 @@ def power(x: float, n: int) -> float:
     Returns x raised to the power n.
     """
     return x ** n
+
+
+# --- Next Function Block ---
+
+
+# 21. Range Count
+def range_count(low: int, high: int) -> int:
+    """
+    Returns the difference between high and low.
+    """
+    return high - low
