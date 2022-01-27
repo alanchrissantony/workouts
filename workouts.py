@@ -15807,3 +15807,19 @@ def count_odds_in_range(low: int, high: int) -> int:
         if i % 2 != 0:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def reorder_string(s: str, indices: list) -> str:
+    """
+    Reorders string s based on the list of indices.
+    Example:
+       s = "codeleet", indices = [4,5,6,7,0,2,1,3] → returns "leetcode"
+    """
+    mapping = {idx: ch for idx, ch in zip(indices, s)}
+    # Sort by index and join the characters.
+    result = "".join(mapping[i] for i in sorted(mapping))
+    return result
