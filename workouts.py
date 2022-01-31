@@ -392,3 +392,22 @@ def insert_gcd_between_adjacent(arr: list) -> list:
         res.append(gcd(arr[i], arr[i+1]))
     res.append(arr[-1])
     return res
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 18: Merge parts of two lists.
+def merge_lists(list1: list, list2: list, a: int, b: int) -> list:
+    """
+    Merges segments of list1 and list2:
+      - Takes the first a elements from list1.
+      - Then all elements from list2.
+      - Then all elements of list1 after index b.
+    
+    Example:
+      list1 = [0,1,2,3,4,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
+      Returns: list1[:3] + list2 + list1[5:]
+    """
+    return list1[:a] + list2 + list1[b+1:]
