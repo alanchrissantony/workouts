@@ -11030,3 +11030,19 @@ def running_sum(nums: list) -> list:
         total += num
         result.append(total)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def sentence_with_most_words(sentences: list) -> list:
+    """
+    Returns the list of words of the sentence that has the maximum word count.
+    """
+    max_words = []
+    for sentence in sentences:
+        words = sentence.split()
+        if len(words) > len(max_words):
+            max_words = words
+    return max_words
