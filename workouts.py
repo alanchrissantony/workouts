@@ -3086,3 +3086,14 @@ def count_equal_pairs(nums: list) -> int:
             if nums[i] == nums[j]:
                 count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def duplicate_list(nums: list) -> list:
+    """
+    Returns a new list by appending a copy of nums to itself.
+    """
+    return nums + nums
