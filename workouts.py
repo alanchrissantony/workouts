@@ -1928,3 +1928,28 @@ def find_min_in_list(arr: list) -> int:
         if i < min_val:
             min_val = i
     return min_val
+
+
+# --- Next Function Block ---
+
+
+
+def print_star_pattern():
+    """
+    Prints a pattern:
+    For each i from 1 to 3:
+      - Print a line with '*' (with newline)
+      - Then print i blocks of a square pattern where each block is a row of i stars repeated 'size' times.
+      'size' doubles for each i.
+    """
+    size = 2
+    for i in range(1, 4):
+        # Print i lines with "*"
+        for j in range(i):
+            print("*")
+        # Print square blocks
+        for k in range(i):
+            for l in range(size):
+                print("*", end=" ")
+            print()  # new line after each block row
+        size *= 2
