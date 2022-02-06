@@ -18739,3 +18739,19 @@ def indices_not_matching(nums: list) -> list:
             result.append(i)
     result.append(len(nums) - 1)
     return result
+
+
+# --- Next Function Block ---
+
+
+# 20. Reduce all numbers to zero by subtracting the minimum nonzero repeatedly.
+def min_operations_to_zero(nums: list) -> int:
+    operations = 0
+    while any(x != 0 for x in nums):
+        nonzeros = [x for x in nums if x != 0]
+        sub = min(nonzeros) if nonzeros else 0
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[i] -= sub
+        operations += 1
+    return operations
