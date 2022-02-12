@@ -17502,3 +17502,18 @@ def sum_condition_square(nums: list) -> int:
         if len(nums) % (i + 1) == 0:
             total += nums[i] * nums[i]
     return total
+
+
+# --- Next Function Block ---
+
+
+
+# 24. Custom sort of string digits: sort characters, then build string in reversed order for all but last.
+def custom_sort_string(s: str) -> str:
+    arr = list(s)
+    arr.sort()
+    res = ""
+    for i in reversed(range(len(arr) - 1)):
+        res += arr[i]
+    res += arr[-1]
+    return res
