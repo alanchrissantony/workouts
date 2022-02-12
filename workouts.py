@@ -10247,3 +10247,16 @@ def is_subsequence(s: str, t: str) -> bool:
             return False
         pos += 1
     return True
+
+
+# --- Next Function Block ---
+
+
+# 4. Digit Root (Repeated sum of digits until single digit)
+def digit_root(n: int) -> int:
+    """
+    Repeatedly sums the digits of n until a single digit is obtained.
+    """
+    while n >= 10:
+        n = sum(int(d) for d in str(n))
+    return n
