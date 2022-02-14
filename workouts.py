@@ -17630,3 +17630,18 @@ def binary_sum(a, b):
     """
     total = int(a, 2) + int(b, 2)
     return bin(total)
+
+
+# --- Next Function Block ---
+
+
+
+# 6. Add an integer k to a list of digits and return the result as a list.
+def add_to_digit_list(digits, k):
+    """
+    Given a list of digits (e.g. [1,2,0,0]) and an integer k,
+    forms the number, adds k, and returns the new number as a list of digits.
+    """
+    num_str = "".join(str(d) for d in digits)
+    new_num = int(num_str) + k
+    return [int(ch) for ch in str(new_num)]
