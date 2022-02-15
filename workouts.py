@@ -26680,3 +26680,49 @@ def demo_heap_sort(arr: list) -> None:
         heap.append(num)
     heap.sort()
     heap.print()
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------
+# Function 2: Custom Binary Search Demo
+def binary_search_demo(arr: list, target: int) -> int:
+    """
+    Given a sorted list 'arr' and a target value, performs a binary search
+    using a custom non-standard approach:
+      - Initialize index i as the middle index.
+      - If target < arr[i], update i to the midpoint of left and i.
+      - If target > arr[i], update i to the midpoint of i and right.
+      - Counts iterations and stops after a number of iterations equal to the length of arr.
+      
+    If the target is found, prints the index and returns it; otherwise prints the iteration count and returns -1.
+    
+    Example:
+      arr = [1,2,4,5,6,7,8,9,10], target = 11
+    """
+    n = len(arr)
+    left = 0
+    right = n
+    i = n // 2
+    count = 0
+    while True:
+        count += 1
+        if count >= n:
+            print("Iterations:", count)
+            return -1
+        if target == arr[i]:
+            print("Found at index:", i, "after", count, "iterations")
+            return i
+        elif target < arr[i]:
+            right = i
+            # Move i to the midpoint between left and current i.
+            i = left + (i - left) // 2
+        else:  # target > arr[i]
+            left = i
+            # Move i to the midpoint between current i and right.
+            i = i + (right - i) // 2
+        
+        if left >= right - 1:
+            print("Not found after", count, "iterations")
+            return -1
