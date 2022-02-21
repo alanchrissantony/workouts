@@ -18559,3 +18559,14 @@ def total_bottles(numBottles: int, numExchange: int) -> int:
 def reverse_words(sentence: str) -> str:
     words = sentence.split()
     return " ".join(words[::-1])
+
+
+# --- Next Function Block ---
+
+
+# 8. Given two lists, interleave them (flattened).
+def interleave_lists(list1: list, list2: list) -> list:
+    result = []
+    for a, b in zip(list1, list2):
+        result.extend([a, b])
+    return result
