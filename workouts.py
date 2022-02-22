@@ -4590,3 +4590,17 @@ def flip_adjacent_duplicates(s: str) -> (str, int):
             count += 1
             s_list[i + 1] = "1" if s_list[i + 1] == "0" else "0"
     return "".join(s_list), count
+
+
+# --- Next Function Block ---
+
+
+
+def majority_vote(votes: list) -> str:
+    """
+    Returns the vote (string) with the highest frequency.
+    """
+    counts = {}
+    for vote in votes:
+        counts[vote] = counts.get(vote, 0) + 1
+    return max(counts.items(), key=lambda x: x[1])[0]
