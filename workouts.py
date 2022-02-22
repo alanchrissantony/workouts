@@ -24258,3 +24258,26 @@ def pattern_to_mapping(pattern: str, s: str) -> (dict, list):
     mapping = {p: ch for p, ch in zip(pattern, s)}
     mapped_list = [mapping[p] for p in pattern]
     return mapping, mapped_list
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 5: Convert an integer to its binary representation.
+def to_binary(num: int) -> str:
+    """
+    Converts a positive integer to its binary representation as a string.
+    If num is 0, returns "0".
+    
+    Example:
+      num = 2 → returns "10"
+    """
+    if num == 0:
+        return "0"
+    digits = []
+    count = abs(num)
+    while count > 0:
+        digits.append(str(count % 2))
+        count //= 2
+    return "".join(digits[::-1])
