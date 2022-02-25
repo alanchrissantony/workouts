@@ -22722,3 +22722,21 @@ def xor_with_k(nums: list, k: int) -> list:
     Given a list of integers and an integer k, returns a new list where each element is XOR-ed with k.
     """
     return [x ^ k for x in nums]
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Snippet J: Sum values at indices where binary representation of index has exactly k ones.
+def sum_by_index_bitcount(nums: list, k: int) -> int:
+    """
+    For each index i in the list nums, if the binary representation of i (as a string) contains exactly k ones,
+    adds nums[i] to a running total.
+    Returns the total sum.
+    """
+    total = 0
+    for i in range(len(nums)):
+        if bin(i)[2:].count("1") == k:
+            total += nums[i]
+    return total
