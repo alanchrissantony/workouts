@@ -12540,3 +12540,23 @@ def print_grid(grid: list) -> None:
     """
     for row in grid:
         print(" ".join(str(x) for x in row))
+
+
+# --- Next Function Block ---
+
+
+
+def sum_unique(nums: list) -> int:
+    """
+    Returns the sum of the numbers that appear exactly once in the list.
+    """
+    total = 0
+    for i in range(len(nums)):
+        unique = True
+        for j in range(len(nums)):
+            if i != j and nums[i] == nums[j]:
+                unique = False
+                break
+        if unique:
+            total += nums[i]
+    return total
