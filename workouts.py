@@ -2583,3 +2583,19 @@ def create_target_array(nums: list, index: list) -> list:
     for num, idx in zip(nums, index):
         target.insert(idx, num)
     return target
+
+
+# --- Next Function Block ---
+
+
+# 17. Common Divisors of Two Numbers
+def common_divisors(a: int, b: int) -> list:
+    """
+    Returns a list of common divisors of a and b.
+    """
+    c = a if a < b else b
+    divisors = []
+    for i in range(1, c + 1):
+        if a % i == 0 and b % i == 0:
+            divisors.append(i)
+    return divisors
