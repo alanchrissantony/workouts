@@ -16726,3 +16726,15 @@ def triple_max_digit_condition(num: str) -> str:
         if (ch * 3) in num and int(ch) > grt:
             grt = int(ch)
     return str(grt) * 3 if grt > -1 else ""
+
+
+# --- Next Function Block ---
+
+
+
+# 13. Count keys in a dictionary.
+def dict_key_count(d: dict) -> int:
+    """
+    Returns the number of keys in dictionary d.
+    """
+    return len(d)
