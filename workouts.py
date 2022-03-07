@@ -987,3 +987,21 @@ def u(size):
                 print(end=" ")
             
         print("\n")
+
+
+# --- Next Function Block ---
+
+
+def v():
+    print("Enter numbers")
+    array = []
+
+    for i in range(0,5):
+        array.append(int(input()))
+    count =0
+    for i in range(4):
+        for j in range(i,5):
+            if(array[i]==array[j]):
+                count = count+1
+                print(i,j)
+    print(count,"*")
