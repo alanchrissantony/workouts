@@ -10998,3 +10998,19 @@ def final_value_after_operations(operations: list) -> int:
         else:
             x -= 1
     return x
+
+
+# --- Next Function Block ---
+
+
+
+def kids_with_greatest_candies(candies: list, extraCandies: int) -> list:
+    """
+    Returns a list of booleans indicating whether each kid can have the greatest number of candies
+    after receiving extraCandies.
+    """
+    max_candies = max(candies)
+    result = []
+    for c in candies:
+        result.append(c + extraCandies >= max_candies)
+    return result
