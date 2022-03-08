@@ -17391,3 +17391,16 @@ def line_length(lines: list, index: int) -> int:
 # 16. Check if two strings have the same character frequencies.
 def same_frequency(s: str, t: str) -> bool:
     return Counter(s) == Counter(t)
+
+
+# --- Next Function Block ---
+
+
+
+# 17. Check if there exists a duplicate element within distance k.
+def contains_nearby_duplicate(nums: list, k: int) -> bool:
+    for i in range(len(nums) - 1):
+        for j in range(i + 1, len(nums)):
+            if nums[i] == nums[j] and abs(i - j) <= k:
+                return True
+    return False
