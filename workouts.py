@@ -29037,3 +29037,35 @@ def compare_halved_string(str1: str, str2: str) -> None:
     while len(str2) > 1:
         print("Comparison:", str1 == str2)
         str2 = str2[:len(str2)//2]
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 4: Rearrange arr1 based on arr2 order.
+def rearrange_based_on(arr1: list, arr2: list) -> list:
+    """
+    For each element in arr2, finds that element in arr1, removes it from its position,
+    and inserts it at the beginning. Finally, returns a new list composed of the reversed
+    block of moved elements concatenated with the sorted remaining elements.
+    
+    Example:
+      arr1 = [2,3,1,3,2,4,6,7,9,2,19]
+      arr2 = [2,1,4,3,9,6]
+      Returns: first block is arr1 elements moved as per arr2 order (reversed) and the rest sorted.
+    """
+    arr1 = arr1.copy()
+    k = 0
+    for el in arr2:
+        # Find and remove all occurrences of el from arr1, but move only one occurrence per loop.
+        # (Based on snippet: remove one occurrence and insert at beginning.)
+        try:
+            idx = arr1.index(el)
+            del arr1[idx]
+            arr1.insert(0, el)
+            k += 1
+        except ValueError:
+            continue
+    # First k elements (in reverse order) concatenated with the sorted rest.
+    return arr1[:k][::-1] + sorted(arr1[k:])
