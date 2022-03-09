@@ -17261,3 +17261,16 @@ def remaining_chars_after_subtraction(s: str, t: str) -> str:
         if freq[ch] > 0:
             res += ch
     return res
+
+
+# --- Next Function Block ---
+
+
+
+# 8. Find the 1-indexed position of the first word in a sentence containing searchWord.
+def find_word_index(sentence: str, searchWord: str) -> int:
+    words = sentence.split()
+    for idx, word in enumerate(words, start=1):
+        if searchWord in word:
+            return idx
+    return -1
