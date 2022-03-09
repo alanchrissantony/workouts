@@ -23282,3 +23282,21 @@ def group_by_binary_ones(arr: list) -> list:
         groups[key].sort()
         result.extend(groups[key])
     return result
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 2. Custom sort: For a list of numbers, if two numbers have equal binary ones count,
+# swap them if needed (this is a variant of a custom sorting approach).
+def custom_sort_by_binary_ones(nums: list) -> list:
+    """
+    Given a list of numbers, sort them primarily by the count of 1's in their binary representation.
+    If two numbers have the same ones count, sort them in ascending order.
+    
+    Example:
+      nums = [75, 34, 30]
+    """
+    # Use a sort key: (binary ones count, value)
+    return sorted(nums, key=lambda x: (bin(x)[2:].count("1"), x))
