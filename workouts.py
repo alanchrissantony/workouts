@@ -19865,3 +19865,39 @@ def quick_sort(arr: list) -> list:
     
     qs(arr, 0, len(arr) - 1)
     return arr
+
+
+# --- Next Function Block ---
+
+
+
+# 10. Quick sort (second variant).
+def quick_sort_variant(nums: list) -> list:
+    """
+    Sorts the list nums in place using a quick sort variant.
+    Returns the sorted list.
+    """
+    def swap(a, i, j):
+        a[i], a[j] = a[j], a[i]
+    
+    def qs(a, start, end):
+        if start >= end:
+            return
+        pivot = start
+        left = start + 1
+        right = end
+        while left <= right:
+            if a[left] > a[pivot] and a[right] < a[pivot]:
+                swap(a, left, right)
+                left += 1
+                right -= 1
+            if left <= end and a[left] <= a[pivot]:
+                left += 1
+            if right >= start and a[right] >= a[pivot]:
+                right -= 1
+        swap(a, pivot, right)
+        qs(a, start, right - 1)
+        qs(a, right + 1, end)
+    
+    qs(nums, 0, len(nums) - 1)
+    return nums
