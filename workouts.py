@@ -14374,3 +14374,14 @@ def sum_of_odd_length_subarrays(arr: list) -> int:
             if (j - i + 1) % 2 == 1:
                 total += sum(arr[i:j+1])
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def format_ip_address(address: str) -> str:
+    """
+    Reformats an IP address by replacing each '.' with '[.]'.
+    """
+    return "[.]".join(address.split("."))
