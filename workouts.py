@@ -23701,3 +23701,23 @@ def find_nth_special(n: int, start: int = 7, initial_count: int = 6) -> int:
                 return i
         i += 1
     return i
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 7:
+# Compare the unique characters in two strings (ignoring order).
+def compare_unique_chars(str1: str, str2: str) -> bool:
+    """
+    Compares two strings by checking if the set of unique characters in each is the same.
+    
+    Example:
+      str1 = "TAUXXTAUXXTAUXXTAUXXTAUXX"
+      str2 = "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX"
+      Returns True if both have the same unique characters.
+    """
+    set1 = set(str1)
+    set2 = set(str2)
+    return set1 == set2
