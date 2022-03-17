@@ -767,3 +767,17 @@ def g(n):
         for k in range(1):
             print("*",end=" ")
         print("\n")
+
+
+# --- Next Function Block ---
+
+
+def h(n):
+    run=True
+    for i in range(1, n+1):
+        for j in range(1, n+1):
+            if j>n-i:
+                print("",j,end="")
+            else:
+                print(end=" ")
+        print("\n")
