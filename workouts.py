@@ -17898,3 +17898,17 @@ def print_squares(arr):
 # 20. Use reduce to sum a list.
 def reduce_sum_example(arr):
     return functools.reduce(lambda x, y: x + y, arr)
+
+
+# --- Next Function Block ---
+
+
+
+# 21. Check if string s is equal to a concatenation of a's followed by b's.
+def check_ordered_chars(s):
+    """
+    Returns True if s equals all its 'a's followed by all its 'b's.
+    """
+    a_part = "a" * s.count("a")
+    b_part = "b" * s.count("b")
+    return s == a_part + b_part
