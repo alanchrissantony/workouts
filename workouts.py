@@ -659,3 +659,26 @@ def merge_lists(list1: list, list2: list, a: int, b: int) -> list:
       Returns: list1[:3] + list2 + list1[b+1:].
     """
     return list1[:a] + list2 + list1[b+1:]
+
+
+# --- Next Function Block ---
+
+
+
+
+
+def a(n):
+    for i in range(0,n+1):
+        a = i
+        for k in range(n-i):
+            print(end=" ")
+        b=False
+        for j in range(1, 2*i-2):
+            print(a, end="")
+            if a<3:
+                b=True
+            if b:
+                a+=1
+            else:
+                a-=1
+        print("\r")
