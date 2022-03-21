@@ -22534,3 +22534,27 @@ def min_index_sum_common(list1: list, list2: list) -> str:
                 res = list1[i]
         i += 1
     return res
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Snippet B: Remove a contiguous block of k digits from a number string and return the minimum result.
+def remove_block_and_min(num: str, k: int) -> str:
+    """
+    Given a number as a string and an integer k, removes k consecutive characters (if possible)
+    at every possible starting index, converts the result to an integer, and returns the smallest value
+    (as a string). If no block removal is possible, returns "0".
+    """
+    results = []
+    i = 0
+    # Only consider positions where removal of k digits is possible.
+    while i <= len(num) - k:
+        try:
+            candidate = int(num[:i] + num[i+k:])
+            results.append(candidate)
+        except Exception:
+            pass
+        i += 1
+    return str(min(results)) if results else "0"
