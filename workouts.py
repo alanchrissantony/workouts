@@ -9171,3 +9171,16 @@ def intersect_three_lists(nums1: list, nums2: list, nums3: list) -> list:
     # Intersection among any two:
     inter = (set1 & set2) | (set1 & set3) | (set2 & set3)
     return list(inter)
+
+
+# --- Next Function Block ---
+
+
+
+# 30. Check if all characters in a string occur with equal frequency.
+def all_equal_frequency(s: str) -> bool:
+    """
+    Returns True if all characters in s have the same frequency; otherwise False.
+    """
+    freq = {ch: s.count(ch) for ch in s}
+    return len(set(freq.values())) == 1
