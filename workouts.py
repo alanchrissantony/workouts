@@ -29788,3 +29788,18 @@ def multiply_lambda(x, y):
     """
     d = lambda x, y: x * y
     return d(x, y)
+
+
+# --- Next Function Block ---
+
+
+# ---------------------------
+# 6. Dictionary of Squares from a List
+def dict_of_squares(arr: list) -> dict:
+    """
+    Returns a dictionary where each key is an element from arr and its value is the square of that element.
+    """
+    result = {}
+    for x in arr:
+        result[x] = x * x
+    return result
