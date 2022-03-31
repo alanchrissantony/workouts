@@ -9221,3 +9221,23 @@ def most_frequent_prefix(strs: list) -> str:
             if not prefix:
                 return ""
     return prefix
+
+
+# --- Next Function Block ---
+
+
+
+# 74. Find all common prefixes from the first string that appear in every string.
+def all_common_prefixes(strs: list) -> list:
+    """
+    Returns a list of all prefixes of the first string that are common to all strings in the list.
+    """
+    if not strs:
+        return []
+    common = []
+    base = strs[0]
+    for i in range(1, len(base) + 1):
+        prefix = base[:i]
+        if all(s.startswith(prefix) for s in strs):
+            common.append(prefix)
+    return common
