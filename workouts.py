@@ -8512,3 +8512,15 @@ def sum_of_subarrays_with_odd_length(arr: list) -> int:
             if (j - i + 1) % 2 == 1:
                 total += sum(arr[i:j+1])
     return total
+
+
+# --- Next Function Block ---
+
+
+def reformat_ip(address: str) -> str:
+    """
+    Reformats an IP address by inserting "[.]" between segments.
+    Example: "1.1.1.1" -> "1[.]1[.]1[.]1"
+    """
+    parts = address.split(".")
+    return "[.]".join(parts)
