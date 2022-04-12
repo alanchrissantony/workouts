@@ -24468,3 +24468,25 @@ def compare_occurrence_counts(s: str, t: str) -> bool:
         t_counts.append(t[i:].count(t[i]))
         t_counts.append(t[:i].count(t[i]))
     return s_counts == t_counts
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 4: Map a pattern to characters from a string.
+def pattern_to_mapping(pattern: str, s: str) -> (dict, list):
+    """
+    Given a pattern and a string, first removes spaces from s, then zips the pattern
+    and the string to build a mapping (dictionary). Also returns a list of mapped values
+    corresponding to the characters in the pattern.
+    
+    Example:
+      pattern = "abba", s = "dog cat cat fish"
+      After removing spaces, s becomes "dogcatcatfish".
+      Mapping is built by zipping pattern and s (up to the length of pattern).
+    """
+    s = s.replace(" ", "")
+    mapping = {p: ch for p, ch in zip(pattern, s)}
+    mapped_list = [mapping[p] for p in pattern]
+    return mapping, mapped_list
