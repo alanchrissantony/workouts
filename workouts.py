@@ -21436,3 +21436,42 @@ def longest_palindrome_length(s: str) -> int:
             length += count - 1
             odd_found = True
     return length + 1 if odd_found else length
+
+
+# --- Next Function Block ---
+
+
+# --- Rearrange Digits with Odd Priority ---
+def rearrange_digits_with_odd_priority(num: str) -> str:
+    """
+    Rearranges the digits of num based on frequency:
+      - For digits with even frequency, inserts them evenly.
+      - For digits with odd frequency, selects the digit with highest count
+        and inserts its block into the middle.
+    Returns the resulting string.
+    (This function replicates the provided snippet logic.)
+    """
+    freq = dict(Counter(num))
+    sorted_keys = sorted(freq.keys(), reverse=True)
+    result = ""
+    odd_block = ""
+    max_odd = 0
+    for key in sorted_keys:
+        count_val = freq[key]
+        if count_val % 2 == 0:
+            mid = len(result) // 2
+            result = result[:mid] + key * count_val + result[mid:]
+        else:
+            if count_val > max_odd:
+                max_odd = count_val
+                odd_block = key * count_val
+            else:
+                mid = len(result) // 2
+                result = result[:mid] + key * (count_val - 1) + result[mid:]
+    if odd_block:
+        mid = len(result) // 2
+        result = result[:mid] + odd_block + result[mid:]
+    try:
+        return str(int(result))
+    except Exception:
+        return result
