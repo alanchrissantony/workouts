@@ -18590,3 +18590,19 @@ def min_max_game(nums: list) -> int:
             new_nums.append(nums[-1])
         nums = new_nums
     return nums[0]
+
+
+# --- Next Function Block ---
+
+
+# 10. Interleave even and odd numbers from a list.
+def interleave_even_odd(nums: list) -> list:
+    even = [x for x in nums if x % 2 == 0]
+    odd = [x for x in nums if x % 2 != 0]
+    result = []
+    for i in range(max(len(even), len(odd))):
+        if i < len(even):
+            result.append(even[i])
+        if i < len(odd):
+            result.append(odd[i])
+    return result
