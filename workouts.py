@@ -16131,3 +16131,23 @@ def sum_unique(nums: list) -> int:
         if unique:
             total += nums[i]
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def sum_with_pattern(n: int) -> int:
+    """
+    For n iterations, accumulates a sum based on an increasing count and a position that resets every 7 counts.
+    """
+    total = 0
+    count = 0
+    pos = 1
+    for _ in range(n):
+        if count == 7:
+            count = 0
+            pos += 1
+        total += count + pos
+        count += 1
+    return total
