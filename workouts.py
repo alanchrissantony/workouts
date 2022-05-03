@@ -28267,3 +28267,21 @@ def contains_nearby_duplicate_bruteforce(nums: list, k: int) -> bool:
             j += 1
         i += 1
     return False
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 3: Check for Duplicates Within a Window (Using Dictionary)
+def contains_nearby_duplicate_dict(nums: list, k: int) -> bool:
+    """
+    Checks for nearby duplicates in nums (distance <= k) using a dictionary
+    to store the last seen index of each element.
+    """
+    last_index = {}
+    for i, num in enumerate(nums):
+        if num in last_index and i - last_index[num] <= k:
+            return True
+        last_index[num] = i
+    return False
