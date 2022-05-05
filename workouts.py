@@ -29446,3 +29446,34 @@ def merge(arr):
     right=arr[mid:]
 
     return join(merge(left), merge(right))
+
+
+# --- Next Function Block ---
+
+
+
+
+def quick(start, end):
+    if start>=end:
+        return
+    
+    pivot = start
+    left = start+1
+    right = end
+
+    while left<=right:
+        if ls[left]>ls[pivot] and ls[right]<ls[pivot]:
+            ls[left], ls[right] = ls[right], ls[left]
+            left+=1
+            right-=1
+        
+        if ls[left]<=ls[pivot]:
+            left+=1
+        
+        if ls[right]>=ls[pivot]:
+            right-=1
+    
+    ls[pivot], ls[right] = ls[right], ls[pivot]
+    quick(start, right-1)
+    quick(right+1, end)
+    return ls
