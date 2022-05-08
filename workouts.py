@@ -18172,3 +18172,36 @@ def max_ones_row(mat: list) -> tuple:
             max_count = cnt
             index = i
     return index, max_count
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 10 ---
+def process_prev_words_variant(words: list) -> list:
+    """
+    A variant that, when encountering "prev", removes that word and
+    if possible, removes and returns the integer of the previous element.
+    Returns the collected list.
+    """
+    result = []
+    i = 0
+    words = words[:]  # copy
+    while i < len(words):
+        if words[i] == "prev":
+            if i > 0:
+                result.append(int(words[i - 1]))
+                del words[i - 1]
+                i -= 1
+            else:
+                result.append(-1)
+            del words[i]
+            i = max(i - 1, 0)
+        else:
+            try:
+                words[i] = int(words[i])
+            except ValueError:
+                pass
+            i += 1
+    return result
