@@ -16738,3 +16738,23 @@ def dict_key_count(d: dict) -> int:
     Returns the number of keys in dictionary d.
     """
     return len(d)
+
+
+# --- Next Function Block ---
+
+
+
+# 14. Check if both left and right values appear in any of the given ranges.
+def check_range(ranges: list, left: int, right: int) -> bool:
+    """
+    Checks if left and right exist in any range (list of two numbers) from ranges.
+    Returns True if both found; otherwise False.
+    """
+    isLeft = False
+    isRight = False
+    for r in ranges:
+        if left in r or isLeft:
+            isLeft = True
+            if right in r:
+                isRight = True
+    return isLeft and isRight
