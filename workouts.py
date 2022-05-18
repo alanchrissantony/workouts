@@ -23961,3 +23961,28 @@ def remove_excess_duplicates(nums: list, max_allowed: int = 2) -> int:
         else:
             i += 1
     return len(nums)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 18:
+# Sort a list, then perform pairwise swapping starting at index 1 and from the end.
+def pairwise_swap_after_sort(nums: list) -> list:
+    """
+    Sorts nums in ascending order. Then, starting at index 1 and the end of the list,
+    swaps elements pairwise (incrementing index by 2 from the start and decrementing from the end).
+    Returns the modified list.
+    
+    Example:
+      nums = [1,5,1,1,6,4] → after sorting: [1,1,1,4,5,6] → after pairwise swap, e.g. [1,6,1,4,5,1]
+    """
+    nums = sorted(nums)
+    i = 1
+    j = len(nums) - 1
+    while i < j:
+        nums[i], nums[j] = nums[j], nums[i]
+        i += 2
+        j -= 1
+    return nums
