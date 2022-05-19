@@ -10175,3 +10175,22 @@ def print_symmetric_pairs(s: str) -> None:
     size = len(s)
     for i in range(size // 2):
         print(s[i], s[size - 1 - i])
+
+
+# --- Next Function Block ---
+
+
+
+def max_area(height: list) -> int:
+    """
+    Given a list of heights, returns the maximum area formed by two indices,
+    defined as min(height[i], height[j]) * (j - i). (O(n^2) brute force approach.)
+    """
+    max_area_val = 0
+    size = len(height)
+    for i in range(size - 1):
+        for j in range(i + 1, size):
+            area = min(height[i], height[j]) * (j - i)
+            if area > max_area_val:
+                max_area_val = area
+    return max_area_val
