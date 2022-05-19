@@ -22913,3 +22913,34 @@ def remove_block_and_min(num: str, k: int) -> str:
         except Exception:
             pass
     return str(min(results)) if results else "0"
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 3. Remove Increasing Pairs from a List
+def remove_increasing_pairs(nums: list) -> list:
+    """
+    Iterates over the list and removes pairs (by deleting both elements)
+    whenever an earlier element is less than a later one.
+    This function works destructively and returns the resulting list.
+    
+    Example:
+      nums = [2,3,4,4,4]
+      (One interpretation: if a pair (a, b) with a < b is found, remove both.)
+    """
+    nums = nums.copy()  # Work on a copy.
+    i = 0
+    while i < len(nums) - 1:
+        j = i + 1
+        while j < len(nums):
+            if nums[i] < nums[j]:
+                del nums[j]
+                del nums[i]
+                i = max(i - 1, 0)
+                break
+            else:
+                j += 1
+        i += 1
+    return nums
