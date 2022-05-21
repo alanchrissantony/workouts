@@ -4105,3 +4105,27 @@ def has_exactly_three_divisors(n: int) -> bool:
     """
     count = sum(1 for i in range(1, n + 1) if n % i == 0)
     return count == 3
+
+
+# --- Next Function Block ---
+
+
+
+def check_reordering(nums: list) -> bool:
+    """
+    Attempts to reorder a list based on a nested loop strategy and checks if the
+    resulting list equals the sorted version of the original list.
+    (Logic follows the provided snippet; behavior may be non-standard.)
+    """
+    original_sorted = sorted(nums)
+    arr = []
+    i = 0
+    nums_copy = nums[:]
+    while i < len(nums_copy) - 1:
+        if nums_copy[i + 1] < nums_copy[i]:
+            j = i + 1
+            while j < len(nums_copy):
+                arr.append(nums_copy[j])
+                del nums_copy[j]
+        i += 1
+    return (arr + nums_copy) == original_sorted
