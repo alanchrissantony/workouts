@@ -23113,3 +23113,26 @@ def sum_by_index_bitcount(nums: list, k: int) -> int:
         if bin(i)[2:].count("1") == k:
             total += nums[i]
     return total
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 11. Transpose a Matrix
+def transpose_matrix(matrix: list) -> list:
+    """
+    Returns the transpose of the given 2D matrix.
+    Assumes matrix is non-empty and rectangular.
+    """
+    if not matrix:
+        return []
+    rows = len(matrix)
+    cols = len(matrix[0])
+    transposed = []
+    for j in range(cols):
+        new_row = []
+        for i in range(rows):
+            new_row.append(matrix[i][j])
+        transposed.append(new_row)
+    return transposed
