@@ -23353,3 +23353,23 @@ def date_to_day(date_str: str, month_days: list = None) -> int:
         return sum(month_days[:month-1]) + day
     else:
         return day
+
+
+# --- Next Function Block ---
+
+
+# Compute the overlap in days between two date ranges.
+def overlapping_days(arrive1: str, leave1: str, arrive2: str, leave2: str) -> int:
+    """
+    Given two date ranges in "MM-DD" format (arrive and leave for two persons),
+    converts each to day-of-year and returns the count of overlapping days.
+    """
+    d1 = date_to_day(arrive1)
+    d2 = date_to_day(leave1)
+    d3 = date_to_day(arrive2)
+    d4 = date_to_day(leave2)
+    
+    # Determine the overlapping range.
+    start = max(d1, d3)
+    end = min(d2, d4)
+    return max(0, end - start + 1)
