@@ -18521,3 +18521,18 @@ def count_peaks_valleys(nums: list) -> int:
         elif dedup[i] < dedup[i-1] and dedup[i] < dedup[i+1]:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# 5. Return the minimal subset (from largest values) whose sum is greater than the sum of the rest
+def min_subset_exceeding_rest(nums: list) -> list:
+    nums.sort(reverse=True)
+    total = sum(nums)
+    subset_sum = 0
+    k = 0
+    while subset_sum <= total - subset_sum:
+        subset_sum += nums[k]
+        k += 1
+    return nums[:k]
