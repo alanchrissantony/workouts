@@ -16299,3 +16299,21 @@ def sum_of_triangle_row_mins(triangle: list) -> int:
     for row in triangle:
         total += min(row)
     return total
+
+
+# --- Next Function Block ---
+
+
+def remove_digit_and_record_indices(number: str, digit: str) -> (str, list):
+    """
+    Removes occurrences of digit from number and records the indices (of digit in original).
+    Returns a tuple of (modified string, list of indices where digit was found).
+    """
+    indices = []
+    result = ""
+    for idx, ch in enumerate(number):
+        if ch == digit:
+            indices.append(idx)
+        else:
+            result += ch
+    return result, indices
