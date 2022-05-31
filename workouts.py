@@ -25596,3 +25596,15 @@ def merge(arr):
     right=arr[mid:]
 
     return join(merge(left), merge(right))
+
+
+# --- Next Function Block ---
+
+
+
+
+
+def swap(arr, left, right):
+    temp=arr[left]
+    arr[left]=arr[right]
+    arr[right]=temp
