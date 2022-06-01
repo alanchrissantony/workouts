@@ -25519,3 +25519,40 @@ def find_anagram_indices(s: str, p: str) -> list:
         if sorted(s[i:i+l]) == sorted_p:
             result.append(i)
     return result
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 6: Find the minimum window substring of s that contains all characters of t.
+def min_window_substring(s: str, t: str) -> str:
+    """
+    Finds the minimum window in s that contains all characters of t.
+    If no such window exists, returns an empty string.
+    
+    Uses a sliding window approach with two pointers.
+    """
+    if not s or not t:
+        return ""
+    dict_t = Counter(t)
+    required = len(dict_t)
+    l, r = 0, 0
+    formed = 0
+    window_counts = {}
+    ans = float("inf"), None, None
+    while r < len(s):
+        character = s[r]
+        window_counts[character] = window_counts.get(character, 0) + 1
+        if character in dict_t and window_counts[character] == dict_t[character]:
+            formed += 1
+        while l <= r and formed == required:
+            if r - l + 1 < ans[0]:
+                ans = (r - l + 1, l, r)
+            character = s[l]
+            window_counts[character] -= 1
+            if character in dict_t and window_counts[character] < dict_t[character]:
+                formed -= 1
+            l += 1
+        r += 1
+    return "" if ans[0] == float("inf") else s[ans[1]:ans[2]+1]
