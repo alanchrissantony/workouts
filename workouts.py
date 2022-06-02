@@ -6234,3 +6234,27 @@ def print_excel_columns(n: int) -> None:
     """
     for i in range(n):
         print(chr(ord('A') + i))
+
+
+# --- Next Function Block ---
+
+
+
+def reformat_text(text: str) -> str:
+    """
+    Trims the text and redistributes spaces evenly between words.
+    (A simple approach; edge cases may vary.)
+    """
+    words = text.strip().split()
+    if len(words) <= 1:
+        return text.strip()
+    total_spaces = text.count(" ")
+    base_spaces = total_spaces // (len(words) - 1)
+    extra_spaces = total_spaces % (len(words) - 1)
+    result = ""
+    for i, word in enumerate(words):
+        result += word
+        if i < len(words) - 1:
+            spaces = base_spaces + (1 if i < extra_spaces else 0)
+            result += " " * spaces
+    return result
