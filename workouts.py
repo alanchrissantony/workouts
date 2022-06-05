@@ -3299,3 +3299,17 @@ def first_k_words(s: str, k: int) -> str:
     """
     words = s.split()
     return " ".join(words[:k])
+
+
+# --- Next Function Block ---
+
+
+
+def compare_word_lists(word1: list, word2: list) -> bool:
+    """
+    Concatenates the elements of both lists (word by word) and compares the resulting strings.
+    Returns True if they are equal.
+    """
+    stg1 = "".join(word1)
+    stg2 = "".join(word2)
+    return stg1 == stg2
