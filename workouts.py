@@ -18501,3 +18501,23 @@ def remove_common_elements(nums1: list, nums2: list) -> (list, list):
         while x in nums2:
             nums2.remove(x)
     return nums1, nums2
+
+
+# --- Next Function Block ---
+
+
+# 4. Count peaks and valleys after removing consecutive duplicates
+def count_peaks_valleys(nums: list) -> int:
+    if not nums:
+        return 0
+    dedup = [nums[0]]
+    for x in nums[1:]:
+        if x != dedup[-1]:
+            dedup.append(x)
+    count = 0
+    for i in range(1, len(dedup)-1):
+        if dedup[i] > dedup[i-1] and dedup[i] > dedup[i+1]:
+            count += 1
+        elif dedup[i] < dedup[i-1] and dedup[i] < dedup[i+1]:
+            count += 1
+    return count
