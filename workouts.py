@@ -303,3 +303,22 @@ def remove_until_sorted(nums: list) -> (list, int):
                 i += 1
         count += 1
     return nums, count
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 14: Count common elements in two lists.
+def count_common_elements(head: list, nums: list) -> int:
+    """
+    Counts how many elements in 'head' are also present in 'nums'.
+    
+    Example:
+      head = [0,1,2,3], nums = [0,1,3] → returns 3.
+    """
+    count = 0
+    for item in head:
+        if item in nums:
+            count += 1
+    return count
