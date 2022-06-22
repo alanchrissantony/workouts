@@ -3783,3 +3783,22 @@ def print_pattern_2(n: int) -> None:
             else:
                 print("  ", end="")
         print()
+
+
+# --- Next Function Block ---
+
+
+
+def reconstruct_from_pieces(arr: list, pieces: list) -> (bool, list):
+    """
+    Tries to reconstruct the array by selecting unique pieces from 'pieces' that appear in 'arr'.
+    Flattens the collected pieces and compares the result with arr.
+    Returns a tuple (is_equal, reconstructed_array).
+    """
+    collected = []
+    used = []
+    for piece in pieces:
+        if piece not in used and any(num in arr for num in piece):
+            used.append(piece)
+            collected.extend(piece)
+    return (collected == arr, collected)
