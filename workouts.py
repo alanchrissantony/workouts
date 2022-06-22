@@ -22507,3 +22507,30 @@ def count_subarrays_with_at_least_three_uniques(nums: list) -> int:
                 count += 1
                 break
     return count
+
+
+# --- Next Function Block ---
+
+
+
+# ------------------------------------------------------------------
+# Snippet A: Find the common restaurant with the minimum index sum.
+def min_index_sum_common(list1: list, list2: list) -> str:
+    """
+    Given two lists of strings (e.g., restaurant names), returns the common name with the minimum index sum.
+    If the lists are of different lengths, the function swaps them so that list1 is always the shorter.
+    """
+    # Ensure list1 is the shorter list.
+    if len(list1) > len(list2):
+        list1, list2 = list2, list1
+    res = ""
+    min_sum = len(list1) + len(list2)  # initialize with a large value
+    i = 0
+    while i < len(list1):
+        if list1[i] in list2:
+            index_sum = i + list2.index(list1[i])
+            if index_sum < min_sum:
+                min_sum = index_sum
+                res = list1[i]
+        i += 1
+    return res
