@@ -18245,3 +18245,21 @@ def sort_by_height(names: list, heights: list) -> (list, list):
     combined.sort(reverse=True, key=lambda x: x[0])
     sorted_heights, sorted_names = zip(*combined)
     return list(sorted_names), list(sorted_heights)
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 14 ---
+def sort_by_frequency(nums: list) -> list:
+    """
+    Returns a new list of numbers sorted by frequency (ascending) using the frequency dictionary,
+    with each number repeated according to its frequency.
+    """
+    freq = Counter(nums)
+    sorted_items = sorted(freq.items(), key=lambda x: x[1])
+    result = []
+    for num, count in sorted_items:
+        result.extend([num] * count)
+    return result
