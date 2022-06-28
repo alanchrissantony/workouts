@@ -8214,3 +8214,17 @@ def count_by_rule(items: list, ruleKey: str, ruleValue: str) -> int:
         if pos < len(item) and item[pos] == ruleValue:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def print_grid(grid: list) -> None:
+    """
+    Prints all elements of a 2D grid.
+    """
+    for row in grid:
+        for elem in row:
+            print(elem, end=" ")
+        print()
