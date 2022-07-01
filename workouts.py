@@ -2558,3 +2558,14 @@ def count_unique_numbers_in_intervals(intervals: list) -> int:
     for start, end in intervals:
         unique_nums.update(range(start, end + 1))
     return len(unique_nums)
+
+
+# --- Next Function Block ---
+
+
+# 15. Return Length of List
+def list_length(lst: list) -> int:
+    """
+    Returns the length of lst.
+    """
+    return len(lst)
