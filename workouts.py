@@ -25608,3 +25608,28 @@ def swap(arr, left, right):
     temp=arr[left]
     arr[left]=arr[right]
     arr[right]=temp
+
+
+# --- Next Function Block ---
+
+
+def helper(arr, start, end):
+    if start>=end:
+        return arr
+    pivot=start
+    left=start+1
+    right=end
+
+    while left<=right:
+        if arr[left]>arr[pivot] and arr[right]<arr[pivot]:
+            swap(arr, left, right)
+            left+=1
+            right-=1
+        if arr[left]<=arr[pivot]:
+            left+=1
+        if arr[right]>=arr[pivot]:
+            right-=1
+    swap(arr, pivot, right)
+    helper(arr, start,right-1)
+    helper(arr, right+1, end)
+    return arr
