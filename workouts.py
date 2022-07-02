@@ -23329,3 +23329,27 @@ def extra_frequency_needed(s: str, t: str) -> int:
         else:
             extra += sCount[ch]
     return extra
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 4. Convert a "MM-DD" date to day-of-year.
+def date_to_day(date_str: str, month_days: list = None) -> int:
+    """
+    Given a date string in "MM-DD" format, returns the day-of-year (assuming a non-leap year).
+    Optionally, a list of month lengths may be provided.
+    
+    Example:
+      date_str = "01-20" returns 20.
+      date_str = "04-18" returns sum of days in Jan, Feb, Mar plus 18.
+    """
+    if month_days is None:
+        month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    month = int(date_str[:2])
+    day = int(date_str[3:])
+    if month > 1:
+        return sum(month_days[:month-1]) + day
+    else:
+        return day
