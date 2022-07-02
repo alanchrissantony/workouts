@@ -1821,3 +1821,25 @@ def insert_zeros_after_even(nums: list) -> list:
         else:
             i += 1
     return nums
+
+
+# --- Next Function Block ---
+
+
+
+def remove_two_after_condition(arr: list) -> list:
+    """
+    If an element in arr is divisible by 5 and there's a next element, remove the next two elements.
+    (Note: This logic is based on the given code and may remove fewer than two if not available.)
+    """
+    arr = arr[:]  # copy
+    i = 0
+    while i < len(arr) - 1:
+        if arr[i] % 5 == 0:
+            # Remove next two elements if possible.
+            if i+1 < len(arr):
+                arr.pop(i+1)
+            if i+1 < len(arr):
+                arr.pop(i+1)
+        i += 1
+    return arr
