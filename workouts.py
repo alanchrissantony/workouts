@@ -13988,3 +13988,21 @@ def normalize_emails(emails: list) -> list:
         local = local.split('+')[0].replace('.', '')
         return local + '@' + domain
     return [normalize(email) for email in emails]
+
+
+# --- Next Function Block ---
+
+
+
+def adjust_prices(prices: list) -> list:
+    """
+    For each price in the list, finds the first subsequent smaller price and subtracts it from the current price.
+    Returns the modified list.
+    """
+    adjusted = prices[:]
+    for i in range(len(adjusted) - 1):
+        for j in range(i + 1, len(adjusted)):
+            if adjusted[i] > adjusted[j]:
+                adjusted[i] -= adjusted[j]
+                break
+    return adjusted
