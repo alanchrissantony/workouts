@@ -17404,3 +17404,23 @@ def contains_nearby_duplicate(nums: list, k: int) -> bool:
             if nums[i] == nums[j] and abs(i - j) <= k:
                 return True
     return False
+
+
+# --- Next Function Block ---
+
+
+
+# 18. Simplify Unix path.
+def simplify_path(path: str) -> str:
+    # A simple implementation using a stack.
+    parts = path.split('/')
+    stack = []
+    for part in parts:
+        if part == '' or part == '.':
+            continue
+        elif part == '..':
+            if stack:
+                stack.pop()
+        else:
+            stack.append(part)
+    return "/" + "/".join(stack)
