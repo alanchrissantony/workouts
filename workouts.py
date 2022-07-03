@@ -17795,3 +17795,18 @@ def reduce_sum(arr):
     Returns the sum of elements in arr using reduce.
     """
     return functools.reduce(lambda x, y: x + y, arr)
+
+
+# --- Next Function Block ---
+
+
+
+# 16. Decorator that prints a message before a function.
+def hey_decorator(func):
+    """
+    A decorator that prints 'hey' before calling the function.
+    """
+    def wrapper(*args, **kwargs):
+        print("hey")
+        return func(*args, **kwargs)
+    return wrapper
