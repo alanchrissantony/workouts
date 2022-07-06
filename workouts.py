@@ -11308,3 +11308,16 @@ def sum_odd_length_subarrays(arr: list) -> int:
             if (j - i + 1) % 2 == 1:
                 total += sum(arr[i:j+1])
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def format_ip_address(address: str) -> str:
+    """
+    Inserts "[.]" between each segment of an IP address.
+    Example: "1.1.1.1" -> "1[.]1[.]1[.]1"
+    """
+    parts = address.split(".")
+    return "[.]".join(parts)
