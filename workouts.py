@@ -18801,3 +18801,14 @@ def interleave_lists_zip(arr1: list, arr2: list) -> list:
 # 27. Use reduce to sum a list.
 def reduce_sum(arr: list) -> int:
     return functools.reduce(lambda x, y: x + y, arr)
+
+
+# --- Next Function Block ---
+
+
+# 28. Reverse words order in a sentence.
+# (Same as function reverse_words.)
+
+# 29. Count frequency of elements in a list (returns dictionary).
+def frequency_dict(arr: list) -> dict:
+    return dict(Counter(arr))
