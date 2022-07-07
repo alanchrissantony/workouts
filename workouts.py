@@ -22832,3 +22832,27 @@ def bit_flip_operations(start: int, goal: int, pad_length: int = 30) -> int:
         if bin_start[i] != bin_goal[i]:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Additional Snippet: Rearrange list of numbers by interleaving even and odd numbers.
+def interleave_even_odd(nums: list) -> list:
+    """
+    Separates even and odd numbers from nums, sorts even in ascending order and odd in descending order,
+    then interleaves them. If one list is longer, appends the remainder.
+    """
+    evens = sorted([x for x in nums if x % 2 == 0])
+    odds  = sorted([x for x in nums if x % 2 != 0], reverse=True)
+    result = []
+    i = 0
+    while i < len(evens) and i < len(odds):
+        result.append(evens[i])
+        result.append(odds[i])
+        i += 1
+    # Append remaining elements
+    result.extend(evens[i:])
+    result.extend(odds[i:])
+    return result
