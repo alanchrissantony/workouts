@@ -2795,3 +2795,22 @@ def test_vehicle_class():
     car = Vehicle()
     car.display()
     del car
+
+
+# --- Next Function Block ---
+
+
+# 30. Most Frequent Element in a List
+def most_frequent_element(nums: list) -> int:
+    """
+    Returns the element with the highest frequency in nums.
+    """
+    freq = {}
+    max_count = 0
+    max_elem = None
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+        if freq[num] > max_count:
+            max_count = freq[num]
+            max_elem = num
+    return max_elem
