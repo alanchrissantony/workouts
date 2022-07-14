@@ -10041,3 +10041,24 @@ def modify_number(num: int) -> int:
         count += 1
         temp //= 10
     return modified
+
+
+# --- Next Function Block ---
+
+
+
+def pascal_row(row_index: int) -> list:
+    """
+    Returns the row_index-th row of Pascal's Triangle.
+    Example: row_index=0 returns [1], row_index=1 returns [1,1], etc.
+    """
+    triangle = []
+    for i in range(row_index + 1):
+        row = [1]
+        if i > 0:
+            prev = triangle[-1]
+            for j in range(1, i):
+                row.append(prev[j-1] + prev[j])
+            row.append(1)
+        triangle.append(row)
+    return triangle[row_index]
