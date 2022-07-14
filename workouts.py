@@ -10953,3 +10953,20 @@ def max_account_value(accounts: list) -> int:
         if total > max_val:
             max_val = total
     return max_val
+
+
+# --- Next Function Block ---
+
+
+
+def count_equal_pairs(nums: list) -> int:
+    """
+    Counts the number of pairs (i, j) with i < j such that nums[i] == nums[j].
+    """
+    count = 0
+    n = len(nums)
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            if nums[i] == nums[j]:
+                count += 1
+    return count
