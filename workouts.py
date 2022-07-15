@@ -15823,3 +15823,19 @@ def reorder_string(s: str, indices: list) -> str:
     # Sort by index and join the characters.
     result = "".join(mapping[i] for i in sorted(mapping))
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def running_sum(nums: list) -> list:
+    """
+    Returns a list of the running (cumulative) sum of nums.
+    """
+    total = 0
+    result = []
+    for num in nums:
+        total += num
+        result.append(total)
+    return result
