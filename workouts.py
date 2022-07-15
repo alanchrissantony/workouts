@@ -8156,3 +8156,19 @@ def equal_half_vowels(s: str) -> bool:
     count_first = sum(1 for ch in first_half if ch in vowels)
     count_second = sum(1 for ch in second_half if ch in vowels)
     return count_first == count_second
+
+
+# --- Next Function Block ---
+
+
+
+def election_winner(votes: list) -> str:
+    """
+    Given a list of votes (strings), returns the candidate with the most votes.
+    """
+    vote_counts = {}
+    for vote in votes:
+        vote_counts[vote] = vote_counts.get(vote, 0) + 1
+    # Find candidate with maximum votes
+    winner = max(vote_counts.items(), key=lambda x: x[1])[0]
+    return winner
