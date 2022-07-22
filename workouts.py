@@ -3257,3 +3257,17 @@ def count_odds(low: int, high: int) -> int:
         if i % 2 != 0:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def rearrange_string(s: str, indices: list) -> str:
+    """
+    Rearranges characters in s according to indices.
+    """
+    mapping = {index: char for index, char in zip(indices, s)}
+    sorted_mapping = dict(sorted(mapping.items()))
+    result = "".join(sorted_mapping[i] for i in sorted_mapping)
+    return result
