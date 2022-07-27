@@ -24190,3 +24190,24 @@ def target_first_last_indices(nums: list, target: int) -> tuple:
         return (first, last)
     else:
         return (-1, -1)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 2: Rank the elements in an array.
+def rank_array(arr: list) -> (list, dict):
+    """
+    Given an array, creates a ranking dictionary based on the sorted unique values.
+    Each value is assigned a rank starting at 1.
+    The function then replaces each element in the original list with its rank.
+    
+    Example:
+      arr = [40,10,20,30]
+      Returns: ([4,1,2,3], {10: 1, 20: 2, 30: 3, 40: 4})
+    """
+    unique_sorted = sorted(set(arr))
+    ranking = {val: idx+1 for idx, val in enumerate(unique_sorted)}
+    ranked_arr = [ranking[val] for val in arr]
+    return ranked_arr, ranking
