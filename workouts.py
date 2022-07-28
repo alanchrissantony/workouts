@@ -9727,3 +9727,44 @@ def remove_two_after_condition(arr: list) -> list:
                 arr.pop(i+1)
         i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+
+def check_coordinate_difference(coordinates: list) -> bool:
+    """
+    Given a list of [x,y] coordinates, attempts to check if the differences between consecutive coordinates are consistent.
+    (The original logic is ambiguous; this function mimics the provided approach.)
+    """
+    if not coordinates:
+        return True
+    diff = coordinates[0][0] - coordinates[0][1]
+    diffx = []
+    diffy = []
+    h = 0
+    out = True
+    for i in range(len(coordinates)):
+        k = coordinates[i]
+        if i < len(coordinates) - 1:
+            l = coordinates[i+1]
+        for j in range(len(k) - 1):
+            if diff:
+                if k[0] - k[1] == diff:
+                    if i < len(coordinates) - 1:
+                        diffx.append(l[0] - k[0])
+                        diffy.append(l[1] - k[1])
+                        if h > 0 and diffx[h-1] == diffx[h] and diffy[h-1] == diffy[h]:
+                            h += 1
+                        elif diff != 0 and diffx[h] % diff == 0 and diffy[h] % diff == 0:
+                            h += 1
+                        else:
+                            out = False
+                            break
+                else:
+                    out = False
+                    break
+            else:
+                diff = k[0] - k[1]
+    return out
