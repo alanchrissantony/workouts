@@ -16970,3 +16970,24 @@ def shifting_letters(s: str, shifts: list) -> str:
         total %= 26
         res += alphabet[total]
     return res
+
+
+# --- Next Function Block ---
+
+
+
+# 26. Reshape a 1D list into an m x n matrix.
+def reshape_matrix(original: list, m: int, n: int) -> list:
+    """
+    Reshapes the list 'original' into a matrix with m rows and n columns.
+    Assumes len(original) == m * n.
+    """
+    matrix = []
+    k = 0
+    for i in range(m):
+        row = []
+        for j in range(n):
+            row.append(original[k])
+            k += 1
+        matrix.append(row)
+    return matrix
