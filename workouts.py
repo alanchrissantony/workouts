@@ -9365,3 +9365,23 @@ def day_of_year(date_str: str) -> int:
     if (year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)) and month > 2:
         day_count += 1
     return day_count
+
+
+# --- Next Function Block ---
+
+
+# majority_element.py
+def majority_element(nums: list):
+    """
+    Returns the element that occurs most frequently in nums.
+    """
+    freq = {}
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+    max_count = 0
+    majority = None
+    for num, count in freq.items():
+        if count > max_count:
+            max_count = count
+            majority = num
+    return majority
