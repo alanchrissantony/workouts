@@ -18646,3 +18646,18 @@ def summary_ranges(nums: list) -> list:
             ranges.append(f"{start}->{end}")
         i += 1
     return ranges
+
+
+# --- Next Function Block ---
+
+
+# 13. Count operations to reduce num to 0.
+def number_of_operations(num: int) -> int:
+    count = 0
+    while num:
+        if num % 2 == 0:
+            num //= 2
+        else:
+            num -= 1
+        count += 1
+    return count
