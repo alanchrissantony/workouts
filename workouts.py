@@ -27851,3 +27851,24 @@ def concatenate_binaries_and_check(nums: list) -> (str, list):
         else:
             result_flags.append(False)
     return out, result_flags
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 4: Get sorted sliding windows.
+def sorted_sliding_windows(nums: list, k: int) -> list:
+    """
+    Given a list 'nums' and a window size 'k', returns a list containing the sorted version
+    of each contiguous subarray (window) of length k.
+    
+    Example:
+      nums = [1,3,-1,-3,5,3,6,7], k = 3
+      Returns: a list of sorted windows, e.g. [[-1,1,3], [-3,-1,3], ...]
+    """
+    n = len(nums)
+    windows = []
+    for i in range(n - k + 1):
+        windows.append(sorted(nums[i:i+k]))
+    return windows
