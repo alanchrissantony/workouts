@@ -29194,3 +29194,37 @@ def split(arr):
         
         split(left)
         split(right)
+
+
+# --- Next Function Block ---
+
+        
+
+
+
+# ---------------------------
+# 1. Quick Sort Implementation
+def quick_sort(arr: list, start: int = None, end: int = None) -> None:
+    """
+    Sorts the list arr in place using the Quick Sort algorithm.
+    If start and end are not provided, sorts the entire list.
+    """
+    if start is None or end is None:
+        start, end = 0, len(arr) - 1
+    if start >= end:
+        return
+    pivot = start
+    left = start + 1
+    right = end
+    while left <= right:
+        if arr[left] > arr[pivot] and arr[right] < arr[pivot]:
+            arr[left], arr[right] = arr[right], arr[left]
+            left += 1
+            right -= 1
+        if left <= end and arr[left] <= arr[pivot]:
+            left += 1
+        if right >= start and arr[right] >= arr[pivot]:
+            right -= 1
+    arr[pivot], arr[right] = arr[right], arr[pivot]
+    quick_sort(arr, start, right - 1)
+    quick_sort(arr, right + 1, end)
