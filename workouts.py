@@ -2204,3 +2204,15 @@ def min_max_game(nums: list) -> int:
             new_nums.append(nums[-1])
         nums = new_nums
     return nums[0]
+
+
+# --- Next Function Block ---
+
+
+
+def chunk_string(s: str, k: int) -> list:
+    """
+    Splits the string s into chunks of length k.
+    The final chunk may be shorter if s is not divisible by k.
+    """
+    return [s[i:i+k] for i in range(0, len(s), k)]
