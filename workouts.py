@@ -17755,3 +17755,15 @@ def sorted_alphabet_ord():
                'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22,
                'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
     return dict(sorted(mapping.items(), key=lambda item: item[1]))
+
+
+# --- Next Function Block ---
+
+
+
+# 13. Return list of dictionary values.
+def dict_values_list(d):
+    """
+    Given dictionary d, returns a list of its values.
+    """
+    return [d[x] for x in d]
