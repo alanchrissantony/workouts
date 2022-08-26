@@ -10101,3 +10101,28 @@ def chunk_string(s: str, k: int) -> list:
     The final chunk may be shorter if s is not divisible by k.
     """
     return [s[i:i+k] for i in range(0, len(s), k)]
+
+
+# --- Next Function Block ---
+
+
+
+def min_max_game_progression(nums: list) -> list:
+    """
+    Implements the Min Max Game (LeetCode #2293) and returns all intermediate lists.
+    """
+    result = [nums]
+    flag = True
+    while len(result[-1]) > 1:
+        current = result[-1]
+        new_list = []
+        i = 0
+        while i < len(current) - 1:
+            if flag:
+                new_list.append(min(current[i], current[i+1]))
+            else:
+                new_list.append(max(current[i], current[i+1]))
+            flag = not flag
+            i += 2
+        result.append(new_list)
+    return result
