@@ -10616,3 +10616,28 @@ def get_dict_keys(d: dict) -> list:
     Returns a list of keys in dictionary d.
     """
     return list(d.keys())
+
+
+# --- Next Function Block ---
+
+
+# 27. Demonstrate Abstract Base Classes
+from abc import ABC, abstractmethod
+class A(ABC):
+    @abstractmethod
+    def printf(self):
+        pass
+
+class B(A):
+    def printf(self):
+        print("Hi from B")
+    def Scan(self):
+        print("Hey")
+
+def test_inheritance():
+    """
+    Demonstrates inheritance using abstract base classes.
+    """
+    obj = B()
+    obj.printf()
+    obj.Scan()
