@@ -22484,3 +22484,26 @@ def find_duplicates_and_missing(nums: list) -> list:
         if i not in nums:
             missing.append(i)
     return duplicates + missing
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 17. Count subarrays with at least three unique elements
+def count_subarrays_with_at_least_three_uniques(nums: list) -> int:
+    """
+    For each starting index in nums, checks if the subarray contains at least 3 unique elements.
+    Returns the count of starting indices for which such a subarray exists.
+    
+    Note: The snippet stops when a subarray with at least 3 uniques is found.
+    """
+    count = 0
+    for i in range(len(nums)):
+        seen = set()
+        for j in range(i, len(nums)):
+            seen.add(nums[j])
+            if len(seen) >= 3:
+                count += 1
+                break
+    return count
