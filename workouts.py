@@ -17963,3 +17963,18 @@ def product_of_list(nums):
     for num in nums:
         product *= num
     return product
+
+
+# --- Next Function Block ---
+
+
+
+# 25. Check if a sentence contains all lowercase letters.
+def contains_all_lowercase(sentence):
+    """
+    Returns True if sentence contains every letter in lowercase English alphabet.
+    """
+    for letter in string.ascii_lowercase:
+        if letter not in sentence:
+            return False
+    return True
