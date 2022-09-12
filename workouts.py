@@ -77,3 +77,28 @@ def demonstrate_closure() -> None:
         print(x)
     x = 1
     f()
+
+
+# --- Next Function Block ---
+
+
+class A:
+    def print():
+        pass
+
+# -----------------------------------------------------
+# Function 4: Rotate a list by k positions (to the right).
+def rotate_list(head: list, k: int) -> list:
+    """
+    Rotates the list 'head' to the right by k positions.
+    
+    Example:
+      head = [0,1,2], k = 3
+      Since k % len(head) == 0, the rotated list is the same.
+    """
+    n = len(head)
+    if n == 0:
+        return head
+    k = k % n
+    # Using slicing for rotation:
+    return head[-k:] + head[:-k]
