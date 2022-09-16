@@ -16672,3 +16672,18 @@ def find_index(nums: list, target: int, start: int) -> int:
         if nums[i] == target:
             return i
     return -1
+
+
+# --- Next Function Block ---
+
+
+
+# 10. Return substring of a numeric string up to and including the last odd digit (scanning from right).
+def last_odd_substring(num: str) -> str:
+    """
+    Returns the substring of num up to (and including) the last odd digit when scanning from right.
+    """
+    for i in reversed(range(len(num))):
+        if int(num[i]) % 2 == 1:
+            return num[:i+1]
+    return ""
