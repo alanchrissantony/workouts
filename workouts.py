@@ -23493,3 +23493,29 @@ def process_prev_tokens(words: list) -> list:
             else:
                 result.append(nums[-consecutive_prev])
     return result
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 10. Flowerbed Planting.
+def can_place_flowers(flowerbed: list, n: int) -> bool:
+    """
+    Given a list representing a flowerbed (0 = empty, 1 = planted) and an integer n,
+    determines whether n new flowers can be planted without planting adjacent to each other.
+    Returns True if possible; otherwise, False.
+    """
+    bed = flowerbed.copy()
+    i = 0
+    while i < len(bed):
+        if bed[i] == 0:
+            empty_left = (i == 0 or bed[i-1] == 0)
+            empty_right = (i == len(bed)-1 or bed[i+1] == 0)
+            if empty_left and empty_right:
+                bed[i] = 1
+                n -= 1
+                if n == 0:
+                    return True
+        i += 1
+    return n <= 0
