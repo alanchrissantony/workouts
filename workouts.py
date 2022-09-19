@@ -17877,3 +17877,15 @@ def test_sum_class():
 # 19. Generator that yields the square of a number.
 def generator_square(x):
     yield x * x
+
+
+# --- Next Function Block ---
+
+
+def print_squares(arr):
+    """
+    For each element in arr, prints its square using a generator.
+    """
+    for x in arr:
+        for square in generator_square(x):
+            print(square)
