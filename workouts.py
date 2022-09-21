@@ -16577,3 +16577,32 @@ def letter_sum_transformation(s: str, k: int) -> int:
         ssum = sum(int(ch) for ch in res)
         res = str(ssum)
     return int(res)
+
+
+# --- Next Function Block ---
+
+
+
+# 6. For a list of strings, for each pair compute a boolean array indicating for each letter in the first
+#    string whether it is absent in the second; then find the maximum length of such an array that contains True.
+def common_prefix_discrepancy(strs: list) -> (int, list):
+    """
+    For each pair (i, j) (i < j) in strs, builds an array with True where a character of strs[i]
+    is not in strs[j], False otherwise. Then returns the maximum length among those arrays
+    that contain at least one True, along with the list of arrays.
+    (The logic is based on the provided snippet and may be interpreted.)
+    """
+    arrays = []
+    max_len = -1
+    for i in range(len(strs) - 1):
+        for j in range(i + 1, len(strs)):
+            arr = []
+            for ch in strs[i]:
+                if ch in strs[j]:
+                    arr.append(False)
+                else:
+                    arr.append(True)
+            arrays.append(arr)
+            if True in arr and len(arr) > max_len:
+                max_len = len(arr)
+    return max_len, arrays
