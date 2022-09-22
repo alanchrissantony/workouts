@@ -22710,3 +22710,15 @@ def count_ones_in_binary_range(n: int) -> list:
     for i in range(n+1):
         result.append(bin(i)[2:].count('1'))
     return result
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Snippet I: Compute bitwise XOR of each element in nums with k.
+def xor_with_k(nums: list, k: int) -> list:
+    """
+    Given a list of integers and an integer k, returns a new list where each element is XOR-ed with k.
+    """
+    return [x ^ k for x in nums]
