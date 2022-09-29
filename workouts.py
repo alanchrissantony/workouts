@@ -18824,3 +18824,34 @@ def iterate_with_iterator(arr: list) -> list:
     for _ in range(len(arr)):
         result.append(next(it))
     return result
+
+
+# --- Next Function Block ---
+
+
+
+
+# 1. Remove duplicates (and 0) from a list, then repeatedly subtract the smallest element until the list is empty.
+def count_subtraction_operations(nums: list) -> int:
+    """
+    Given a list of numbers, first remove duplicates and remove 0 if present.
+    Then, in each operation, subtract the minimum value from all numbers,
+    deleting any that become less than 1. Returns the count of operations performed.
+    """
+    # Remove duplicates and remove 0 if present.
+    nums = list(set(nums))
+    if 0 in nums:
+        nums.remove(0)
+    count = 0
+    while len(nums) != 0:
+        sub = min(nums)
+        i = 0
+        while i < len(nums):
+            nums[i] -= sub
+            if nums[i] < 1:
+                del nums[i]
+                # After deletion, stay at the same index.
+                continue
+            i += 1
+        count += 1
+    return count
