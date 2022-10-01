@@ -18678,3 +18678,16 @@ def min_operations_to_target(target: int, maxDoubles: int) -> int:
             i += 1
         count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# 15. Sort string by frequency (descending) and reconstruct.
+def sort_string_by_frequency(s: str) -> str:
+    freq = Counter(s)
+    sorted_items = sorted(freq.items(), key=lambda item: item[1], reverse=True)
+    result = ""
+    for ch, cnt in sorted_items:
+        result += ch * cnt
+    return result
