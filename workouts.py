@@ -14106,3 +14106,15 @@ def interpret_command(command: str) -> str:
         else:
             i += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def print_excel_columns(n: int) -> None:
+    """
+    Prints the first n Excel column labels (starting from 'A').
+    """
+    for i in range(n):
+        print(chr(ord('A') + i))
