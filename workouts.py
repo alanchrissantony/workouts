@@ -24731,3 +24731,37 @@ def quick_sort(start, end):
     swap(pivot, right)
     quick_sort(start, right-1)
     quick_sort(right+1, end)
+
+
+# --- Next Function Block ---
+
+
+
+# -----------------------------------------------------
+# Function 1: Process two strings by removing matching characters.
+def process_order_and_string(order: str, s: str) -> str:
+    """
+    Iterates over the characters in 'order'. For each character:
+      - If the character is found in 's', remove its first occurrence from s.
+      - Otherwise, remove that character from order.
+    Returns the concatenation of the modified order and s.
+    
+    Example:
+      order = "kqep", s = "pekeq"
+      (After processing, the function returns the concatenated result.)
+    """
+    order = list(order)
+    s = list(s)
+    i = 0
+    while i < len(order):
+        ch = order[i]
+        if ch in s:
+            # Remove the first occurrence from s.
+            s.pop(s.index(ch))
+        else:
+            # Remove the character from order.
+            order.pop(i)
+            # Do not increment i since the list has shifted.
+            continue
+        i += 1
+    return "".join(order + s)
