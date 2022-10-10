@@ -21363,3 +21363,14 @@ def binary_ones_counts(n: int) -> list:
         counts.append(bin(i)[2:].count("1"))
         i += 1
     return counts
+
+
+# --- Next Function Block ---
+
+
+# --- XOR Elements ---
+def xor_elements(nums: list, k: int) -> list:
+    """
+    Returns a list with each element of nums XORed with k.
+    """
+    return [num ^ k for num in nums]
