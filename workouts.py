@@ -10981,3 +10981,20 @@ def duplicate_list(nums: list) -> list:
     Returns a new list by appending a copy of nums to itself.
     """
     return nums + nums
+
+
+# --- Next Function Block ---
+
+
+
+def final_value_after_operations(operations: list) -> int:
+    """
+    Given a list of operations (strings "++X" or "X++"), returns the final value of x.
+    """
+    x = 0
+    for op in operations:
+        if op in ["++X", "X++"]:
+            x += 1
+        else:
+            x -= 1
+    return x
