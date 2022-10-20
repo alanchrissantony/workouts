@@ -9465,3 +9465,30 @@ def find_substring(haystack: str, needle: str) -> int:
     Returns the index of the first occurrence of needle in haystack, or -1 if not found.
     """
     return haystack.find(needle)
+
+
+# --- Next Function Block ---
+
+
+
+
+# patterns.py
+
+def reverse_vowels(s: str) -> str:
+    """
+    Reverses only the vowels in the string.
+    Example: "hello" -> "holle"
+    """
+    vowels = ['a','e','i','o','u','A','E','I','O','U']
+    s_list = list(s)
+    # Collect vowels in order.
+    collected = [ch for ch in s_list if ch in vowels]
+    # Reverse the collected vowels.
+    collected = collected[::-1]
+    idx = 0
+    # Replace vowels in s_list with reversed ones.
+    for i in range(len(s_list)):
+        if s_list[i] in vowels:
+            s_list[i] = collected[idx]
+            idx += 1
+    return "".join(s_list)
