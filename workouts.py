@@ -10831,3 +10831,13 @@ def normalize_email(email: str) -> str:
     local, domain = email.split('@')
     local = local.split('+')[0].replace('.', '')
     return local + '@' + domain
+
+
+# --- Next Function Block ---
+
+
+def normalize_emails(emails: list) -> list:
+    """
+    Normalizes a list of emails.
+    """
+    return [normalize_email(email) for email in emails]
