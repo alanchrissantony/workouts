@@ -29434,3 +29434,15 @@ def join(left, right):
         arr.append(right[j])
         j+=1
     return arr
+
+
+# --- Next Function Block ---
+
+def merge(arr):
+    if len(arr)<=1:
+        return arr
+    mid=len(arr)//2
+    left=arr[:mid]
+    right=arr[mid:]
+
+    return join(merge(left), merge(right))
