@@ -19919,3 +19919,26 @@ def print_prefix_sublists(nums: list) -> None:
         # For the prefix of length i, print each sublist starting at each index within that prefix.
         for j in range(len(nums[:i])):
             print(nums[:i][j:])
+
+
+# --- Next Function Block ---
+
+
+
+def frequency_difference(s: str, t: str) -> int:
+    """
+    Given two strings s and t, computes the total extra frequency in s over t.
+    For each character in s, if t contains it, adds the difference if s has more;
+    otherwise, adds the full count from s.
+    Returns the total difference.
+    """
+    count = 0
+    sCount = dict(Counter(s))
+    tCount = dict(Counter(t))
+    for char in sCount:
+        if char in tCount:
+            if sCount[char] > tCount[char]:
+                count += sCount[char] - tCount[char]
+        else:
+            count += sCount[char]
+    return count
