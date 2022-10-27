@@ -18418,3 +18418,26 @@ def reverse_each_word(sentence: str) -> str:
     """
     words = sentence.split()
     return " ".join(word[::-1] for word in words)
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 23 ---
+def common_characters(words: list) -> list:
+    """
+    Returns a list of characters that are common to all strings in words, 
+    repeated min frequency across all strings.
+    (Standard approach: use intersection of Counters.)
+    """
+    if not words:
+        return []
+    common_counter = Counter(words[0])
+    for word in words[1:]:
+        common_counter &= Counter(word)
+    # Expand the common characters according to their minimum frequency.
+    result = []
+    for ch, cnt in common_counter.items():
+        result.extend([ch] * cnt)
+    return result
