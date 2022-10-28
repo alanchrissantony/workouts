@@ -27872,3 +27872,23 @@ def sorted_sliding_windows(nums: list, k: int) -> list:
     for i in range(n - k + 1):
         windows.append(sorted(nums[i:i+k]))
     return windows
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 5: Copy an array into a fixed-length list.
+def copy_to_fixed_length(nums: list, length: int) -> list:
+    """
+    Given a list of numbers and a fixed length, creates a new list of size 'length'
+    where the first part is the given numbers and the remainder (if any) stays as 0.
+    
+    Example:
+      nums = [1,3,-1,-3,5,3,6,7], length = 20
+      Returns: the first len(nums) elements copied into a new list of size 20.
+    """
+    arr = [0] * length
+    for i in range(len(nums)):
+        arr[i] = nums[i]
+    return arr[:len(nums)]  # return only the portion that was filled
