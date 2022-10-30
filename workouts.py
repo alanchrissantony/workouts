@@ -25169,3 +25169,15 @@ def join(left, right):
         array.append(right[j])
         j+=1
     return array
+
+
+# --- Next Function Block ---
+
+def merge(array):
+    if len(array)<=1:
+        return array
+    mid = len(array)//2
+    left = array[:mid]
+    right = array[mid:]
+    
+    return join(merge(left), merge(right))
