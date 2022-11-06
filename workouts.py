@@ -24835,3 +24835,31 @@ def find_max_divisor(nums: list, divisors: list) -> int:
                 result = d
         i += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 4: Concatenate binary representations and mark indices if divisible by 5.
+def process_binaries(nums: list) -> (str, list):
+    """
+    Given a list of numbers, concatenates their binary representations (without the '0b' prefix)
+    into a string. After adding each number's binary representation, converts the string to an
+    integer and checks if it is divisible by 5. Replaces the corresponding element in a result
+    list with True if divisible, False otherwise.
+    
+    Returns a tuple:
+      (final concatenated binary string, list of booleans indicating divisibility by 5 at each step)
+    """
+    out = ""
+    flags = []
+    for num in nums:
+        out += bin(num)[2:]
+        # Debug print: current integer value of the binary string.
+        print("Current value:", int(out))
+        if int(out) % 5 == 0:
+            flags.append(True)
+        else:
+            flags.append(False)
+    return out, flags
