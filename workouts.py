@@ -28298,3 +28298,39 @@ def adjust_column_number(columnNumber: int) -> int:
     (This snippet likely relates to converting numbers to Excel column titles.)
     """
     return columnNumber - (columnNumber % 26)
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 5: Generate and Print Some Prime Numbers
+def print_primes(n: int, divisors: list) -> None:
+    """
+    For a given target count n, prints numbers (starting from 2) that are prime
+    and also satisfy a custom condition: for each number, if it is divisible by any number in 'divisors'
+    (assuming the divisor is less than the number), it is skipped.
+    
+    This snippet uses a nested loop to check if a number is prime (naively) and then applies an extra condition.
+    """
+    count = 0
+    i = 2
+    while count < n:
+        # Check for prime (naive approach)
+        prime = True
+        k = 2
+        while k < i:
+            if i % k == 0:
+                prime = False
+                break
+            k += 1
+        # Additional condition: if any divisor in 'divisors' (which are less than i) divides i, skip it.
+        flag = True
+        for d in divisors:
+            if d < i and i % d == 0:
+                flag = False
+                break
+        if prime and flag:
+            print(i)
+            count += 1
+        i += 1
