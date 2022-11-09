@@ -17810,3 +17810,14 @@ def hey_decorator(func):
         print("hey")
         return func(*args, **kwargs)
     return wrapper
+
+
+# --- Next Function Block ---
+
+
+@hey_decorator
+def hello():
+    """
+    Example function to be decorated.
+    """
+    print("hello")
