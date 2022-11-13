@@ -22378,3 +22378,26 @@ def longest_palindrome_length(s: str) -> int:
     if odd_found:
         length += 1
     return length
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 13. Reconstruct a number from its digit frequencies
+def reconstruct_number_from_frequencies(num_str: str) -> str:
+    """
+    Given a string of digits, constructs a new number based on the frequencies of each digit.
+    This snippet’s logic is ambiguous, but here we:
+      - Count the frequencies of digits,
+      - Sort digits in descending order (by digit value),
+      - Then form a number by concatenating each digit repeated by its frequency.
+    Returns the constructed number as a string.
+    """
+    freq = dict(Counter(num_str))
+    # Sort digits descending (as strings; convert to int for numeric order)
+    sorted_digits = sorted(freq.items(), key=lambda item: int(item[0]), reverse=True)
+    result = ""
+    for digit, count in sorted_digits:
+        result += digit * count
+    return result
