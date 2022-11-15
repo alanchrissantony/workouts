@@ -23588,3 +23588,31 @@ def custom_sort_by_bin_ones(nums: list) -> list:
       Returns: sorted list according to (bin(x).count("1"), x)
     """
     return sorted(nums, key=lambda x: (str(bin(x))[2:].count("1"), x))
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 3:
+# For a given string, generate all unique contiguous substrings (prefixes of each suffix)
+# and print each along with its reverse.
+def unique_prefix_substrings_with_reverse(s: str) -> list:
+    """
+    For each starting index in s, generates all contiguous substrings starting at that index.
+    Collects only those substrings that have not been seen before.
+    Returns a list of tuples (substring, reversed substring).
+    
+    Example:
+      s = "aaa"
+      Might return: [("a", "a"), ("aa", "aa"), ("aaa", "aaa")]
+    """
+    seen = set()
+    result = []
+    for i in range(len(s)):
+        for j in range(1, len(s) - i + 1):
+            substr = s[i:i+j]
+            if substr not in seen:
+                seen.add(substr)
+                result.append((substr, substr[::-1]))
+    return result
