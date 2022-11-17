@@ -1152,3 +1152,23 @@ def ab(s):
         print( True)
     else:
         print( False,resp)
+
+
+# --- Next Function Block ---
+
+
+def ac(nums):
+    array=[]
+    for i in range(len(nums)):
+        count=1
+        for j in range(len(nums)):
+            if(nums[i]==nums[j] and i!=j):
+                count=count+1
+        array.append(count)
+    lar=array[0]
+    pos=0
+    for i in range(0,len(array)):
+        if lar<array[i]:
+            lar=array[i]
+            pos=i
+    print( lar)
