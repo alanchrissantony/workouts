@@ -12774,3 +12774,19 @@ def can_transform(s1: str, s2: str, max_changes: int = 3) -> bool:
             if changes > max_changes:
                 return False
     return "".join(s2_list) == s1
+
+
+# --- Next Function Block ---
+
+
+
+def min_alternating_mismatches(s: str) -> int:
+    """
+    Computes the number of mismatches between s and two alternating patterns ("0101..." and "1010...").
+    Returns the smaller mismatch count.
+    """
+    pattern1 = "".join("0" if i % 2 == 0 else "1" for i in range(len(s)))
+    pattern2 = "".join("1" if i % 2 == 0 else "0" for i in range(len(s)))
+    mismatches1 = sum(1 for a, b in zip(s, pattern1) if a != b)
+    mismatches2 = sum(1 for a, b in zip(s, pattern2) if a != b)
+    return min(mismatches1, mismatches2)
