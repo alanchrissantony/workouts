@@ -1328,3 +1328,22 @@ def ah(nums):
         print (True)
     else:
         print (False)
+
+
+# --- Next Function Block ---
+
+
+def ai(s,t):
+    same=True
+    array=""
+    lar=-1
+    for i in range(0,len(s)):
+        for j in range(0,len(t)):
+            if(s[i] == t[j] and j>lar):
+                array=array+s[i]
+                if(j>lar):
+                    lar=j
+    if array == s:
+        print(True)
+    else:
+        print(array)
