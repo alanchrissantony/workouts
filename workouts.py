@@ -16708,3 +16708,21 @@ def triple_max_frequent_digit(num: str) -> str:
     if candidates:
         return str(max(candidates)) * 3
     return ""
+
+
+# --- Next Function Block ---
+
+
+
+# 12. Alternate approach: Check for each digit if its triple exists in num and choose the maximum.
+def triple_max_digit_condition(num: str) -> str:
+    """
+    Checks each digit in num; if digit repeated three times is a substring,
+    and the digit is larger than the current candidate, update candidate.
+    Returns the candidate digit repeated three times.
+    """
+    grt = -1
+    for ch in num:
+        if (ch * 3) in num and int(ch) > grt:
+            grt = int(ch)
+    return str(grt) * 3 if grt > -1 else ""
