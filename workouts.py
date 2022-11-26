@@ -608,3 +608,18 @@ def rank_array(arr: list) -> (list, dict):
     ranking = {val: idx + 1 for idx, val in enumerate(unique_sorted)}
     ranked_arr = [ranking[val] for val in arr]
     return ranked_arr, ranking
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 9: Evaluate a string expression.
+def evaluate_expression(expr: str):
+    """
+    Evaluates a string expression using Python's eval.
+    
+    Example:
+      expr = "-9.1234" → returns -9.1234.
+    """
+    return eval(expr)
