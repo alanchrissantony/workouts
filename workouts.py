@@ -2720,3 +2720,14 @@ def longest_repeating_substring_length(s: str) -> int:
             max_len = max(max_len, current_len)
             current_len = 1
     return max(max_len, current_len)
+
+
+# --- Next Function Block ---
+
+
+# 26. Get Dictionary Keys
+def get_dict_keys(d: dict) -> list:
+    """
+    Returns a list of keys in dictionary d.
+    """
+    return list(d.keys())
