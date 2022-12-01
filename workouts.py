@@ -17439,3 +17439,18 @@ def reverse_on_char(s: str, char: str = "i") -> str:
         else:
             res += ch
     return res
+
+
+# --- Next Function Block ---
+
+
+
+# 20. Reverse alphabetical characters while keeping non-alphabetic in place.
+def reverse_alpha_keep_nonalpha(s: str) -> str:
+    alphabets = [ch for ch in s if ch.isalpha()]
+    alphabets.reverse()
+    res = list(s)
+    for idx, ch in enumerate(s):
+        if ch.isalpha():
+            res[idx] = alphabets.pop(0)
+    return "".join(res)
