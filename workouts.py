@@ -22672,3 +22672,25 @@ def max_remaining_money(prices: list, money: int) -> int:
                 max_remaining = remaining
                 flag = True
     return max_remaining if flag else money
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Snippet G: Count sequential matches between two strings.
+def count_sequential_matches(text1: str, text2: str) -> int:
+    """
+    Iterates over text1, and for each character, checks if it appears in text2 starting from an increasing index.
+    Returns the count of such sequential matches.
+    """
+    count = 0
+    i = 0
+    j = 0
+    while i < len(text1) and j < len(text2):
+        if text1[i] in text2[j:]:
+            count += 1
+            # Move j to the next character after the found one.
+            j += 1
+        i += 1
+    return count
