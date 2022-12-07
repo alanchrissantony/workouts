@@ -17301,3 +17301,17 @@ def check_concatenation(words: list, target: str) -> bool:
         if len(res) >= len(target):
             break
     return res == target
+
+
+# --- Next Function Block ---
+
+
+
+# 11. Find the first missing positive integer from a list.
+def first_missing_positive(nums: list) -> int:
+    nums_set = set(nums)
+    i = 1
+    while True:
+        if i not in nums_set:
+            return i
+        i += 1
