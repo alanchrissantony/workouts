@@ -10260,3 +10260,18 @@ def digit_root(n: int) -> int:
     while n >= 10:
         n = sum(int(d) for d in str(n))
     return n
+
+
+# --- Next Function Block ---
+
+
+# 5. Count Numbers Smaller Than Current
+def count_smaller_numbers(nums: list) -> list:
+    """
+    For each number in nums, counts how many numbers in nums are smaller.
+    """
+    result = []
+    for i in range(len(nums)):
+        count = sum(1 for j in range(len(nums)) if nums[i] > nums[j])
+        result.append(count)
+    return result
