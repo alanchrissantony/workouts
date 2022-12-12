@@ -19901,3 +19901,21 @@ def quick_sort_variant(nums: list) -> list:
     
     qs(nums, 0, len(nums) - 1)
     return nums
+
+
+# --- Next Function Block ---
+
+
+
+
+
+# ---------- Miscellaneous Functions ----------
+
+def print_prefix_sublists(nums: list) -> None:
+    """
+    For each index i in nums, prints all sublists (slices) of nums[0:i].
+    """
+    for i in range(len(nums)):
+        # For the prefix of length i, print each sublist starting at each index within that prefix.
+        for j in range(len(nums[:i])):
+            print(nums[:i][j:])
