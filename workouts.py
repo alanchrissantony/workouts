@@ -5634,3 +5634,24 @@ def count_items_by_rule(items: list, ruleKey: str, ruleValue: str) -> int:
         if pos < len(item) and item[pos] == ruleValue:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def sum_of_prefix_differences(nums: list) -> list:
+    """
+    Computes two prefix sum arrays (left from the start and right from the end) and returns 
+    a list of absolute differences between corresponding elements.
+    """
+    n = len(nums)
+    left = [0] * n
+    right = [0] * n
+    s_left, s_right = 0, 0
+    for i in range(n):
+        left[i] = s_left
+        s_left += nums[i]
+        right[i] = s_right
+        s_right += nums[n - 1 - i]
+    return [abs(left[i] - right[n - 1 - i]) for i in range(n)]
