@@ -18570,3 +18570,23 @@ def interleave_lists(list1: list, list2: list) -> list:
     for a, b in zip(list1, list2):
         result.extend([a, b])
     return result
+
+
+# --- Next Function Block ---
+
+
+# 9. Min Max Game: reduce list by alternately taking min and max until one number remains.
+def min_max_game(nums: list) -> int:
+    turn = True  # True: choose min; False: choose max.
+    while len(nums) > 1:
+        new_nums = []
+        for i in range(0, len(nums) - 1, 2):
+            if turn:
+                new_nums.append(min(nums[i], nums[i+1]))
+            else:
+                new_nums.append(max(nums[i], nums[i+1]))
+            turn = not turn
+        if len(nums) % 2 == 1:
+            new_nums.append(nums[-1])
+        nums = new_nums
+    return nums[0]
