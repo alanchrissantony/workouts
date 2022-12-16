@@ -23638,3 +23638,31 @@ def all_prefixes(s: str) -> list:
         for j in range(1, len(s) - i + 1):
             prefixes.append(s[i:i+j])
     return prefixes
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 5:
+# For each contiguous subarray (prefix of each suffix) of a list that is not the entire list,
+# print (or return) the square of its length (i.e. length*length), but only if that subarray is unique.
+def unique_subarray_square_lengths(nums: list) -> list:
+    """
+    For each starting index in nums, generates contiguous subarrays (prefixes of the suffix starting at i)
+    that are not equal to the entire list and that have not been seen before.
+    Returns a list of the square of the length of each unique subarray.
+    
+    Example:
+      nums = [1,2,1]
+      Might return: [1, 4] because subarrays of length 1 yield 1, length 2 yield 4, etc.
+    """
+    seen = []
+    squares = []
+    for i in range(len(nums)):
+        for j in range(1, len(nums) - i + 1):
+            sub = nums[i:i+j]
+            if sub not in seen and sub != nums:
+                seen.append(sub)
+                squares.append(len(sub) * len(sub))
+    return squares
