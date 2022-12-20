@@ -10735,3 +10735,16 @@ def first_duplicate(nums: list):
             return num
         seen.add(num)
     return None
+
+
+# --- Next Function Block ---
+
+
+# 33. Capitalize First Letter of a String
+def capitalize_first_letter(s: str) -> str:
+    """
+    Capitalizes the first letter of the string s.
+    """
+    if not s:
+        return s
+    return s[0].upper() + s[1:]
