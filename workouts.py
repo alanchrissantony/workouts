@@ -944,3 +944,13 @@ def r(n):
         for j in range(1, i*2):
             print("*",end=" ")
         print("\n*\n*\n")
+
+
+# --- Next Function Block ---
+
+
+def s(n):
+    for i in range(1, n+5):
+        for j in range(1, 2*i):
+            print("*",end=" ")
+        print("\n")
