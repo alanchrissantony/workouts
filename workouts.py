@@ -23721,3 +23721,26 @@ def compare_unique_chars(str1: str, str2: str) -> bool:
     set1 = set(str1)
     set2 = set(str2)
     return set1 == set2
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 8:
+# Given two date strings "YYYY-MM-DD", swap if necessary so date1 is earlier,
+# then compute the day difference based solely on years (each year = 365 days).
+def year_difference_in_days(date1: str, date2: str) -> int:
+    """
+    Given two dates in "YYYY-MM-DD" format, ensures date1 <= date2 and returns the difference
+    in years multiplied by 365.
+    
+    Example:
+      date1 = "2018-06-29", date2 = "2019-05-30"
+      Returns: (2019-2018)*365 = 365.
+    """
+    if int(date1.replace("-", "")) > int(date2.replace("-", "")):
+        date1, date2 = date2, date1
+    y1 = int(date1[:4])
+    y2 = int(date2[:4])
+    return (y2 - y1) * 365
