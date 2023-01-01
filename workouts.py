@@ -22335,3 +22335,23 @@ def sum_numbers_with_k_ones(nums: list, k: int) -> int:
         if bin(i)[2:].count("1") == k:
             total += nums[i]
     return total
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 11. Transpose a matrix
+def transpose_matrix(matrix: list) -> list:
+    """
+    Returns the transpose of the given matrix.
+    """
+    if not matrix or not matrix[0]:
+        return []
+    result = []
+    for j in range(len(matrix[0])):
+        col = []
+        for i in range(len(matrix)):
+            col.append(matrix[i][j])
+        result.append(col)
+    return result
