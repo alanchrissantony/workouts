@@ -38,3 +38,27 @@ def insertion_sort(arr: list) -> list:
         else:
             i += 1
     return head
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 2: Pairwise swap (inserting elements from end into the middle)
+def pairwise_swap(head: list) -> list:
+    """
+    Given a list 'head', inserts elements from the end into the middle positions.
+    The snippet shows inserting element at the end at index i and then removing the duplicate.
+    
+    Example:
+      Input: [1]
+      Output: [1]  (For a single element, nothing changes.)
+    """
+    head = head.copy()
+    i = 1
+    j = len(head) - 1
+    while j > i:
+        head.insert(i, head[j])
+        del head[j + 1]
+        i += 2
+    return head
