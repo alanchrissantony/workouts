@@ -24443,3 +24443,28 @@ def rank_array(arr: list):
     ranking = {val: idx+1 for idx, val in enumerate(unique_sorted)}
     ranked_arr = [ranking[val] for val in arr]
     return ranked_arr, ranking
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 3: Compare occurrence counts in two strings.
+def compare_occurrence_counts(s: str, t: str) -> bool:
+    """
+    For each character in s and t, counts the occurrences in the suffix and prefix
+    (i.e. count in s[i:] and s[:i]). Returns True if the resulting count arrays are equal.
+    
+    Example:
+      s = "bbbaaaab", t = "aaabbbba"
+      (This snippet builds two lists of counts and compares them.)
+    """
+    s_counts = []
+    t_counts = []
+    for i in range(len(s)):
+        s_counts.append(s[i:].count(s[i]))
+        s_counts.append(s[:i].count(s[i]))
+    for i in range(len(t)):
+        t_counts.append(t[i:].count(t[i]))
+        t_counts.append(t[:i].count(t[i]))
+    return s_counts == t_counts
