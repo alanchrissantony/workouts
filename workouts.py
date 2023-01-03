@@ -589,3 +589,22 @@ def binary_search(nums: list, target: int) -> int:
         else:
             end = mid - 1
     return -1
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 8: Rank array elements.
+def rank_array(arr: list) -> (list, dict):
+    """
+    Ranks the elements of 'arr' by sorting the unique values and mapping them to ranks starting at 1.
+    Replaces each element in arr with its rank.
+    
+    Example:
+      arr = [40,10,20,30] → returns ([4,1,2,3], {10: 1, 20: 2, 30: 3, 40: 4})
+    """
+    unique_sorted = sorted(set(arr))
+    ranking = {val: idx + 1 for idx, val in enumerate(unique_sorted)}
+    ranked_arr = [ranking[val] for val in arr]
+    return ranked_arr, ranking
