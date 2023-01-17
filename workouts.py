@@ -16991,3 +16991,32 @@ def reshape_matrix(original: list, m: int, n: int) -> list:
             k += 1
         matrix.append(row)
     return matrix
+
+
+# --- Next Function Block ---
+
+
+
+# 27. Merge two lists of pairs (ambiguous logic from snippet).
+def merge_pair_lists(nums1: list, nums2: list) -> list:
+    """
+    Given two lists of pairs, for each corresponding pair, if their first elements are equal,
+    add their second elements; otherwise, collect the pair from the second list.
+    Then, insert these collected pairs into the longer list based on the first element.
+    (Logic is ambiguous; this is one interpretation.)
+    """
+    longest = nums1 if len(nums1) >= len(nums2) else nums2
+    shortest = nums2 if longest is nums1 else nums1
+    extra = []
+    for i in range(len(shortest)):
+        pair_long = longest[i]
+        pair_short = shortest[i]
+        if pair_long[0] == pair_short[0]:
+            pair_long[1] += pair_short[1]
+        else:
+            extra.append(pair_short)
+    # Insert extra pairs into longest based on first element (index = first element - 1)
+    for pair in extra:
+        ind = pair[0] - 1
+        longest.insert(ind, pair)
+    return longest
