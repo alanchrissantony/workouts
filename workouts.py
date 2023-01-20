@@ -28471,3 +28471,15 @@ def unique_words_from_text(text: str) -> dict:
     """
     words = text.split()
     return dict(Counter(words))
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 13: Dictionary of Squares from a List
+def dictionary_of_squares(arr: list) -> dict:
+    """
+    Returns a dictionary where keys are elements from arr and values are their squares.
+    """
+    return {x: x * x for x in arr}
