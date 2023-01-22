@@ -20544,3 +20544,30 @@ def find_restaurant_with_min_index_sum(list1: list, list2: list) -> str:
                 res = list1[i]
         i += 1
     return res
+
+
+# --- Next Function Block ---
+
+
+# --- Remove k Consecutive Digits ---
+def remove_k_consecutive_digits(num: str, k: int) -> str:
+    """
+    Given a string representing a number and an integer k, remove k consecutive digits
+    (for each possible position) and return the smallest resulting number as a string.
+    If no removal is possible, returns "0".
+    
+    Example:
+      num = "10", k = 2  → possible removal: remove all digits → result "0"
+    """
+    arr = []
+    i = 0
+    # Loop through all starting indices where a k-length substring can be removed.
+    while i < len(num) - (k - 1):
+        # Remove k consecutive digits: num[:i] + num[i+k:]
+        candidate = num[:i] + num[i+k:]
+        try:
+            arr.append(int(candidate))
+        except Exception:
+            pass
+        i += 1
+    return str(min(arr)) if arr else "0"
