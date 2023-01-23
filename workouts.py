@@ -640,3 +640,22 @@ def reverse_subarray(head: list, left: int, right: int) -> list:
     left_idx = left - 1
     right_idx = right
     return head[:left_idx] + head[left_idx:right_idx][::-1] + head[right_idx:]
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 11: Merge two lists by inserting a segment.
+def merge_lists(list1: list, list2: list, a: int, b: int) -> list:
+    """
+    Merges two lists by taking:
+      - The first a elements from list1,
+      - Then all elements from list2,
+      - Then all elements from list1 after index b.
+    
+    Example:
+      list1 = [0,1,2,3,4,5], a = 3, b = 4, list2 = [1000000,1000001,1000002]
+      Returns: list1[:3] + list2 + list1[b+1:].
+    """
+    return list1[:a] + list2 + list1[b+1:]
