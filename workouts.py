@@ -27061,3 +27061,24 @@ def process_binaries(nums: list) -> (str, list):
         else:
             flags.append(False)
     return out, flags
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 5: Get sorted sliding windows.
+def get_sorted_windows(nums: list, k: int) -> list:
+    """
+    For each contiguous subarray (window) of length k in 'nums', returns its sorted version.
+    
+    Example:
+      nums = [1,3,-1,-3,5,3,6,7], k = 3
+      Returns a list of sorted subarrays.
+    """
+    windows = []
+    n = len(nums)
+    for i in range(n - k + 1):
+        window = nums[i:i+k]
+        windows.append(sorted(window))
+    return windows
