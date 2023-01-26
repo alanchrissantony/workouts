@@ -12593,3 +12593,16 @@ def index_based_mapping(nums: list) -> list:
     Constructs a new list where each element at index i is replaced by nums[nums[i]].
     """
     return [nums[nums[i]] for i in range(len(nums))]
+
+
+# --- Next Function Block ---
+
+
+
+def sum_difference(n: int, m: int) -> int:
+    """
+    Returns the difference between the sum of numbers 1 to n that are not divisible by m and the sum of those divisible by m.
+    """
+    s1 = sum(i for i in range(1, n + 1) if i % m != 0)
+    s2 = sum(i for i in range(1, n + 1) if i % m == 0)
+    return s1 - s2
