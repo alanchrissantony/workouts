@@ -10903,3 +10903,22 @@ def is_diagonal_matrix(grid: list) -> bool:
                 if grid[i][j] != 0:
                     return False
     return True
+
+
+# --- Next Function Block ---
+
+
+
+def xor_of_sequence(n: int, start: int = 3, step: int = 2) -> int:
+    """
+    Generates a sequence of n numbers, starting from 'start' and increasing by 'step',
+    and returns their bitwise XOR.
+    """
+    seq = []
+    xor_val = 0
+    i = start
+    while len(seq) < n:
+        seq.append(i)
+        xor_val ^= i
+        i += step
+    return xor_val
