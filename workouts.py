@@ -4824,3 +4824,22 @@ def sum_of_triangle_mins(triangle: list) -> int:
     Returns the sum of the minimum elements of each row in a triangle (list of lists).
     """
     return sum(min(row) for row in triangle)
+
+
+# --- Next Function Block ---
+
+
+
+def remove_digit(number: str, digit: str) -> (str, list):
+    """
+    Removes all occurrences of the specified digit from the number (as a string).
+    Returns a tuple of the new string and a list of indices where the digit was found.
+    """
+    indices = []
+    result = ""
+    for i, ch in enumerate(number):
+        if ch == digit:
+            indices.append(i)
+        else:
+            result += ch
+    return result, indices
