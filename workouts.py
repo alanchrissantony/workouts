@@ -24281,3 +24281,18 @@ def to_binary(num: int) -> str:
         digits.append(str(count % 2))
         count //= 2
     return "".join(digits[::-1])
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 6: Modular exponentiation using pow.
+def mod_exponentiation(a: int, b: int, mod: int) -> int:
+    """
+    Returns a^b modulo mod.
+    
+    Example:
+      a = 2, b = 3, mod = 1337 → returns pow(2, 3, 1337)
+    """
+    return pow(a, b, mod)
