@@ -28444,3 +28444,16 @@ def nth_ugly_number(n: int) -> int:
         if dp[i] == dp[z] * 5:
             z += 1
     return dp[-1]
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 11: Sum of Differences (Floating Division vs Integer Division)
+def division_examples():
+    """
+    Demonstrates the difference between floating-point division and integer division.
+    Returns a tuple (float_div, int_div) for 3 divided by 2.
+    """
+    return (3 / 2, 3 // 2)
