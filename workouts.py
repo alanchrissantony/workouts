@@ -1251,3 +1251,64 @@ def af(s):
             hlf=int(len(stg)/2)
             ins(lar, hlf, s[val])
     print(array)
+
+
+# --- Next Function Block ---
+
+
+def ag(s):
+    dict={}
+    array=[]
+    lar=0
+    def ins(length, pos, val):
+        for i in range(0,length):
+            array.insert(pos, val)
+            pos=pos+1
+    for i in range(len(s)):
+        count=1
+        for j in range(len(s)):
+            if(s[i]==s[j] and i!=j):
+                count=count+1
+        dict={**dict, s[i]:count}
+    for i in dict.keys():
+        if(dict[i]%2==0):
+            if(len(array)==0):
+                for j in range(dict[i]):
+                    array.append(i)
+            else:
+                pos=int(len(array)/2)
+                ins(dict[i], pos, i)
+        else:
+            if(dict[i]>lar):
+                lar=dict[i]
+                val=i
+
+    if(lar>0):
+        if(lar==1):
+            hlf=int(len(array)/2)
+            array.insert(hlf, val)
+        elif(len(array)==0):
+            for i in range(lar):
+                array.append(val)
+        else:
+            hlf=int(len(array)/2)
+            ins(lar, hlf, val)
+
+    print(dict)
+
+    s_len = len(s)
+    if s == s[::-1]:
+        print(s_len)
+
+    chars = {}
+    palindrome_length = 0
+
+    for n in s:
+        if chars.get(n):
+            chars[n] += 1
+            if chars[n] % 2 == 0:
+                palindrome_length += 2
+        else:
+            chars[n] = 1
+
+    print(palindrome_length + 1 if s_len - palindrome_length != 0 else palindrome_length)
