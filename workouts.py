@@ -934,3 +934,13 @@ def q(n):
         for j in range(1, i+1):
             print(j, end=" ")
         print("1\n")
+
+
+# --- Next Function Block ---
+
+
+def r(n):
+    for i in range(1, n+1):
+        for j in range(1, i*2):
+            print("*",end=" ")
+        print("\n*\n*\n")
