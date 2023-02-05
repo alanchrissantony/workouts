@@ -23080,3 +23080,18 @@ def count_ones_in_binary_range(n: int) -> list:
         ones = bin(i)[2:].count('1')
         result.append(ones)
     return result
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 9. XOR Each Element in a List with k
+def xor_with_k(nums: list, k: int) -> list:
+    """
+    Returns a new list where each element of nums is XOR-ed with k.
+    
+    Example:
+      nums = [7,12,9,8,9,15], k = 4 → returns list of [7^4, 12^4, ...]
+    """
+    return [x ^ k for x in nums]
