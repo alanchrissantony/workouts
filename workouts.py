@@ -17978,3 +17978,37 @@ def contains_all_lowercase(sentence):
         if letter not in sentence:
             return False
     return True
+
+
+# --- Next Function Block ---
+
+
+
+# 26. *********************
+# Additional functions for many other snippets can be defined similarly.
+# Due to the extensive number of snippets provided, only a representative sample is shown here.
+#
+# For example:
+#
+# - Converting a list of numbers to a target array.
+# - Reversing a string.
+# - Processing backspace characters in a string.
+# - Calculating the sum of subarrays.
+#
+# You can follow the same pattern: create a function with a descriptive name,
+# encapsulate the snippet's logic, and return or print the result.
+
+
+
+# --- Snippet 1 ---
+def indices_of_substring(words: list, x: str) -> list:
+    """
+    Returns a list of indices for which the string x is a substring of each word.
+    Example:
+      words = ["leet", "code"], x = "e" → [0]
+    """
+    result = []
+    for i in range(len(words)):
+        if x in words[i]:
+            result.append(i)
+    return result
