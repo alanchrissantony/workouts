@@ -4077,3 +4077,19 @@ def generate_even_numbers(limit: int) -> list:
     Returns a list of even numbers: 2, 4, 6, ... up to limit*2.
     """
     return [i * 2 for i in range(1, limit + 1)]
+
+
+# --- Next Function Block ---
+
+
+
+def gcd_low_high(nums: list) -> int:
+    """
+    Returns the greatest common divisor of the minimum and maximum of the list.
+    """
+    low = min(nums)
+    high = max(nums)
+    for i in range(low, 0, -1):
+        if high % i == 0 and low % i == 0:
+            return i
+    return 1
