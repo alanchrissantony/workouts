@@ -18457,3 +18457,19 @@ def contains_nearby_duplicate_k(nums: list, k: int) -> bool:
             if nums[i] == nums[j] and abs(i - j) <= k:
                 return True
     return False
+
+
+# --- Next Function Block ---
+
+
+
+
+
+# 1. Multiset intersection: returns the intersection of two lists (each element appears min(count1, count2) times)
+def multiset_intersection(nums1: list, nums2: list) -> list:
+    c1 = Counter(nums1)
+    c2 = Counter(nums2)
+    result = []
+    for x in c1:
+        result.extend([x] * min(c1[x], c2.get(x, 0)))
+    return result
