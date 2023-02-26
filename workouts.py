@@ -17543,3 +17543,23 @@ def sum_abs_differences(nums: list) -> list:
         total = sum(abs(i - j) for j in nums)
         result.append(total)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+
+
+# 1. Return indices of words that contain a given substring.
+def indices_of_substring_in_words(words, x):
+    """
+    Returns a list of indices for which the string x is a substring of each word.
+    Example:
+      words = ["leet", "code"], x = "e"  → returns [0]
+    """
+    result = []
+    for i in range(len(words)):
+        if x in words[i]:
+            result.append(i)
+    return result
