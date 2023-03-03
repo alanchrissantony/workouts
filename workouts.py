@@ -11126,3 +11126,18 @@ def convert_date(date: str) -> str:
     month = month_map[parts[1]]
     year = parts[2]
     return f"{year}-{month}-{day}"
+
+
+# --- Next Function Block ---
+
+
+
+def count_odds(low: int, high: int) -> int:
+    """
+    Counts the number of odd numbers in the inclusive range [low, high].
+    """
+    count = 0
+    for i in range(low, high + 1):
+        if i % 2 != 0:
+            count += 1
+    return count
