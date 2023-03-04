@@ -28334,3 +28334,27 @@ def print_primes(n: int, divisors: list) -> None:
             print(i)
             count += 1
         i += 1
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 6: Triangle Path Sum (Naive Greedy)
+def triangle_path_sum(triangle: list) -> int:
+    """
+    Given a triangle (list of lists, where each sublist represents a row),
+    computes a sum using a greedy strategy:
+    Starting from the top, for each row, adds the minimum element.
+    Then returns the maximum value computed.
+    
+    (This is a simplified interpretation of the snippet.)
+    """
+    total = triangle[0][0]
+    current = triangle[0][0]
+    n = len(triangle)
+    for i in range(1, n):
+        m = min(triangle[i])
+        current = max(current, current + m)
+        total = max(total, current)
+    return total
