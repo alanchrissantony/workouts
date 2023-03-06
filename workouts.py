@@ -954,3 +954,18 @@ def s(n):
         for j in range(1, 2*i):
             print("*",end=" ")
         print("\n")
+
+
+# --- Next Function Block ---
+
+
+def t(n):
+    for i in range(1,n):
+        for j in range(2,n):
+            if j<=i or j>n-i:
+                print("*", end=" ")
+            else:
+                print(end="  ")
+        if i>=5:
+            break
+        print("\n")
