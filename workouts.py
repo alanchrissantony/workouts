@@ -15945,3 +15945,18 @@ def is_arithmetic_sequence(arr: list) -> bool:
         if arr[i] - arr[i - 1] != diff:
             return False
     return True
+
+
+# --- Next Function Block ---
+
+
+
+def are_all_arithmetic(lists: list) -> list:
+    """
+    Given a list of lists (each list of numbers), returns a list of booleans indicating whether
+    each individual list is an arithmetic sequence.
+    """
+    result = []
+    for lst in lists:
+        result.append(is_arithmetic_sequence(lst))
+    return result
