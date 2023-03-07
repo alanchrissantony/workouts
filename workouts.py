@@ -18153,3 +18153,22 @@ def process_prev_words(words: list) -> list:
                 pass
             i += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 9 ---
+def max_ones_row(mat: list) -> tuple:
+    """
+    Given a binary matrix, returns a tuple (index, count) for the row with the most 1's.
+    """
+    max_count = -1
+    index = -1
+    for i, row in enumerate(mat):
+        cnt = row.count(1)
+        if cnt > max_count:
+            max_count = cnt
+            index = i
+    return index, max_count
