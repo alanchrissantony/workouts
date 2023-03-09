@@ -24088,3 +24088,27 @@ def find_nth_special(n: int, start: int = 7, initial_count: int = 6) -> int:
                 return i
         i += 1
     return i
+
+
+# --- Next Function Block ---
+
+
+
+def join(left, right):
+    i=0
+    j=0
+    nums1=[]
+    while i<len(left) and j<len(right):
+        if left[i]<right[j]:
+            nums1.append(left[i])
+            i+=1
+        else:
+            nums1.append(right[j])
+            j+=1
+    while i<len(left):
+        nums1.append(left[i])
+        i+=1
+    while j<len(right):
+        nums1.append(right[j])
+        j+=1
+    return nums1
