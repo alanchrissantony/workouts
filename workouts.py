@@ -16181,3 +16181,19 @@ def sum_diff_by_divisibility(n: int, m: int) -> int:
         else:
             total_non_div += i
     return total_non_div - total_div
+
+
+# --- Next Function Block ---
+
+
+
+def first_multiple_in_list(n: int, arr: list) -> int:
+    """
+    Returns the first multiple of n that is present in arr.
+    """
+    i = 1
+    while True:
+        multiple = i * n
+        if multiple in arr:
+            return multiple
+        i += 1
