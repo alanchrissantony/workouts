@@ -20446,3 +20446,32 @@ def insertion_sort(arr: list) -> list:
         # Uncomment the following line to observe progress:
         # print(arr)
     return arr
+
+
+# --- Next Function Block ---
+
+
+def quick_sort(arr: list, start: int = None, end: int = None) -> None:
+    """
+    Sorts the list arr in place using the quick sort algorithm.
+    If start and end are not provided, sorts the entire list.
+    """
+    if start is None or end is None:
+        start, end = 0, len(arr) - 1
+    if start >= end:
+        return
+    pivot = start
+    left = start + 1
+    right = end
+    while left <= right:
+        if arr[left] > arr[pivot] and arr[right] < arr[pivot]:
+            swap(arr, left, right)
+            left += 1
+            right -= 1
+        if left <= end and arr[left] <= arr[pivot]:
+            left += 1
+        if right >= start and arr[right] >= arr[pivot]:
+            right -= 1
+    swap(arr, pivot, right)
+    quick_sort(arr, start, right - 1)
+    quick_sort(arr, right + 1, end)
