@@ -21510,3 +21510,28 @@ def remove_triplet_with_sum(arr: list) -> list:
                 j += 1
         i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+# --- Max Remaining Money After Purchase ---
+def max_remaining_money(prices: list, money: int) -> int:
+    """
+    Given a list of prices and a total money amount, finds two prices whose sum is as close as
+    possible to money (without exceeding it) and returns the remaining money (money - sum).
+    If no pair is found, returns money.
+    """
+    val = 0
+    flag = False
+    i = 0
+    while i < len(prices) - 1:
+        j = i + 1
+        while j < len(prices):
+            current_sum = prices[i] + prices[j]
+            if money - current_sum >= 0 and money - current_sum > val:
+                val = money - current_sum
+                flag = True
+            j += 1
+        i += 1
+    return val if flag else money
