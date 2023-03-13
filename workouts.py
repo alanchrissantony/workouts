@@ -7344,3 +7344,18 @@ def remove_duplicates(nums: list) -> int:
             j += 1
             nums[j] = nums[i]
     return j + 1
+
+
+# --- Next Function Block ---
+
+
+
+def normalize_emails(emails: list) -> list:
+    """
+    Normalizes a list of emails by removing dots ('.') from the local part and ignoring everything after a '+'.
+    """
+    def normalize(email: str) -> str:
+        local, domain = email.split('@')
+        local = local.split('+')[0].replace('.', '')
+        return local + '@' + domain
+    return [normalize(email) for email in emails]
