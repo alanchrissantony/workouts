@@ -17371,3 +17371,14 @@ def find_repeating_intervals(s: str, threshold: int = 3) -> list:
             intervals.append([i, j - 1])
         i = j
     return intervals
+
+
+# --- Next Function Block ---
+
+
+
+# 15. Get length of a specific line from a list.
+def line_length(lines: list, index: int) -> int:
+    if index < len(lines):
+        return len(lines[index])
+    return 0
