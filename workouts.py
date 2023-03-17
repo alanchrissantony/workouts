@@ -20419,3 +20419,30 @@ def bubble_sort(arr: list) -> list:
             j += 1
         i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+def insertion_sort(arr: list) -> list:
+    """
+    Performs insertion sort on a copy of arr and returns the sorted list.
+    """
+    arr = arr.copy()
+    i = 1
+    while i < len(arr):
+        if arr[i] < arr[i-1]:
+            j = i - 1
+            if arr[i] < arr[0]:
+                arr.insert(0, arr[i])
+                del arr[i+1]
+            else:
+                while j >= 0 and arr[i] < arr[j]:
+                    j -= 1
+                arr.insert(j+1, arr[i])
+                del arr[i+1]
+        else:
+            i += 1
+        # Uncomment the following line to observe progress:
+        # print(arr)
+    return arr
