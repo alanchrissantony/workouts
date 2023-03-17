@@ -1116,3 +1116,23 @@ def z(x):
         if alph and i!=" ":
             count=count+1
     print(count)
+
+
+# --- Next Function Block ---
+
+
+def aa(n):
+    i=n-1
+    k=2
+    pro=n
+    val=n-k
+    j=val-1
+    den=val
+    while i>0:
+        pro=pro*i
+        i=i-1
+    while j>0:
+        den=den*j
+    if den==0:
+        den=1
+    print(pro/den)
