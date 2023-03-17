@@ -29735,3 +29735,17 @@ def quick_sort(arr: list, start: int = None, end: int = None) -> None:
     arr[pivot], arr[right] = arr[right], arr[pivot]
     quick_sort(arr, start, right - 1)
     quick_sort(arr, right + 1, end)
+
+
+# --- Next Function Block ---
+
+
+# ---------------------------
+# 2. Count Words in a String using Counter
+def count_words(text: str) -> dict:
+    """
+    Splits the given text by spaces and returns a Counter (as a dict)
+    mapping each word to its frequency.
+    """
+    words = text.split()
+    return dict(Counter(words))
