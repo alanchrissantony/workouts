@@ -23136,3 +23136,29 @@ def transpose_matrix(matrix: list) -> list:
             new_row.append(matrix[i][j])
         transposed.append(new_row)
     return transposed
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 12. Longest Palindrome Length from Characters in a String
+def longest_palindrome_length(s: str) -> int:
+    """
+    Given a string s, returns the length of the longest palindrome that can be built
+    using its letters. Letters can be rearranged. At most one odd-count letter may be used.
+    
+    Example:
+      s = "abbaca" → can form "aba" or "abba", so returns 5 (since "abcba" is not possible here,
+      typical solution: count even frequencies plus one if any odd exists).
+    """
+    freq = Counter(s)
+    length = 0
+    odd_found = False
+    for count in freq.values():
+        if count % 2 == 0:
+            length += count
+        else:
+            length += count - 1
+            odd_found = True
+    return length + 1 if odd_found else length
