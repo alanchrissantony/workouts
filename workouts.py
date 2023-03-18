@@ -884,3 +884,16 @@ def m(n):
             elif i%2!=0:          
                 print(i,end=" ")
         print("")
+
+
+# --- Next Function Block ---
+
+
+def n(n):
+    for i in range(1, n+1):
+        for k in range(1, n+2-i):
+            print(end="  ")
+        for j in range(1, 2*i):
+            print(j,end=" ")
+        
+        print("\n")
