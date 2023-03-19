@@ -26958,3 +26958,43 @@ def process_order_and_string(order: str, s: str) -> str:
             continue
         i += 1
     return "".join(order + s)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 2: Process a list by removing zeros and elements
+# whose addition with a previous subarray sums to zero.
+def process_array(arr: list) -> list:
+    """
+    Given a list of numbers, iterates through and:
+      - Removes any element equal to 0.
+      - For each element, checks each subarray ending at that element;
+        if the sum of that subarray plus the element equals zero,
+        removes that element.
+    
+    Returns the modified list.
+    
+    Note: This snippet is ambiguous. Here we assume 'i' starts at 0.
+    """
+    i = 0
+    while i < len(arr):
+        if arr[i] == 0:
+            del arr[i]
+            i = max(i - 1, 0)
+            continue
+        j = 0
+        found = False
+        while j < i:
+            sub_sum = functools.reduce(lambda x, y: x + y, arr[j:i], 0)
+            if sub_sum + arr[i] == 0:
+                # Remove the element at i
+                arr = arr[:j] + arr[i+1:]
+                i = j - 1  # Reset i to recheck from index j
+                found = True
+                break
+            j += 1
+        if not found:
+            i += 1
+    return arr
