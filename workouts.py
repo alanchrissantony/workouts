@@ -10297,3 +10297,22 @@ def is_palindrome(s: str) -> bool:
     Returns True if s is a palindrome.
     """
     return s == s[::-1]
+
+
+# --- Next Function Block ---
+
+
+# 8. Interleave Two Strings
+def interleave_strings(word1: str, word2: str) -> str:
+    """
+    Interleaves characters of word1 and word2. If one word is longer,
+    appends the remainder at the end.
+    """
+    result = []
+    max_len = max(len(word1), len(word2))
+    for i in range(max_len):
+        if i < len(word1):
+            result.append(word1[i])
+        if i < len(word2):
+            result.append(word2[i])
+    return "".join(result)
