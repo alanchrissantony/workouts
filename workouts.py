@@ -9328,3 +9328,23 @@ def compare_sorted_lists(nums: list):
         return False
     else:
         return sorted_set, nums_sorted
+
+
+# --- Next Function Block ---
+
+
+# pascals_triangle.py
+def generate_pascals_triangle(n: int) -> list:
+    """
+    Generates Pascal's triangle with n rows.
+    """
+    triangle = []
+    for i in range(n):
+        row = [1]
+        if i > 0:
+            last_row = triangle[-1]
+            for j in range(1, i):
+                row.append(last_row[j-1] + last_row[j])
+            row.append(1)
+        triangle.append(row)
+    return triangle
