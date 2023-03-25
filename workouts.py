@@ -10520,3 +10520,14 @@ def print_negative_pairs(nums: list) -> None:
     for num in nums_sorted:
         if -num in nums:
             print(-num, "9")
+
+
+# --- Next Function Block ---
+
+
+# 20. Power Calculation
+def power(x: float, n: int) -> float:
+    """
+    Returns x raised to the power n.
+    """
+    return x ** n
