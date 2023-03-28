@@ -22856,3 +22856,34 @@ def interleave_even_odd(nums: list) -> list:
     result.extend(evens[i:])
     result.extend(odds[i:])
     return result
+
+
+# --- Next Function Block ---
+
+
+
+
+# -----------------------------------------------------
+# 1. Common Restaurant with Minimum Index Sum
+def min_index_sum_common(list1: list, list2: list) -> str:
+    """
+    Given two lists of strings (e.g., restaurant names), returns the common name
+    with the smallest index sum. If list lengths differ, the function uses the shorter list for iteration.
+    
+    Example:
+      list1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
+      list2 = ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"]
+      returns "Shogun" because its index sum is 0 + 3 = 3.
+    """
+    # Ensure list1 is the shorter list.
+    if len(list1) > len(list2):
+        list1, list2 = list2, list1
+    res = ""
+    min_sum = len(list1) + len(list2)  # Initialize with a large value.
+    for i in range(len(list1)):
+        if list1[i] in list2:
+            index_sum = i + list2.index(list1[i])
+            if index_sum < min_sum:
+                min_sum = index_sum
+                res = list1[i]
+    return res
