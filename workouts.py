@@ -19680,3 +19680,21 @@ def can_partition_equal_sum(nums: list) -> bool:
         if left_sum * 2 == total:
             return True
     return False
+
+
+# --- Next Function Block ---
+
+
+
+# 3. Dummy loop function (simply loops from 1 to n).
+def loop_through_range(n: int) -> list:
+    """
+    Loops from 1 to n (inclusive) and returns a list of these numbers.
+    (Original snippet only increments i; this function returns the list.)
+    """
+    result = []
+    i = 1
+    while i <= n:
+        result.append(i)
+        i += 1
+    return result
