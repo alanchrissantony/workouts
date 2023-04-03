@@ -29296,3 +29296,21 @@ def dict_of_squares(arr: list) -> dict:
     for x in arr:
         result[x] = x * x
     return result
+
+
+# --- Next Function Block ---
+
+
+
+
+    
+
+def helper(arr):
+    if len(arr)==1:
+        return arr[0]
+   
+    if arr[0]>arr[1]:
+        del arr[1]
+    else:
+        del arr[0]
+    return helper(arr)
