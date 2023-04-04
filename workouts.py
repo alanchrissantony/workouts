@@ -28371,3 +28371,28 @@ def slice_from_index(arr: list, index: int = 1) -> list:
     Default is index 1.
     """
     return arr[index:]
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 8: Check "Long Pressed" String (Simplified)
+def is_long_pressed(name: str, typed: str) -> bool:
+    """
+    Checks if typed is a long-pressed version of name.
+    For each character in name, ensures that the corresponding character(s) in typed match.
+    Returns True if the condition is met; otherwise, False.
+    """
+    i, j = 0, 0
+    prev = ""
+    while i < len(name) and j < len(typed):
+        if name[i] == typed[j]:
+            prev = name[i]
+            i += 1
+            j += 1
+        elif typed[j] == prev:
+            j += 1
+        else:
+            return False
+    return i == len(name)
