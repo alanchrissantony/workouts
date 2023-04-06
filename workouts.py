@@ -2756,3 +2756,21 @@ def test_inheritance():
     obj = B()
     obj.printf()
     obj.Scan()
+
+
+# --- Next Function Block ---
+
+
+# 28. Custom Fibonacci Variant (starting with [1,2])
+def custom_fib(n: int) -> int:
+    """
+    Returns the nth element in a Fibonacci-like sequence starting with 1 and 2.
+    """
+    if n == 1:
+        return 1
+    if n == 2:
+        return 2
+    seq = [1, 2]
+    for i in range(2, n):
+        seq.append(seq[-1] + seq[-2])
+    return seq[-1]
