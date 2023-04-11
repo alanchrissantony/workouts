@@ -453,3 +453,34 @@ def find_nth_number(n: int) -> int:
             break
         i += 1
     return i
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 2: Process folder paths and select one per key.
+def process_folders(folders: list) -> dict:
+    """
+    Processes a list of folder paths and builds a dictionary keyed by the first two characters.
+    If a key already exists, the folder with the shorter path is kept; if equal, a new entry with the full
+    folder string is added.
+    
+    Example:
+      folders = ["/a","/a/b","/c/d","/c/d/e","/c/f"]
+    """
+    d = {}
+    i = 0
+    while i < len(folders):
+        key = folders[i][:2]
+        if key in d:
+            # Keep the one with the shorter length
+            if len(folders[i]) < len(d[key]):
+                d[key] = folders[i]
+            elif len(folders[i]) == len(d[key]):
+                # In the snippet, a new key is added with folder itself.
+                d[folders[i]] = folders[i]
+        else:
+            d[key] = folders[i]
+        i += 1
+    return d
