@@ -6276,3 +6276,18 @@ def max_area_container(height: list) -> int:
             area = min(height[i], height[j]) * (j - i)
             max_area = max(max_area, area)
     return max_area
+
+
+# --- Next Function Block ---
+
+
+
+def unique_characters_count(s: str) -> int:
+    """
+    Returns the count of characters in s that appear exactly once.
+    If every character is unique, returns -1.
+    """
+    freq = Counter(s)
+    if len(freq) == len(s):
+        return -1
+    return sum(1 for count in freq.values() if count == 1)
