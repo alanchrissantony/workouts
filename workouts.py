@@ -8725,3 +8725,29 @@ def common_prefix_discrepancy(strs: list) -> (int, list):
             if True in arr and len(arr) > max_len:
                 max_len = len(arr)
     return max_len, arrays
+
+
+# --- Next Function Block ---
+
+
+
+# 7. Compute a cost using total, cost1 and cost2.
+def compute_cost(total: int, cost1: int, cost2: int) -> int:
+    """
+    Given total money and two costs, ensures cost1 is smaller than cost2,
+    then simulates a purchase process and returns a computed value.
+    (Logic is based on the provided snippet.)
+    """
+    if cost2 > cost1:
+        # Swap cost1 and cost2 if needed.
+        cost1, cost2 = cost2, cost1
+    prd = 0
+    for i in range(total // cost1):
+        ttl = total - cost1 * i
+        count = 1
+        while ttl > 0:
+            count += 1
+            ttl -= cost2
+        if ttl == 0:
+            prd += count
+    return prd + 1
