@@ -10937,3 +10937,19 @@ def count_elements_geq(arr: list, target) -> int:
         if elem >= target:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def max_account_value(accounts: list) -> int:
+    """
+    Given a list of accounts (each account is a list of numbers), returns the maximum total (row sum).
+    """
+    max_val = 0
+    for acc in accounts:
+        total = sum(acc)
+        if total > max_val:
+            max_val = total
+    return max_val
