@@ -9348,3 +9348,20 @@ def generate_pascals_triangle(n: int) -> list:
             row.append(1)
         triangle.append(row)
     return triangle
+
+
+# --- Next Function Block ---
+
+
+# day_of_year.py
+def day_of_year(date_str: str) -> int:
+    """
+    Given a date string in 'YYYY-MM-DD' format, returns its day-of-year.
+    """
+    days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    year, month, day = map(int, date_str.split("-"))
+    day_count = sum(days_in_month[:month-1]) + day
+    # Check for leap year: divisible by 4 and (not divisible by 100 or divisible by 400)
+    if (year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)) and month > 2:
+        day_count += 1
+    return day_count
