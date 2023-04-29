@@ -18380,3 +18380,16 @@ def grid_distance(points: list) -> int:
                 y -= 1
             total_steps += 1
     return total_steps
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 20 ---
+def compare_letters_to_target(letters: list, target: str) -> list:
+    """
+    Sorts letters and returns a list of booleans indicating if each letter is greater than target.
+    """
+    letters.sort()
+    return [letter > target for letter in letters]
