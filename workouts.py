@@ -13643,3 +13643,16 @@ def compare_word_lists(word1: list, word2: list) -> bool:
     Concatenates the lists of strings and returns True if the resulting strings are equal.
     """
     return "".join(word1) == "".join(word2)
+
+
+# --- Next Function Block ---
+
+
+
+def sum_minus_digit_sum(nums: list) -> int:
+    """
+    Returns the difference between the sum of numbers in nums and the sum of all their digits.
+    """
+    total = sum(nums)
+    digit_sum = sum(int(ch) for num in nums for ch in str(num))
+    return total - digit_sum
