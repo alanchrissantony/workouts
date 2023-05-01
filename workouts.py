@@ -21970,3 +21970,20 @@ def ordered_match_count(text1: str, text2: str) -> int:
             j += 1
         i += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# --- Binary Ones Counts ---
+def binary_ones_counts(n: int) -> list:
+    """
+    For every integer from 0 to n (inclusive), returns a list with the count of '1's
+    in its binary representation.
+    """
+    counts = []
+    i = 0
+    while i <= n:
+        counts.append(bin(i)[2:].count("1"))
+        i += 1
+    return counts
