@@ -11455,3 +11455,20 @@ def max_gap_between_repeats(s: str) -> int:
             if s[i] == s[j]:
                 gaps.append(j - i - 1)
     return max(gaps) if gaps else -1
+
+
+# --- Next Function Block ---
+
+
+
+def first_duplicate(nums: list):
+    """
+    Returns the first duplicate element found in nums.
+    If no duplicate exists, returns None.
+    """
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return num
+        seen.add(num)
+    return None
