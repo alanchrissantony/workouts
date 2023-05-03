@@ -29314,3 +29314,123 @@ def helper(arr):
     else:
         del arr[0]
     return helper(arr)
+
+
+# --- Next Function Block ---
+
+
+
+
+class Node:
+    def __init__(self, data=None, next=None):
+        self.data=data
+        self.next=next
+        
+
+class LinkedList:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.head is None:
+            self.head=node
+            self.tail=self.head
+        else:
+            self.tail.next=node
+            self.tail=node
+        return
+    
+    def display(self):
+        current=self.head
+        while current:
+            print(current.data)
+            current=current.next
+
+    def delete(self, data):
+        if self.head.data == data:
+            self.head = self.head.next
+            return
+        current=self.head
+        previous=None
+        while current:
+            if current.data == data:
+                previous.next=current.next
+                return
+            previous=current
+            current=current.next
+
+    def reverse(self):
+        current=self.head
+        previous=None
+        while current:
+            net = current.next
+            current.next=previous
+            previous=current
+            current=net
+        self.head=previous
+        
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node = Node(data)
+        if self.root is None:
+            self.root = node
+            return
+        current = self.root
+        while True:
+            if data < current.data:
+                if current.left:
+                    current=current.left
+                else:
+                    current.left = node
+                    return
+            else:
+                if current.right:
+                    current=current.right
+                else:
+                    current.right=node
+                    return
+    
+    def display(self):
+
+        def helper(current):
+            if current:
+                print(current.data)
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+
+
+
+def join(left, right):
+
+    i=0
+    j=0
+    arr=[]
+    while i<len(left) and j<len(right):
+        if left[i]<right[j]:
+            arr.append(left[i])
+            i+=1
+        else:
+            arr.append(right[j])
+            j+=1
+    while i<len(left):
+        arr.append(left[i])
+        i+=1
+
+    while j<len(right):
+        arr.append(right[j])
+        j+=1
+    return arr
