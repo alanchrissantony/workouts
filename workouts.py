@@ -18012,3 +18012,28 @@ def indices_of_substring(words: list, x: str) -> list:
         if x in words[i]:
             result.append(i)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 2 ---
+def alternate_sorted_elements(nums: list) -> list:
+    """
+    Sorts the list and then builds a new list by alternating between
+    taking an element from the start and from the end.
+    (Note: The original snippet logic is ambiguous; this is one interpretation.)
+    """
+    nums.sort()
+    result = []
+    i = 0
+    flag = True
+    while len(result) < len(nums):
+        if flag:
+            result.append(nums[i])
+        else:
+            result.append(nums[-i])
+        flag = not flag
+        i += 1
+    return result
