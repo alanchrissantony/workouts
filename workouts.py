@@ -18912,3 +18912,22 @@ def bit_difference_count(start: int, goal: int, pad_length: int = 30) -> int:
             count += 1
         i -= 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+# 5. Check self-describing number property.
+def check_self_describing(num: str) -> bool:
+    """
+    For each digit position i in num, checks whether the count of digit str(i)
+    equals int(num[i]). Returns True if the property holds for all positions.
+    Prints any indices that do not match.
+    """
+    isTrue = True
+    for i in range(len(num)):
+        if num.count(str(i)) != int(num[i]):
+            print(f"Mismatch at index {i}: count({str(i)}) = {num.count(str(i))} != {num[i]}")
+            isTrue = False
+    return isTrue
