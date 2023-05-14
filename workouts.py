@@ -29137,3 +29137,30 @@ def generate_nested_structure(arr: list) -> list:
     for num in arr:
         nested.append(list(range(1, num+1)))
     return nested
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 8: Compute the total "distance" between seats and students.
+def seat_student_distance(seats: list, students: list) -> int:
+    """
+    Given two lists (seats and students), both of equal length,
+    repeatedly finds the smallest element in each list, calculates the absolute difference
+    of their indices, and sums these differences.
+    
+    Returns the total sum.
+    """
+    a = seats.copy()
+    b = students.copy()
+    total = 0
+    while a and b:
+        min_seat = min(a)
+        min_student = min(b)
+        idx_seat = seats.index(min_seat)
+        idx_student = students.index(min_student)
+        total += abs(idx_seat - idx_student)
+        a.remove(min_seat)
+        b.remove(min_student)
+    return total
