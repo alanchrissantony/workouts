@@ -5706,3 +5706,16 @@ def count_odds_in_range(low: int, high: int) -> int:
     Returns the count of odd numbers in the inclusive range [low, high].
     """
     return sum(1 for i in range(low, high + 1) if i % 2 != 0)
+
+
+# --- Next Function Block ---
+
+
+
+def rearrange_string(s: str, indices: list) -> str:
+    """
+    Rearranges the characters in s according to the provided indices.
+    """
+    mapping = {idx: ch for idx, ch in zip(indices, s)}
+    sorted_mapping = dict(sorted(mapping.items()))
+    return "".join(sorted_mapping[i] for i in sorted_mapping)
