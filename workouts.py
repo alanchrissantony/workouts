@@ -17274,3 +17274,16 @@ def find_word_index(sentence: str, searchWord: str) -> int:
         if searchWord in word:
             return idx
     return -1
+
+
+# --- Next Function Block ---
+
+
+
+# 9. Count how many words in a list are prefixes of a given string.
+def count_prefix_matches(words: list, s: str) -> int:
+    count = 0
+    for word in words:
+        if s.startswith(word):
+            count += 1
+    return count
