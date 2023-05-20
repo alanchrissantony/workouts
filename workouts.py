@@ -3820,3 +3820,17 @@ def is_arithmetic_progression(arr: list) -> bool:
         if arr[i + 1] - arr[i] != diff:
             return False
     return True
+
+
+# --- Next Function Block ---
+
+
+
+def check_progressions(*arrays) -> list:
+    """
+    For each array provided, returns True if it forms an arithmetic progression (when sorted), otherwise False.
+    """
+    results = []
+    for arr in arrays:
+        results.append(is_arithmetic_progression(arr))
+    return results
