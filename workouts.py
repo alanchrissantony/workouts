@@ -29477,3 +29477,261 @@ def quick(start, end):
     quick(start, right-1)
     quick(right+1, end)
     return ls
+
+
+# --- Next Function Block ---
+
+
+
+
+class Heap:
+
+    def __init__(self):
+        self.heap=[]
+
+    def parent(self, i):
+        return (i-1)//2
+    
+    def left_child(self, i):
+        return 2*i+1
+    
+    def right_child(self, i):
+        return 2*i+2
+    
+    def append(self, data):
+        self.heap.append(data)
+        self.shift_up(len(self.heap)-1)
+
+    def remove(self, data):
+        for i, x in enumerate(self.heap):
+            if x == data:
+                self.heap[i] = self.heap[len(self.heap)-1]
+                self.heap.pop(len(self.heap)-1)
+                self.shift_down(0)
+    
+                
+    def shift_down(self, i):
+        min_index = i
+        left = self.left_child(i)
+        right = self.right_child(i)
+
+        while left < len(self.heap) and self.heap[left] < self.heap[min_index]:
+            min_index = left
+        while right < len(self.heap) and self.heap[right] < self.heap[min_index]:
+            min_index = right
+        if min_index != i:
+            self.heap[i], self.heap[min_index] = self.heap[min_index], self.heap[i]
+            self.shift_down(min_index)
+
+    def shift_up(self, i):
+        while i>0 and self.heap[self.parent(i)] > self.heap[i]:
+            self.heap[self.parent(i)], self.heap[i] = self.heap[i], self.heap[self.parent(i)]
+            i = self.parent(i)
+
+    def print(self):
+        print(self.heap)
+
+
+class Heap:
+
+    def __init__(self):
+        self.heap = []
+
+    def parent(self, i):
+        return (i-1)//2
+    
+    def left(self, i):
+        return (i*2)+1
+    
+    def right(self, i):
+        return (i*2)+2
+
+    def append(self, data):
+        self.heap.append(data)
+        self.up(len(self.heap)-1)
+
+
+    def up(self, i):
+        while i>0 and self.heap[self.parent(i)] > self.heap[i]:
+            self.heap[self.parent(i)], self.heap[i] = self.heap[i], self.heap[self.parent(i)]
+            i = self.parent(i)
+
+    
+    def down(self, i):
+        min_index = i
+        left = self.left(i)
+        right = self.right(i)
+
+        while left < len(self.heap) and self.heap[left] < self.heap[min_index]:
+            min_index = left
+        while right < len(self.heap) and self.heap[right] < self.heap[min_index]:
+            min_index = right
+
+        if i != min_index:
+            self.heap[i], self.heap[min_index] = self.heap[min_index], self.heap[i]
+            self.down(min_index)
+
+    def print(self):
+        print(self.heap)
+
+    def remove(self, data):
+        for i, x in enumerate(self.heap):
+            if x == data:
+                self.heap[i] = self.heap[len(self.heap)-1]
+                self.heap.pop(len(self.heap)-1)
+                self.down(0)
+
+
+
+class Heap:
+
+    def __init__(self):
+        self.heap=[]
+
+    def parent(self, i):
+        return (i-1)//2
+    
+    def left(self, i):
+        return (i*2)+1
+    
+    def right(self, i):
+        return (i*2)+2
+    
+    def append(self, data):
+        self.heap.append(data)
+        self.up(len(self.heap)-1)
+
+    def remove(self):
+        self.heap[0] = self.heap[len(self.heap)-1]
+        self.down(0)
+    
+
+    def print(self):
+        print(self.heap)
+
+    def up(self, i):
+        while i>0 and self.heap[self.parent(i)] > self.heap[i]:
+            self.heap[self.parent(i)], self.heap[i] = self.heap[i], self.heap[self.parent(i)]
+            i=self.parent(i)
+
+    def down(self, i):
+        min_index = i
+        left = self.left(i)
+        right = self.right(i)
+
+        while left < len(self.heap) and self.heap[left] < self.heap[min_index]:
+            min_index = left
+        while right < len(self.heap) and self.heap[right] < self.heap[min_index]:
+            min_index = right
+        
+        if i != min_index:
+            self.heap[i], self.heap[min_index] = self.heap[min_index], self.heap[i]
+            self.down(min_index)
+    
+
+
+class Vertex:
+    def __init__(self, data=None):
+        self.data=data
+        self.edges={}
+
+class Graph:
+    def __init__(self):
+        self.index={}
+
+    def append(self, data, edge):
+        if data in self.index:
+            vertex=self.index[data]
+        else:
+            vertex=Vertex(data)
+            self.index[data]=vertex
+        if edge in self.index:
+            node=self.index[edge]
+            vertex.edges[edge]=node
+        else:
+            node=Vertex(edge)
+            self.index[edge]=node
+            vertex.edges[edge]=node
+
+    def print(self):
+        dict={}
+        def helper(current):
+            nonlocal dict
+            if current:
+                for edge in current.edges:
+                    print(current.data, end=" ")
+                    if current not in dict:
+                        dict[current]=current.data
+                        helper(current.edges[edge])
+                    else:
+                        break
+        for current in self.index:
+            print(self.index[current])
+            helper(self.index[current])
+
+
+
+
+
+
+class Vertex:
+    def __init__(self, data=None):
+        self.data=data
+        self.edges={}
+
+class Graph:
+    def __init__(self):
+        self.index={}
+
+    def append(self, data, edge):
+        if data in self.index:
+            vertex=self.index[data]
+        else:
+            vertex=Vertex(data)
+            self.index[data]=vertex
+        if edge in self.index:
+            node=self.index[edge]
+        else:
+            node=Vertex(edge)
+            self.index[edge]=node
+        if edge not in vertex.edges:
+            vertex.edges[edge]=node
+    
+
+class Node:
+    def __init__(self):
+        self.child={}
+        self.end=False
+
+class Trie:
+    def __init__(self):
+        self.root=Node()
+
+
+
+# ---------------------------
+# 1. Quick Sort Implementation
+def quick_sort(arr: list, start: int = None, end: int = None) -> None:
+    """
+    Sorts the list arr in place using the Quick Sort algorithm.
+    If start and end are not provided, sorts the entire list.
+    """
+    if start is None or end is None:
+        start, end = 0, len(arr) - 1
+    if start >= end:
+        return
+    pivot = start
+    left = start + 1
+    right = end
+    while left <= right:
+        if arr[left] > arr[pivot] and arr[right] < arr[pivot]:
+            arr[left], arr[right] = arr[right], arr[left]
+            left += 1
+            right -= 1
+        if left <= end and arr[left] <= arr[pivot]:
+            left += 1
+        if right >= start and arr[right] >= arr[pivot]:
+            right -= 1
+    arr[pivot], arr[right] = arr[right], arr[pivot]
+    quick_sort(arr, start, right - 1)
+    quick_sort(arr, right + 1, end)
