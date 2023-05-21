@@ -23300,3 +23300,32 @@ def custom_sort_by_binary_ones(nums: list) -> list:
     """
     # Use a sort key: (binary ones count, value)
     return sorted(nums, key=lambda x: (bin(x)[2:].count("1"), x))
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 3. Count extra frequency needed from string s to cover string t.
+def extra_frequency_needed(s: str, t: str) -> int:
+    """
+    Given two strings s and t, computes how many extra occurrences of characters in s are needed
+    compared to t. For each character in s, if s has a higher count than t, adds the difference;
+    if t doesn't contain the character, adds the full count from s.
+    
+    Example:
+      s = "lloo", t = "balloon"
+      Frequency(s): {'l':2, 'o':2}
+      Frequency(t): {'b':1, 'a':1, 'l':2, 'o':2, 'n':1}
+      Extra needed: 0 for 'l' and 'o' → returns 0.
+    """
+    sCount = Counter(s)
+    tCount = Counter(t)
+    extra = 0
+    for ch in sCount:
+        if ch in tCount:
+            if sCount[ch] > tCount[ch]:
+                extra += sCount[ch] - tCount[ch]
+        else:
+            extra += sCount[ch]
+    return extra
