@@ -10763,3 +10763,21 @@ def interleave_halves(nums: list, n: int) -> list:
         result.append(nums[i])
         result.append(nums[n + i])
     return result
+
+
+# --- Next Function Block ---
+
+
+# 35. Extract Number from String
+def extract_number(s: str) -> int:
+    """
+    Splits the string s by spaces and returns the last integer found.
+    If none found, returns 0.
+    """
+    num = 0
+    for token in s.split():
+        try:
+            num = int(token)
+        except ValueError:
+            continue
+    return num
