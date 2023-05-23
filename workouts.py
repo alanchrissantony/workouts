@@ -28243,3 +28243,27 @@ def quick_sort(arr: list, start: int = None, end: int = None) -> None:
     arr[pivot], arr[right] = arr[right], arr[pivot]
     quick_sort(arr, start, right - 1)
     quick_sort(arr, right + 1, end)
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 2: Check for Duplicates Within a Window (Brute-force)
+def contains_nearby_duplicate_bruteforce(nums: list, k: int) -> bool:
+    """
+    Checks whether there exist two distinct indices i and j in nums
+    such that nums[i] == nums[j] and abs(i - j) <= k.
+    
+    Uses a brute-force approach.
+    """
+    n = len(nums)
+    i = 0
+    while i < n - 1:
+        j = i + 1
+        while j < n:
+            if nums[i] == nums[j] and abs(i - j) <= k:
+                return True
+            j += 1
+        i += 1
+    return False
