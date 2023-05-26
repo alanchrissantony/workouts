@@ -156,3 +156,23 @@ def get_missing_numbers(arr: list) -> list:
         if i not in arr:
             missing.append(i)
     return missing
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 8: Reverse a subarray between two 1-indexed positions.
+def reverse_subarray(head: list, left: int, right: int) -> list:
+    """
+    Reverses a portion of the list 'head' from index left-1 to right-1 (inclusive).
+    
+    Example:
+      head = [1,2,3,4,5,6,8], left = 2, right = 4
+      Output: [1, 4, 3, 2, 5, 6, 8]
+    """
+    # Convert left and right to 0-indexed.
+    left_idx = left - 1
+    right_idx = right
+    new_list = head[:left_idx] + head[left_idx:right_idx][::-1] + head[right_idx:]
+    return new_list
