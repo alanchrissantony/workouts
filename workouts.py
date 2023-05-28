@@ -3190,3 +3190,30 @@ def prefix_difference(nums: list) -> list:
     for i in range(n):
         diff.append(abs(left[i] - right[n - 1 - i]))
     return diff
+
+
+# --- Next Function Block ---
+
+
+
+def print_custom_pattern(n: int) -> None:
+    """
+    Prints a custom pattern based on a grid of size (n*n).
+    (Note: The pattern logic is derived from the given code and may be adjusted as needed.)
+    """
+    total = n * n
+    for i in range(total):
+        for j in range(total):
+            # This condition is based on the provided snippet; adjust as needed.
+            if (i == 0 and j == total // 2) or \
+               (i > 0 and (total / 2) - 2 < j < (total / 2) + 1) or \
+               (i > (total / 2) - 2 and 1 < j < 5) or \
+               (i > (total / 2) - 2 and 5 < j < 9) or \
+               (i > (total / 2) - 2 and total - 6 < j < total - 2) or \
+               (i > (total / 2) - 2 and total - 10 < j < total - 6) or \
+               (i >= total // 2) or \
+               (i == 12 and 0 < j < total - 1):
+                print("*", end=" ")
+            else:
+                print("  ", end=" ")
+        print()
