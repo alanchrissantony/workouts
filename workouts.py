@@ -1427,3 +1427,20 @@ def count_domino_pairs(dominoes: list) -> int:
         else:
             domino_count[sorted_domino] = 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# compare_sorted_numbers.py
+def compare_sorted_lists(nums: list):
+    """
+    Returns a tuple (sorted_set, sorted_nums) if the set and list differ,
+    otherwise returns False.
+    """
+    sorted_set = sorted(set(nums))
+    nums_sorted = sorted(nums)
+    if sorted_set == nums_sorted:
+        return False
+    else:
+        return sorted_set, nums_sorted
