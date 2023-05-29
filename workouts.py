@@ -15999,3 +15999,26 @@ def sum_halves(n: int) -> int:
         n = n - sub
         count += sub
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def zigzag_convert(s: str, numRows: int) -> str:
+    """
+    Converts the string s into a zigzag pattern on numRows and reads line by line.
+    (A simplified version of the zigzag conversion problem.)
+    """
+    if numRows == 1 or numRows >= len(s):
+        return s
+    rows = [''] * numRows
+    cur_row, step = 0, 1
+    for char in s:
+        rows[cur_row] += char
+        if cur_row == 0:
+            step = 1
+        elif cur_row == numRows - 1:
+            step = -1
+        cur_row += step
+    return "".join(rows)
