@@ -700,3 +700,22 @@ def b(n):
                 else:
                     print(end=" ")
         print("\n")
+
+
+# --- Next Function Block ---
+
+
+def c(num):
+    flag=False
+    if num == 1:
+        print("Not prime")
+    elif num > 0:
+        for i in range(2, num):
+            if(num%i==0):
+                flag=True
+                break
+        
+    if flag:
+        print("Not prime")
+    else:
+        print("Prime")
