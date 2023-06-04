@@ -18661,3 +18661,20 @@ def number_of_operations(num: int) -> int:
             num -= 1
         count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# 14. Minimum operations to reach target from 1 with doubling allowed.
+def min_operations_to_target(target: int, maxDoubles: int) -> int:
+    i = 1
+    count = 0
+    while i < target:
+        if maxDoubles > 0 and i * 2 <= target:
+            i *= 2
+            maxDoubles -= 1
+        else:
+            i += 1
+        count += 1
+    return count
