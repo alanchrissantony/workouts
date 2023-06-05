@@ -24125,3 +24125,29 @@ def merge_sort(nums1):
     right=nums1[mid:]
     
     return join(merge_sort(left), merge_sort(right))
+
+
+# --- Next Function Block ---
+
+
+
+
+def join(left, right):
+    arr=[]
+    i=0
+    j=0
+
+    while i<len(left) and j<len(right):
+        if left[i]<right[j]:
+            arr.append(left[i])
+            i+=1
+        else:
+            arr.append(right[j])
+            j+=1
+    while i<len(left):
+        arr.append(left[i])
+        i+=1
+    while j<len(right):
+        arr.append(right[j])
+        j+=1
+    return arr
