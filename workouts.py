@@ -536,3 +536,30 @@ def filter_evens(arr: list) -> list:
       arr = [1,2,3,4,5,6] → returns [2,4,6].
     """
     return list(filter(lambda x: x % 2 == 0, arr))
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 6: Find the maximum average subarray of length k.
+def max_average_subarray(nums: list, k: int) -> float:
+    """
+    Finds the contiguous subarray of length k that has the maximum average.
+    Prints the subarray each time a new maximum average is found.
+    Returns the maximum average.
+    
+    Example:
+      nums = [-1], k = 1.
+    """
+    max_avg = float('-inf')
+    best_sub = None
+    i = 0
+    while i < len(nums) - k + 1:
+        current_avg = sum(nums[i:i+k]) / k
+        if current_avg > max_avg:
+            max_avg = current_avg
+            best_sub = nums[i:i+k]
+            print("New best subarray:", best_sub)
+        i += 1
+    return max_avg
