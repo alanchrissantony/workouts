@@ -27948,3 +27948,27 @@ def dp_toggle_variant2(n: int) -> list:
     if n > 3:
         dp[-1] = 0 if dp[-1] == 1 else 1
     return dp
+
+
+# --- Next Function Block ---
+
+
+
+
+
+# -----------------------------------------------------
+# Function 1: Create a dictionary mapping indices to description tuples
+def build_description_dict(a: list, b: list) -> dict:
+    """
+    Given two lists a and b, builds and returns a dictionary c where
+    each key is an index and the value is a tuple (a[i], b[i]).
+    
+    Example:
+      a = ["MyLinkedList", "addAtHead", ...]
+      b = [[], [84], ...]
+      Returns: {0: ("MyLinkedList", []), 1: ("addAtHead", [84]), ...}
+    """
+    c = {}
+    for i in range(len(a)):
+        c[i] = (a[i], b[i])
+    return c
