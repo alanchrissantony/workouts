@@ -2050,3 +2050,24 @@ def product_of_list(nums: list, verbose: bool = False) -> int:
             print(num)
         product *= num
     return product
+
+
+# --- Next Function Block ---
+
+
+
+def longest_common_prefix(strs: list) -> str:
+    """
+    Returns the longest common prefix among the list of strings.
+    If there is none, returns an empty string.
+    """
+    if not strs:
+        return ""
+    prefix = strs[0]
+    for s in strs[1:]:
+        # Shorten the prefix until s starts with it
+        while not s.startswith(prefix):
+            prefix = prefix[:-1]
+            if prefix == "":
+                return ""
+    return prefix
