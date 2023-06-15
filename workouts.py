@@ -17454,3 +17454,18 @@ def reverse_alpha_keep_nonalpha(s: str) -> str:
         if ch.isalpha():
             res[idx] = alphabets.pop(0)
     return "".join(res)
+
+
+# --- Next Function Block ---
+
+
+
+# 21. Split words by a separator and collect non-empty segments.
+def split_words_by_separator(words: list, separator: str) -> list:
+    result = []
+    for word in words:
+        segments = word.split(separator)
+        for seg in segments:
+            if seg:
+                result.append(seg)
+    return result
