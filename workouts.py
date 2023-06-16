@@ -18117,3 +18117,39 @@ def make_palindrome_by_min(s: str) -> str:
             else:
                 arr[i] = arr[j]
     return "".join(arr)
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 8 ---
+def process_prev_words(words: list) -> list:
+    """
+    Processes a list of words where the word "prev" indicates removal.
+    For each occurrence of "prev", removes that element and (if possible) its previous element,
+    then collects the removed values into a result list.
+    Returns the collected list.
+    (Logic based on provided snippet; behavior is ambiguous.)
+    """
+    result = []
+    i = 0
+    # Work on a copy to avoid index issues.
+    words = words[:]  
+    while i < len(words):
+        if words[i] == "prev":
+            if i > 0:
+                result.append(int(words[i - 1]))
+                del words[i - 1]
+                i -= 1
+            else:
+                result.append(-1)
+            del words[i]
+            # Do not increment i since list has shrunk.
+        else:
+            try:
+                words[i] = int(words[i])
+            except ValueError:
+                pass
+            i += 1
+    return result
