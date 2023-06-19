@@ -28158,3 +28158,30 @@ def merge_intervals_with_new(intervals: list, newInterval: list) -> list:
     # Optionally, sort the result.
     arr.sort(key=lambda x: x[0])
     return arr
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 8: Merge Overlapping Intervals (Variant)
+def merge_intervals(intervals: list) -> list:
+    """
+    Given a list of intervals, merges all overlapping intervals.
+    
+    Example:
+      intervals = [[1,4],[0,2],[3,5]]
+      Returns: [[0,5]]
+    """
+    if not intervals:
+        return []
+    intervals.sort(key=lambda x: x[0])
+    merged = [intervals[0]]
+    for curr in intervals[1:]:
+        last = merged[-1]
+        # If overlapping, merge.
+        if curr[0] <= last[1]:
+            merged[-1] = [last[0], max(last[1], curr[1])]
+        else:
+            merged.append(curr)
+    return merged
