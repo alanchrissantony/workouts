@@ -10841,3 +10841,21 @@ def normalize_emails(emails: list) -> list:
     Normalizes a list of emails.
     """
     return [normalize_email(email) for email in emails]
+
+
+# --- Next Function Block ---
+
+
+# 39. Adjust Prices (Subtract first smaller element)
+def adjust_prices(prices: list) -> list:
+    """
+    For each price in the list, if a subsequent price is smaller,
+    subtract that price from the current and break.
+    """
+    adjusted = prices[:]  # make a copy
+    for i in range(len(adjusted)-1):
+        for j in range(i+1, len(adjusted)):
+            if adjusted[i] > adjusted[j]:
+                adjusted[i] = adjusted[i] - adjusted[j]
+                break
+    return adjusted
