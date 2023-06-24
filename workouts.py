@@ -248,3 +248,33 @@ def reverse_chunks(arr: list, k: int) -> list:
         else:
             result.extend(chunk)
     return result
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 12: Transform list by conditional chunk reversal.
+def transform_list_by_chunks(arr: list) -> list:
+    """
+    Transforms the list 'arr' by taking chunks (whose size depends on a changing parameter k)
+    and reverses the chunk if its length is even, otherwise leaves it as is.
+    
+    The update of the start index uses the rule i = k*k - i and increments k by 1 each iteration.
+    (This is one interpretation of the snippet.)
+    """
+    nums = []
+    i = 0
+    k = 1
+    n = len(arr)
+    while i < n:
+        # Determine chunk size as k; slice from i to i+k.
+        chunk = arr[i:i+k]
+        if len(chunk) % 2 == 0:
+            nums.extend(chunk[::-1])
+        else:
+            nums.extend(chunk)
+        # Update i as shown in snippet: i = k*k - i.
+        i = k * k - i
+        k += 1
+    return nums
