@@ -17184,3 +17184,12 @@ def validate_parentheses(s: str) -> bool:
             if not stack or char != stack.pop():
                 return False
     return not stack
+
+
+# --- Next Function Block ---
+
+
+
+# 4. Reverse a number's string representation.
+def reverse_number(num: int) -> str:
+    return str(num)[::-1]
