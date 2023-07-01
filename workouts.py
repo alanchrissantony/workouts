@@ -18536,3 +18536,17 @@ def min_subset_exceeding_rest(nums: list) -> list:
         subset_sum += nums[k]
         k += 1
     return nums[:k]
+
+
+# --- Next Function Block ---
+
+
+# 6. Total bottles problem: given numBottles and numExchange, return total bottles drank.
+def total_bottles(numBottles: int, numExchange: int) -> int:
+    total = numBottles
+    bottles = numBottles
+    while bottles >= numExchange:
+        new = bottles // numExchange
+        total += new
+        bottles = bottles % numExchange + new
+    return total
