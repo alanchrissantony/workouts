@@ -18293,3 +18293,25 @@ def remove_duplicate_pairs(nums: list) -> (int, list):
         if not found:
             i += 1
     return count, nums
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 16 ---
+def next_value_after_key(nums: list, key: int) -> int:
+    """
+    Iterates over nums; when an element equals key, collects the following element into a frequency dictionary.
+    Returns the key from that dictionary with the highest frequency (or the only key if one exists).
+    """
+    freq = {}
+    for i in range(len(nums) - 1):
+        if nums[i] == key:
+            next_val = nums[i + 1]
+            freq[next_val] = freq.get(next_val, 0) + 1
+    # Return the value with maximum frequency; if tied, the one encountered last in reversed sorted order.
+    if freq:
+        sorted_freq = dict(sorted(freq.items(), key=lambda item: item[1], reverse=True))
+        return next(iter(sorted_freq))
+    return None
