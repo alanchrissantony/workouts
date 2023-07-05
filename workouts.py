@@ -10454,3 +10454,17 @@ def list_length(lst: list) -> int:
     Returns the length of lst.
     """
     return len(lst)
+
+
+# --- Next Function Block ---
+
+
+# 16. Create Target Array in Given Order
+def create_target_array(nums: list, index: list) -> list:
+    """
+    Given two lists, nums and index, inserts each element from nums into a target list at the corresponding index.
+    """
+    target = []
+    for num, idx in zip(nums, index):
+        target.insert(idx, num)
+    return target
