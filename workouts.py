@@ -10062,3 +10062,30 @@ def pascal_row(row_index: int) -> list:
             row.append(1)
         triangle.append(row)
     return triangle[row_index]
+
+
+# --- Next Function Block ---
+
+
+
+def min_max_game(nums: list) -> int:
+    """
+    Given a list of numbers, repeatedly perform the following:
+      - Partition the list into pairs.
+      - For each pair, if it's the turn for 'min', choose the minimum; otherwise, choose the maximum.
+      - Continue until one number remains.
+    Returns the final number.
+    """
+    turn = True  # True means take min, False means take max.
+    while len(nums) > 1:
+        new_nums = []
+        for i in range(0, len(nums) - 1, 2):
+            if turn:
+                new_nums.append(min(nums[i], nums[i+1]))
+            else:
+                new_nums.append(max(nums[i], nums[i+1]))
+            turn = not turn
+        if len(nums) % 2 == 1:
+            new_nums.append(nums[-1])
+        nums = new_nums
+    return nums[0]
