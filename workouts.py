@@ -28358,3 +28358,16 @@ def triangle_path_sum(triangle: list) -> int:
         current = max(current, current + m)
         total = max(total, current)
     return total
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 7: Return the Slice of a List from a Given Index
+def slice_from_index(arr: list, index: int = 1) -> list:
+    """
+    Returns a sublist of arr starting from the given index.
+    Default is index 1.
+    """
+    return arr[index:]
