@@ -18393,3 +18393,15 @@ def compare_letters_to_target(letters: list, target: str) -> list:
     """
     letters.sort()
     return [letter > target for letter in letters]
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 21 ---
+def mapped_values(arr: list, func) -> list:
+    """
+    Returns the result of applying func to each element of arr using map.
+    """
+    return list(map(func, arr))
