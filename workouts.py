@@ -20156,3 +20156,24 @@ def generate_random_numbers(n: int, low: int, high: int) -> list:
     Returns a list of n random integers between low and high (inclusive).
     """
     return [random.randint(low, high) for _ in range(n)]
+
+
+# --- Next Function Block ---
+
+
+# ----- Sorting Algorithms -----
+
+def selection_sort(arr: list) -> list:
+    """
+    Performs selection sort on a copy of arr and returns the sorted list.
+    """
+    arr = arr.copy()
+    i = 0
+    while i < len(arr) - 1:
+        j = i + 1
+        while j < len(arr):
+            if arr[j] < arr[i]:
+                arr[i], arr[j] = arr[j], arr[i]
+            j += 1
+        i += 1
+    return arr
