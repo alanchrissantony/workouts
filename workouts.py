@@ -24528,3 +24528,17 @@ def mod_exponentiation(a: int, b: int, mod: int) -> int:
       a = 2, b = 3, mod = 1337 → returns pow(2, 3, 1337)
     """
     return pow(a, b, mod)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 7: Custom binary string for negative values.
+def custom_bin_negative(num: int) -> str:
+    """
+    Returns a binary representation for negative numbers by computing bin(num)
+    and then slicing off the prefix. This function demonstrates the snippet:
+      print(bin(-2**2)[3:])
+    """
+    return bin(num)[3:]
