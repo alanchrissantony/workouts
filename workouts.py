@@ -28396,3 +28396,23 @@ def is_long_pressed(name: str, typed: str) -> bool:
         else:
             return False
     return i == len(name)
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 9: Remove Excess Duplicates (Keep at most two occurrences)
+def remove_excess_duplicates(nums: list, max_allowed: int = 2) -> int:
+    """
+    Removes extra duplicates from nums so that each element appears at most max_allowed times.
+    Returns the new length of the list.
+    """
+    nums = nums.copy()
+    i = 0
+    while i < len(nums):
+        if nums.count(nums[i]) > max_allowed:
+            del nums[i]
+        else:
+            i += 1
+    return len(nums)
