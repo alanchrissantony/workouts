@@ -1501,3 +1501,18 @@ def majority_element(nums: list):
             max_count = count
             majority = num
     return majority
+
+
+# --- Next Function Block ---
+
+
+# tribonacci.py
+def tribonacci(n: int) -> int:
+    """
+    Returns the (n+1)th Tribonacci number.
+    Starting with trib[0]=0, trib[1]=0, trib[2]=1.
+    """
+    trib = [0, 0, 1]
+    for i in range(2, n + 1):
+        trib.append(trib[i-2] + trib[i-1] + trib[i])
+    return trib[n+1]
