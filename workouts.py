@@ -1884,3 +1884,30 @@ def check_coordinate_difference(coordinates: list) -> bool:
             else:
                 diff = k[0] - k[1]
     return out
+
+
+# --- Next Function Block ---
+
+
+
+def max_profit_difference(arr: list) -> int:
+    """
+    Given a list of prices (or similar), finds the pair with the minimum difference and returns the difference between sell and buy.
+    If the difference is negative, returns 0.
+    (Logic based on the provided snippet.)
+    """
+    diff_map = {}
+    for i in range(len(arr)-1):
+        minval = arr[0]  # initial min value difference (this logic is ambiguous)
+        for j in range(i+1, len(arr)):
+            if arr[i] - arr[j] < minval:
+                minval = arr[i] - arr[j]
+                buyval = arr[i]
+                sellval = arr[j]
+        diff_map[minval] = [buyval, sellval]
+    key = min(diff_map) if diff_map else 0
+    val = diff_map.get(key, [0, 0])
+    res = val[1] - val[0]
+    if res <= 0:
+        res = 0
+    return res
