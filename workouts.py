@@ -16163,3 +16163,21 @@ def index_mapping(nums: list) -> list:
     Assumes that all nums[i] are valid indices.
     """
     return [nums[x] for x in nums]
+
+
+# --- Next Function Block ---
+
+
+
+def sum_diff_by_divisibility(n: int, m: int) -> int:
+    """
+    Sums numbers from 1 to n that are not divisible by m and subtracts the sum of numbers that are divisible by m.
+    """
+    total_non_div = 0
+    total_div = 0
+    for i in range(1, n + 1):
+        if i % m == 0:
+            total_div += i
+        else:
+            total_non_div += i
+    return total_non_div - total_div
