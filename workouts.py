@@ -15261,3 +15261,21 @@ def adjust_prices(prices: list) -> list:
                 adjusted[i] -= adjusted[j]
                 break
     return adjusted
+
+
+# --- Next Function Block ---
+
+
+
+def sum_diagonals(mat: list) -> int:
+    """
+    Returns the sum of the primary and secondary diagonals of a square matrix.
+    For odd dimensions, the center element is subtracted once.
+    """
+    n = len(mat)
+    total = 0
+    for i in range(n):
+        total += mat[i][i] + mat[i][n - 1 - i]
+    if n % 2 == 1:
+        total -= mat[n//2][n//2]
+    return total
