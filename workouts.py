@@ -20475,3 +20475,25 @@ def quick_sort(arr: list, start: int = None, end: int = None) -> None:
     swap(arr, pivot, right)
     quick_sort(arr, start, right - 1)
     quick_sort(arr, right + 1, end)
+
+
+# --- Next Function Block ---
+
+
+def join_sorted(left: list, right: list) -> list:
+    """
+    Merges two sorted lists (left and right) and returns a new sorted list.
+    """
+    merged = []
+    i = 0
+    j = 0
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            merged.append(left[i])
+            i += 1
+        else:
+            merged.append(right[j])
+            j += 1
+    merged.extend(left[i:])
+    merged.extend(right[j:])
+    return merged
