@@ -18973,3 +18973,27 @@ def count_divisible_digits(num: int) -> int:
         if digit != 0 and num % digit == 0:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+# 8. Elimination game: for a given n, create a list of odd numbers, then
+#    repeatedly remove every other element and reverse until one remains.
+def elimination_game_odds(n: int) -> int:
+    """
+    Returns the last remaining element after repeatedly eliminating every
+    other element from the reversed list of odd numbers from 1 to n.
+    """
+    arr = list(range(1, n + 1, 2))
+    arr = arr[::-1]
+    while len(arr) > 1:
+        i = 0
+        new_arr = []
+        while i < len(arr):
+            # Delete every other element: take one, skip one.
+            new_arr.append(arr[i])
+            i += 2
+        arr = new_arr[::-1]
+    return arr[0] if arr else None
