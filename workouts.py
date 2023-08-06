@@ -28285,3 +28285,16 @@ def contains_nearby_duplicate_dict(nums: list, k: int) -> bool:
             return True
         last_index[num] = i
     return False
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 4: Calculate a Modified Value from a Column Number
+def adjust_column_number(columnNumber: int) -> int:
+    """
+    For a given columnNumber, computes (columnNumber - (columnNumber % 26)).
+    (This snippet likely relates to converting numbers to Excel column titles.)
+    """
+    return columnNumber - (columnNumber % 26)
