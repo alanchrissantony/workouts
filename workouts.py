@@ -15982,3 +15982,20 @@ def max_occurrences_of_word(sequence: str, word: str) -> int:
             i += 1
     # Return whichever count is higher (they should be equal if word does not overlap)
     return max(count, count_builtin)
+
+
+# --- Next Function Block ---
+
+
+
+def sum_halves(n: int) -> int:
+    """
+    Given n, repeatedly subtract half (floor division) until i <= 1.
+    Returns the sum of all subtracted values.
+    """
+    count = 0
+    while n > 1:
+        sub = n // 2
+        n = n - sub
+        count += sub
+    return count
