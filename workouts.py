@@ -1050,3 +1050,28 @@ def w(nums1, nums2):
                 temp=nums1[s]
                 nums1[s]=nums1[j]
                 nums1[j]=temp
+
+
+# --- Next Function Block ---
+
+
+def y(x):
+    a=str(x)
+    array=[]
+    isPalindrome=True
+    for i in a:
+        array.append(i)
+
+    for i in range(len(array)):
+        if(int(array[i])!=int(array[len(array)-1-i])):
+            isPalindrome=False
+    if(isPalindrome):
+        print(True)
+    else:
+        print(False)
+
+    def isPalindrome(x):
+        return x == x[::-1]
+
+    res=isPalindrome("122")
+    print(res)
