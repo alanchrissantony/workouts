@@ -20803,3 +20803,49 @@ def longest_palindrome_length(s: str) -> int:
             length += count - 1
             odd_found = True
     return length + 1 if odd_found else length
+
+
+# --- Next Function Block ---
+
+
+# --- Rearrange Digits with Odd Priority ---
+def rearrange_digits_with_odd_priority(num: str) -> str:
+    """
+    Rearranges the digits in num based on frequency:
+      - Sorts the digits by their character value (in reverse order).
+      - For digits with even frequency, inserts them into the result string (preserving half order).
+      - For digits with odd frequency, remembers the one with the largest frequency.
+      - Inserts the odd-frequency block into the middle of the result.
+    Returns the resulting string.
+    
+    Note: This function replicates the provided snippet logic.
+    """
+    freq = dict(Counter(num))
+    # Sort keys in reverse order by character.
+    sorted_keys = sorted(freq.keys(), reverse=True)
+    result = ""
+    odd_block = ""
+    max_odd = 0
+    for key in sorted_keys:
+        count = freq[key]
+        if count % 2 == 0:
+            # Insert even count digits into result.
+            # Insert half at the beginning and half at the end.
+            mid = len(result) // 2
+            result = result[:mid] + key * count + result[mid:]
+        else:
+            if count > max_odd:
+                max_odd = count
+                odd_block = key * count
+            else:
+                mid = len(result) // 2
+                result = result[:mid] + key * (count - 1) + result[mid:]
+    if odd_block:
+        # Insert odd block in the middle.
+        mid = len(result) // 2
+        result = result[:mid] + odd_block + result[mid:]
+    # Convert result to integer then back to string to remove any leading zeros.
+    try:
+        return str(int(result))
+    except Exception:
+        return result
