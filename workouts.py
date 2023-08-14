@@ -3437,3 +3437,18 @@ def format_ip_address(address: str) -> str:
     """
     parts = address.split(".")
     return "[.]".join(parts)
+
+
+# --- Next Function Block ---
+
+
+
+def count_jewels(jewels: str, stones: str) -> int:
+    """
+    Counts how many characters in stones are also in jewels.
+    """
+    count = 0
+    for ch in stones:
+        if ch in jewels:
+            count += 1
+    return count
