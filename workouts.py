@@ -16912,3 +16912,24 @@ def reverse_up_to_char(word: str, ch: str) -> str:
     """
     ind = word.index(ch)
     return word[:ind+1][::-1] + word[ind+1:]
+
+
+# --- Next Function Block ---
+
+
+
+# 23. Compute maximum differences for each element:
+def max_differences(nums: list) -> list:
+    """
+    For each index in nums, computes the maximum difference (nums[j]-nums[i]) for j > i.
+    Returns a list with -1 as the first element and the maximum differences for subsequent indices.
+    """
+    result = [-1]
+    for i in range(len(nums)-1):
+        diffs = []
+        for j in range(i+1, len(nums)):
+            if nums[j] > nums[i]:
+                diffs.append(nums[j] - nums[i])
+        if diffs:
+            result.append(max(diffs))
+    return result
