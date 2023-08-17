@@ -16368,3 +16368,15 @@ def first_duplicate_in_list(nums: list):
             return num
         seen.add(num)
     return None
+
+
+# --- Next Function Block ---
+
+
+def rotate_array_right(nums: list, k: int) -> list:
+    """
+    Rotates the list nums to the right by k positions.
+    """
+    n = len(nums)
+    k %= n
+    return nums[-k:] + nums[:-k]
