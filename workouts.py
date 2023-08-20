@@ -16472,3 +16472,22 @@ def reformat_text(text: str) -> str:
     """
     words = text.strip().split()
     return " ".join(words)
+
+
+# --- Next Function Block ---
+
+
+
+# 1. Given a number, sort its digits and compute the sum of the integer
+#    formed by concatenating the smallest and largest digit with the remaining two in order.
+def sorted_digits_sum(num: int) -> int:
+    """
+    Converts num to its digit list, sorts the digits, then returns:
+      int(sorted[0] + sorted[3]) + int(sorted[1] + sorted[2])
+    Example: 2932 -> digits sorted = ['2','2','3','9'] → int('2'+'9') + int('2'+'3') = 29 + 23 = 52.
+    """
+    s = str(num)
+    arr = list(s)
+    arr.sort()
+    # Concatenate first and last digit; then second and third.
+    return int(arr[0] + arr[3]) + int(arr[1] + arr[2])
