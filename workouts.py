@@ -2331,3 +2331,17 @@ def is_happy(n: int, max_iter: int = 100) -> bool:
         if n == 1:
             return True
     return False
+
+
+# --- Next Function Block ---
+
+
+# 2. k Least Ones Rows in a Binary Matrix
+def k_least_ones_rows(mat: list, k: int) -> list:
+    """
+    Given a binary matrix, counts the number of 1's in each row and returns
+    the indices of the k rows with the fewest 1's.
+    """
+    row_counts = {i: sum(row) for i, row in enumerate(mat)}
+    sorted_rows = sorted(row_counts.items(), key=lambda x: x[1])
+    return [i for i, _ in sorted_rows[:k]]
