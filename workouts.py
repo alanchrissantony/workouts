@@ -2657,3 +2657,14 @@ def range_count(low: int, high: int) -> int:
     Returns the difference between high and low.
     """
     return high - low
+
+
+# --- Next Function Block ---
+
+
+# 22. Average of Salaries
+def average_salary(salaries: list) -> float:
+    """
+    Returns the average of the salaries in the list.
+    """
+    return sum(salaries) / len(salaries) if salaries else 0
