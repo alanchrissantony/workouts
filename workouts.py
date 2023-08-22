@@ -18067,3 +18067,16 @@ def count_ones_in_binary(n: int) -> int:
     b = bin(n)
     counts = Counter(b)
     return counts['1'] if '1' in counts else 0
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 5 ---
+def binary_sum(a: str, b: str) -> str:
+    """
+    Returns the binary string representing the sum of binary strings a and b.
+    """
+    total = int(a, 2) + int(b, 2)
+    return bin(total)
