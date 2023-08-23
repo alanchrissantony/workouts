@@ -28118,3 +28118,43 @@ def clean_path(path: str) -> str:
     if len(res) > 1 and res[-1] == '/':
         res = res[:-1]
     return res
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 7: Merge Intervals with a New Interval
+def merge_intervals_with_new(intervals: list, newInterval: list) -> list:
+    """
+    Given a list of intervals and a new interval, merges overlapping intervals.
+    This version uses a while loop and checks if the new interval overlaps with any.
+    
+    Example:
+      intervals = [[1,5]], newInterval = [2,3]
+      Returns: [[1,5]]
+    """
+    arr = []
+    n = len(intervals)
+    i = 0
+    inserted = False
+    while i < n:
+        # If the current interval ends before the new interval starts, add it.
+        if intervals[i][1] < newInterval[0]:
+            arr.append(intervals[i])
+        # If the current interval starts after the new interval ends, insert new interval if not done.
+        elif intervals[i][0] > newInterval[1]:
+            if not inserted:
+                arr.append(newInterval)
+                inserted = True
+            arr.append(intervals[i])
+        # Overlapping intervals: merge with newInterval.
+        else:
+            newInterval[0] = min(newInterval[0], intervals[i][0])
+            newInterval[1] = max(newInterval[1], intervals[i][1])
+        i += 1
+    if not inserted:
+        arr.append(newInterval)
+    # Optionally, sort the result.
+    arr.sort(key=lambda x: x[0])
+    return arr
