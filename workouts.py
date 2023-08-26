@@ -17714,3 +17714,15 @@ def process_backspaces(s, t):
                 res.append(ch)
         return "".join(res)
     return process(s), process(t)
+
+
+# --- Next Function Block ---
+
+
+
+# 10. Copy a list using comprehension.
+def copy_list(arr):
+    """
+    Returns a copy of the list arr.
+    """
+    return [x for x in arr]
