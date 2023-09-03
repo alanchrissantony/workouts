@@ -27181,3 +27181,615 @@ def dp_toggle_variant2(n: int) -> list:
             dp[j] = 0 if dp[j] == 1 else 1
         print(dp, i - 1)
     return dp
+
+
+# --- Next Function Block ---
+
+
+
+
+
+class Graph:
+    def __init__(self):
+        self.graph={}
+
+    def append(self, data, edge):
+        if data not in self.graph:
+            self.graph[data]=[]
+        self.graph[data].append(edge)
+
+    def print(self):
+        for vertex in self.graph:
+            print(vertex,"->"," -> ".join(map(str, self.graph[vertex])))
+
+    def remove(self, data, edge):
+        if data in self.graph and edge in self.graph[data]:
+            self.graph[data].remove(edge)
+
+
+
+class Graph:
+    def __init__(self):
+        self.graph={}
+
+    def append(self, data, edge):
+        if data not in self.graph:
+            self.graph[data]=[]
+        self.graph[data].append(edge)
+
+    def bfs(self, start):
+        queue=[start]
+        arr=set()
+        while queue:
+            current=queue.pop(0)
+            if current not in arr:
+                arr.add(current)
+                print(current)
+                queue.extend(self.graph[current])
+
+    def bredth(self, start):
+        queue=[start]
+        visited=set()
+        while queue:
+            vertex=queue.pop(0)
+            if vertex not in visited:
+                print(vertex)
+                visited.add(vertex)
+                queue.extend(self.graph[vertex])
+
+    def dfs(self):
+        visited=set()
+        for vertex in self.graph:
+            if vertex not in visited:
+                print(vertex)
+                visited.add(vertex)
+            for edge in self.graph[vertex]:
+                if edge not in visited:
+                    print(edge)
+                    visited.add(edge)
+
+
+    def print(self):
+        for vertex in self.graph:
+            print(vertex, "->"," -> ".join(map(str, self.graph[vertex])))
+
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BinaryTree:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.root is None:
+            self.root=node
+            return
+        queue=[self.root]
+        while queue:
+            current=queue.pop(0)
+            if current.left:
+                queue.append(current.left)
+            else:
+                current.left=node
+                break
+            if current.right:
+                queue.append(current.right)
+            else:
+                current.right=node
+                break
+    
+    def print(self):
+        def helper(current):
+            if current:
+                print(current.data)
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.root is None:
+            self.root=node
+            return
+        current=self.root
+        while True:
+            if data < current.data:
+                if current.left:
+                    current=current.left
+                else:
+                    current.left=node
+                    break
+            else:
+                if current.right:
+                    current=current.right
+                else:
+                    current.right=node
+                    break
+    
+    def remove(self, data):
+
+        def get_min(current):
+            if current.left:
+                return get_min(current.left)
+            else:
+                return current.data
+            
+        def helper(data, current, parent):
+            while current:
+                if data < current.data:
+                    parent=current
+                    current=current.left
+                elif data > current.data:
+                    parent=current
+                    current=current.right
+                else:
+                    if current.left and current.right:
+                        current.data=get_min(current.right)
+                        return helper(current.data, current.right, current)
+                    else:
+                        if parent is None:
+                            if current.left:
+                                self.root=current.left
+                                break
+                            else:
+                                self.root=current.right
+                                break
+                        else:
+                            if parent.left == current:
+                                if current.left:
+                                    parent.left=current.left
+                                    break
+                                    current=current.left
+                                else:
+                                    parent.left=current.right
+                                    break
+                                    current=current.right
+                            else:
+                                if current.left:
+                                    parent.right=current.left
+                                    break
+                                    current=current.left
+                                else:
+                                    parent.right=current.right
+                                    break
+                                    current=current.right
+
+        helper(data, self.root, None)
+
+    def find(self, data):
+        check=float('inf')
+        key=0
+        def helper(current):
+            nonlocal check, key
+            if current:
+                if abs(data-current.data)<check:
+                    check=abs(data-current.data)
+                    key=current.data
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+        return key
+
+    def print(self):
+        def helper(current):
+            if current:
+                print(current.data)
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+
+
+
+class Heap:
+    def __init__(self):
+        self.heap=[]
+        self.length=0
+
+    def parent(self, i):
+        return (i-1)//2
+    
+    def left_child(self, i):
+        return 2*i+1
+    
+    def right_child(self, i):
+        return 2*i+2
+
+    def append(self, data):
+        self.heap.append(data)
+        self.length+=1
+        self.shift_up(self.length-1)
+
+    def remove(self, data):
+        for index, value in enumerate(self.heap):
+            if value == data:
+                self.heap[index]=self.heap[self.length-1]
+                self.heap.pop(self.length-1)
+                self.length-=1
+                self.shift_down(index)
+
+    def shift_down(self, i):
+        min_index=i
+        left=self.left_child(i)
+        right=self.right_child(i)
+        
+        if left < self.length and self.heap[left] < self.heap[min_index]:
+            min_index=left
+        if right < self.length and self.heap[right] < self.heap[min_index]:
+            min_index=right
+        if i != min_index:
+            self.heap[i], self.heap[min_index] = self.heap[min_index], self.heap[i]
+            return self.shift_down(min_index)
+
+    def shift_up(self, i):
+        while i>0 and self.heap[self.parent(i)]>self.heap[i]:
+            self.heap[self.parent(i)], self.heap[i] = self.heap[i], self.heap[self.parent(i)]
+            i=self.parent(i)
+
+    def print(self):
+        print(self.heap)
+
+
+
+class Heap:
+    def __init__(self):
+        self.heap=[]
+        self.length=0
+
+    def parent(self, i):
+        return (i-1)//2
+    
+    def left_child(self, i):
+        return 2*i+1
+    
+    def right_child(self, i):
+        return 2*i+2
+
+    def append(self, data):
+        self.heap.append(data)
+        self.length+=1
+        self.shift_up(self.length-1)
+
+    def remove(self, data):
+        for index, value in enumerate(self.heap):
+            if value == data:
+                self.heap[index]=self.heap[self.length-1]
+                self.heap.pop(self.length-1)
+                self.length-=1
+                self.shift_down(index)
+
+    def shift_up(self, i):
+        while i>0 and self.heap[i]>self.heap[self.parent(i)]:
+            self.heap[self.parent(i)], self.heap[i] = self.heap[i], self.heap[self.parent(i)]
+            i=self.parent(i)
+    
+    def shift_down(self, i):
+        min_index=i
+        left=self.left_child(i)
+        right=self.right_child(i)
+
+        if left < self.length and self.heap[min_index] < self.heap[left]:
+            min_index=left
+        if right < self.length and self.heap[min_index] < self.heap[right]:
+            min_index=right
+        if i != min_index:
+            self.heap[min_index], self.heap[i] = self.heap[i], self.heap[min_index]
+            return self.shift_down(min_index)
+
+    def helper(self, i, j):
+        min_index=i
+        left=self.left_child(i)
+        right=self.right_child(i)
+
+        if left < self.length-j and self.heap[min_index] < self.heap[left]:
+            min_index=left
+        if right < self.length-j and self.heap[min_index] < self.heap[right]:
+            min_index=right
+        if i != min_index:
+            self.heap[min_index], self.heap[i] = self.heap[i], self.heap[min_index]
+            return self.helper(min_index, j)
+
+    def sort(self):
+        for i in range(self.length):
+            self.helper(0,i)
+            self.heap[0], self.heap[self.length-i-1] = self.heap[self.length-i-1], self.heap[0]
+        
+    def print(self):
+        print(self.heap)
+        
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.root is None:
+            self.root=node
+            return
+        current=self.root
+        while True:
+            if data < current.data:
+                if current.left:
+                    current=current.left
+                else:
+                    current.left=node
+                    break
+            else:
+                if current.right:
+                    current=current.right
+                else:
+                    current.right=node
+                    break
+    
+    def remove(self, data):
+
+        def get_min(current):
+            if current.left:
+                return get_min(current.left)
+            else:
+                return current.data
+            
+        def helper(data, current, parent):
+            while current:
+                if data < current.data:
+                    parent=current
+                    current=current.left
+                elif data > current.data:
+                    parent=current
+                    current=current.right
+                else:
+                    if current.left and current.right:
+                        current.data=get_min(current.right)
+                        return helper(current.data, current.right, current)
+                    else:
+                        if parent is None:
+                            if current.left:
+                                self.root=current.left
+                                break
+                            else:
+                                self.root=current.right
+                                break
+                        else:
+                            if parent.left == current:
+                                if current.left:
+                                    parent.left=current.left
+                                    break
+                                    current=current.left
+                                else:
+                                    parent.left=current.right
+                                    break
+                                    current=current.right
+                            else:
+                                if current.left:
+                                    parent.right=current.left
+                                    break
+                                    current=current.left
+                                else:
+                                    parent.right=current.right
+                                    break
+                                    current=current.right
+
+        helper(data, self.root, None)
+
+    def find(self, data):
+        check=float('inf')
+        key=0
+        def helper(current):
+            nonlocal check, key
+            if current:
+                if abs(data-current.data)<check:
+                    check=abs(data-current.data)
+                    key=current.data
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+        return key
+
+    def print(self):
+        def helper(current):
+            if current:
+                print(current.data)
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+
+    def validate(self):
+        flag=True
+        def helper(current):
+            nonlocal flag
+            if current:
+                if current.left and current.left.data > current.data:
+                    flag = False
+                if current.right and current.right.data < current.data:
+                    flag = False
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+        return flag
+
+
+
+
+class Graph:
+    def __init__(self):
+        self.graph={}
+
+    def append(self, data, edge):
+        if data not in self.graph:
+            self.graph[data]=[]
+        self.graph[data].append(edge)
+
+    def bfs(self, start):
+        queue=[start]
+        visited=set()
+        while queue:
+            vertex=queue.pop(0)
+            if vertex not in visited:
+                print(vertex, end=" -> ")
+                visited.add(vertex)
+                queue.extend(self.graph[vertex])
+        print()
+
+    def dfs(self):
+        for vertex in self.graph:
+            print(vertex, "->", " -> ".join(map(str, self.graph[vertex])))
+
+
+
+class Node:
+    def __init__(self, data):
+        self.data=data
+
+class HashSet:
+    def __init__(self):
+        self.size=1000
+        self.map=[None]*self.size
+
+    def _hash(self, key):
+        return hash(key)%self.size
+    
+    def add(self, key, value):
+        hashed=self._hash(key)
+        if not self.map[hashed]:
+            self.map[hashed]=Node()
+
+
+class HashMap:
+    def __init__(self, size):
+        self.size=size
+        self.map=self.create()
+
+    def create(self):
+        return [[] for _ in range(self.size)]
+    
+    def hash(self, key):
+        return hash(key)%self.size
+
+    def add(self, key, value):
+        hashed=self.hash(key)
+        queue=self.map[hashed]
+        found=False
+        for index, record in enumerate(queue):
+            k, v = record
+            if k == key:
+                found=True
+                break
+        if found:
+            queue[index]=(key, value)
+        else:
+            queue.append((key, value))
+
+
+    def print(self):
+        for x in self.map:
+            key, value = x[0]
+            print(key, value)
+
+
+
+class HashSet:
+    def __init__(self, size):
+        self.size=size
+        self.table=[None]*self.size
+
+    def hash(self, key):
+        return key%self.size
+    
+    def add(self, key):
+        index = self.hash(key)
+        if not self.table[index]:
+            self.table[index]=[]
+        if key not in self.table[index]:
+            self.table[index].append(key)
+        
+    def print(self):
+        print(self.table)
+            
+
+
+        
+
+class MyHashSet:
+    def __init__(self):
+        self.size = 10
+        self.buckets = [None] * self.size
+
+    def _hash(self, key):
+        return key % self.size
+
+    def add(self, key: int) -> None:
+        index = self._hash(key)
+        if not self.buckets[index]:
+            self.buckets[index] = []
+        if key not in self.buckets[index]:
+            self.buckets[index].append(key)
+
+    def remove(self, key: int) -> None:
+        index = self._hash(key)
+        if self.buckets[index] and key in self.buckets[index]:
+            self.buckets[index].remove(key)
+
+    def contains(self, key: int) -> bool:
+        index = self._hash(key)
+        return self.buckets[index] and key in self.buckets[index]
+    
+    def print(self):
+        print(self.buckets)
+
+
+
+# -----------------------------------------------------
+# Function 1: Process two strings by removing matching characters.
+def process_order_and_string(order: str, s: str) -> str:
+    """
+    Given two strings, 'order' and 's', iterates over the characters of 'order'.
+    If the current character exists in s, removes its first occurrence from s.
+    Otherwise, removes its first occurrence from order.
+    Finally, returns the concatenation of the modified order and s.
+    
+    Example:
+      order = "kqep"
+      s = "pekeq"
+      Expected output: (order+s) after removals.
+    """
+    i = 0
+    # Work on copies so original strings remain unchanged.
+    order = list(order)
+    s = list(s)
+    while i < len(order):
+        ch = order[i]
+        if ch in s:
+            # Remove first occurrence from s.
+            s.pop(s.index(ch))
+        else:
+            # Remove current character from order.
+            order.pop(i)
+            # Since we removed the element at i, do not increment i.
+            continue
+        i += 1
+    # Return the concatenated result.
+    return "".join(order + s)
