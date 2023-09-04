@@ -23235,3 +23235,50 @@ def interleave_even_odd(nums: list) -> list:
     result.extend(evens[i:])
     result.extend(odds[i:])
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# -------------------------------------------------------------
+# 1. Group common elements based on binary ones count.
+def group_by_binary_ones(arr: list) -> list:
+    """
+    Given a list of nonnegative integers, groups them by the number of 1's in their binary
+    representation. The groups (lists) are sorted by the key (number of ones) in ascending order,
+    and within each group the numbers are sorted in ascending order. Returns a single list containing
+    all numbers in this order.
+    
+    Example:
+      arr = [0,1,2,3,4,5,6,7,8]
+      Binary ones count:
+        0 -> 0 ones
+        1 -> 1 one
+        2 -> 1 one (10)
+        3 -> 2 ones (11)
+        4 -> 1 one (100)
+        5 -> 2 ones (101)
+        6 -> 2 ones (110)
+        7 -> 3 ones (111)
+        8 -> 1 one (1000)
+      Grouped by count (key as string for consistency):
+        "0": [0]
+        "1": [1,2,4,8]
+        "2": [3,5,6]
+        "3": [7]
+      Then concatenated in order: [0,1,2,4,8,3,5,6,7]
+    """
+    groups = {}
+    for num in arr:
+        ones = str(bin(num))[2:].count("1")
+        if ones in groups:
+            groups[ones].append(num)
+        else:
+            groups[ones] = [num]
+    # Sort groups by key (number of ones) and sort each group individually.
+    result = []
+    for key in sorted(groups, key=lambda x: int(x)):
+        groups[key].sort()
+        result.extend(groups[key])
+    return result
