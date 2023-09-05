@@ -25181,3 +25181,27 @@ def merge(array):
     right = array[mid:]
     
     return join(merge(left), merge(right))
+
+
+# --- Next Function Block ---
+
+
+
+
+
+def validate_bst_traversal(arr) -> bool:
+  """
+  This function checks if a list represents a valid Binary Search Tree (BST) based on its in-order traversal.
+
+  Args:
+      arr: A list containing the in-order traversal of the BST.
+
+  Returns:
+      bool: True if the list represents a valid BST, False otherwise.
+  """
+  prev = float('-inf')  # Initialize previous value to negative infinity
+  for val in arr:
+    if val <= prev:
+      return False  # Current value must be greater than the previous encountered value in in-order traversal
+    prev = val
+  return True
