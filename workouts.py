@@ -2345,3 +2345,20 @@ def k_least_ones_rows(mat: list, k: int) -> list:
     row_counts = {i: sum(row) for i, row in enumerate(mat)}
     sorted_rows = sorted(row_counts.items(), key=lambda x: x[1])
     return [i for i, _ in sorted_rows[:k]]
+
+
+# --- Next Function Block ---
+
+
+# 3. Check if s is a Subsequence of t
+def is_subsequence(s: str, t: str) -> bool:
+    """
+    Returns True if s is a subsequence of t.
+    """
+    pos = 0
+    for char in s:
+        pos = t.find(char, pos)
+        if pos == -1:
+            return False
+        pos += 1
+    return True
