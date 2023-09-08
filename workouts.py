@@ -11626,3 +11626,24 @@ def count_elements_based_on_min_freq(nums: list) -> int:
     min_elem, _ = sorted_freq[0]
     total = sum(1 for num in nums_sorted if num >= min_elem)
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def print_pattern_1(n: int) -> None:
+    """
+    Prints a pattern based on a condition:
+    For each row i (1-indexed) and each column j (0-indexed) in a grid of width n, prints a star (*) or space.
+    The condition is:
+      - if (j < i and i <= 3) or (i > 3 and j <= n - i): print a space
+      - else: print a star.
+    """
+    for i in range(1, n + 1):
+        for j in range(n):
+            if (j < i and i <= 3) or (i > 3 and j <= n - i):
+                print(" ", end="  ")
+            else:
+                print("*", end="  ")
+        print()
