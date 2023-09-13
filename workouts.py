@@ -19035,3 +19035,128 @@ def swap_first_two(nums: list) -> list:
     nums[i] = nums[j] - nums[i]
     nums[j] = nums[j] - nums[i]
     return nums
+
+
+# --- Next Function Block ---
+
+
+
+
+
+
+class Node:
+    def __init__(self, data=None, next=None):
+        self.data = data
+        self.next = next
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_begining(self, data):
+        node = Node(data, self.head)
+        self.head =  node
+
+    def print(self):
+        if self.head == None:
+            print("Linked List is empty")
+            return
+        current = self.head
+        while current.next:
+            print(current.data)
+            current = current.next
+
+
+class Node:
+    def __init__(self, data=None, next=None):
+        self.data = data
+        self.next = next
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def add_node(self, data):
+        node = Node(data)
+        if self.head == None:
+            self.head = node
+            self.tail = self.head
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = node
+            self.tail = current.next
+    
+    def insert_at_begining(self, data):
+        node = Node(data)
+        if self.head == None:
+            self.head = node
+        else:
+            current = self.head
+            self.head = node
+            self.head.next = current
+
+    def insert_at_end(self, data):
+        node = Node(data)
+        current = self.tail
+        self.tail = node
+        current.next = self.tail
+
+    def insert(self, data, target):
+        node = Node(data)
+        current = self.head
+        while current.data != target:
+            current = current.next
+        new_node = node
+        new_node.next = current.next
+        current.next = new_node
+
+    def delete(self, target):
+        current = self.head
+        while current.data != target:
+            previus = current
+            current = current.next
+        previus.next = current.next
+        
+    
+    def print(self):
+        current = self.head
+        while current:
+            print(current.data)
+            current = current.next
+
+
+
+
+
+# patterns.py
+
+
+# ---------------------------
+# Snippet 1:
+# Find the row and column indices of all 1's in a matrix.
+def find_ones_indices(mat: list):
+    """
+    Given a 2D matrix mat, returns a tuple (arri, arrj) where:
+      - arri is the list of row indices of each 1,
+      - arrj is the list of corresponding column indices.
+    Example:
+      mat = [
+         [0,0,0,0,0,1,0,0],
+         [0,0,0,0,1,0,0,1],
+         [0,0,0,0,1,0,0,0],
+         [1,0,0,0,1,0,0,0],
+         [0,0,1,1,0,0,0,0]
+      ]
+      returns ( [0,1,1,2,3,3,4,4], [5,4,7,4,0,4,2,3] )
+    """
+    arri = []
+    arrj = []
+    for i in range(len(mat)):
+        for j in range(len(mat[i])):
+            if mat[i][j] == 1:
+                arri.append(i)
+                arrj.append(j)
+    return arri, arrj
