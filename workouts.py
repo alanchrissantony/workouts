@@ -820,3 +820,13 @@ def i(n):
             else:
                 print(end=" ")
         print("\n")
+
+
+# --- Next Function Block ---
+
+
+
+def display(limit):
+    print("Crossroads")
+    if limit > 1:
+        display(limit - 1)
