@@ -22248,3 +22248,25 @@ def remove_triplet_by_sum(arr: list) -> list:
                 j += 1
         i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 6. Maximum remaining money after buying two boxes from prices
+def max_remaining_money(prices: list, money: int) -> int:
+    """
+    Given a list of prices and a total amount of money, finds a pair of boxes such that
+    money minus the sum of the pair is nonnegative and maximizes the remaining money.
+    Returns the maximum remaining money if any pair qualifies; otherwise, returns money.
+    """
+    best = -1
+    found = False
+    for i in range(len(prices) - 1):
+        for j in range(i + 1, len(prices)):
+            rem = money - (prices[i] + prices[j])
+            if rem >= 0 and rem > best:
+                best = rem
+                found = True
+    return best if found else money
