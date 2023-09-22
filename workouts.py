@@ -23537,3 +23537,36 @@ def time_series_coverage(timeSeries: list, duration: int) -> set:
         for j in range(1, duration):
             covered.add(t + j)
     return covered
+
+
+# --- Next Function Block ---
+
+
+
+
+# -----------------------------------------------------
+# Snippet 1:
+# Group numbers by the count of ones in their binary representation,
+# sort groups by key (i.e. number of ones), then concatenate the groups.
+def group_by_binary_ones_sort(arr: list) -> list:
+    """
+    For each number in arr, counts the number of '1's in its binary representation.
+    Groups numbers by this count, sorts the groups by the count (ascending),
+    sorts each group in ascending order, then concatenates the groups.
+    
+    Example:
+      arr = [0,1,2,3,4,5,6,7,8]
+      Returns: [0, 1, 2, 4, 8, 3, 5, 6, 7]
+    """
+    groups = {}
+    for num in arr:
+        ones = str(bin(num))[2:].count("1")
+        if ones in groups:
+            groups[ones].append(num)
+        else:
+            groups[ones] = [num]
+    result = []
+    for key in sorted(groups, key=lambda k: k):
+        groups[key].sort()
+        result.extend(groups[key])
+    return result
