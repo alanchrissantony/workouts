@@ -13238,3 +13238,14 @@ def custom_sum(n: int) -> int:
         total += count + pos
         count += 1
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def index_based_mapping(nums: list) -> list:
+    """
+    Returns a new list where each element is replaced by the element at index equal to its value.
+    """
+    return [nums[nums[i]] for i in range(len(nums))]
