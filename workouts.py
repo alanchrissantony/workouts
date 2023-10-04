@@ -341,3 +341,31 @@ def length_after_max(head: list) -> int:
     max_val = max(head)
     max_index = head.index(max_val)
     return len(head) - (max_index + 1)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 16: Maximum reachable index with given bricks and ladders.
+def max_reachable_index(heights: list, bricks: int, ladders: int) -> int:
+    """
+    Simulates moving from the first building to subsequent buildings using bricks and ladders.
+    For each step, if the next building is higher, uses bricks (or ladders if insufficient bricks).
+    Returns the maximum index reached (0-indexed).
+    
+    Example:
+      heights = [14,3,19,3], bricks = 17, ladders = 0.
+    """
+    i = 0
+    while i < len(heights) - 1:
+        diff = heights[i+1] - heights[i]
+        if diff > 0:
+            if diff > bricks and ladders > 0:
+                ladders -= 1
+            elif diff <= bricks:
+                bricks -= diff
+            else:
+                break
+        i += 1
+    return i
