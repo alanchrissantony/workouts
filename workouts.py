@@ -22887,3 +22887,29 @@ def min_index_sum_common(list1: list, list2: list) -> str:
                 min_sum = index_sum
                 res = list1[i]
     return res
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 2. Remove a Block of k Digits From a Number String and Return the Minimum Result
+def remove_block_and_min(num: str, k: int) -> str:
+    """
+    Given a number represented as a string and an integer k, this function
+    removes k consecutive characters from every possible starting index and
+    returns the smallest resulting integer (as a string). If no removal is possible,
+    returns "0".
+    
+    Example:
+      num = "10", k = 2
+      Possible removal: Removing the only 2 digits gives an empty string → interpreted as 0.
+    """
+    results = []
+    for i in range(len(num) - k + 1):
+        try:
+            candidate = int(num[:i] + num[i+k:])
+            results.append(candidate)
+        except Exception:
+            pass
+    return str(min(results)) if results else "0"
