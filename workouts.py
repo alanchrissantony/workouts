@@ -17835,3 +17835,13 @@ def sort_and_extend(arr, extension):
     arr.sort(reverse=True)
     arr.extend(extension)
     return arr
+
+
+# --- Next Function Block ---
+
+
+def binary_of_number(n):
+    """
+    Returns the binary representation of n.
+    """
+    return bin(n)
