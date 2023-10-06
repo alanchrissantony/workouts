@@ -13479,3 +13479,20 @@ def majority_vote(votes: list) -> str:
     for vote in votes:
         counts[vote] = counts.get(vote, 0) + 1
     return max(counts.items(), key=lambda x: x[1])[0]
+
+
+# --- Next Function Block ---
+
+
+
+def count_rl_patterns(s: str) -> int:
+    """
+    For each i (from 0 to len(s)-1), creates a pattern of 'R'*i followed by 'L'*i,
+    and sums the number of times such patterns occur in s.
+    """
+    total = 0
+    for i in range(len(s)):
+        pattern = "R" * i + "L" * i
+        if pattern:
+            total += s.count(pattern)
+    return total
