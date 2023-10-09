@@ -25642,3 +25642,220 @@ def quick(arr):
     start=0
     end=len(arr)-1
     return helper(arr, start, end)
+
+
+# --- Next Function Block ---
+
+
+
+class Node:
+    def __init__(self, data=None, next=None):
+        self.data=data
+        self.next=next
+
+class Stack:
+    def __init__(self):
+        self.head=None
+        self.tail=None
+
+    def push(self, data):
+        node=Node(data)
+        if self.head==None:
+            self.head=node
+            self.tail=node
+        else:
+            node.next=self.head
+            self.head=node
+
+    def print(self):
+        current=self.head
+        while current:
+            print(current.data)
+            current=current.next
+
+    def pop(self, data):
+        if self.head.data==data:
+            self.head=self.head.next
+            return
+        current=self.head
+        previous=None
+        while current.next:
+            previous=current
+            current=current.next
+
+            if current.data==data:
+                previous.next = current.next
+                return
+
+    def enque(self, data):
+        node=Node(data)
+        if self.head==None:
+            self.head=node
+            self.tail=node
+        else:
+            self.tail.next=node
+            self.tail=node
+
+    def deque(self):
+        if self.head!=None:
+            self.head=self.head.next
+
+
+
+class Node:
+    def __init__(self, data=None, next=None):
+        self.data=data
+        self.next=next
+
+class HashTable:
+    def __init__(self, size):
+        self.size=size
+        self.table=self.create_baskucts()
+
+    def create_baskucts(self):
+        return [[] for _ in range(self.size)]
+    
+    def set_val(self, key, val):
+        hashed_key = hash(key)%self.size
+
+        baskuct = self.table[hashed_key]
+
+        found_key=False
+        for index, record in enumerate(baskuct):
+            record_key, record_val = record
+
+            if record_key == key:
+                found_key=True
+                break
+        
+        if found_key:
+            baskuct[index]=(key, val)
+        else:
+            baskuct.append((key,val))
+
+    def get_val(self, key):
+
+        hashed_key = hash(key)%self.size
+
+        baskuct = self.table[hashed_key]
+
+        found_key=False
+        for index, record in enumerate(baskuct):
+            record_key, record_val = record
+
+            if record_key==key:
+                found_key=True
+                break
+        
+        if found_key:
+            print(record_val)
+        else:
+            print("No record found")
+        
+    def delete_val(self, key):
+
+        hashed_key = hash(key)%self.size
+
+        baskuct = self.table[hashed_key]
+
+        found_key=False
+        for index, record in enumerate(baskuct):
+            record_key, record_val = record
+
+            if record_key==key:
+                found_key=True
+                break
+        if found_key:
+            baskuct.pop(index)
+        return
+    
+
+
+
+class HashTable:
+    def __init__(self, size=None):
+        self.size=size
+        self.table=self.create()
+
+    def create(self):
+        return [[] for _ in range(self.size)]
+    
+    def set_val(self, key, val):
+
+        hashed_key = hash(key)%self.size
+
+        arr = self.table[hashed_key]
+
+        found_key = False
+        for index, record in enumerate(arr):
+            record_key, record_val = record
+
+            if record_key==key:
+                found_key=True
+                break
+        if found_key:
+            arr[index] = (key, val)
+        else:
+            arr.append((key, val))
+
+    def get_val(self, key):
+
+        hashed_key = hash(key)%self.size
+
+        arr=self.table[hashed_key]
+
+        found_key=False
+        for index, record in enumerate(arr):
+            record_key, record_val = record
+
+            if record_key == key:
+                found_key=True
+                break
+        if found_key:
+            print(record_val)
+        else:
+            print("No record found")
+
+    def delete_val(self, key):
+
+        hashed_key=hash(key)%self.size
+
+        arr=self.table[hashed_key]
+
+        found_key=False
+        for index, record in enumerate(arr):
+            record_key, record_val = record
+
+            if record_key == key:
+                arr.pop(index)
+                return
+            
+    def print_val(self):
+        for record in self.table:
+            try:
+                key, val = record[0]    
+                print(key, val)
+            except:
+                continue
+
+
+    
+def join(left, right):
+    
+    arr=[]
+    i=0
+    j=0
+    while i<len(left) and j<len(right):
+        if left[i]<right[j]:
+            arr.append(left[i])
+            i+=1
+        else:
+            arr.append(right[j])
+            j+=1
+    while i<len(left):
+        arr.append(left[i])
+        i+=1
+    while j<len(right):
+        arr.append(right[j])
+        j+=1
+    return arr
