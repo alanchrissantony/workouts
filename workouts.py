@@ -23411,3 +23411,24 @@ def unique_anagram_representatives(words: list) -> list:
         if key not in seen:
             seen[key] = word
     return list(seen.values())
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 7. Remove All Occurrences of a Substring Until None Remain.
+def remove_substring_repeatedly(s: str, sub: str) -> str:
+    """
+    Given a string s and a substring sub, repeatedly removes the first occurrence of sub from s,
+    until s no longer contains sub (or s equals sub).
+    Returns the final string.
+    """
+    while sub in s and s != sub:
+        i = 0
+        while i <= len(s) - len(sub):
+            if s[i:i+len(sub)] == sub:
+                s = s[:i] + s[i+len(sub):]
+                break
+            i += 1
+    return s
