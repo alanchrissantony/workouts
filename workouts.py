@@ -29775,3 +29775,16 @@ def square_elements(arr: list) -> list:
     Returns a new list where each element is the square of the corresponding element in arr.
     """
     return [x * x for x in arr]
+
+
+# --- Next Function Block ---
+
+
+# ---------------------------
+# 5. Lambda Multiplication Demonstration
+def multiply_lambda(x, y):
+    """
+    Multiplies two numbers using a lambda function.
+    """
+    d = lambda x, y: x * y
+    return d(x, y)
