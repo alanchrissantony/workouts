@@ -10126,3 +10126,22 @@ def min_max_game_progression(nums: list) -> list:
             i += 2
         result.append(new_list)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def most_frequent(nums: list):
+    """
+    Returns the most frequent element in the list.
+    """
+    freq = {}
+    max_count = 0
+    max_elem = None
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+        if freq[num] > max_count:
+            max_count = freq[num]
+            max_elem = num
+    return max_elem
