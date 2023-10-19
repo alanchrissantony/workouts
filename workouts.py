@@ -19759,3 +19759,24 @@ def max_contiguous_even_block_length(s: str) -> int:
             break
         i -= 1
     return max_length
+
+
+# --- Next Function Block ---
+
+
+
+# 6. Bubble sort (using nested while loops).
+def bubble_sort(arr: list) -> list:
+    """
+    Performs bubble sort on the list arr using while loops.
+    Returns the sorted list.
+    """
+    j = 0
+    while j < len(arr):
+        i = 0
+        while i < len(arr) - 1:
+            if arr[i] > arr[i+1]:
+                arr[i], arr[i+1] = arr[i+1], arr[i]
+            i += 1
+        j += 1
+    return arr
