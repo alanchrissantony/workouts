@@ -24697,3 +24697,14 @@ def quick_sort(start, end):
         swap(pivot, right)
         quick_sort(start, right-1)
         quick_sort(right+1, end)
+
+
+# --- Next Function Block ---
+
+
+        
+
+def swap(arr, left, right):
+    temp=arr[left]
+    arr[left]=arr[right]
+    arr[right]=temp
