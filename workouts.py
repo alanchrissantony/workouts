@@ -25273,3 +25273,44 @@ def compare_string_counters(s1: str, s2: str, s3: str) -> bool:
     """
     combined = s1 + s2
     return Counter(combined) == Counter(s3)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 4: A DP variant returning a computed value from a list of numbers.
+def dp_special(nums: list) -> int:
+    """
+    Given a list 'nums', builds a dp array where each element is a pair [value, flag].
+    The dp recurrence is defined as:
+      dp[0] = [nums[0], True]
+      For i >= 1:
+          If dp[i-2][0] + nums[i] > dp[i-1][0]:
+              dp[i] = [dp[i-2][0] + nums[i], <some boolean>]
+          Else:
+              dp[i] = [dp[i-1][0], <some boolean>]
+    Finally, if dp[n-1][1] is True, subtracts min(nums[n-1], nums[0]) from dp[n-1][0].
+    Returns the maximum value found in dp.
+    
+    Note: This snippet is ambiguous; here we follow one interpretation.
+    """
+    n = len(nums)
+    if n == 0:
+        return 0
+    # Initialize dp array; avoid multiplication pitfalls with lists.
+    dp = [[0, False] for _ in range(n)]
+    dp[0] = [nums[0], True]
+    for i in range(1, n):
+        # Use safe index for dp[i-2]
+        prev2 = dp[i-2][0] if i - 2 >= 0 else 0
+        if prev2 + nums[i] > dp[i-1][0]:
+            flag = True if (i - 2 >= 0 and dp[i-2][1]) else False
+            dp[i] = [prev2 + nums[i], flag]
+        else:
+            dp[i] = [dp[i-1][0], dp[i-1][1]]
+    if dp[n-1][1]:
+        dp[n-1][0] -= min(nums[n-1], nums[0])
+    # Find maximum value in dp.
+    max_val = max(x[0] for x in dp)
+    return max_val
