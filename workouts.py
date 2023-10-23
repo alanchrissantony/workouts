@@ -2527,3 +2527,20 @@ def count_pairs_in_range(nums: list, lower: int, upper: int) -> int:
             if lower <= s <= upper:
                 count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# 13. Check First Letters of Words Against a String
+def check_first_letters(words: list, s: str) -> bool:
+    """
+    Checks if the first letter of each word in words matches the corresponding character in s.
+    Returns False if lengths differ.
+    """
+    if len(words) != len(s):
+        return False
+    for i in range(len(words)):
+        if words[i][0] != s[i]:
+            return False
+    return True
