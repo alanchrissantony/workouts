@@ -10194,3 +10194,25 @@ def max_area(height: list) -> int:
             if area > max_area_val:
                 max_area_val = area
     return max_area_val
+
+
+# --- Next Function Block ---
+
+
+
+
+# patterns.py
+
+# 1. Happy Number Check (using sum of squares of digits)
+def is_happy(n: int, max_iter: int = 100) -> bool:
+    """
+    Determines if a number is "happy". A number is happy if repeatedly replacing
+    it with the sum of the squares of its digits eventually leads to 1.
+    """
+    for _ in range(max_iter):
+        s = str(n)
+        total = sum(int(ch) ** 2 for ch in s)
+        n = total
+        if n == 1:
+            return True
+    return False
