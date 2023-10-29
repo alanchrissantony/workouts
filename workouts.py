@@ -5136,3 +5136,14 @@ def remove_substring(str1: str, str2: str) -> str:
     if idx == -1:
         return str1
     return str1[:idx] + str1[idx + len(str2):]
+
+
+# --- Next Function Block ---
+
+
+
+def sum_of_triangle_mins(triangle: list) -> int:
+    """
+    Returns the sum of the minimum elements from each row of a triangle (list of lists).
+    """
+    return sum(min(row) for row in triangle)
