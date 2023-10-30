@@ -15703,3 +15703,30 @@ def reformat_text(text: str) -> str:
             spaces = base_spaces + (1 if i < extra_spaces else 0)
             result += " " * spaces
     return re
+
+
+# --- Next Function Block ---
+
+
+# patterns.py
+
+def count_elements_geq_lowest_freq(nums: list) -> int:
+    """
+    Sorts the list, builds a frequency dictionary, then finds the smallest frequency entry.
+    Returns the count of numbers in nums that are greater than or equal to the key
+    of the lowest-frequency element.
+    Example:
+      nums = [3,9,7,8,3,8,6,6]
+      Sorted nums: [3,3,6,6,7,8,8,9]
+      Frequency: {3:2, 6:2, 7:1, 8:2, 9:1}
+      Lowest frequency entry: (7,1)
+      Count numbers >= 7 → 7,8,8,9 → 4
+    """
+    nums.sort()
+    freq = {}
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+    # Get the (number, count) pair with the minimum count
+    low = sorted(freq.items(), key=lambda x: x[1])[0]
+    total = sum(1 for num in nums if num >= low[0])
+    return total
