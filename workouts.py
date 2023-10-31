@@ -16528,3 +16528,24 @@ def extract_digits(nums: list) -> list:
         for ch in str(num):
             result.append(int(ch))
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# 4. Count numbers (1 to num) whose digit sum is even.
+def count_even_digit_sum(num: int) -> int:
+    """
+    For every number from 1 to num, computes the sum of digits (printing each sum),
+    and counts how many have an even digit sum.
+    """
+    count = 0
+    for i in range(1, num + 1):
+        s = str(i)
+        digit_sum = sum(int(ch) for ch in s)
+        # Uncomment the next line to print each sum:
+        # print(digit_sum)
+        if digit_sum % 2 == 0:
+            count += 1
+    return count
