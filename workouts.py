@@ -24542,3 +24542,24 @@ def custom_bin_negative(num: int) -> str:
       print(bin(-2**2)[3:])
     """
     return bin(num)[3:]
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 8: Convert an integer to base 7.
+def to_base7(num: int) -> str:
+    """
+    Converts a non-negative integer to its base-7 representation as a string.
+    
+    Example:
+      num = 100 → returns "202"
+    """
+    if num == 0:
+        return "0"
+    digits = []
+    while num > 0:
+        digits.append(str(num % 7))
+        num //= 7
+    return "".join(digits[::-1])
