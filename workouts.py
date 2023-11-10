@@ -13558,3 +13558,24 @@ def print_custom_pattern(n: int) -> None:
             else:
                 print("  ", end="")
         print()
+
+
+# --- Next Function Block ---
+
+
+
+def convert_date(date: str) -> str:
+    """
+    Converts a date from a format like "20th Oct 2052" to "2052-10-20".
+    Assumes the day part may have ordinal suffixes.
+    """
+    month_map = {"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
+                 "May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
+                 "Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12"}
+    parts = date.split()
+    day = "".join(filter(str.isdigit, parts[0]))
+    if len(day) == 1:
+        day = "0" + day
+    month = month_map[parts[1]]
+    year = parts[2]
+    return f"{year}-{month}-{day}"
