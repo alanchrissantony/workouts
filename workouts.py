@@ -23457,3 +23457,39 @@ def count_same_unique_letter_set(words: list) -> int:
             if set_i == set_j:
                 count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 9. Process Words with "prev" Tokens.
+def process_prev_tokens(words: list) -> list:
+    """
+    Processes a list where each element is either a number (as string) or "prev".
+    It builds a list as follows:
+      - For a numeric token, it appends the integer value.
+      - For each "prev" token encountered consecutively,
+        it appends the last number from the numeric list corresponding to the number of consecutive "prev" tokens.
+      If there are more "prev" tokens than numbers, it appends -1.
+    Returns the resulting list.
+    
+    Example:
+      words = ["1", "2", "prev", "prev", "prev"]
+      Might return a list like [-1] (depending on interpretation).
+    """
+    result = []
+    nums = []
+    consecutive_prev = 0
+    for token in words:
+        try:
+            value = int(token)
+            nums.append(value)
+            consecutive_prev = 0  # reset count on number token
+        except ValueError:
+            consecutive_prev += 1
+            if consecutive_prev > len(nums):
+                result.append(-1)
+            else:
+                result.append(nums[-consecutive_prev])
+    return result
