@@ -11271,3 +11271,23 @@ def format_number_with_dots(n: int) -> str:
         result = ch + result
         count += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def count_allowed_words(allowed: str, words: list) -> int:
+    """
+    Returns the count of words that consist solely of characters in allowed.
+    """
+    count = 0
+    for word in words:
+        valid = True
+        for ch in word:
+            if ch not in allowed:
+                valid = False
+                break
+        if valid:
+            count += 1
+    return count
