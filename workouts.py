@@ -20146,3 +20146,13 @@ def get_sorted_frequency(word: str) -> dict:
     freq = dict(Counter(word))
     # Sort dictionary by keys (alphabetically)
     return dict(sorted(freq.items(), key=lambda item: item[0]))
+
+
+# --- Next Function Block ---
+
+
+def generate_random_numbers(n: int, low: int, high: int) -> list:
+    """
+    Returns a list of n random integers between low and high (inclusive).
+    """
+    return [random.randint(low, high) for _ in range(n)]
