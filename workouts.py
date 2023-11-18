@@ -25256,3 +25256,20 @@ def max_non_adjacent_sum(nums: list) -> int:
     for i in range(2, n):
         dp[i] = max(nums[i] + dp[i - 2], dp[i - 1])
     return dp[-1]
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 3: Compare Counters of Two String Groups
+def compare_string_counters(s1: str, s2: str, s3: str) -> bool:
+    """
+    Concatenates s1 and s2 and compares the Counter (frequency distribution) with s3.
+    
+    Example:
+      s1 = "aabcc", s2 = "dbbca", s3 = "daabbcbcac"
+      Returns True if Counter(s1+s2)==Counter(s3), otherwise False.
+    """
+    combined = s1 + s2
+    return Counter(combined) == Counter(s3)
