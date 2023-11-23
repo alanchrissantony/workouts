@@ -22188,3 +22188,30 @@ def remove_if_less(nums: list) -> list:
                 j += 1
         i += 1
     return nums
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 4. Frequency difference in a list
+def frequency_difference(nums: list) -> int:
+    """
+    Counts the frequency of each element in nums and then computes the difference between
+    the frequency of the most common element and the frequencies of the others.
+    Specifically, it subtracts, in order (from the most frequent downwards), all frequencies
+    from the first frequency.
+    
+    Example:
+      Input: [2,3,4,4,4]
+      Frequencies (sorted descending): [3, 1, 1]
+      Returns: 3 - 1 - 1 = 1
+    """
+    freq = dict(sorted(Counter(nums).items(), key=lambda item: item[1], reverse=True))
+    diff = None
+    for key in freq:
+        if diff is None:
+            diff = freq[key]
+        else:
+            diff -= freq[key]
+    return diff if diff is not None else 0
