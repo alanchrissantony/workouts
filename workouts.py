@@ -18315,3 +18315,20 @@ def next_value_after_key(nums: list, key: int) -> int:
         sorted_freq = dict(sorted(freq.items(), key=lambda item: item[1], reverse=True))
         return next(iter(sorted_freq))
     return None
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 17 ---
+def sum_lengths_of_valid_words(words: list, chars: str) -> int:
+    """
+    For each word in words, if every character is in chars, adds its length to a sum.
+    Returns the total sum.
+    """
+    total = 0
+    for word in words:
+        if all(ch in chars for ch in word):
+            total += len(word)
+    return total
