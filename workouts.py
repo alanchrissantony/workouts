@@ -8998,3 +8998,22 @@ def count_word_frequencies(text: str) -> dict:
     for word in words:
         freq[word] = freq.get(word, 0) + 1
     return freq
+
+
+# --- Next Function Block ---
+
+
+
+# 21. Compute differences in groups: for sorted nums in descending order,
+#     for each index i (up to len(nums)-k), for j in i+1 to i+1+k, record the difference.
+def differences_in_groups(nums: list, k: int) -> list:
+    """
+    Sorts nums in reverse order and, for each index i up to len(nums)-k, computes differences with the next k numbers.
+    Returns the list of differences.
+    """
+    result = []
+    nums.sort(reverse=True)
+    for i in range(len(nums) - k):
+        for j in range(i+1, i+1+k):
+            result.append(nums[i] - nums[j])
+    return result
