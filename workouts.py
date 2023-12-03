@@ -19653,3 +19653,30 @@ def sum_even_odd_sorted_digits(num: int) -> int:
             odd_str += digits[i]
         i += 1
     return int(even_str) + int(odd_str)
+
+
+# --- Next Function Block ---
+
+
+
+# 2. Check if there is a partition in the sorted list so that the sum of one part equals the sum of the other.
+def can_partition_equal_sum(nums: list) -> bool:
+    """
+    Given a list of numbers, sorts it and then checks each possible partition index i such that
+    the sum of the numbers before i equals the sum of the numbers after i.
+    Returns True if such a partition exists; otherwise False.
+    
+    Example:
+      nums = [1, 5, 11, 5]
+      Sorted: [1, 5, 5, 11]
+      Partition between indices 2 and 3: sum([1,5]) == 6 and sum([5,11]) == 16 (not equal)
+      (The provided snippet does not find a partition in this example so it would return False.)
+    """
+    nums.sort()
+    total = sum(nums)
+    left_sum = 0
+    for i in range(len(nums)):
+        left_sum += nums[i]
+        if left_sum * 2 == total:
+            return True
+    return False
