@@ -4066,3 +4066,14 @@ def first_multiple_in_array(n: int, arr: list) -> int:
         if i * n in arr:
             return i * n
     return None
+
+
+# --- Next Function Block ---
+
+
+
+def generate_even_numbers(limit: int) -> list:
+    """
+    Returns a list of even numbers: 2, 4, 6, ... up to limit*2.
+    """
+    return [i * 2 for i in range(1, limit + 1)]
