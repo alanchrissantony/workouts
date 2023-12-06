@@ -29164,3 +29164,33 @@ def seat_student_distance(seats: list, students: list) -> int:
         a.remove(min_seat)
         b.remove(min_student)
     return total
+
+
+# --- Next Function Block ---
+
+
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+    def display(self):
+        print(self.name)
+
+class User(Person):
+    def get(self):
+        print("User get() called.")
+    
+    
+
+
+
+def split(arr):
+    if len(arr)>=1:
+        mid=len(arr)//2
+        print(arr[mid])
+        del arr[mid]
+        left=arr[:mid]
+        right=arr[mid:]
+        
+        split(left)
+        split(right)
