@@ -23373,3 +23373,23 @@ def overlapping_days(arrive1: str, leave1: str, arrive2: str, leave2: str) -> in
     start = max(d1, d3)
     end = min(d2, d4)
     return max(0, end - start + 1)
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 5. Group Anagrams: Group words that are anagrams of each other.
+def group_anagrams(strs: list) -> list:
+    """
+    Given a list of strings, groups them into lists of anagrams.
+    Returns a list of lists.
+    """
+    groups = {}
+    for word in strs:
+        key = "".join(sorted(word))
+        if key in groups:
+            groups[key].append(word)
+        else:
+            groups[key] = [word]
+    return list(groups.values())
