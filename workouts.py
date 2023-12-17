@@ -18875,3 +18875,15 @@ def remove_substring_repeatedly(s: str, part: str) -> str:
                 break
             i += 1
     return s
+
+
+# --- Next Function Block ---
+
+
+
+# 3. Get a range of numbers as a list.
+def get_range(n: int) -> list:
+    """
+    Returns a list of numbers from 0 to n-1.
+    """
+    return list(range(n))
