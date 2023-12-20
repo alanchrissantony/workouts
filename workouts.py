@@ -22291,3 +22291,18 @@ def count_ordered_matches(text1: str, text2: str) -> int:
             j += 1  # Move j to next position for subsequent matches.
         i += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 8. Count number of 1's in binary representations for 0 to n
+def count_ones_in_binaries(n: int) -> list:
+    """
+    Returns a list of counts of '1's in the binary representation of every integer from 0 to n.
+    """
+    result = []
+    for i in range(n + 1):
+        result.append(bin(i)[2:].count("1"))
+    return result
