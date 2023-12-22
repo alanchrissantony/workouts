@@ -278,3 +278,28 @@ def transform_list_by_chunks(arr: list) -> list:
         i = k * k - i
         k += 1
     return nums
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 13: Remove elements until list is sorted.
+def remove_until_sorted(nums: list) -> (list, int):
+    """
+    Repeatedly removes an element that is out of order until the list is sorted.
+    Returns a tuple of (final sorted list, number of iterations).
+    
+    Example:
+      nums = [4,5,7,7,13]
+    """
+    count = 0
+    while nums != sorted(nums):
+        i = 0
+        while i < len(nums) - 1:
+            if nums[i+1] < nums[i]:
+                del nums[i+1]
+            else:
+                i += 1
+        count += 1
+    return nums, count
