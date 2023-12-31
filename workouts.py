@@ -19189,3 +19189,22 @@ def count_lucky_numbers(low: int, high: int) -> int:
             if sum_first == sum_second:
                 count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+# ---------------------------
+# Snippet 3:
+# Find an index of a target value in an array using two methods:
+# (a) Linear search, and (b) a binary search–like approach.
+def linear_search_index(array: list, target) -> int:
+    """
+    Performs a linear search in array for target and returns the index if found;
+    otherwise returns -1.
+    """
+    for i, val in enumerate(array):
+        if val == target:
+            return i
+    return -1
