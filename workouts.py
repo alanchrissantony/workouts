@@ -29093,3 +29093,28 @@ def exists_subarray_integer_average(nums: list, k: int) -> bool:
             if s / length == s // length:
                 return True
     return False
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 6: Count lines required to write a string given widths and max_width.
+def count_lines(widths: list, s: str, max_width: int = 100) -> (int, int):
+    """
+    Given a list of widths (each corresponding to a character in s) and a maximum allowed width per line,
+    computes the number of lines required to write s.
+    
+    Returns a tuple (number_of_lines, final_line_width).
+    """
+    lines = 0
+    current_width = 0
+    for i, ch in enumerate(s):
+        if current_width + widths[i] > max_width:
+            lines += 1
+            current_width = widths[i]
+        else:
+            current_width += widths[i]
+    if current_width > 0:
+        lines += 1
+    return lines, current_width
