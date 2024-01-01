@@ -8228,3 +8228,22 @@ def print_grid(grid: list) -> None:
         for elem in row:
             print(elem, end=" ")
         print()
+
+
+# --- Next Function Block ---
+
+
+
+def sum_unique(nums: list) -> int:
+    """
+    Sums numbers that appear only once in the list.
+    """
+    total = 0
+    for i in range(len(nums)):
+        unique = True
+        for j in range(len(nums)):
+            if i != j and nums[i] == nums[j]:
+                unique = False
+        if unique:
+            total += nums[i]
+    return total
