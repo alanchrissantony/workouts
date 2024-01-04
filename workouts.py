@@ -22784,3 +22784,30 @@ def longest_palindrome_length(s: str) -> int:
             length += count - 1
             odd_found = True
     return length + 1 if odd_found else length
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Snippet M: Build the largest palindrome from the digits of a number.
+def largest_palindrome_from_digits(num: str) -> str:
+    """
+    Given a number as a string, returns the largest palindrome that can be formed using its digits.
+    If multiple palindromes are possible, returns one of them.
+    This implementation uses a greedy approach.
+    """
+    freq = Counter(num)
+    left = []
+    middle = ""
+    # Process digits in descending order.
+    for digit in sorted(freq.keys(), reverse=True):
+        count = freq[digit]
+        # Use all even counts.
+        left.extend([digit] * (count // 2))
+        # If odd and we haven't chosen a middle, choose this digit.
+        if count % 2 == 1 and middle == "":
+            middle = digit
+    right = left.copy()
+    right.reverse()
+    return "".join(left) + middle + "".join(right)
