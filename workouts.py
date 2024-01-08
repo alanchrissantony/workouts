@@ -22558,3 +22558,32 @@ def remove_block_and_min(num: str, k: int) -> str:
             pass
         i += 1
     return str(min(results)) if results else "0"
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Snippet C: Remove pairs from a list if the earlier element is less than a later one.
+def remove_increasing_pairs(nums: list) -> list:
+    """
+    Iterates over a list of numbers and, for each pair (nums[i], nums[j]) where i < j, 
+    if nums[i] < nums[j], removes both elements.
+    Returns the resulting list.
+    (Note: This destructive removal may change the order; it’s one interpretation of the snippet.)
+    """
+    i = 0
+    # Work on a copy so as not to affect the caller.
+    nums = nums.copy()
+    while i < len(nums) - 1:
+        j = i + 1
+        while j < len(nums):
+            if nums[i] < nums[j]:
+                del nums[j]
+                del nums[i]
+                i = max(i - 1, 0)
+                break
+            else:
+                j += 1
+        i += 1
+    return nums
