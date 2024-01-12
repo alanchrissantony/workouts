@@ -857,3 +857,17 @@ def k(n):
             else:
                 print(end="  ")
         print("\n")
+
+
+# --- Next Function Block ---
+
+
+def l(n):
+    for i in range(1, n*2+1):
+        for j in range(1, i+1):
+            if(j<=i and i<=n):
+                print("*",end=" ")
+            elif(j<=n*2-i):
+                print("*", end=" ")
+        
+        print("\n")
