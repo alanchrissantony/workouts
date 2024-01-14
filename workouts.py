@@ -17645,3 +17645,26 @@ def add_to_digit_list(digits, k):
     num_str = "".join(str(d) for d in digits)
     new_num = int(num_str) + k
     return [int(ch) for ch in str(new_num)]
+
+
+# --- Next Function Block ---
+
+
+
+# 7. Make a palindrome by mirroring the lower of symmetric digits.
+def make_palindrome(s):
+    """
+    Given a string s, for each pair of symmetric characters, change both to the lesser character.
+    Example: "egcfe" → "egcge"
+    """
+    arr = list(s)
+    n = len(arr)
+    for i in range(n // 2):
+        j = n - i - 1
+        if arr[i] != arr[j]:
+            # Choose the lexicographically smaller character.
+            if arr[i] < arr[j]:
+                arr[j] = arr[i]
+            else:
+                arr[i] = arr[j]
+    return "".join(arr)
