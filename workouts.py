@@ -27082,3 +27082,22 @@ def get_sorted_windows(nums: list, k: int) -> list:
         window = nums[i:i+k]
         windows.append(sorted(window))
     return windows
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 6: Copy list to a fixed-length array.
+def copy_to_fixed_length(nums: list, fixed_length: int) -> list:
+    """
+    Copies the contents of 'nums' into a new list of length 'fixed_length', 
+    filling the remainder with zeros.
+    
+    Example:
+      nums = [1,3,-1,-3,5,3,6,7], fixed_length = 20
+    """
+    arr = [0] * fixed_length
+    for i in range(len(nums)):
+        arr[i] = nums[i]
+    return arr[:len(nums)]
