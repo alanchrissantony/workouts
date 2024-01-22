@@ -2494,3 +2494,19 @@ def alternate_rearrange(s: str) -> str:
         else:
             i += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+# 11. Count Pairs with Sum Less Than Target
+def count_pairs_with_sum_less_than(nums: list, target: int) -> int:
+    """
+    Counts the number of unique pairs (i, j) with i < j such that the sum is less than target.
+    """
+    count = 0
+    for i in range(len(nums)-1):
+        for j in range(i+1, len(nums)):
+            if nums[i] + nums[j] < target:
+                count += 1
+    return count
