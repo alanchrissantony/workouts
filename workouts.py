@@ -369,3 +369,26 @@ def max_reachable_index(heights: list, bricks: int, ladders: int) -> int:
                 break
         i += 1
     return i
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 17: Insert GCD between adjacent elements.
+def insert_gcd_between_adjacent(arr: list) -> list:
+    """
+    For each pair of adjacent elements in arr, computes their GCD and inserts it between them.
+    
+    Example:
+      arr = [18,6,10,3] 
+      Returns a new list with the GCD inserted between adjacent pairs.
+    """
+    def gcd(a, b):
+        return math.gcd(a, b)
+    res = []
+    for i in range(len(arr)-1):
+        res.append(arr[i])
+        res.append(gcd(arr[i], arr[i+1]))
+    res.append(arr[-1])
+    return res
