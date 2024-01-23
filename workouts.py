@@ -5166,3 +5166,18 @@ def remove_digit(number: str, digit: str) -> (str, list):
         else:
             result += ch
     return result, indices
+
+
+# --- Next Function Block ---
+
+
+
+def are_frequencies_unique(nums: list) -> bool:
+    """
+    Returns True if each number in nums has a unique frequency.
+    """
+    freq = {}
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+    freqs = list(freq.values())
+    return len(freqs) == len(set(freqs))
