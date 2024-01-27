@@ -18332,3 +18332,23 @@ def sum_lengths_of_valid_words(words: list, chars: str) -> int:
         if all(ch in chars for ch in word):
             total += len(word)
     return total
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 18 ---
+def max_full_substrings(s: str, target: str) -> int:
+    """
+    Given s and target, returns the maximum number of times target can be removed from s.
+    Essentially, it finds how many complete copies of target exist in s based on character frequency.
+    """
+    freq_s = Counter(s)
+    freq_target = Counter(target)
+    counts = []
+    for char in freq_target:
+        if char not in freq_s:
+            return 0
+        counts.append(freq_s[char] // freq_target[char])
+    return min(counts) if counts else 0
