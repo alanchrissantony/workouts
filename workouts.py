@@ -8751,3 +8751,27 @@ def compute_cost(total: int, cost1: int, cost2: int) -> int:
         if ttl == 0:
             prd += count
     return prd + 1
+
+
+# --- Next Function Block ---
+
+
+
+# 8. Decode a string of the form "a1c1e1" into letters by shifting the previous letter.
+def decode_string(s: str) -> str:
+    """
+    For each character in s, if it's a letter, output it.
+    If it's a digit, take the previous letter's index in the alphabet and shift by that digit.
+    Example: "a1c1e1" becomes "abcdef" (depending on dictionary).
+    """
+    alpha = "abcdefghijklmnopqrstuvwxyz"
+    res = ""
+    for i in range(len(s)):
+        if s[i].isalpha():
+            res += s[i]
+        else:
+            # s[i] is digit; shift previous letter.
+            prev = s[i-1]
+            ind = alpha.index(prev) + int(s[i])
+            res += alpha[ind % 26]
+    return res
