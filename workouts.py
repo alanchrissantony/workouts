@@ -22100,3 +22100,35 @@ def rearrange_digits_with_odd_priority(num: str) -> str:
         return str(int(result))
     except Exception:
         return result
+
+
+# --- Next Function Block ---
+
+
+
+
+# --------------------------
+# 1. Restaurant with minimum index sum
+def find_restaurant_with_min_index_sum(list1: list, list2: list) -> str:
+    """
+    Given two lists of restaurant names, returns the restaurant name that appears in both
+    with the smallest sum of its indices. If multiple restaurants have the same minimal
+    index sum, returns one of them.
+    
+    Example:
+      list1 = ["Shogun","Tapioca Express","Burger King","KFC"]
+      list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+      Returns "Shogun"
+    """
+    # Ensure list1 is the shorter list.
+    if len(list1) > len(list2):
+        list1, list2 = list2, list1
+    best_sum = len(list1) + len(list2)  # Initialize with maximum possible sum.
+    best_restaurant = ""
+    for i, rest in enumerate(list1):
+        if rest in list2:
+            index_sum = i + list2.index(rest)
+            if index_sum < best_sum:
+                best_sum = index_sum
+                best_restaurant = rest
+    return best_restaurant
