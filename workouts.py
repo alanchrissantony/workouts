@@ -16805,3 +16805,23 @@ def count_pythagorean_triplets(num: int) -> int:
                     # Uncomment to print the triplet:
                     # print(a, b, c)
     return count
+
+
+# --- Next Function Block ---
+
+
+
+# 17. Count Pythagorean triplets (variant with three loops, skipping i == j).
+def count_pythagorean_triplets_variant(num: int) -> int:
+    """
+    Another variant to count Pythagorean triplets using three nested loops.
+    """
+    count = 0
+    for k in range(1, num+1):
+        for i in range(1, k):
+            for j in range(1, k):
+                if i == j:
+                    continue
+                if i * i + j * j == k * k:
+                    count += 1
+    return count
