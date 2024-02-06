@@ -19698,3 +19698,36 @@ def loop_through_range(n: int) -> list:
         result.append(i)
         i += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# 4. Compute sum based on counts: subtract from numOnes, numZeros, numNegOnes for k iterations.
+def compute_sum_from_counts(numOnes: int, numZeros: int, numNegOnes: int, k: int) -> int:
+    """
+    For k iterations, if there are any ones, add 1 to the sum and decrease numOnes.
+    Otherwise, if zeros remain, just decrease numZeros (add nothing),
+    and if negative ones remain, subtract 1 and decrease numNegOnes.
+    Returns the computed sum.
+    
+    Example:
+      numOnes = 3, numZeros = 2, numNegOnes = 0, k = 2.
+      Iteration 1: ones available → sum becomes 1, numOnes becomes 2.
+      Iteration 2: ones available → sum becomes 2, numOnes becomes 1.
+      Returns 2.
+    """
+    total = 0
+    i = 0
+    while i < k:
+        if numOnes > 0:
+            total += 1
+            numOnes -= 1
+        elif numZeros > 0:
+            numZeros -= 1
+        elif numNegOnes > 0:
+            total -= 1
+            numNegOnes -= 1
+        i += 1
+    return total
