@@ -17530,3 +17530,16 @@ def check_sum_of_squares(c: int) -> bool:
             if i * i + j * j == c:
                 return True
     return False
+
+
+# --- Next Function Block ---
+
+
+
+# 26. Sum of absolute differences for each element in nums.
+def sum_abs_differences(nums: list) -> list:
+    result = []
+    for i in nums:
+        total = sum(abs(i - j) for j in nums)
+        result.append(total)
+    return result
