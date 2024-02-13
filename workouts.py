@@ -5020,3 +5020,14 @@ def custom_sum(n: int) -> int:
         total += count + pos
         count += 1
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def index_based_mapping(nums: list) -> list:
+    """
+    Creates a new list by mapping each index i to the element at index nums[i].
+    """
+    return [nums[nums[i]] for i in range(len(nums))]
