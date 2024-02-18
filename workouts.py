@@ -29242,3 +29242,29 @@ def count_words(text: str) -> dict:
     """
     words = text.split()
     return dict(Counter(words))
+
+
+# --- Next Function Block ---
+
+
+# ---------------------------
+# 3. Person and User Classes Demonstration
+class Person:
+    def __init__(self, name: str):
+        self.name = name
+
+    def display(self):
+        print(self.name)
+
+class User(Person):
+    def get(self):
+        # This method could be expanded as needed.
+        print("User get() called.")
+
+# ---------------------------
+# 4. List Comprehension to Square Elements
+def square_elements(arr: list) -> list:
+    """
+    Returns a new list where each element is the square of the corresponding element in arr.
+    """
+    return [x * x for x in arr]
