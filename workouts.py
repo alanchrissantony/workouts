@@ -9454,3 +9454,14 @@ def search_insert(nums: list, target: int):
             return i, nums
     nums.append(target)
     return len(nums) - 1, nums
+
+
+# --- Next Function Block ---
+
+
+# str_str.py
+def find_substring(haystack: str, needle: str) -> int:
+    """
+    Returns the index of the first occurrence of needle in haystack, or -1 if not found.
+    """
+    return haystack.find(needle)
