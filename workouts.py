@@ -8384,3 +8384,21 @@ def custom_sort_validation(nums: list) -> bool:
             i += 1
     result = arr + temp
     return result == target
+
+
+# --- Next Function Block ---
+
+
+def custom_remove_substring(str1: str, str2: str) -> str:
+    """
+    (Based on the provided snippet)
+    If str2 is in str1, finds the first occurrence indices and removes that part.
+    Otherwise returns str1.
+    Note: If str2 is empty, returns str1.
+    """
+    if not str2:
+        return str1
+    idx = str1.find(str2)
+    if idx != -1:
+        return str1[:idx] + str1[idx+len(str2):]
+    return str1
