@@ -17951,3 +17951,15 @@ def sort_by_reversed_words(s):
         # Remove the last character from each reversed word (except last, per snippet)
         result.append(word[::-1][:-1])
     return " ".join(result)
+
+
+# --- Next Function Block ---
+
+
+
+# 24. Compute product of a list.
+def product_of_list(nums):
+    product = 1
+    for num in nums:
+        product *= num
+    return product
