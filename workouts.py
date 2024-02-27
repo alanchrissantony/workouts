@@ -16242,3 +16242,29 @@ def has_three_divisors(n: int) -> bool:
         if sqrt_n % i == 0:
             return False
     return True
+
+
+# --- Next Function Block ---
+
+
+def custom_sort_validation(nums: list) -> bool:
+    """
+    Attempts a custom sort by removing and appending elements.
+    Returns True if the custom-sorted list equals the actual sorted list.
+    (Logic based on the provided snippet.)
+    """
+    original = nums[:]
+    target = sorted(nums)
+    arr = []
+    i = 0
+    # Use a copy for processing.
+    temp = nums[:]
+    while i < len(temp) - 1:
+        if temp[i+1] < temp[i]:
+            # Append the element at i+1 and remove it.
+            arr.append(temp[i+1])
+            del temp[i+1]
+        else:
+            i += 1
+    result = arr + temp
+    return result == target
