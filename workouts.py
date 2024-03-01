@@ -22132,3 +22132,29 @@ def find_restaurant_with_min_index_sum(list1: list, list2: list) -> str:
                 best_sum = index_sum
                 best_restaurant = rest
     return best_restaurant
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 2. Remove k consecutive digits to yield minimum result
+def remove_k_digits_min_result(num: str, k: int) -> str:
+    """
+    Given a number represented as a string and an integer k, removes k consecutive digits
+    from num at every possible starting position, and returns the minimum resulting number
+    (as a string). If no removal is possible, returns "0".
+    
+    Example:
+      num = "10", k = 2 → possible removals: removing the only two digits yields "", so return "0"
+    """
+    results = []
+    # For each valid starting index, remove k digits.
+    for i in range(len(num) - k + 1):
+        candidate = num[:i] + num[i+k:]
+        if candidate != "":
+            results.append(int(candidate))
+    if results:
+        return str(min(results))
+    else:
+        return "0"
