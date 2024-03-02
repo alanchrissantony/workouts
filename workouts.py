@@ -3834,3 +3834,14 @@ def check_progressions(*arrays) -> list:
     for arr in arrays:
         results.append(is_arithmetic_progression(arr))
     return results
+
+
+# --- Next Function Block ---
+
+
+
+def count_word_occurrences(sequence: str, word: str) -> int:
+    """
+    Returns the number of non-overlapping occurrences of word in sequence.
+    """
+    return sequence.count(word)
