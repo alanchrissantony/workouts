@@ -1172,3 +1172,17 @@ def ac(nums):
             lar=array[i]
             pos=i
     print( lar)
+
+
+# --- Next Function Block ---
+
+
+def ad(array):
+    val=2
+    i=0
+    while i<len(array)-k:
+        if array[i]==val:
+            array.pop(i)
+            i=i-1
+        i=i+1
+    print(len(array), array)
