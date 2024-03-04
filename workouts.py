@@ -28185,3 +28185,24 @@ def merge_intervals(intervals: list) -> list:
         else:
             merged.append(curr)
     return merged
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 9: Count Subarrays with Sum Equal to k
+def count_subarrays_with_sum(nums: list, k: int) -> int:
+    """
+    Counts the number of contiguous subarrays in nums whose sum equals k.
+    
+    Example:
+      nums = [1,0,1,0,1], k = 0
+    """
+    count = 0
+    n = len(nums)
+    for i in range(n):
+        for j in range(i+1, n+1):
+            if sum(nums[i:j]) == k:
+                count += 1
+    return count
