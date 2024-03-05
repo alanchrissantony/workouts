@@ -25497,3 +25497,25 @@ def fraction_to_decimal(numerator: int, denominator: int) -> str:
         return str(numerator // denominator)
     else:
         return str(numerator / denominator)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 5: Find all starting indices of anagrams of p in s.
+def find_anagram_indices(s: str, p: str) -> list:
+    """
+    Finds all start indices in s where an anagram of p appears.
+    
+    Example:
+      s = "cbaebabacd", p = "abc" → returns [0, 6]
+    """
+    result = []
+    l = len(p)
+    n = len(s)
+    sorted_p = sorted(p)
+    for i in range(n - l + 1):
+        if sorted(s[i:i+l]) == sorted_p:
+            result.append(i)
+    return result
