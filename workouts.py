@@ -8576,3 +8576,15 @@ def excel_columns(n: int) -> list:
     Returns a list of the first n Excel column labels starting from 'A'.
     """
     return [chr(ord('A') + i) for i in range(n)]
+
+
+# --- Next Function Block ---
+
+
+def reformat_text(text: str) -> str:
+    """
+    Trims extra spaces and redistributes spaces evenly between words.
+    (Simple approach: assumes extra spaces are those beyond single spaces.)
+    """
+    words = text.strip().split()
+    return " ".join(words)
