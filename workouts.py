@@ -17219,3 +17219,26 @@ def simulate_stack_ops(n: int, target: list) -> list:
             k += 1
         i += 1
     return res
+
+
+# --- Next Function Block ---
+
+
+
+# 6. Find a special value in an array based on frequency (ambiguous snippet)
+def find_special_value(arr: list, k: int) -> int:
+    """
+    Iterates over the array and tracks a "great" value based on adjacent comparisons
+    and frequency counting. (The original snippet logic is unclear; this is one interpretation.)
+    """
+    d = {}
+    i = 1
+    count = 0
+    # Use k to decide a target count (if k>1, j starts at 2; else 1)
+    j_target = 2 if k > 1 else 1
+    while count != j_target and i < len(arr):
+        great = arr[i] if arr[i] > arr[i - 1] else arr[i - 1]
+        d[great] = d.get(great, 0) + 1
+        count = d[great]
+        i += 1
+    return great
