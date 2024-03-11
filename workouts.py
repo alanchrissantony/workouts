@@ -18726,3 +18726,16 @@ def first_duplicate_index(s: str) -> (int, dict):
             return i, seen
         seen[ch] = 1
     return -1, seen
+
+
+# --- Next Function Block ---
+
+
+# 19. Return indices where element doesn't equal its 1-indexed value.
+def indices_not_matching(nums: list) -> list:
+    result = []
+    for i in range(len(nums)):
+        if i + 1 != nums[i]:
+            result.append(i)
+    result.append(len(nums) - 1)
+    return result
