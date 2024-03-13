@@ -1347,3 +1347,18 @@ def ai(s,t):
         print(True)
     else:
         print(array)
+
+
+# --- Next Function Block ---
+
+
+def aj(x):
+    res=0
+    dict={'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+
+    for i in s:
+        res=res+dict[i]
+    if(s[len(s)-2]=='I' and dict[s[len(s)-1]]>1):
+        res=res-2
+
+    print(res)
