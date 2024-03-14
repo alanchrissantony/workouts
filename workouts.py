@@ -499,3 +499,25 @@ def print_binary(nums: list) -> None:
     while i < len(nums):
         print(bin(nums[i]), nums[i])
         i += 1
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 4: Calculate an expression using logarithms.
+def calculate_expression(a: int, b: int) -> int:
+    """
+    If a is 0 and b is not, returns b.
+    If b is 0 and a is not, returns a.
+    Otherwise, computes int(math.log(math.exp(a) * math.exp(b))) which is equivalent to a+b.
+    
+    Example:
+      a = 707, b = 2 → returns 709.
+    """
+    if a == 0 and b != 0:
+        return b
+    elif b == 0 and a != 0:
+        return a
+    else:
+        return int(math.log(math.exp(a) * math.exp(b)))
