@@ -11604,3 +11604,25 @@ def sum_diagonals(mat: list) -> int:
     if n % 2 == 1:
         total -= mat[n // 2][n // 2]
     return total
+
+
+# --- Next Function Block ---
+
+
+
+
+
+def count_elements_based_on_min_freq(nums: list) -> int:
+    """
+    Sorts the list and builds a frequency dictionary.
+    Finds the number (key) with the lowest frequency and then counts how many elements in the sorted list are 
+    greater than or equal to that number.
+    """
+    nums_sorted = sorted(nums)
+    freq = {}
+    for num in nums_sorted:
+        freq[num] = freq.get(num, 0) + 1
+    sorted_freq = sorted(freq.items(), key=lambda x: x[1])
+    min_elem, _ = sorted_freq[0]
+    total = sum(1 for num in nums_sorted if num >= min_elem)
+    return total
