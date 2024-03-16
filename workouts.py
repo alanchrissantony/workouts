@@ -4524,3 +4524,14 @@ def are_frequencies_unique(nums: list) -> bool:
         freq[num] = freq.get(num, 0) + 1
     freqs = list(freq.values())
     return len(freqs) == len(set(freqs))
+
+
+# --- Next Function Block ---
+
+
+
+def max_digit_count(s: str) -> int:
+    """
+    Returns the maximum between the count of '1's and '0's in the string s.
+    """
+    return max(s.count("1"), s.count("0"))
