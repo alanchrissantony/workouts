@@ -17242,3 +17242,22 @@ def find_special_value(arr: list, k: int) -> int:
         count = d[great]
         i += 1
     return great
+
+
+# --- Next Function Block ---
+
+
+
+def remaining_chars_after_subtraction(s: str, t: str) -> str:
+    """
+    Given two strings s and t, reduce the frequency of characters in t based on s and then 
+    return a concatenation of characters that remain (i.e. frequency > 0).
+    """
+    freq = Counter(t)
+    for ch in s:
+        freq[ch] -= 1
+    res = ""
+    for ch in freq:
+        if freq[ch] > 0:
+            res += ch
+    return res
