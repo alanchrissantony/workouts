@@ -11785,3 +11785,18 @@ def convert_zigzag(s: str, numRows: int) -> str:
         result += s[i]
         i += diff
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def equal_vowel_halves(s: str) -> bool:
+    """
+    Splits string s into two halves and returns True if both halves have the same count of vowels.
+    """
+    vowels = set('aeiouAEIOU')
+    half = len(s) // 2
+    first_half = s[:half]
+    second_half = s[half:]
+    return sum(1 for ch in first_half if ch in vowels) == sum(1 for ch in second_half if ch in vowels)
