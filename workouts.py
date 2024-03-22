@@ -2699,3 +2699,24 @@ def element_equal_to_frequency(arr: list) -> int:
         if num == freq[num]:
             return num
     return -1
+
+
+# --- Next Function Block ---
+
+
+# 25. Longest Repeating Character Substring Length
+def longest_repeating_substring_length(s: str) -> int:
+    """
+    Returns the length of the longest substring of s consisting of the same character.
+    """
+    if not s:
+        return 0
+    max_len = 1
+    current_len = 1
+    for i in range(1, len(s)):
+        if s[i] == s[i-1]:
+            current_len += 1
+        else:
+            max_len = max(max_len, current_len)
+            current_len = 1
+    return max(max_len, current_len)
