@@ -2121,3 +2121,38 @@ def generate_random_array(n: int) -> tuple:
         array[idx] = 0
         array.append(-count + (-count))
     return array, count, -count
+
+
+# --- Next Function Block ---
+
+
+
+def modify_number(num: int) -> int:
+    """
+    Given a number, replaces the first digit that is less than 9 with 9.
+    Then, in a while loop, if a digit (starting from the right) equals 6,
+    adds 3 times its positional value to the original number and stops.
+    Returns the modified number.
+    """
+    s = str(num)
+    ret = ""
+    ins = True
+    for ch in s:
+        digit = int(ch)
+        if digit < 9 and ins:
+            ret += "9"
+            ins = False
+        else:
+            ret += ch
+    modified = int(ret)
+    
+    # Process digits from right side
+    temp = num
+    count = 0
+    while temp > 1:
+        if temp % 10 == 6:
+            modified += 3 * (10 ** count)
+            break
+        count += 1
+        temp //= 10
+    return modified
