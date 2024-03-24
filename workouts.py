@@ -11758,3 +11758,30 @@ def compute_subtractions(n: int) -> int:
         i = i - sub
         count += sub
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def convert_zigzag(s: str, numRows: int) -> str:
+    """
+    Attempts to create a zigzag conversion of s for numRows.
+    (Note: This implementation follows the provided snippet's structure and may differ from the standard solution.)
+    """
+    if numRows == 1 or numRows >= len(s):
+        return s
+    result = ""
+    i = 0
+    diff = numRows
+    while len(result) < len(s):
+        if i >= len(s):
+            i -= len(s)
+            if i % 2 == 0:
+                diff = 2
+                i = 1
+            else:
+                diff = numRows
+        result += s[i]
+        i += diff
+    return result
