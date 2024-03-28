@@ -21391,3 +21391,28 @@ def sum_elements_with_index_ones(nums: list, k: int) -> int:
             total += nums[i]
         i += 1
     return total
+
+
+# --- Next Function Block ---
+
+
+# --- Transpose Matrix ---
+def transpose_matrix(matrix: list) -> list:
+    """
+    Transposes the given 2D matrix.
+    """
+    if not matrix:
+        return []
+    num_rows = len(matrix)
+    num_cols = len(matrix[0])
+    result = []
+    j = 0
+    while j < num_cols:
+        temp = []
+        i = 0
+        while i < num_rows:
+            temp.append(matrix[i][j])
+            i += 1
+        result.append(temp)
+        j += 1
+    return result
