@@ -20177,3 +20177,22 @@ def selection_sort(arr: list) -> list:
             j += 1
         i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+def bubble_sort(arr: list) -> list:
+    """
+    Performs bubble sort on a copy of arr and returns the sorted list.
+    """
+    arr = arr.copy()
+    i = 0
+    while i < len(arr):
+        j = 0
+        while j < len(arr) - 1:
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            j += 1
+        i += 1
+    return arr
