@@ -20339,3 +20339,19 @@ def frequency_difference(s: str, t: str) -> int:
         else:
             total_diff += sCount[ch]
     return total_diff
+
+
+# --- Next Function Block ---
+
+
+def sorted_frequency(word: str) -> dict:
+    """
+    Returns a dictionary of character frequencies in the given word,
+    sorted by character (alphabetically).
+    
+    Example:
+      word = "cabbba" → {'a': 1, 'b': 3, 'c': 1}
+    """
+    freq = dict(Counter(word))
+    # Sort dictionary by key (character)
+    return dict(sorted(freq.items(), key=lambda item: item[0]))
