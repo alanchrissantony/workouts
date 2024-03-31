@@ -25406,3 +25406,35 @@ def process_string(s: str) -> str:
             break
         i += 1
     return s
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 2: Count and remove consecutive pairs summing to a fixed target.
+def count_and_remove_pairs(nums: list) -> int:
+    """
+    Given a list 'nums', defines the target as the sum of the first two elements.
+    Then, iterates through the list; whenever a consecutive pair sums to the target,
+    increments a counter and removes that pair from the list.
+    Returns the count of removed pairs.
+    
+    Note: This function modifies the list in a loop.
+    """
+    if len(nums) < 2:
+        return 0
+    target = nums[0] + nums[1]
+    count = 0
+    i = 0
+    # Use a while loop since we are modifying the list.
+    while i < len(nums) - 1:
+        if nums[i] + nums[i+1] == target:
+            count += 1
+            # Remove the pair at indices i and i+1.
+            del nums[i:i+2]
+            # Reset i to 0 to re-check from start.
+            i = 0
+        else:
+            i += 1
+    return count
