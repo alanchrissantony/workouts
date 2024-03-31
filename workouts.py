@@ -11729,3 +11729,15 @@ def count_word_occurrences(sequence: str, word: str) -> int:
     Returns the number of non-overlapping occurrences of word in sequence.
     """
     return sequence.count(word)
+
+
+# --- Next Function Block ---
+
+
+
+def count_word_occurrences_replace(sequence: str, word: str) -> int:
+    """
+    Uses string replacement to calculate the number of times word appears in sequence.
+    """
+    reduced = sequence.replace(word, "")
+    return (len(sequence) - len(reduced)) // len(word)
