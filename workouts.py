@@ -14493,3 +14493,20 @@ def unique_characters_count(s: str) -> int:
     if len(freq) == len(s):
         return -1
     return sum(1 for count in freq.values() if count == 1)
+
+
+# --- Next Function Block ---
+
+
+
+def max_gap_between_repeats(s: str) -> int:
+    """
+    For characters that repeat in s, returns the maximum gap (index difference minus one)
+    between two occurrences. Returns -1 if no character repeats.
+    """
+    gaps = [-1]
+    for i in range(len(s) - 1):
+        for j in range(i + 1, len(s)):
+            if s[i] == s[j]:
+                gaps.append(j - i - 1)
+    return max(gaps) if gaps else -1
