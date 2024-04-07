@@ -28457,3 +28457,17 @@ def division_examples():
     Returns a tuple (float_div, int_div) for 3 divided by 2.
     """
     return (3 / 2, 3 // 2)
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 12: Word/Description Processing using Counter
+def unique_words_from_text(text: str) -> dict:
+    """
+    Splits the text into words (using spaces) and returns a dictionary
+    of word frequencies using Counter.
+    """
+    words = text.split()
+    return dict(Counter(words))
