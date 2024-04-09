@@ -24011,3 +24011,23 @@ def unique_prefix_substrings_with_reverse(s: str) -> list:
                 seen.add(sub)
                 result.append((sub, sub[::-1]))
     return result
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 20:
+# Get all prefixes for every starting index in a string.
+def all_prefixes(s: str) -> list:
+    """
+    Returns a list of all contiguous substrings (prefixes) for every starting index of s.
+    
+    Example:
+      s = "bbbab" → returns all substrings starting at each index.
+    """
+    prefixes = []
+    for i in range(len(s)):
+        for j in range(1, len(s) - i + 1):
+            prefixes.append(s[i:i+j])
+    return prefixes
