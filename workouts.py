@@ -16207,3 +16207,17 @@ def first_n_evens(n: int) -> list:
     Returns a list of the first n even numbers.
     """
     return [i * 2 for i in range(1, n + 1)]
+
+
+# --- Next Function Block ---
+
+
+def gcd_from_list(nums: list) -> int:
+    """
+    Returns the greatest common divisor (GCD) of the minimum and maximum elements in nums.
+    (Assumes positive numbers.)
+    """
+    from math import gcd
+    low = min(nums)
+    high = max(nums)
+    return gcd(low, high)
