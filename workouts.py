@@ -9184,3 +9184,19 @@ def all_equal_frequency(s: str) -> bool:
     """
     freq = {ch: s.count(ch) for ch in s}
     return len(set(freq.values())) == 1
+
+
+# --- Next Function Block ---
+
+
+
+# 31. Count word frequencies.
+def word_frequencies(text: str) -> dict:
+    """
+    Splits text by spaces and returns a dictionary of word frequencies.
+    """
+    words = text.split()
+    freq = {}
+    for word in words:
+        freq[word] = freq.get(word, 0) + 1
+    return freq
