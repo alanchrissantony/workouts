@@ -17424,3 +17424,18 @@ def simplify_path(path: str) -> str:
         else:
             stack.append(part)
     return "/" + "/".join(stack)
+
+
+# --- Next Function Block ---
+
+
+
+# 19. Reverse result on encountering a specific character.
+def reverse_on_char(s: str, char: str = "i") -> str:
+    res = ""
+    for ch in s:
+        if ch == char:
+            res = res[::-1]
+        else:
+            res += ch
+    return res
