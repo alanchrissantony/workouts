@@ -563,3 +563,29 @@ def max_average_subarray(nums: list, k: int) -> float:
             print("New best subarray:", best_sub)
         i += 1
     return max_avg
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 7: Binary search on a sorted list.
+def binary_search(nums: list, target: int) -> int:
+    """
+    Performs a binary search on a sorted list 'nums' to find 'target'.
+    Returns the index if found; otherwise, returns -1.
+    
+    Example:
+      nums = [1,2,3,1], target = 2 → returns index 1.
+    """
+    start = 0
+    end = len(nums) - 1
+    while start <= end:
+        mid = (start + end) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            start = mid + 1
+        else:
+            end = mid - 1
+    return -1
