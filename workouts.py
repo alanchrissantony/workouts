@@ -22158,3 +22158,33 @@ def remove_k_digits_min_result(num: str, k: int) -> str:
         return str(min(results))
     else:
         return "0"
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 3. Remove an element if it is less than a later element
+def remove_if_less(nums: list) -> list:
+    """
+    Iterates over the list and, if an element is found to be less than a later element,
+    deletes both elements and continues. (The logic is ambiguous; this function follows
+    the provided snippet exactly.)
+    
+    Example:
+      Input: [2,3,4,4,4]
+      (Behavior depends on iteration order and deletion.)
+    """
+    i = 0
+    while i < len(nums) - 1:
+        j = i + 1
+        while j < len(nums):
+            if nums[i] < nums[j]:
+                del nums[j]
+                del nums[i]
+                i = max(i - 1, 0)
+                break
+            else:
+                j += 1
+        i += 1
+    return nums
