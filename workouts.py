@@ -25477,3 +25477,23 @@ def count_wrapped_words(words: list) -> int:
             count += t
         i += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 4: Convert a fraction to decimal.
+def fraction_to_decimal(numerator: int, denominator: int) -> str:
+    """
+    Converts a fraction to its decimal representation.
+    If the fraction is an integer (no remainder), returns the integer as a string.
+    Otherwise, returns the floating-point representation as a string.
+    
+    Example:
+      numerator = 4, denominator = 333
+    """
+    if numerator % denominator == 0:
+        return str(numerator // denominator)
+    else:
+        return str(numerator / denominator)
