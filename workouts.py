@@ -2094,3 +2094,30 @@ def max_right(arr: list) -> list:
             max_so_far = arr[i]
         result[i] = max_so_far
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def generate_random_array(n: int) -> tuple:
+    """
+    Generates an array of n-1 distinct random integers between -n and n (excluding 0),
+    then appends -sum(array) if not already present, or adjusts if it is.
+    Returns a tuple: (array, count, -count), where count is the sum of the initial array.
+    """
+    import random
+    array = []
+    count = 0
+    while len(array) < n - 1:
+        val = random.randint(-n, n)
+        if val not in array and val != 0:
+            array.append(val)
+            count += val
+    if -count not in array:
+        array.append(-count)
+    else:
+        idx = array.index(-count)
+        array[idx] = 0
+        array.append(-count + (-count))
+    return array, count, -count
