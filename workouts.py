@@ -19808,3 +19808,24 @@ def insertion_sort(arr: list) -> list:
         else:
             i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+
+# 8. Selection sort (using while loops).
+def selection_sort(arr: list) -> list:
+    """
+    Performs selection sort on the list arr using while loops.
+    Returns the sorted list.
+    """
+    i = 0
+    while i < len(arr) - 1:
+        j = i + 1
+        while j < len(arr):
+            if arr[j] < arr[i]:
+                arr[i], arr[j] = arr[j], arr[i]
+            j += 1
+        i += 1
+    return arr
