@@ -25314,3 +25314,26 @@ def dp_special(nums: list) -> int:
     # Find maximum value in dp.
     max_val = max(x[0] for x in dp)
     return max_val
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 5: Group Anagrams from a list of words.
+def group_anagrams(words: list) -> list:
+    """
+    Groups anagrams together from the list 'words'.
+    
+    Example:
+      words = ["eat","tea","tan","ate","nat","bat"]
+      Returns: [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+    """
+    groups = {}
+    for word in words:
+        key = "".join(sorted(word))
+        if key in groups:
+            groups[key].append(word)
+        else:
+            groups[key] = [word]
+    return list(groups.values())
