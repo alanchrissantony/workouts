@@ -17767,3 +17767,19 @@ def dict_values_list(d):
     Given dictionary d, returns a list of its values.
     """
     return [d[x] for x in d]
+
+
+# --- Next Function Block ---
+
+
+
+# 14. Iterate through a list using an iterator.
+def iterate_list(arr):
+    """
+    Iterates through arr using an iterator and returns a list of items.
+    """
+    it = iter(arr)
+    result = []
+    for _ in range(len(arr)):
+        result.append(next(it))
+    return result
