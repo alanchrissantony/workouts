@@ -9577,3 +9577,24 @@ def move_zeros_remove(nums: list) -> list:
             nums.remove(i)
             nums.append(0)
     return nums
+
+
+# --- Next Function Block ---
+
+
+
+def combine_adjacent_equal(nums: list) -> list:
+    """
+    Combines two equal adjacent numbers by doubling the first and zeroing the second.
+    Then moves zeros to the end.
+    Example: [1,2,2,1,1,0] --> after combination and shifting zeros.
+    """
+    nums = nums[:]  # copy
+    for i in range(len(nums)-1):
+        if nums[i] == nums[i+1]:
+            nums[i] *= 2
+            nums[i+1] = 0
+    # Remove zeros and append them at the end.
+    result = [num for num in nums if num != 0]
+    result.extend([0] * (len(nums) - len(result)))
+    return result
