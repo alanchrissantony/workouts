@@ -23038,3 +23038,28 @@ def max_remaining_money(prices: list, money: int) -> int:
                 max_rem = money - cost
                 flag = True
     return max_rem if flag else money
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 7. Count Sequential Matches between Two Strings
+def count_sequential_matches(text1: str, text2: str) -> int:
+    """
+    Iterates over text1; for each character, if that character appears in text2 starting
+    from a moving index, increments a counter.
+    
+    Example:
+      text1 = "ezupkr", text2 = "ubmrapg" might count how many characters in text1
+      appear sequentially in text2.
+    """
+    count = 0
+    i = 0
+    j = 0
+    while i < len(text1) and j < len(text2):
+        if text1[i] in text2[j:]:
+            count += 1
+            j += 1  # Move j forward for the next match.
+        i += 1
+    return count
