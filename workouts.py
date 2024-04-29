@@ -28483,3 +28483,268 @@ def dictionary_of_squares(arr: list) -> dict:
     Returns a dictionary where keys are elements from arr and values are their squares.
     """
     return {x: x * x for x in arr}
+
+
+# --- Next Function Block ---
+
+
+
+
+ 
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BinaryTree:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.root is None:
+            self.root=node
+            return
+        queue=[self.root]
+        while queue:
+            current=queue.pop(0)
+            if current.left:
+                queue.append(current.left)
+            else:
+                current.left=node
+                break
+            if current.right:
+                queue.append(current.right)
+            else:
+                current.right=node
+                break
+        
+    def print(self):
+        def helper(current):
+            if current:
+                print(current.data)
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+
+
+
+
+class Node:
+    def __init__(self, data=None, left=None, right=None):
+        self.data=data
+        self.left=left
+        self.right=right
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root=None
+
+    def append(self, data):
+        node=Node(data)
+        if self.root is None:
+            self.root=node
+            return
+        current=self.root
+        while True:
+            if data<current.data:
+                if current.left:
+                    current=current.left
+                else:
+                    current.left=node
+                    break
+            else:
+                if current.right:
+                    current=current.right
+                else:
+                    current.right=node
+                    break
+
+    def print(self):
+        def helper(current):
+            if current:
+                print(current.data)
+                helper(current.left)
+                helper(current.right)
+        helper(self.root)
+
+    def remove(self, data):
+        def get_min(current):
+            if current.left:
+                return get_min(current.left)
+            else:
+                return current.data
+            
+        def helper(data, current, parent):
+            while current:
+                if data<current.data:
+                    parent=current
+                    current=current.left
+                elif data>current.data:
+                    parent=current
+                    current=current.right
+                else:
+                    if current.left and current.right:
+                        current.data=get_min(current.right)
+                        helper(current.data, current.right, current)
+                    else:
+                        if parent is None:
+                            if current.left:
+                                self.root=current.left
+                                current=current.left
+                            else:
+                                self.root=current.right  
+                                current=current.right
+                        else:
+                            if current == parent.left:
+                                if current.left:
+                                    parent.left=current.left
+                                    current=current.left
+                                else:
+                                    parent.left=current.right
+                                    current=current.right
+                            else:
+                                if current.left:
+                                    parent.right=current.left
+                                    current=current.left
+                                else:
+                                    parent.right=current.right
+                                    current=current.right
+        helper(data, self.root, None)
+        
+
+
+class Heap:
+    def __init__(self):
+        self.heap=[]
+        self.length=0
+
+    def parent(self, i):
+        return (i-1)//2
+    
+    def left_child(self, i):
+        return 2*i+1
+
+    def right_child(self, i):
+        return 2*i+2
+    
+    def append(self, data):
+        self.heap.append(data)
+        self.length+=1
+        self.shift_up(self.length-1)
+
+    def shift_up(self, i):
+        while i>0 and self.heap[self.parent(i)] > self.heap[i]:
+            self.heap[self.parent(i)], self.heap[i] = self.heap[i], self.heap[self.parent(i)]
+            i=self.parent(i)
+
+    def shift_down(self, i):
+        min_index = i
+        left = self.left_child(i)
+        right = self.right_child(i)
+
+        if left<self.length and self.heap[left] < self.heap[min_index]:
+            min_index = left
+        if right<self.length and self.heap[right] < self.heap[min_index]:
+            min_index = right
+        if i != min_index:
+            self.heap[i], self.heap[min_index] = self.heap[min_index], self.heap[i]
+            return self.shift_down(min_index)
+        
+
+    def helper(self, i, j):
+        min_index=i
+        left=self.left_child(i)
+        right=self.right_child(i)
+
+        if left < self.length-j and self.heap[min_index] < self.heap[left]:
+            min_index=left
+        if right < self.length-j and self.heap[min_index] < self.heap[right]:
+            min_index=right
+        if i != min_index:
+            self.heap[min_index], self.heap[i] = self.heap[i], self.heap[min_index]
+            return self.helper(min_index, j)
+
+    def sort(self):
+        for i in range(self.length):
+            self.helper(0,i)
+            self.heap[0], self.heap[self.length-i-1] = self.heap[self.length-i-1], self.heap[0]
+    
+    def remove(self, index):
+        if index < self.length:
+            self.heap[index]=self.heap[self.length-1]
+            self.heap.pop(self.length-1)
+            self.length-=1
+            self.shift_up(index)
+            self.shift_down(index)
+
+    def print(self):
+        print(self.heap)
+
+
+
+class Graph:
+    def __init__(self):
+        self.log={}
+
+    def append(self, key, edge):
+        if key not in self.log:
+            self.log[key]=[]
+
+        if edge not in self.log[key]:
+            self.log[key].append(edge)
+
+
+    def remove(self, key, edge):
+        if key in self.log and edge in self.log[key]:
+            self.log[key].remove(edge)
+
+    def print(self):
+        for key in self.log:
+            print(key," -> ", " -> ".join(map(str, self.log[key])))
+
+
+
+class Node:
+    def __init__(self):
+        self.child={}
+        self.end=False
+
+class Trie:
+    def __init__(self):
+        self.root=Node()
+
+    def add(self, data):
+        parent=None
+        current=self.root
+        for key in data:
+            parent=current
+            if key in current.child:
+                current=current.child[key]
+            else:
+                current.child[key]=Node()
+                current=current.child[key]
+        parent.end=True
+
+    def check(self, data):
+        parent=None
+        current=self.root
+        for key in data:
+            if key in current.child:
+                parent=current
+                current=current.child[key]
+            else:
+                return False
+        return True if parent.end else False
+
+
+def bfs(start, graph):
+    queue=[start]
+    visited=set()
+    while queue:
+        current=queue.pop(0)
+        if current not in visited:
+            visited.add(current)
+            print(current)
+            queue.extend(graph[current])
