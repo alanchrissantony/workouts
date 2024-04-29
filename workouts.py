@@ -2833,3 +2833,20 @@ def print_duplicates(nums: list) -> None:
             seen.add(num)
     for dup in duplicates:
         print(dup)
+
+
+# --- Next Function Block ---
+
+
+# 32. First Duplicate Element (from set comprehension)
+def first_duplicate(nums: list):
+    """
+    Returns the first element that appears more than once in nums.
+    If none, returns None.
+    """
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return num
+        seen.add(num)
+    return None
