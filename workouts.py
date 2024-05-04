@@ -5806,3 +5806,24 @@ def count_special_pairs(nums: list, k: int) -> int:
             if nums[i] == nums[j] and (i * j) % k == 0:
                 count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def format_number_with_dots(n: int) -> str:
+    """
+    Formats the integer n by inserting dots as thousand separators.
+    Example: 1234567 -> "1.234.567"
+    """
+    s = str(n)
+    result = ""
+    count = 0
+    for ch in s[::-1]:
+        if count == 3:
+            result = "." + result
+            count = 0
+        result = ch + result
+        count += 1
+    return result
