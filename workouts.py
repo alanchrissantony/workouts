@@ -25229,3 +25229,30 @@ def min_cost_climbing_stairs(cost: list) -> int:
     for i in range(2, n + 1):
         dp[i] = min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2])
     return dp[n]
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 2: Maximum Sum of Non-Adjacent Numbers (House Robber variant)
+def max_non_adjacent_sum(nums: list) -> int:
+    """
+    Given a list 'nums', returns the maximum sum of a subsequence such that no two numbers are adjacent.
+    Uses dynamic programming.
+    
+    Example:
+      nums = [0,0,0,3,2,0]
+      Returns the maximum sum possible by selecting non-adjacent numbers.
+    """
+    n = len(nums)
+    if n == 0:
+        return 0
+    if n == 1:
+        return nums[0]
+    dp = [0] * (n)
+    dp[0] = nums[0]
+    dp[1] = max(nums[0], nums[1])
+    for i in range(2, n):
+        dp[i] = max(nums[i] + dp[i - 2], dp[i - 1])
+    return dp[-1]
