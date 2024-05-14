@@ -969,3 +969,21 @@ def t(n):
         if i>=5:
             break
         print("\n")
+
+
+# --- Next Function Block ---
+
+
+def u(size):
+    i=0
+    j=0
+    while i<=size:
+        i=i+1
+        while j<=size:
+            j=j+1
+            if j<=i or j>size-i:
+                print("*", end=" ")
+            else:
+                print(end=" ")
+            
+        print("\n")
