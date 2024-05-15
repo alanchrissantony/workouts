@@ -22762,3 +22762,25 @@ def transpose_matrix(matrix: list) -> list:
             new_row.append(matrix[i][j])
         transposed.append(new_row)
     return transposed
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Snippet L: Compute the length of the longest palindrome that can be built from characters in a string.
+def longest_palindrome_length(s: str) -> int:
+    """
+    Given a string s, returns the length of the longest palindrome that can be built 
+    with those letters.
+    """
+    freq = Counter(s)
+    length = 0
+    odd_found = False
+    for count in freq.values():
+        if count % 2 == 0:
+            length += count
+        else:
+            length += count - 1
+            odd_found = True
+    return length + 1 if odd_found else length
