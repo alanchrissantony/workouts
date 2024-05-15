@@ -1953,3 +1953,31 @@ def print_star_pattern():
                 print("*", end=" ")
             print()  # new line after each block row
         size *= 2
+
+
+# --- Next Function Block ---
+
+
+
+
+# patterns.py
+
+def symmetric_differences(arr: list) -> list:
+    """
+    Given an array, computes absolute differences between elements
+    from the start and end moving inward.
+    Example:
+      Input: [7,3,5,2,10,6,8,1,4,9]
+      Output: list of differences for first half of array with corresponding symmetric elements.
+    """
+    size = len(arr)
+    diff = []
+    i, n = 0, size - 1
+    for _ in range(size // 2):
+        # If indices cross, break (though loop is already half-length)
+        if i == n:
+            break
+        diff.append(abs(arr[i] - arr[n]))
+        i += 1
+        n -= 1
+    return diff
