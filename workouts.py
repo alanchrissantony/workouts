@@ -24923,3 +24923,37 @@ def print_prefix_suffix_sums(n: int) -> None:
         prefix_sum = functools.reduce(lambda x, y: x + y, prefix)
         suffix_sum = functools.reduce(lambda x, y: x + y, suffix) if suffix else 0
         print("Prefix:", prefix, "Suffix:", suffix, "Prefix sum:", prefix_sum, "Suffix sum:", suffix_sum)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 8: DP toggle variant (Version 1)
+def dp_toggle_variant1(n: int) -> list:
+    """
+    Creates a dp list of length n with all elements initialized to 1.
+    Then toggles the values based on nested loop conditions:
+      - For i == 1: set dp[j] = 0 for odd indices.
+      - For i == 2: toggles based on a count pattern.
+      - Otherwise: toggles each element (1 becomes 0, and 0 becomes 1).
+    If n > 3, toggles the last element.
+    Returns the final dp list.
+    """
+    dp = [1] * n
+    for i in range(1, n):
+        count = 0
+        for j in range(n):
+            if i == 1:
+                if j % 2 == 1:
+                    dp[j] = 0
+            elif i == 2:
+                count += 1
+                if count == 3:
+                    count = 1
+                    dp[j] = 0 if dp[j] == 1 else 1
+            else:
+                dp[j] = 0 if dp[j] == 1 else 1
+    if n > 3:
+        dp[-1] = 0 if dp[-1] == 1 else 1
+    return dp
