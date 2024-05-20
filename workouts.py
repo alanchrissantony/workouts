@@ -25556,3 +25556,30 @@ def min_window_substring(s: str, t: str) -> str:
             l += 1
         r += 1
     return "" if ans[0] == float("inf") else s[ans[1]:ans[2]+1]
+
+
+# --- Next Function Block ---
+
+
+
+
+
+def join(left, right):
+    arr=[]
+    i=0
+    j=0
+    while i<len(left) and j<len(right):
+        if left[i]<right[j]:
+            arr.append(left[i])
+            i+=1
+        else:
+            arr.append(right[j])
+            j+=1
+    while i<len(left):
+        arr.append(left[i])
+        i+=1
+    while j<len(right):
+        arr.append(right[j])
+        j+=1
+    
+    return arr
