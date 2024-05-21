@@ -9598,3 +9598,57 @@ def combine_adjacent_equal(nums: list) -> list:
     result = [num for num in nums if num != 0]
     result.extend([0] * (len(nums) - len(result)))
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def int_to_roman(num: int) -> str:
+    """
+    Converts an integer to a Roman numeral string.
+    """
+    mapping = {1000:'M', 500:'D', 100:'C', 50:'L', 10:'X', 5:'V', 1:'I'}
+    out = ""
+    n = num
+    while n > 0:
+        if n >= 1000:
+            n -= 1000
+            out += mapping[1000]
+        elif n >= 900:
+            n -= 900
+            out += mapping[100] + mapping[1000]
+        elif n >= 500:
+            n -= 500
+            out += mapping[500]
+        elif n >= 400:
+            n -= 400
+            out += mapping[100] + mapping[500]
+        elif n >= 100:
+            n -= 100
+            out += mapping[100]
+        elif n >= 90:
+            n -= 90
+            out += mapping[10] + mapping[100]
+        elif n >= 50:
+            n -= 50
+            out += mapping[50]
+        elif n >= 40:
+            n -= 40
+            out += mapping[10] + mapping[50]
+        elif n >= 10:
+            n -= 10
+            out += mapping[10]
+        elif n >= 9:
+            n -= 9
+            out += mapping[1] + mapping[10]
+        elif n >= 5:
+            n -= 5
+            out += mapping[5]
+        elif n >= 4:
+            n -= 4
+            out += mapping[1] + mapping[5]
+        else:
+            n -= 1
+            out += mapping[1]
+    return out
