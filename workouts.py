@@ -19564,3 +19564,92 @@ def linear_and_binary_search(array: list, target) -> (int, int):
     # If target is in temp_arr, pick it; otherwise, take the middle.
     binary_value = target if target in temp_arr else temp_arr[len(temp_arr)//2]
     return linear_index, binary_value
+
+
+# --- Next Function Block ---
+
+
+
+
+
+    
+
+class Node:
+    def __init__(self, data=None, next=None):
+        self.data = data
+        self.next = next
+
+class Stack:
+    def __init__(self):
+        self.head = None
+    
+    def append(self, data):
+        node = Node(data)
+        if self.head == None:
+            self.head = node
+        else:
+            current = self.head
+            self.head = node
+            self.head.next = current
+    
+    def print(self):
+        current = self.head
+        while current:
+            print(current.data)
+            current = current.next
+    
+    def pop(self):
+        self.head = self.head.next
+    
+    def push(self, data):
+        node = Node(data)
+        current = self.head
+        self.head = node
+        self.head.next = current
+
+    def dequeue(self):
+        current = self.head
+        while current.next.next:
+            current = current.next
+        current.next = None
+
+    def enqueue(self, data):
+        node = Node(data)
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = node
+
+
+# sorting_snippets.py
+
+import functools
+
+# 1. Even/Odd index digit-sum from sorted digits of a number.
+def sum_even_odd_sorted_digits(num: int) -> int:
+    """
+    Converts the number into a list of its digits (as strings), sorts them in increasing order,
+    then forms two numbers:
+      - One by concatenating digits at even indices,
+      - The other by concatenating digits at odd indices.
+    Returns the sum of these two numbers.
+    
+    Example:
+      num = 4325
+      Sorted digits: ['2', '3', '4', '5']
+      Even-indexed (indices 0,2): "2" + "4" = "24"
+      Odd-indexed (indices 1,3): "3" + "5" = "35"
+      Returns 24 + 35 = 59.
+    """
+    digits = list(str(num))
+    digits.sort()
+    even_str = ""
+    odd_str = ""
+    i = 0
+    while i < len(digits):
+        if i % 2 == 0:
+            even_str += digits[i]
+        else:
+            odd_str += digits[i]
+        i += 1
+    return int(even_str) + int(odd_str)
