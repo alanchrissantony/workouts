@@ -8267,3 +8267,15 @@ def sum_with_pattern(n: int) -> int:
         total += count + pos
         count += 1
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def index_mapping(nums: list) -> list:
+    """
+    Returns a new list where each element is nums[nums[i]].
+    Assumes that all nums[i] are valid indices.
+    """
+    return [nums[x] for x in nums]
