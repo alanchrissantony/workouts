@@ -6140,3 +6140,18 @@ def sum_diagonals(mat: list) -> int:
     if n % 2 == 1:
         total -= mat[n // 2][n // 2]
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def count_allowed_words(allowed: str, words: list) -> int:
+    """
+    Returns the count of words in the list that contain only characters from allowed.
+    """
+    count = 0
+    for word in words:
+        if all(ch in allowed for ch in word):
+            count += 1
+    return count
