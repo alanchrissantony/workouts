@@ -2033,3 +2033,20 @@ def nine_minus_one(n: int) -> int:
     large = int("9" * len(s))
     small = int("1" * len(s))
     return large - small
+
+
+# --- Next Function Block ---
+
+
+
+def product_of_list(nums: list, verbose: bool = False) -> int:
+    """
+    Multiplies the numbers in the list (iterating in reverse order).
+    Optionally prints each number.
+    """
+    product = 1
+    for num in nums[::-1]:
+        if verbose:
+            print(num)
+        product *= num
+    return product
