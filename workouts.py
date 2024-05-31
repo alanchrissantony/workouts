@@ -18771,3 +18771,25 @@ def find_xor_sequence(pref: list, mapping: dict) -> list:
         xor_val ^= j
         result.append(j)
     return result
+
+
+# --- Next Function Block ---
+
+
+# 22. Count operations to reduce a number to zero (if even divide by 2, if odd subtract 1).
+# (Same as function number_of_operations.)
+
+# 23. Minimum operations to reach a target from 1, with doubling allowed.
+# (Same as min_operations_to_target.)
+
+# 24. (Repeated snippet) – already covered.
+
+# 25. Intersection of two lists, multiset style.
+# (Same as function multiset_intersection; see function 1.)
+
+# 26. Concatenate two lists by zipping them.
+def interleave_lists_zip(arr1: list, arr2: list) -> list:
+    result = []
+    for a, b in zip(arr1, arr2):
+        result.extend([a, b])
+    return result
