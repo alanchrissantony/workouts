@@ -29018,3 +29018,22 @@ def adjacent_char_diff(s: str) -> int:
     for i in range(len(s) - 1):
         total += abs(ord(s[i]) - ord(s[i+1]))
     return total
+
+
+# --- Next Function Block ---
+
+
+# --------------------------------------------------
+# Function 3: Repeatedly halve a string and compare with another string
+def compare_halved_string(str1: str, str2: str) -> None:
+    """
+    Given two strings str1 and str2 (with str2 longer than str1),
+    repeatedly halves str2 (keeping its first half) while printing whether str1 equals str2.
+    
+    Example:
+      str1 = "TAUXXTAUXXTAUXXTAUXXTAUXX"
+      str2 = "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX"
+    """
+    while len(str2) > 1:
+        print("Comparison:", str1 == str2)
+        str2 = str2[:len(str2)//2]
