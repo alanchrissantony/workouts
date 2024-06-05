@@ -17738,3 +17738,20 @@ def map_to_self(arr):
     Returns a dictionary mapping each element in arr to itself.
     """
     return {k: k for k in arr}
+
+
+# --- Next Function Block ---
+
+
+
+# 12. Return sorted dictionary of alphabets to numbers.
+def sorted_alphabet_ord():
+    """
+    Returns a dictionary of uppercase alphabets mapped to numbers (A:1, B:2, ...),
+    sorted by their numerical values.
+    """
+    mapping = {'H': 8, 'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7,
+               'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15,
+               'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22,
+               'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
+    return dict(sorted(mapping.items(), key=lambda item: item[1]))
