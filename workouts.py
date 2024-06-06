@@ -11291,3 +11291,20 @@ def count_allowed_words(allowed: str, words: list) -> int:
         if valid:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def sum_odd_length_subarrays(arr: list) -> int:
+    """
+    Returns the sum of all subarrays of arr that have odd length.
+    """
+    total = 0
+    n = len(arr)
+    for i in range(n):
+        for j in range(i, n):
+            if (j - i + 1) % 2 == 1:
+                total += sum(arr[i:j+1])
+    return total
