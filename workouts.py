@@ -18263,3 +18263,33 @@ def sort_by_frequency(nums: list) -> list:
     for num, count in sorted_items:
         result.extend([num] * count)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 15 ---
+def remove_duplicate_pairs(nums: list) -> (int, list):
+    """
+    Removes one pair of duplicates from the list each time it is found (modifying the list in-place)
+    and counts the removals. Returns a tuple (count, remaining list).
+    Note: This in-place removal logic is tricky and may be nonoptimal.
+    """
+    count = 0
+    i = 0
+    while i < len(nums) - 1:
+        j = i + 1
+        found = False
+        while j < len(nums):
+            if nums[i] == nums[j]:
+                del nums[j]
+                del nums[i]
+                count += 1
+                found = True
+                break
+            else:
+                j += 1
+        if not found:
+            i += 1
+    return count, nums
