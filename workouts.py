@@ -1608,3 +1608,29 @@ def reverse_vowels(s: str) -> str:
             s_list[i] = collected[idx]
             idx += 1
     return "".join(s_list)
+
+
+# --- Next Function Block ---
+
+
+
+def sort_vowels_in_string(s: str) -> str:
+    """
+    Extracts vowels from s, sorts them (by ascii), then replaces vowels in order.
+    Example: "lEetcOde" -> vowels sorted: ['E','O','e','o'] and then reinserted.
+    """
+    vowels = ['a','e','i','o','u','A','E','I','O','U']
+    s_list = list(s)
+    # Collect ascii codes of vowels.
+    vowel_codes = [ord(ch) for ch in s_list if ch in vowels]
+    vowel_codes.sort()
+    sorted_vowels = "".join(chr(code) for code in vowel_codes)
+    idx = 0
+    res = ""
+    for ch in s_list:
+        if ch in vowels:
+            res += sorted_vowels[idx]
+            idx += 1
+        else:
+            res += ch
+    return res
