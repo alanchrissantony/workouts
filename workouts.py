@@ -9154,3 +9154,20 @@ def print_every_fifth(arr: list) -> None:
         if i + 1 < len(arr):
             print(arr[i])
             print(arr[i+1])
+
+
+# --- Next Function Block ---
+
+
+
+# 29. Intersection among three lists.
+def intersect_three_lists(nums1: list, nums2: list, nums3: list) -> list:
+    """
+    Returns the list of unique elements that appear in at least two of the three lists.
+    """
+    set1 = set(nums1)
+    set2 = set(nums2)
+    set3 = set(nums3)
+    # Intersection among any two:
+    inter = (set1 & set2) | (set1 & set3) | (set2 & set3)
+    return list(inter)
