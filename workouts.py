@@ -18352,3 +18352,31 @@ def max_full_substrings(s: str, target: str) -> int:
             return 0
         counts.append(freq_s[char] // freq_target[char])
     return min(counts) if counts else 0
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 19 ---
+def grid_distance(points: list) -> int:
+    """
+    Given a list of points (each a [x, y] list), computes the total steps required to move from
+    one point to the next, moving one unit at a time (adjusting x and y separately) until reaching the next point.
+    """
+    total_steps = 0
+    for i in range(len(points) - 1):
+        current = points[i]
+        target = points[i + 1]
+        x, y = current
+        while [x, y] != target:
+            if x < target[0]:
+                x += 1
+            elif x > target[0]:
+                x -= 1
+            if y < target[1]:
+                y += 1
+            elif y > target[1]:
+                y -= 1
+            total_steps += 1
+    return total_steps
