@@ -24112,3 +24112,16 @@ def join(left, right):
         nums1.append(right[j])
         j+=1
     return nums1
+
+
+# --- Next Function Block ---
+
+
+def merge_sort(nums1):
+    if len(nums1)<=1:
+        return nums1
+    mid=len(nums1)//2
+    left=nums1[:mid]
+    right=nums1[mid:]
+    
+    return join(merge_sort(left), merge_sort(right))
