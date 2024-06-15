@@ -23519,3 +23519,21 @@ def can_place_flowers(flowerbed: list, n: int) -> bool:
                     return True
         i += 1
     return n <= 0
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 11. Time Series Coverage.
+def time_series_coverage(timeSeries: list, duration: int) -> set:
+    """
+    Given a list of start times (timeSeries) and a duration (in integer units),
+    returns a set of all times covered by each interval defined by a start time and duration.
+    """
+    covered = set()
+    for t in timeSeries:
+        covered.add(t)
+        for j in range(1, duration):
+            covered.add(t + j)
+    return covered
