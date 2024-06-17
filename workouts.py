@@ -27793,3 +27793,32 @@ def process_order_and_string(order: str, s: str) -> str:
         i += 1
     # Return the concatenated result.
     return "".join(order + s)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 2: Find the divisor (from a list) that divides the most numbers.
+def find_max_divisor(nums: list, divisors: list) -> int:
+    """
+    Given a list of numbers and a list of divisors, counts for each divisor how many numbers in 'nums'
+    are divisible by it. Returns the divisor with the highest count.
+    
+    Example:
+      nums = [20, 14, 21, 10]
+      divisors = [5, 7, 5]
+      The function returns the divisor that divides the most numbers.
+    """
+    max_count = 0
+    result = None
+    # Use a dictionary to avoid recounting duplicate divisor entries.
+    seen = {}
+    for d in divisors:
+        if d not in seen:
+            count = sum(1 for num in nums if num % d == 0)
+            seen[d] = count
+            if count > max_count:
+                max_count = count
+                result = d
+    return result
