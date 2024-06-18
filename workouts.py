@@ -16511,3 +16511,20 @@ def alternating_digit_sum(n: int) -> int:
         else:
             total -= int(s[i])
     return total
+
+
+# --- Next Function Block ---
+
+
+
+# 3. Extract all digits from a list of numbers.
+def extract_digits(nums: list) -> list:
+    """
+    For each number in nums, extracts its digits and returns a flat list of all digits.
+    Example: [13,25] -> [1, 3, 2, 5]
+    """
+    result = []
+    for num in nums:
+        for ch in str(num):
+            result.append(int(ch))
+    return result
