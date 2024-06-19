@@ -2001,3 +2001,19 @@ def product_minus_sum(n: int) -> int:
         total += digit
         prod *= digit
     return prod - total
+
+
+# --- Next Function Block ---
+
+
+
+def sum_of_multiples(n: int) -> int:
+    """
+    Sums all numbers in the range [1, n) that are divisible by 3, 5, or 7.
+    Example: n=7 sums numbers in 1...6 meeting the condition.
+    """
+    total = 0
+    for i in range(1, n):
+        if i % 3 == 0 or i % 5 == 0 or i % 7 == 0:
+            total += i
+    return total
