@@ -1659,3 +1659,20 @@ def reduce_value(n: float) -> float:
     while n > 2:
         n /= 2
     return n
+
+
+# --- Next Function Block ---
+
+
+
+def move_zeros_nested(nums: list) -> list:
+    """
+    Moves zeros in a list to the end using nested loops.
+    Example: [0,0,1,0,3,12] becomes a list with non-zeros first.
+    """
+    nums = nums[:]  # copy to avoid mutation
+    for i in range(len(nums)-1):
+        for j in range(i+1, len(nums)):
+            if nums[i] == 0 and nums[j] != 0:
+                nums[i], nums[j] = nums[j], 0
+    return nums
