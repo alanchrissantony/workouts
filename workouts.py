@@ -794,3 +794,16 @@ def i(n):
             else:
                 print(" *", end="")
         print("\n")
+
+
+# --- Next Function Block ---
+
+
+def j(n):
+    for i in range(1, n+1):
+        for j in range(n+1):
+            if j>=i:
+                print("*",end="")
+            else:
+                print(end=" ")
+        print("\r")
