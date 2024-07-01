@@ -19954,3 +19954,14 @@ def sorted_frequency(word: str) -> dict:
     sorted by character (alphabetically).
     """
     return dict(sorted(dict(Counter(word)).items(), key=lambda item: item[0]))
+
+
+# --- Next Function Block ---
+
+
+
+def generate_random_list(n: int, low: int, high: int) -> list:
+    """
+    Generates a list of n random integers between low and high (inclusive).
+    """
+    return [random.randint(low, high) for _ in range(n)]
