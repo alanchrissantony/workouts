@@ -8496,3 +8496,19 @@ def rotate_array_right(nums: list, k: int) -> list:
     n = len(nums)
     k %= n
     return nums[-k:] + nums[:-k]
+
+
+# --- Next Function Block ---
+
+
+def sum_of_subarrays_with_odd_length(arr: list) -> int:
+    """
+    Sums all subarrays of arr that have an odd length.
+    """
+    total = 0
+    n = len(arr)
+    for i in range(n):
+        for j in range(i, n):
+            if (j - i + 1) % 2 == 1:
+                total += sum(arr[i:j+1])
+    return total
