@@ -521,3 +521,18 @@ def calculate_expression(a: int, b: int) -> int:
         return a
     else:
         return int(math.log(math.exp(a) * math.exp(b)))
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 5: Filter even numbers from a list.
+def filter_evens(arr: list) -> list:
+    """
+    Returns a list of even numbers from the given list 'arr'.
+    
+    Example:
+      arr = [1,2,3,4,5,6] → returns [2,4,6].
+    """
+    return list(filter(lambda x: x % 2 == 0, arr))
