@@ -23666,3 +23666,38 @@ def unique_subarray_square_lengths(nums: list) -> list:
                 seen.append(sub)
                 squares.append(len(sub) * len(sub))
     return squares
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 6:
+# Starting with a given count, find the n-th "special" number (one that is prime or divisible by 7).
+def find_nth_special(n: int, start: int = 7, initial_count: int = 6) -> int:
+    """
+    Starting from 'start' with an initial counter value 'initial_count',
+    iterates upward and increases the counter if the current number is prime or divisible by 7.
+    When the counter reaches n, returns that number.
+    
+    Example:
+      n = 10, initial_count = 6, start = 7.
+      Returns the smallest number for which the count reaches 10.
+    """
+    def is_prime(x: int) -> bool:
+        if x < 2:
+            return False
+        for j in range(2, x):
+            if x % j == 0:
+                return False
+        return True
+
+    count = initial_count
+    i = start
+    while count < n:
+        if is_prime(i) or (i % 7 == 0):
+            count += 1
+            if count >= n:
+                return i
+        i += 1
+    return i
