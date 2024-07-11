@@ -23840,3 +23840,31 @@ def all_prefixes(s: str) -> list:
         for j in range(1, len(s) - i + 1):
             prefixes.append(s[i:i+j])
     return prefixes
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Snippet 13:
+# For each contiguous subarray (prefix of each suffix) of a list (excluding the entire array),
+# record the square of its length if not seen before.
+def unique_subarray_square_lengths(nums: list) -> list:
+    """
+    Iterates over nums and for every contiguous subarray (prefix of the suffix starting at index i)
+    that is not equal to the entire list and not already seen, computes length^2.
+    Returns a list of these square values.
+    
+    Example:
+      nums = [1,2,1]
+      Might produce squares like 1^2, 2^2, etc.
+    """
+    seen = []
+    squares = []
+    for i in range(len(nums)):
+        for j in range(1, len(nums) - i + 1):
+            sub = nums[i:i+j]
+            if sub not in seen and sub != nums:
+                seen.append(sub)
+                squares.append(len(sub) ** 2)
+    return squares
