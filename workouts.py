@@ -27913,3 +27913,21 @@ def print_prefix_suffix_sums(n: int) -> None:
         prefix_sum = functools.reduce(lambda x, y: x + y, prefix)
         suffix_sum = functools.reduce(lambda x, y: x + y, suffix) if suffix else 0
         print(f"Prefix: {prefix}, Suffix: {suffix}, Prefix sum: {prefix_sum}, Suffix sum: {suffix_sum}")
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 7: Toggle dp values (Variant 1)
+def dp_toggle_variant1(n: int) -> list:
+    """
+    Generates a dp list of length n initialized with 1's.
+    Then toggles the values (0 becomes 1 and 1 becomes 0) in a nested loop.
+    This is one interpretation of a snippet that toggles dp values.
+    """
+    dp = [1] * n
+    for i in range(1, n):
+        for j in range(i, n, i):
+            dp[j] = 0 if dp[j] == 1 else 1
+    return dp
