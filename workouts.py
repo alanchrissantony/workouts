@@ -18931,3 +18931,27 @@ def check_self_describing(num: str) -> bool:
             print(f"Mismatch at index {i}: count({str(i)}) = {num.count(str(i))} != {num[i]}")
             isTrue = False
     return isTrue
+
+
+# --- Next Function Block ---
+
+
+
+# 6. Return all self-dividing numbers between left and right (inclusive).
+def self_dividing_numbers(left: int, right: int) -> list:
+    """
+    Returns a list of self-dividing numbers in the range [left, right].
+    A self-dividing number has no zero digits and each digit divides the number.
+    """
+    result = []
+    for num in range(left, right + 1):
+        s = str(num)
+        flag = True
+        for ch in s:
+            digit = int(ch)
+            if digit == 0 or num % digit != 0:
+                flag = False
+                break
+        if flag:
+            result.append(num)
+    return result
