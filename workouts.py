@@ -7434,3 +7434,14 @@ def format_ip_address(address: str) -> str:
     Reformats an IP address by replacing '.' with '[.]'.
     """
     return "[.]".join(address.split("."))
+
+
+# --- Next Function Block ---
+
+
+
+def count_jewels(jewels: str, stones: str) -> int:
+    """
+    Returns the count of characters in stones that are also present in jewels.
+    """
+    return sum(1 for ch in stones if ch in jewels)
