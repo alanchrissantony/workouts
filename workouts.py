@@ -15486,3 +15486,19 @@ def interleave_halves(nums: list, n: int) -> list:
         result.append(nums[i])
         result.append(nums[n + i])
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def extract_number(s: str) -> int:
+    """
+    Returns the last integer found in s after splitting by spaces; returns 0 if none.
+    """
+    for token in s.split()[::-1]:
+        try:
+            return int(token)
+        except ValueError:
+            continue
+    return 0
