@@ -5655,3 +5655,22 @@ def sum_of_prefix_differences(nums: list) -> list:
         right[i] = s_right
         s_right += nums[n - 1 - i]
     return [abs(left[i] - right[n - 1 - i]) for i in range(n)]
+
+
+# --- Next Function Block ---
+
+
+
+def print_custom_pattern(n: int) -> None:
+    """
+    Prints a pattern on an n*n grid.
+    The pattern logic follows the snippet condition: if j < 13 - i*i or j > 11 + i*i, print "*"; else print spaces.
+    """
+    total = n * n
+    for i in range(total):
+        for j in range(total):
+            if j < 13 - i * i or j > 11 + i * i:
+                print("*", end=" ")
+            else:
+                print("  ", end="")
+        print()
