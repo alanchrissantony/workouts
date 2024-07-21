@@ -15855,3 +15855,30 @@ def sentence_with_most_words(sentences: list) -> list:
         if len(words) > len(max_words):
             max_words = words
     return max_words
+
+
+# --- Next Function Block ---
+
+
+
+def prefix_diff(nums: list) -> list:
+    """
+    Computes two arrays:
+      - left prefix sums (excluding current index)
+      - right prefix sums (from the end)
+    Returns a list of absolute differences between left prefix at index i and the reversed right prefix.
+    """
+    n = len(nums)
+    left = []
+    right = []
+    s_left = 0
+    s_right = 0
+    for i in range(n):
+        left.append(s_left)
+        s_left += nums[i]
+        right.append(s_right)
+        s_right += nums[n - 1 - i]
+    diff = []
+    for i in range(n):
+        diff.append(abs(left[i] - right[n - 1 - i]))
+    return diff
