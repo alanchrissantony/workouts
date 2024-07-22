@@ -4039,3 +4039,16 @@ def index_based_mapping(nums: list) -> list:
     for i in range(len(nums)):
         result.append(nums[nums[i]])
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def sum_difference(n: int, m: int) -> int:
+    """
+    Computes the difference between the sum of numbers in [1, n] not divisible by m and the sum of numbers divisible by m.
+    """
+    s1 = sum(i for i in range(1, n + 1) if i % m != 0)
+    s2 = sum(i for i in range(1, n + 1) if i % m == 0)
+    return s1 - s2
