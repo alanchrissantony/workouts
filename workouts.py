@@ -18713,3 +18713,16 @@ def first_unique_char(s: str) -> int:
         if freq[ch] == 1:
             return s.index(ch)
     return -1
+
+
+# --- Next Function Block ---
+
+
+# 18. Find first duplicate index and return dictionary of seen letters.
+def first_duplicate_index(s: str) -> (int, dict):
+    seen = {}
+    for i, ch in enumerate(s):
+        if ch in seen:
+            return i, seen
+        seen[ch] = 1
+    return -1, seen
