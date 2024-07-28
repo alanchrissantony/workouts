@@ -23011,3 +23011,30 @@ def remove_triplets_with_target_sum(arr: list) -> list:
                 j += 1
         i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 6. Maximum Remaining Money after Buying Two Items
+def max_remaining_money(prices: list, money: int) -> int:
+    """
+    Given a list of prices and an amount of money, finds the pair of prices
+    such that the remaining money after purchase is maximized (but nonnegative).
+    Returns the maximum remaining money; if no pair can be bought, returns the original money.
+    
+    Example:
+      prices = [3,2,3], money = 3.
+      The only possible pair might cost more than money; then return money.
+    """
+    max_rem = 0
+    flag = False
+    n = len(prices)
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            cost = prices[i] + prices[j]
+            if money - cost >= 0 and money - cost > max_rem:
+                max_rem = money - cost
+                flag = True
+    return max_rem if flag else money
