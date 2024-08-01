@@ -10879,3 +10879,27 @@ def sum_diagonals(mat: list) -> int:
     if n % 2 == 1:
         total -= mat[n//2][n//2]
     return total
+
+
+# --- Next Function Block ---
+
+
+
+
+# patterns.py
+
+def is_diagonal_matrix(grid: list) -> bool:
+    """
+    Returns True if grid is a square matrix with nonzero entries only on the main diagonal,
+    and zeros off the diagonal.
+    """
+    n = len(grid)
+    for i in range(n):
+        for j in range(len(grid[i])):
+            if i == j:
+                if grid[i][j] == 0:
+                    return False
+            else:
+                if grid[i][j] != 0:
+                    return False
+    return True
