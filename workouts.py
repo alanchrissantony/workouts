@@ -19519,3 +19519,48 @@ def count_lucky_numbers(low: int, high: int) -> int:
             if sum_first == sum_second:
                 count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def linear_and_binary_search(array: list, target) -> (int, int):
+    """
+    Performs two searches for target in array:
+      1. A linear search that returns the first index where target is found.
+      2. A simulated binary search approach:
+         - Repeatedly takes the middle element of the current array slice until target is found.
+         - Returns the value found (if found) from the reduced array.
+    
+    Note: The binary search simulation assumes the array is sorted.
+    
+    Returns a tuple (linear_index, binary_search_value).
+    """
+    # Linear search
+    linear_index = -1
+    i = 0
+    while i < len(array):
+        if array[i] == target:
+            linear_index = i
+            break
+        i += 1
+
+    # Binary search simulation: iteratively reduce the array slice.
+    temp_arr = array[:]  # make a copy
+    while len(temp_arr) > 1 and target not in temp_arr:
+        mid_index = (len(temp_arr) // 2) - 1
+        # Adjust mid_index if negative.
+        if mid_index < 0:
+            mid_index = 0
+        # Check if the middle element equals target.
+        if temp_arr[mid_index] == target:
+            break
+        # Otherwise, decide to slice left or right.
+        if temp_arr[mid_index] < target:
+            temp_arr = temp_arr[mid_index:]
+        else:
+            temp_arr = temp_arr[:mid_index + 1]
+    # If target is in temp_arr, pick it; otherwise, take the middle.
+    binary_value = target if target in temp_arr else temp_arr[len(temp_arr)//2]
+    return linear_index, binary_value
