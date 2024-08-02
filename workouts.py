@@ -17726,3 +17726,15 @@ def copy_list(arr):
     Returns a copy of the list arr.
     """
     return [x for x in arr]
+
+
+# --- Next Function Block ---
+
+
+
+# 11. Create a dictionary mapping each element in arr to itself.
+def map_to_self(arr):
+    """
+    Returns a dictionary mapping each element in arr to itself.
+    """
+    return {k: k for k in arr}
