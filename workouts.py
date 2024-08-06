@@ -9866,3 +9866,23 @@ def symmetric_differences(arr: list) -> list:
         i += 1
         n -= 1
     return diff
+
+
+# --- Next Function Block ---
+
+
+
+def product_minus_sum(n: int) -> int:
+    """
+    Converts an integer to string, computes the product of its digits,
+    the sum of its digits, and returns (product - sum).
+    Example: n=234 -> (2*3*4) - (2+3+4) = 24 - 9 = 15
+    """
+    s = str(n)
+    prod = 1
+    total = 0
+    for ch in s:
+        digit = int(ch)
+        total += digit
+        prod *= digit
+    return prod - total
