@@ -17845,3 +17845,26 @@ def binary_of_number(n):
     Returns the binary representation of n.
     """
     return bin(n)
+
+
+# --- Next Function Block ---
+
+
+
+# 18. Test abstract class behavior.
+from abc import ABC, abstractmethod
+class Main(ABC):
+    @abstractmethod
+    def sum(self):
+        pass
+
+class Sum(Main):
+    @staticmethod
+    def sum(length, width):
+        print(length + width)
+
+def test_sum_class():
+    """
+    Calls the Sum.sum method.
+    """
+    Sum.sum(1, 2)
