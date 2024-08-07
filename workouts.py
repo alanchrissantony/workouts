@@ -19965,3 +19965,16 @@ def generate_random_list(n: int, low: int, high: int) -> list:
     Generates a list of n random integers between low and high (inclusive).
     """
     return [random.randint(low, high) for _ in range(n)]
+
+
+# --- Next Function Block ---
+
+
+
+# ---------- Sorting Algorithms ----------
+
+def swap(arr: list, i: int, j: int) -> None:
+    """
+    Swaps the elements at indices i and j in arr.
+    """
+    arr[i], arr[j] = arr[j], arr[i]
