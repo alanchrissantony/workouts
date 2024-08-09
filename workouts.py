@@ -19341,3 +19341,155 @@ def max_units_on_truck(boxTypes: list, truckSize: int) -> int:
 # 4. (Placeholder) An empty list creation snippet (if needed).
 def empty_list() -> list:
     return []
+
+
+# --- Next Function Block ---
+
+
+
+
+class Node:
+    def __init__(self, data=None, next=None, prev=None):
+        self.data = data
+        self.next = next
+        self.prev = prev
+    
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+
+    def append(self, data):
+        node = Node(data)
+        if self.head == None:
+            self.head = node
+            self.tail = self.head
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = node
+            current.next.prev = current
+            self.tail = current.next
+    
+    def print(self):
+        if self.head == None:
+            print("Linked List is empty")
+            return
+        current = self.head
+        while current:
+            print(current.data)
+            current = current.next
+    
+    def reversal(self):
+        if self.tail == None:
+            print("Linked List is empty")
+            return
+        current = self.tail
+        while current:
+            print(current.data)
+            current = current.prev
+
+    def insert_at_begining(self, data):
+        node = Node(data)
+        if self.head == None:
+            self.head = node
+        else:
+            current = self.head
+            self.head = node
+            self.head.next = current
+    
+    def insert_at_end(self, data):
+        node = Node(data)
+        if self.tail == None:
+            self.tail = node
+        else:
+            current = self.tail
+            self.tail = node
+            current.next = self.tail
+
+    def insert_after(self, data, target):
+        node = Node(data)
+        if self.head == None:
+            self.head = node
+            self.tail = self.head
+        else:
+            current = self.head
+            while current:
+                if current.data == target:
+                    node.next = current.next
+                    current.next = node
+                    return
+                current = current.next
+            current = self.tail
+            self.tail = node
+            current.next = self.tail
+
+    def insert_before(self, data, target):
+        node = Node(data)
+        if self.head == None:
+            self.head = node
+            self.tail = self.head
+        else:
+            current = self.head
+            while current:
+                if current.next.data == target:
+                    node.next = current.next
+                    current.next = node
+                    return
+                if current.next == self.tail:
+                    new_node = current
+                current = current.next
+            node.next = self.tail
+            new_node.next = node
+
+    def delete(self, target):
+        if self.head:
+            current = self.head
+            if current.data == target:
+                self.head = current.next
+                return
+            while current:
+                if current.next.data == target:
+                    current.next = current.next.next
+                    return
+                current = current.next
+
+    def remove_duplicate(self):
+        current = self.head
+        while current.next != None:
+            if current.data == current.next.data:
+                current.next = current.next.next
+            else:
+                current = current.next
+        
+
+
+
+# patterns.py
+
+def find_ones_indices(mat: list) -> (list, list, int, int):
+    """
+    Given a 2D matrix mat, this function finds all indices (i, j) where the value is 1.
+    It returns a tuple:
+      (list_of_row_indices, list_of_column_indices, unique_row_count, unique_column_count)
+    
+    The first loop collects the row indices (arri) and column indices (arrj) for each 1.
+    The second loop (using .count) is used to count how many rows and columns appear exactly once.
+    """
+    arri = []
+    arrj = []
+    # Collect indices where mat[i][j] == 1.
+    i = 0
+    while i < len(mat):
+        j = 0
+        while j < len(mat[i]):
+            if mat[i][j] == 1:
+                arri.append(i)
+                arrj.append(j)
+            j += 1
+        i += 1
+    # Count how many indices in arri and arrj are unique (appear exactly once)
+    unique_row_count = sum(1 for x in arri if arri.count(x) == 1)
+    unique_col_count = sum(1 for x in arrj if arrj.count(x) == 1)
+    return arri, arrj, unique_row_count, unique_col_count
