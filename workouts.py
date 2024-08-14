@@ -2544,3 +2544,17 @@ def check_first_letters(words: list, s: str) -> bool:
         if words[i][0] != s[i]:
             return False
     return True
+
+
+# --- Next Function Block ---
+
+
+# 14. Count Unique Numbers in Intervals
+def count_unique_numbers_in_intervals(intervals: list) -> int:
+    """
+    Given a list of intervals [start, end], counts the number of unique integers in all intervals.
+    """
+    unique_nums = set()
+    for start, end in intervals:
+        unique_nums.update(range(start, end + 1))
+    return len(unique_nums)
