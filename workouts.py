@@ -10336,3 +10336,46 @@ def max_sum_with_reversed(nums: list) -> int:
             if rev in nums:
                 max_sum = max(max_sum, num + rev)
     return max_sum
+
+
+# --- Next Function Block ---
+
+
+# 10. Alternate Rearrangement of Characters
+def alternate_rearrange(s: str) -> str:
+    """
+    Rearranges characters from s by alternating from a sorted list of unique characters,
+    decrementing their frequency until the result's length equals the original.
+    (This mimics a complex custom ordering from the provided snippet.)
+    """
+    freq = {}
+    for ch in s:
+        freq[ch] = freq.get(ch, 0) + 1
+    unique_chars = sorted(set(s))
+    result = ""
+    i = 0
+    reverse = False
+    const = False
+    while len(result) < len(s) and unique_chars:
+        # If the current character is exhausted, remove it.
+        if freq[unique_chars[i]] <= 0:
+            unique_chars.pop(i)
+            if not unique_chars:
+                break
+            i = len(unique_chars)-1 if reverse else 0
+            continue
+        result += unique_chars[i]
+        freq[unique_chars[i]] -= 1
+        # Toggle direction at boundaries.
+        if i == 0:
+            reverse = False
+        elif i == len(unique_chars) - 1:
+            reverse = True
+        const = True
+        if len(unique_chars) <= 1:
+            i = 0
+        elif reverse:
+            i -= 1
+        else:
+            i += 1
+    return result
