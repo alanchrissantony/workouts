@@ -18793,3 +18793,11 @@ def interleave_lists_zip(arr1: list, arr2: list) -> list:
     for a, b in zip(arr1, arr2):
         result.extend([a, b])
     return result
+
+
+# --- Next Function Block ---
+
+
+# 27. Use reduce to sum a list.
+def reduce_sum(arr: list) -> int:
+    return functools.reduce(lambda x, y: x + y, arr)
