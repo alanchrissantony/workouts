@@ -19017,3 +19017,21 @@ def odd_columns(mat: list) -> list:
         if col_sum % 2 == 1:
             result.append(j)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# 10. Swap the first two numbers in a list using arithmetic operations.
+def swap_first_two(nums: list) -> list:
+    """
+    Swaps the first two numbers in nums without using a temporary variable.
+    """
+    if len(nums) < 2:
+        return nums
+    i, j = 0, 1
+    nums[j] = nums[i] + nums[j]
+    nums[i] = nums[j] - nums[i]
+    nums[j] = nums[j] - nums[i]
+    return nums
