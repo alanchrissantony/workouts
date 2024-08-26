@@ -16075,3 +16075,26 @@ def count_special_substrings(s: str, r: str = "R", l: str = "L") -> int:
             print(substr, occurrence)
             count_total += occurrence
     return count_total
+
+
+# --- Next Function Block ---
+
+
+
+def count_by_rule(items: list, ruleKey: str, ruleValue: str) -> int:
+    """
+    Given a list of item lists and a rule specified by ruleKey ("type", "color", or "name"),
+    counts how many items have the ruleValue at the corresponding index.
+    Assumes: type → index 0, color → index 1, name → index 2.
+    """
+    if ruleKey == "type":
+        pos = 0
+    elif ruleKey == "color":
+        pos = 1
+    else:
+        pos = 2
+    count = 0
+    for item in items:
+        if pos < len(item) and item[pos] == ruleValue:
+            count += 1
+    return count
