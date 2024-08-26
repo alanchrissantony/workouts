@@ -4129,3 +4129,17 @@ def check_reordering(nums: list) -> bool:
                 del nums_copy[j]
         i += 1
     return (arr + nums_copy) == original_sorted
+
+
+# --- Next Function Block ---
+
+
+
+def remove_substring(str1: str, str2: str) -> str:
+    """
+    Removes the first occurrence of str2 in str1 and returns the result.
+    """
+    idx = str1.find(str2)
+    if idx == -1:
+        return str1
+    return str1[:idx] + str1[idx + len(str2):]
