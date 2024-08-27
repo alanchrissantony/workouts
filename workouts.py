@@ -623,3 +623,20 @@ def evaluate_expression(expr: str):
       expr = "-9.1234" → returns -9.1234.
     """
     return eval(expr)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 10: Reverse a subarray given left and right indices (1-indexed).
+def reverse_subarray(head: list, left: int, right: int) -> list:
+    """
+    Reverses the subarray of 'head' from index left-1 to right-1 (inclusive).
+    
+    Example:
+      head = [1,2,3,4,5,6,8], left = 2, right = 4 → returns [1,4,3,2,5,6,8].
+    """
+    left_idx = left - 1
+    right_idx = right
+    return head[:left_idx] + head[left_idx:right_idx][::-1] + head[right_idx:]
