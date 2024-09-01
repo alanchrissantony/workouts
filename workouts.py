@@ -21166,3 +21166,20 @@ def xor_elements(nums: list, k: int) -> list:
     Returns a new list where each element is the result of XORing the corresponding element in nums with k.
     """
     return [num ^ k for num in nums]
+
+
+# --- Next Function Block ---
+
+
+# --- Sum Elements with Index Having k Ones ---
+def sum_elements_with_index_ones(nums: list, k: int) -> int:
+    """
+    Sums the elements of nums for which the binary representation of the index has exactly k ones.
+    """
+    total = 0
+    i = 0
+    while i < len(nums):
+        if bin(i)[2:].count("1") == k:
+            total += nums[i]
+        i += 1
+    return total
