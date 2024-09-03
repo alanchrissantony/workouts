@@ -17287,3 +17287,17 @@ def count_prefix_matches(words: list, s: str) -> int:
         if s.startswith(word):
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+# 10. Check if concatenating words in order equals a target string.
+def check_concatenation(words: list, target: str) -> bool:
+    res = ""
+    for word in words:
+        res += word
+        if len(res) >= len(target):
+            break
+    return res == target
