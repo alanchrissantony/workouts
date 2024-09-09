@@ -8337,3 +8337,24 @@ def gcd_from_list(nums: list) -> int:
     low = min(nums)
     high = max(nums)
     return gcd(low, high)
+
+
+# --- Next Function Block ---
+
+
+def has_three_divisors(n: int) -> bool:
+    """
+    Returns True if n has exactly three divisors.
+    (This happens if n is a perfect square of a prime.)
+    """
+    import math
+    if n < 4:
+        return False
+    sqrt_n = math.isqrt(n)
+    if sqrt_n * sqrt_n != n:
+        return False
+    # Check if sqrt_n is prime.
+    for i in range(2, int(math.sqrt(sqrt_n)) + 1):
+        if sqrt_n % i == 0:
+            return False
+    return True
