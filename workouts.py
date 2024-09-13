@@ -16408,3 +16408,17 @@ def reformat_ip(address: str) -> str:
     """
     parts = address.split(".")
     return "[.]".join(parts)
+
+
+# --- Next Function Block ---
+
+
+def count_jewels_in_stones(jewels: str, stones: str) -> int:
+    """
+    Returns the count of characters in stones that are in jewels.
+    """
+    count = 0
+    for ch in stones:
+        if ch in jewels:
+            count += 1
+    return count
