@@ -10162,3 +10162,16 @@ def compute_ranks(arr: list) -> list:
     sorted_unique = sorted(set(arr))
     rank_dict = {num: rank+1 for rank, num in enumerate(sorted_unique)}
     return [rank_dict[num] for num in arr]
+
+
+# --- Next Function Block ---
+
+
+
+def print_symmetric_pairs(s: str) -> None:
+    """
+    Prints pairs of characters from the string: first with last, second with second-last, etc.
+    """
+    size = len(s)
+    for i in range(size // 2):
+        print(s[i], s[size - 1 - i])
