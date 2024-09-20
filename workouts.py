@@ -1312,3 +1312,19 @@ def ag(s):
             chars[n] = 1
 
     print(palindrome_length + 1 if s_len - palindrome_length != 0 else palindrome_length)
+
+
+# --- Next Function Block ---
+
+
+def ah(nums):
+    size=0
+    while size<len(nums):
+        pos=size
+        if(nums[size]==0):
+            break
+        size=(size+nums[size])
+    if(size-pos+1==len(nums)):
+        print (True)
+    else:
+        print (False)
