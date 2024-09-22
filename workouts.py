@@ -14142,3 +14142,21 @@ def reformat_text(text: str) -> str:
             spaces = base_spaces + (1 if i < extra_spaces else 0)
             result += " " * spaces
     return result
+
+
+# --- Next Function Block ---
+
+
+
+def max_area_container(height: list) -> int:
+    """
+    Returns the maximum area that can be formed by two lines in the list 'height'.
+    (Brute-force O(n^2) approach.)
+    """
+    max_area = 0
+    n = len(height)
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            area = min(height[i], height[j]) * (j - i)
+            max_area = max(max_area, area)
+    return max_area
