@@ -4343,3 +4343,24 @@ def sum_unique(nums: list) -> int:
         if unique:
             total += nums[i]
     return total
+
+
+# --- Next Function Block ---
+
+
+
+def custom_sum(n: int) -> int:
+    """
+    Iterates n times while updating two counters (count and pos) and returns the sum of (count+pos) over the iterations.
+    Resets count to 0 and increments pos when count reaches 7.
+    """
+    count = 0
+    pos = 1
+    total = 0
+    for _ in range(n):
+        if count == 7:
+            count = 0
+            pos += 1
+        total += count + pos
+        count += 1
+    return total
