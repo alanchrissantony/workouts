@@ -28023,3 +28023,32 @@ def count_subarrays_with_sum(nums: list, target: int) -> int:
             if sub_sum == target:
                 count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 4: Combination Sum Variant (Print combinations that sum to target)
+def combination_sum_variants(candidates: list, target: int) -> None:
+    """
+    Iterates over all contiguous segments of candidates (using two nested loops)
+    and then for each segment, tries to multiply the first element by k (repeating it)
+    until the segment sum equals the target.
+    
+    This snippet prints the combination when found.
+    Note: The logic is one interpretation and may not cover all combinations.
+    """
+    n = len(candidates)
+    for i in range(n):
+        for j in range(i+1, n+1):
+            base_sum = sum(candidates[i:j])
+            k = 0
+            while True:
+                current = base_sum + candidates[i] * k
+                if current > target:
+                    break
+                if current == target:
+                    # Print combination as (k copies of candidates[i], followed by segment candidates[i:j])
+                    print("Combination found:", str(candidates[i]) * k, candidates[i:j])
+                k += 1
