@@ -22944,3 +22944,30 @@ def remove_increasing_pairs(nums: list) -> list:
                 j += 1
         i += 1
     return nums
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# 4. Frequency Difference Sum
+def frequency_difference_sum(nums: list) -> int:
+    """
+    Builds a frequency dictionary for the elements in nums, then subtracts
+    the frequencies of all but the first (largest frequency) element.
+    
+    Example:
+      nums = [2,3,4,4,4]
+      Suppose frequency sorted descending by frequency gives: {4:3, 2:1, 3:1}
+      The function computes 3 - 1 - 1 = 1.
+    """
+    freq = Counter(nums)
+    # Sort dictionary items in descending order by frequency.
+    sorted_freq = dict(reversed(sorted(freq.items(), key=lambda item: item[1])))
+    diff = None
+    for key in sorted_freq:
+        if diff is None:
+            diff = sorted_freq[key]
+        else:
+            diff -= sorted_freq[key]
+    return diff
