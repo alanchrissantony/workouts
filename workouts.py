@@ -23393,3 +23393,21 @@ def group_anagrams(strs: list) -> list:
         else:
             groups[key] = [word]
     return list(groups.values())
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 6. Unique Representative of Anagram Groups.
+def unique_anagram_representatives(words: list) -> list:
+    """
+    Given a list of words, returns a list containing one representative per anagram group.
+    The representative is chosen arbitrarily.
+    """
+    seen = {}
+    for word in words:
+        key = "".join(sorted(word))
+        if key not in seen:
+            seen[key] = word
+    return list(seen.values())
