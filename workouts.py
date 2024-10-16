@@ -16491,3 +16491,23 @@ def sorted_digits_sum(num: int) -> int:
     arr.sort()
     # Concatenate first and last digit; then second and third.
     return int(arr[0] + arr[3]) + int(arr[1] + arr[2])
+
+
+# --- Next Function Block ---
+
+
+
+# 2. Alternating digit sum: add digits at even indices, subtract at odd.
+def alternating_digit_sum(n: int) -> int:
+    """
+    Converts n to a string and alternately adds and subtracts digits.
+    Example: 111 -> (1 - 1 + 1) = 1.
+    """
+    s = str(n)
+    total = 0
+    for i in range(len(s)):
+        if i % 2 == 0:
+            total += int(s[i])
+        else:
+            total -= int(s[i])
+    return total
