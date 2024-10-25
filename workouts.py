@@ -17351,3 +17351,23 @@ def split_and_pad(s: str, k: int, fill: str = "x") -> list:
         res += fill * (k - len(res))
     arr.append(res)
     return arr
+
+
+# --- Next Function Block ---
+
+
+
+# 14. Find intervals of repeating characters (length >= threshold).
+def find_repeating_intervals(s: str, threshold: int = 3) -> list:
+    intervals = []
+    i = 0
+    while i < len(s):
+        count = 0
+        j = i
+        while j < len(s) and s[i] == s[j]:
+            count += 1
+            j += 1
+        if count >= threshold:
+            intervals.append([i, j - 1])
+        i = j
+    return intervals
