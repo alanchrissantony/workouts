@@ -18441,3 +18441,19 @@ def common_characters(words: list) -> list:
     for ch, cnt in common_counter.items():
         result.extend([ch] * cnt)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 24 ---
+def contains_nearby_duplicate_k(nums: list, k: int) -> bool:
+    """
+    Returns True if there exists two distinct indices i and j such that nums[i] == nums[j] and abs(i - j) <= k.
+    """
+    for i in range(len(nums) - 1):
+        for j in range(i + 1, len(nums)):
+            if nums[i] == nums[j] and abs(i - j) <= k:
+                return True
+    return False
