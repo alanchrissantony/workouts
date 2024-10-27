@@ -719,3 +719,16 @@ def c(num):
         print("Not prime")
     else:
         print("Prime")
+
+
+# --- Next Function Block ---
+
+
+def d(n):
+
+    for i in range(1,n+1):
+        for k in range(n-i):
+            print(end=" ")
+        for j in range(1, i):
+            print(j,end=" ")
+        print(1)
