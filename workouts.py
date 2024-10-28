@@ -1075,3 +1075,21 @@ def y(x):
 
     res=isPalindrome("122")
     print(res)
+
+
+# --- Next Function Block ---
+
+
+def y(nums):
+    array=[]
+    pos=[]
+    for i in range(len(nums)-2):
+        for j in range(i+1,len(nums)-1):
+            for k in range(j+1,len(nums)):
+                if((nums[i]+nums[j]+nums[k])==0 and i!=j and i!=k and j!=k):
+                    if([nums[i],nums[j],nums[k]] or [nums[i],nums[k],nums[j]] or [nums[j],nums[i],nums[k]] or [nums[j],nums[k],nums[i]] or [nums[k],nums[i],nums[j]] or [nums[k],nums[j],nums[i]] in array):
+                        pos.append([i,j,k])
+                    else:
+                        array.append([nums[i],nums[j],nums[k]])
+    print(array,"\n")
+    print(pos)
