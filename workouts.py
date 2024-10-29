@@ -139,3 +139,20 @@ def append_and_read_file(filename: str, text: str) -> None:
     with open(filename, "r") as f:
         for line in f:
             print(line, end="")
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 7: Print numbers missing in a list.
+def get_missing_numbers(arr: list) -> list:
+    """
+    Given a list 'arr', prints and returns numbers in range [0, max(arr))
+    that are not present in arr.
+    """
+    missing = []
+    for i in range(max(arr)):
+        if i not in arr:
+            missing.append(i)
+    return missing
