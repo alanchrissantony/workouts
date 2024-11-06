@@ -910,3 +910,16 @@ def o(n):
             elif j<=i-n and i>n:
                 print("*",end=" ")
         print("\r")
+
+
+# --- Next Function Block ---
+
+
+def p(n):
+    for i in range(1, n+1):
+        for j in range(1, n+1):
+            if j<=i or j>n-i:
+                print("*", end=" ")
+            else:
+                print(end="  ")
+        print("\n")
