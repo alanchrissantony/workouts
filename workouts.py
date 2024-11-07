@@ -682,3 +682,21 @@ def a(n):
             else:
                 a-=1
         print("\r")
+
+
+# --- Next Function Block ---
+
+
+def b(n):
+    for i in range(n+1):
+        for j in range(n-i):
+            print(end=" ")
+        for k in range(2*i-1):
+            if k==0 or k==2*i-2:
+                print("*", end="")
+            else:
+                if i==n:
+                    print("*", end="")
+                else:
+                    print(end=" ")
+        print("\n")
