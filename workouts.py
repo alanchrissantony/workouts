@@ -23432,3 +23432,28 @@ def remove_substring_repeatedly(s: str, sub: str) -> str:
                 break
             i += 1
     return s
+
+
+# --- Next Function Block ---
+
+
+# -------------------------------------------------------------
+# 8. Count Pairs of Words with Same Unique Letter Set.
+def count_same_unique_letter_set(words: list) -> int:
+    """
+    Given a list of words, counts the number of pairs (i,j) (i < j) for which the sorted set of letters
+    in the two words is identical.
+    
+    Example:
+      words = ["aba","aabb","abcd","bac","aabc"]
+      For "aba" and "bac": sorted(set("aba")) = "ab", sorted(set("bac")) = "abc" → not equal.
+    """
+    count = 0
+    n = len(words)
+    for i in range(n - 1):
+        set_i = "".join(sorted(set(words[i])))
+        for j in range(i + 1, n):
+            set_j = "".join(sorted(set(words[j])))
+            if set_i == set_j:
+                count += 1
+    return count
