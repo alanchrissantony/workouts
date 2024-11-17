@@ -13765,3 +13765,29 @@ def count_jewels(jewels: str, stones: str) -> int:
     Returns the count of characters in stones that are also in jewels.
     """
     return sum(1 for ch in stones if ch in jewels)
+
+
+# --- Next Function Block ---
+
+
+
+def interpret_command(command: str) -> str:
+    """
+    Decodes a command string: "G" remains, "()" becomes "o", and "(al)" becomes "al".
+    Example: "G()(al)" -> "Goal"
+    """
+    i = 0
+    result = ""
+    while i < len(command):
+        if command[i] == "G":
+            result += "G"
+            i += 1
+        elif command[i:i+2] == "()":
+            result += "o"
+            i += 2
+        elif command[i:i+4] == "(al)":
+            result += "al"
+            i += 4
+        else:
+            i += 1
+    return result
