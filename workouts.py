@@ -22318,3 +22318,20 @@ def xor_with_k(nums: list, k: int) -> list:
     Returns a list where each element in nums is XORed with k.
     """
     return [x ^ k for x in nums]
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 10. Sum numbers at indices where binary representation of index has exactly k ones
+def sum_numbers_with_k_ones(nums: list, k: int) -> int:
+    """
+    Given a list of numbers, sums those numbers at indices where the binary representation
+    of the index (starting at 0) has exactly k ones.
+    """
+    total = 0
+    for i in range(len(nums)):
+        if bin(i)[2:].count("1") == k:
+            total += nums[i]
+    return total
