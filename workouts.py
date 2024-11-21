@@ -28001,3 +28001,25 @@ def sliding_window_medians(nums: list, k: int) -> list:
             window.remove(nums[i])
             window.add(nums[i + k])
     return result
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 3: Count subarrays whose sum equals a given target
+def count_subarrays_with_sum(nums: list, target: int) -> int:
+    """
+    Returns the count of contiguous subarrays in 'nums' whose sum equals the given target.
+    
+    Example:
+      nums = [1,-1,0], target = 0
+    """
+    count = 0
+    n = len(nums)
+    for i in range(n):
+        for j in range(i+1, n+1):
+            sub_sum = functools.reduce(lambda x, y: x + y, nums[i:j])
+            if sub_sum == target:
+                count += 1
+    return count
