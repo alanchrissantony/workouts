@@ -176,3 +176,21 @@ def reverse_subarray(head: list, left: int, right: int) -> list:
     right_idx = right
     new_list = head[:left_idx] + head[left_idx:right_idx][::-1] + head[right_idx:]
     return new_list
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 9: Print increasing slices of a list.
+def print_increasing_slices(head: list) -> None:
+    """
+    For each index i in head, prints the slice head[i:j] where j increases based on a rule.
+    (The original snippet increases j by j-i each iteration.)
+    """
+    i = 0
+    j = 1
+    while i < len(head):
+        print(head[i:j])
+        i += 1
+        j += (j - i)
