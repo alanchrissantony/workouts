@@ -9258,3 +9258,34 @@ def sum_abs_differences(nums: list) -> list:
         total = sum(abs(i - j) for j in nums)
         result.append(total)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+
+# anagrams.py
+def are_anagrams(s: str, t: str) -> bool:
+    """
+    Returns True if strings s and t have the same character frequencies.
+    """
+    if len(s) != len(t):
+        return False
+
+    sdict = {}
+    tdict = {}
+
+    for i in range(len(s)):
+        scount = 1
+        tcount = 1
+        for j in range(len(s)):
+            if i != j:
+                if s[i] == s[j]:
+                    scount += 1
+                if t[i] == t[j]:
+                    tcount += 1
+        sdict[s[i]] = scount
+        tdict[t[i]] = tcount
+
+    return sdict == tdict
