@@ -754,3 +754,16 @@ def f(n):
         for j in range(1,i+1):
             print(j,end=" ")
         print("\n")
+
+
+# --- Next Function Block ---
+
+
+def g(n):
+
+    for i in range(n+1):
+        for j in range(i*2):
+            print("*",end=" ")
+        for k in range(1):
+            print("*",end=" ")
+        print("\n")
