@@ -1204,3 +1204,50 @@ def ae(array):
                     array[i]=int((array[i]+1)/2)-1
                     array.insert(i+1, int(array[i]+1))
     print(array)
+
+
+# --- Next Function Block ---
+
+
+
+def af(s):       
+    array=[]
+    stg=[]
+    lar=0
+    def ins(length, pos, val):
+        for i in range(0,length):
+            stg.insert(pos, val)
+            pos=pos+1
+
+    for i in range(len(s)):
+        count=1
+        for j in range(len(s)):
+            if(s[i]==s[j] and i!=j):
+                count=count+1
+        array.append(count)
+
+    for k in range(len(array)):
+        if(array[k]%2==0):
+            if(len(stg)==0):
+                for i in range(array[k]):
+                    stg.append(s[k])
+            else:
+                if(s[k] not in stg):
+                    pos=int(len(stg)/2)
+                    ins(array[k], pos, s[k])
+        else:
+            if(array[k]>lar):
+                lar=array[k]
+                val=k
+    print(s[val])
+    if(lar>0):
+        if(lar==1):
+            hlf=int(len(stg)/2)
+            stg.insert(hlf, s[val])
+        elif(len(stg)==0):
+            for i in range(lar):
+                stg.append(s[val])
+        else:
+            hlf=int(len(stg)/2)
+            ins(lar, hlf, s[val])
+    print(array)
