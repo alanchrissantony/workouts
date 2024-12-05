@@ -22432,3 +22432,33 @@ def next_greater_element(nums1: list, nums2: list) -> list:
                 break
         result.append(found)
     return result
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 15. Transform binary representation of n by flipping 1's and count operations
+def transform_binary_and_count(n: int) -> int:
+    """
+    Converts n to its binary representation (as a string), then for each bit from left to right,
+    if the bit is '1', changes it to '0' and sets all following bits to '1'. Increments a counter
+    each time a bit is flipped. Returns the total count of flips.
+    
+    Example:
+      n = 6 (binary "110")
+      Transformation:
+         i=0: flip first '1' → becomes "0" + "11" = "011"
+         i=1: flip second '1' → becomes "0" + "0" + "1" = "001"
+         i=2: flip last '1' → becomes "000"
+      Total flips = 3
+    """
+    stg = str(bin(n))[2:]
+    count = 0
+    i = 0
+    while i < len(stg):
+        if stg[i] == "1":
+            stg = stg[:i] + "0" + "1" * (len(stg) - i - 1)
+            count += 1
+        i += 1
+    return count
