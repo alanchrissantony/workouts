@@ -17668,3 +17668,27 @@ def make_palindrome(s):
             else:
                 arr[i] = arr[j]
     return "".join(arr)
+
+
+# --- Next Function Block ---
+
+
+
+# 8. Remove occurrences of "AB" or "CD" repeatedly and return final length.
+def reduce_string(s):
+    """
+    Repeatedly removes occurrences of "AB" or "CD" from s until neither exists.
+    Returns the length of the resulting string.
+    """
+    while "AB" in s or "CD" in s:
+        res = ""
+        i = 0
+        while i < len(s):
+            # Check for "AB" or "CD" pair.
+            if i < len(s) - 1 and (s[i] == "A" and s[i+1] == "B" or s[i] == "C" and s[i+1] == "D"):
+                i += 2  # skip these two characters
+            else:
+                res += s[i]
+                i += 1
+        s = res
+    return len(s)
