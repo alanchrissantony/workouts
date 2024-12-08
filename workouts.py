@@ -8944,3 +8944,24 @@ def count_pythagorean_triplets_variant(num: int) -> int:
                 if i * i + j * j == k * k:
                     count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+# 18. Count numbers that have at least one non-identical partner.
+def count_non_identical_partners(nums: list) -> int:
+    """
+    For each pair of distinct numbers in nums, collects the unique numbers that appear in such pairs.
+    Returns the count of unique numbers that appear in a pair with a different number.
+    """
+    arr = []
+    for i in range(len(nums)-1):
+        for j in range(i+1, len(nums)):
+            if nums[i] != nums[j]:
+                if nums[i] not in arr:
+                    arr.append(nums[i])
+                if nums[j] not in arr:
+                    arr.append(nums[j])
+    return len(arr)
