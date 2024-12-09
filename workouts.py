@@ -17139,3 +17139,15 @@ def sum_abs_differences(nums: list) -> list:
         total = sum(abs(i - j) for j in nums)
         result.append(total)
     return result
+
+
+# --- Next Function Block ---
+
+
+
+
+# patterns.py
+
+# 1. Compute an arithmetic expression: num + t*2
+def add_and_multiply(num: int, t: int) -> int:
+    return num + t * 2
