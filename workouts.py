@@ -8982,3 +8982,19 @@ def all_equal_frequency(s: str) -> bool:
         if count != first:
             return False
     return True
+
+
+# --- Next Function Block ---
+
+
+
+# 20. Count word frequencies in a sentence.
+def count_word_frequencies(text: str) -> dict:
+    """
+    Returns a dictionary with word frequencies from text.
+    """
+    words = text.split()
+    freq = {}
+    for word in words:
+        freq[word] = freq.get(word, 0) + 1
+    return freq
