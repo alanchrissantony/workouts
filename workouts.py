@@ -8433,3 +8433,19 @@ def remove_digit_and_record_indices(number: str, digit: str) -> (str, list):
         else:
             result += ch
     return result, indices
+
+
+# --- Next Function Block ---
+
+
+def check_frequency_uniqueness(arr: list) -> bool:
+    """
+    Returns True if the sorted list of frequencies of elements equals the sorted unique frequencies.
+    (Based on the provided snippet.)
+    """
+    freq = {}
+    for num in arr:
+        freq[num] = freq.get(num, 0) + 1
+    freq_vals = sorted(freq.values())
+    unique_vals = sorted(set(freq_vals))
+    return freq_vals == unique_vals
