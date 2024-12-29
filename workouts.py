@@ -7865,3 +7865,23 @@ def print_pattern_1(n: int) -> None:
             else:
                 print("*", end="  ")
         print("\n", end="")
+
+
+# --- Next Function Block ---
+
+
+
+def print_pattern_2(n: int) -> None:
+    """
+    Prints a second pattern based on an n*n grid.
+    (The conditions are taken from the provided snippet.)
+    """
+    total = n * n
+    for i in range(total):
+        for j in range(total):
+            # The condition is taken as provided; adjust if needed.
+            if j < 13 - i * i or j > 11 + i * i:
+                print("*", end=" ")
+            else:
+                print("  ", end="")
+        print("\n", end="")
