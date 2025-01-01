@@ -25337,3 +25337,24 @@ def group_anagrams(words: list) -> list:
         else:
             groups[key] = [word]
     return list(groups.values())
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 6: Two-Sum: Find a pair of numbers that add up to a target.
+def two_sum(a: list, t: int):
+    """
+    Given a list 'a' and a target 't', finds and returns a tuple (x, y)
+    such that x + y == t.
+    
+    Uses a simple nested loop approach.
+    If no such pair is found, returns None.
+    """
+    n = len(a)
+    for i in range(n):
+        for j in range(i+1, n):
+            if a[i] + a[j] == t:
+                return (a[i], a[j])
+    return None
