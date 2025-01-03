@@ -322,3 +322,22 @@ def count_common_elements(head: list, nums: list) -> int:
         if item in nums:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 15: Length of sublist after the maximum element.
+def length_after_max(head: list) -> int:
+    """
+    Returns the length of the sublist after the maximum element in head.
+    
+    Example:
+      head = [5,2,13] → maximum is 13 at index 2, so returns len(head) - 3 = 0.
+    """
+    if not head:
+        return 0
+    max_val = max(head)
+    max_index = head.index(max_val)
+    return len(head) - (max_index + 1)
