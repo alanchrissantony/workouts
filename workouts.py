@@ -22611,3 +22611,41 @@ def frequency_difference_sum(nums: list) -> int:
         else:
             diff -= sorted_freq[key]
     return diff
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Snippet E: Remove triplets from a list where three numbers sum to target.
+def remove_triplets_with_target_sum(arr: list) -> list:
+    """
+    Given a list of numbers, computes the target as the integer division of the sum of the list by 3.
+    Then, iterates over pairs in the list and, if the third number needed to reach the target exists in the list,
+    removes all three numbers.
+    Returns the modified list.
+    
+    Note: This snippet’s logic is ambiguous; this is one interpretation.
+    """
+    if not arr:
+        return arr
+    target = functools.reduce(lambda x, y: x + y, arr) // 3
+    i = 0
+    arr = arr.copy()
+    while i < len(arr) - 1:
+        j = i + 1
+        while j < len(arr):
+            needed = target - (arr[i] + arr[j])
+            if needed in arr:
+                # Print for debugging
+                # print(arr[i], arr[j], needed)
+                # Remove one occurrence of needed, and remove arr[i] and arr[j]
+                arr.remove(needed)
+                del arr[j]
+                del arr[i]
+                i = max(i - 1, 0)
+                break
+            else:
+                j += 1
+        i += 1
+    return arr
