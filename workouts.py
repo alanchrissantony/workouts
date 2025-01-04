@@ -4979,3 +4979,23 @@ def count_items_by_rule(items: list, ruleKey: str, ruleValue: str) -> int:
         if pos < len(item) and item[pos] == ruleValue:
             count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def sum_unique(nums: list) -> int:
+    """
+    Returns the sum of numbers in the list that appear exactly once.
+    """
+    total = 0
+    for i in range(len(nums)):
+        unique = True
+        for j in range(len(nums)):
+            if i != j and nums[i] == nums[j]:
+                unique = False
+                break
+        if unique:
+            total += nums[i]
+    return total
