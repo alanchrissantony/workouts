@@ -7998,3 +7998,27 @@ def prefix_diff(nums: list) -> list:
     for i in range(n):
         diff.append(abs(left[i] - right[n - 1 - i]))
     return diff
+
+
+# --- Next Function Block ---
+
+
+
+def count_frequency_and_elements(nums: list) -> int:
+    """
+    Builds a frequency dictionary for nums, then finds the entry with the lowest frequency.
+    Counts and prints indices and values for numbers in nums that are greater than or equal to the key
+    of that lowest-frequency entry. Returns the total count.
+    """
+    nums.sort()
+    freq = {}
+    for num in nums:
+        freq[num] = freq.get(num, 0) + 1
+    # Get the (number, count) pair with the minimum frequency.
+    low = sorted(freq.items(), key=lambda x: x[1])[0]
+    total = 0
+    for i, num in enumerate(nums):
+        if num >= low[0]:
+            total += 1
+            print(i, num)
+    return total
