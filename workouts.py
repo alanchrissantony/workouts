@@ -21267,3 +21267,38 @@ def rearrange_digits_with_odd_priority(num: str) -> str:
         return str(int(result))
     except Exception:
         return result
+
+
+# --- Next Function Block ---
+
+
+# --- Remove Triplet With Sum ---
+def remove_triplet_with_sum(arr: list) -> list:
+    """
+    Computes target = (sum(arr) // 3), then iterates over pairs in arr.
+    If for any pair (arr[i], arr[j]), (target - (arr[i] + arr[j])) is in arr,
+    it prints the triplet and removes those three elements.
+    Returns the modified arr.
+    
+    Note: This function modifies arr in-place.
+    """
+    target = functools.reduce(lambda x, y: x + y, arr) // 3
+    i = 0
+    while i < len(arr) - 1:
+        j = i + 1
+        while j < len(arr):
+            candidate = target - (arr[i] + arr[j])
+            if candidate in arr:
+                print(arr[i], arr[j], candidate)
+                del arr[j]
+                del arr[i]
+                try:
+                    arr.remove(candidate)
+                except ValueError:
+                    pass
+                i = max(i - 1, 0)
+                break
+            else:
+                j += 1
+        i += 1
+    return arr
