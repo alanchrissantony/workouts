@@ -123,3 +123,19 @@ def count_distinct_substrings(s: str) -> int:
         for j in range(i+1, len(s)+1):
             substrings.add(s[i:j])
     return len(substrings)
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 6: Append text to a file and then read its contents.
+def append_and_read_file(filename: str, text: str) -> None:
+    """
+    Appends 'text' to the file 'filename' and then prints its contents.
+    """
+    with open(filename, "a") as f:
+        f.write(text)
+    with open(filename, "r") as f:
+        for line in f:
+            print(line, end="")
