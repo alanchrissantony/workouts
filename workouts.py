@@ -7276,3 +7276,18 @@ def capitalize_first_letter(s: str) -> str:
     if not s:
         return s
     return s[0].upper() + s[1:]
+
+
+# --- Next Function Block ---
+
+
+
+def interleave_halves(nums: list, n: int) -> list:
+    """
+    Given a list of length 2*n, interleaves the first half with the second half.
+    """
+    result = []
+    for i in range(n):
+        result.append(nums[i])
+        result.append(nums[n + i])
+    return result
