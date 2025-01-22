@@ -25438,3 +25438,42 @@ def count_and_remove_pairs(nums: list) -> int:
         else:
             i += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 3: Count duplicate words that are “wrapped” by themselves.
+def count_wrapped_words(words: list) -> int:
+    """
+    Given a list of words, for each word checks subsequent words:
+      if a word's first l characters and last l characters (l = len(word))
+      equal the word itself, it is considered a "wrapped" duplicate.
+    The function deletes such duplicates and counts the total occurrences (including the original).
+    Returns the total count for words that appear more than once in this sense.
+    
+    Example:
+      words = ["abab", "ab"] 
+      (If "ab" appears as a prefix and suffix of a duplicate word, it is counted.)
+    """
+    count = 0
+    i = 0
+    words = words.copy()  # Work on a copy.
+    n = len(words)
+    while i < n - 1:
+        t = 1
+        l = len(words[i])
+        j = i + 1
+        while j < n:
+            # Check if word at j starts and ends with words[i]
+            if words[j][:l] == words[i] and words[j][-l:] == words[i]:
+                t += 1
+                del words[j]
+                n -= 1
+            else:
+                j += 1
+        if t > 1:
+            count += t
+        i += 1
+    return count
