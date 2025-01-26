@@ -22306,3 +22306,15 @@ def count_ones_in_binaries(n: int) -> list:
     for i in range(n + 1):
         result.append(bin(i)[2:].count("1"))
     return result
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 9. XOR each number in a list with k
+def xor_with_k(nums: list, k: int) -> list:
+    """
+    Returns a list where each element in nums is XORed with k.
+    """
+    return [x ^ k for x in nums]
