@@ -18691,3 +18691,13 @@ def sort_string_by_frequency(s: str) -> str:
     for ch, cnt in sorted_items:
         result += ch * cnt
     return result
+
+
+# --- Next Function Block ---
+
+
+# 16. k most frequent elements.
+def k_most_frequent(nums: list, k: int) -> list:
+    freq = Counter(nums)
+    sorted_items = sorted(freq.items(), key=lambda item: item[1], reverse=True)
+    return [item[0] for item in sorted_items[:k]]
