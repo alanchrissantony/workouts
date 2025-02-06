@@ -24612,3 +24612,18 @@ def rank_array_alternative(arr: list) -> (list, dict):
         dictionary[sorted_arr[i]] = i + 1
     ranked_arr = [dictionary[x] for x in arr]
     return ranked_arr, dictionary
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 11: Evaluate a string expression.
+def evaluate_expression(expr: str):
+    """
+    Evaluates a string expression using eval.
+    
+    Example:
+      expr = "-9.1234" → returns -9.1234
+    """
+    return eval(expr)
