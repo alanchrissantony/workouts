@@ -18095,3 +18095,25 @@ def add_to_digit_list(digits: list, k: int) -> list:
     num_str = "".join(str(d) for d in digits)
     new_num = int(num_str) + k
     return [int(ch) for ch in str(new_num)]
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 7 ---
+def make_palindrome_by_min(s: str) -> str:
+    """
+    For each pair of symmetric characters in s, change both to the lesser (lexicographically).
+    Example: "egcfe" → "egcge"
+    """
+    arr = list(s)
+    n = len(arr)
+    for i in range(n // 2):
+        j = n - 1 - i
+        if arr[i] != arr[j]:
+            if arr[i] < arr[j]:
+                arr[j] = arr[i]
+            else:
+                arr[i] = arr[j]
+    return "".join(arr)
