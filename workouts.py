@@ -24639,3 +24639,28 @@ def swap(left, right):
     temp=arr[left]
     arr[left]=arr[right]
     arr[right]=temp
+
+
+# --- Next Function Block ---
+
+
+def quick_sort(start, end):
+    if start >= end:
+        return
+    pivot = start
+    left = start+1
+    right = end
+
+    while left <= right:
+        if arr[left]>arr[pivot] and arr[right]<arr[pivot]:
+            swap(left, right)
+            left+=1
+            right-=1
+        if arr[left]<=arr[pivot]:
+            left+=1
+        if arr[right]>=arr[pivot]:
+            right-=1
+    swap(pivot, right)
+    quick_sort(start, right-1)
+    quick_sort(right+1, end)
+    return
