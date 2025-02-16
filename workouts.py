@@ -18487,3 +18487,17 @@ def common_elements(matrix: list) -> list:
         if all(x in row for row in matrix) and x not in result:
             result.append(x)
     return result
+
+
+# --- Next Function Block ---
+
+
+# 3. Remove all common elements from both lists
+def remove_common_elements(nums1: list, nums2: list) -> (list, list):
+    common = set(nums1) & set(nums2)
+    for x in common:
+        while x in nums1:
+            nums1.remove(x)
+        while x in nums2:
+            nums2.remove(x)
+    return nums1, nums2
