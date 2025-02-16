@@ -28092,3 +28092,29 @@ def justify_text(words: list, maxWidth: int) -> list:
         result.append(line)
         i = j
     return result
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 6: Clean a file path
+def clean_path(path: str) -> str:
+    """
+    Cleans a file path by reducing multiple slashes and handling '.' and '..'.
+    This version is simplified: it replaces any sequence of '/', ' ', '_' or '.'
+    with a single '/' and then removes a trailing slash if present.
+    
+    Example:
+      path = "/home///..//" → returns "/home/.."
+    """
+    res = '/'
+    for ch in path:
+        if re.match(r'^[/_\.]+$', ch):
+            if len(res) > 1 and not re.match(r'^[/]+$', res[-1]):
+                res += '/'
+            continue
+        res += ch
+    if len(res) > 1 and res[-1] == '/':
+        res = res[:-1]
+    return res
