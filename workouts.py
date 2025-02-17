@@ -18405,3 +18405,16 @@ def mapped_values(arr: list, func) -> list:
     Returns the result of applying func to each element of arr using map.
     """
     return list(map(func, arr))
+
+
+# --- Next Function Block ---
+
+
+
+# --- Snippet 22 ---
+def reverse_each_word(sentence: str) -> str:
+    """
+    Reverses each word in the sentence individually and returns the resulting sentence.
+    """
+    words = sentence.split()
+    return " ".join(word[::-1] for word in words)
