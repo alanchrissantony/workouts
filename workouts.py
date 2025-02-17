@@ -1646,3 +1646,16 @@ def unique_chars(s: str) -> str:
     Example: "pwwkew" -> a string with unique letters.
     """
     return "".join(set(s))
+
+
+# --- Next Function Block ---
+
+
+
+def reduce_value(n: float) -> float:
+    """
+    Divides n by 2 repeatedly until n <= 2.
+    """
+    while n > 2:
+        n /= 2
+    return n
