@@ -17587,3 +17587,19 @@ def alternate_sorted_elements(nums):
         flag = not flag
         i += 1
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# 3. Sum consecutive numbers starting from max(nums) over k terms.
+def sum_from_max(nums, k):
+    """
+    Returns the sum of k consecutive integers starting from max(nums).
+    """
+    start = max(nums)
+    total = 0
+    for i in range(start, start + k):
+        total += i
+    return total
