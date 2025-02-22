@@ -19829,3 +19829,39 @@ def selection_sort(arr: list) -> list:
             j += 1
         i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+
+# 9. Quick sort (first variant).
+def quick_sort(arr: list) -> list:
+    """
+    Sorts the list arr in place using quick sort (first variant).
+    Returns the sorted list.
+    """
+    def swap(a, i, j):
+        a[i], a[j] = a[j], a[i]
+    
+    def qs(a, start, end):
+        if start >= end:
+            return
+        pivot = start
+        left = start + 1
+        right = end
+        while left <= right:
+            if a[left] > a[pivot] and a[right] < a[pivot]:
+                swap(a, left, right)
+                left += 1
+                right -= 1
+            if left <= end and a[left] <= a[pivot]:
+                left += 1
+            if right >= start and a[right] >= a[pivot]:
+                right -= 1
+        swap(a, pivot, right)
+        qs(a, start, right - 1)
+        qs(a, right + 1, end)
+    
+    qs(arr, 0, len(arr) - 1)
+    return arr
