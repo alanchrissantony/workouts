@@ -2260,3 +2260,20 @@ def most_frequent(nums: list):
             max_count = freq[num]
             max_elem = num
     return max_elem
+
+
+# --- Next Function Block ---
+
+
+
+def compute_ranks(arr: list) -> list:
+    """
+    Computes the rank for each element in the original array.
+    Rank is defined as:
+       - Unique elements are sorted.
+       - The rank is 1 for the smallest element, 2 for the next, etc.
+    Returns a list of ranks corresponding to the original array.
+    """
+    sorted_unique = sorted(set(arr))
+    rank_dict = {num: rank+1 for rank, num in enumerate(sorted_unique)}
+    return [rank_dict[num] for num in arr]
