@@ -11197,3 +11197,20 @@ def compare_word_lists(word1: list, word2: list) -> bool:
     stg1 = "".join(word1)
     stg2 = "".join(word2)
     return stg1 == stg2
+
+
+# --- Next Function Block ---
+
+
+
+def sum_minus_digit_sum(nums: list) -> int:
+    """
+    For a list of numbers, returns the difference between the sum of the numbers and
+    the sum of all their digits.
+    """
+    total = sum(nums)
+    digit_sum = 0
+    for num in nums:
+        for ch in str(num):
+            digit_sum += int(ch)
+    return total - digit_sum
