@@ -17783,3 +17783,15 @@ def iterate_list(arr):
     for _ in range(len(arr)):
         result.append(next(it))
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# 15. Sum a list using functools.reduce.
+def reduce_sum(arr):
+    """
+    Returns the sum of elements in arr using reduce.
+    """
+    return functools.reduce(lambda x, y: x + y, arr)
