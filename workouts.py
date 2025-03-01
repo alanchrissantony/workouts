@@ -22270,3 +22270,24 @@ def max_remaining_money(prices: list, money: int) -> int:
                 best = rem
                 found = True
     return best if found else money
+
+
+# --- Next Function Block ---
+
+
+# --------------------------
+# 7. Count ordered matches between two texts
+def count_ordered_matches(text1: str, text2: str) -> int:
+    """
+    Counts the number of characters in text1 that appear in text2 in order.
+    For each character in text1, if it appears in the remaining part of text2, increments count.
+    """
+    count = 0
+    i = 0
+    j = 0
+    while i < len(text1) and j < len(text2):
+        if text1[i] in text2[j:]:
+            count += 1
+            j += 1  # Move j to next position for subsequent matches.
+        i += 1
+    return count
