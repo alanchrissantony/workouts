@@ -16933,3 +16933,21 @@ def max_differences(nums: list) -> list:
         if diffs:
             result.append(max(diffs))
     return result
+
+
+# --- Next Function Block ---
+
+
+
+# 24. Find maximum gap (j - i) such that colors[i] != colors[j].
+def max_index_gap_different(colors: list) -> int:
+    """
+    Returns the maximum index gap between two elements in colors that are different.
+    """
+    max_gap = -1
+    n = len(colors)
+    for i in range(n-1):
+        for j in range(i+1, n):
+            if colors[i] != colors[j] and (j - i) > max_gap:
+                max_gap = j - i
+    return max_gap
