@@ -15927,3 +15927,21 @@ def validate_pieces(arr: list, pieces: list) -> bool:
             assembled.extend(piece)
             used.append(piece)
     return assembled == arr
+
+
+# --- Next Function Block ---
+
+
+
+def is_arithmetic_sequence(arr: list) -> bool:
+    """
+    Checks if the sorted list arr forms an arithmetic sequence.
+    """
+    if len(arr) < 2:
+        return True
+    arr = sorted(arr)
+    diff = arr[1] - arr[0]
+    for i in range(1, len(arr)):
+        if arr[i] - arr[i - 1] != diff:
+            return False
+    return True
