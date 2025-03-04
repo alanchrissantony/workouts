@@ -22649,3 +22649,26 @@ def remove_triplets_with_target_sum(arr: list) -> list:
                 j += 1
         i += 1
     return arr
+
+
+# --- Next Function Block ---
+
+
+# ------------------------------------------------------------------
+# Snippet F: Maximum remaining money after buying two items.
+def max_remaining_money(prices: list, money: int) -> int:
+    """
+    Given a list of prices and an available money amount,
+    finds the pair of items that maximizes the remaining money after purchase.
+    Returns the maximum remaining money if a pair can be bought; otherwise, returns the original money.
+    """
+    max_remaining = 0
+    flag = False
+    n = len(prices)
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            remaining = money - (prices[i] + prices[j])
+            if remaining >= 0 and remaining > max_remaining:
+                max_remaining = remaining
+                flag = True
+    return max_remaining if flag else money
