@@ -20909,3 +20909,24 @@ def max_remaining_money(prices: list, money: int) -> int:
             j += 1
         i += 1
     return val if flag else money
+
+
+# --- Next Function Block ---
+
+
+# --- Ordered Match Count ---
+def ordered_match_count(text1: str, text2: str) -> int:
+    """
+    Counts the number of characters in text1 that appear (in order) in text2.
+    For each character in text1, if it exists in the remaining substring of text2,
+    increases the count and moves the search index forward.
+    """
+    count = 0
+    i = 0
+    j = 0
+    while i < len(text1) and j < len(text2):
+        if text1[i] in text2[j:]:
+            count += 1
+            j += 1
+        i += 1
+    return count
