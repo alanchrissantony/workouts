@@ -225,3 +225,26 @@ def remove_k_occurrences(arr: list, k: int) -> int:
         if flag:
             break
     return len(counts) - j
+
+
+# --- Next Function Block ---
+
+
+# -----------------------------------------------------
+# Function 11: Reverse chunks of a list (based on index modulus k).
+def reverse_chunks(arr: list, k: int) -> list:
+    """
+    Divides the list 'arr' into chunks of size k and reverses each chunk.
+    If the last chunk is smaller than k, leaves it as is.
+    
+    Example:
+      arr = [1,2,3,4], k = 2 → returns [2,1,4,3]
+    """
+    result = []
+    for i in range(0, len(arr), k):
+        chunk = arr[i:i+k]
+        if len(chunk) == k:
+            result.extend(chunk[::-1])
+        else:
+            result.extend(chunk)
+    return result
