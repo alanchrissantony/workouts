@@ -13603,3 +13603,20 @@ def rearrange_string(s: str, indices: list) -> str:
     mapping = {idx: ch for idx, ch in zip(indices, s)}
     sorted_mapping = dict(sorted(mapping.items()))
     return "".join(sorted_mapping[i] for i in sorted_mapping)
+
+
+# --- Next Function Block ---
+
+
+
+def repeat_alternate(nums: list) -> list:
+    """
+    For every even-indexed element in nums, repeats the element at index i+1 a number of times equal to nums[i].
+    Returns the resulting list.
+    Example: for nums = [1,2,3,4], returns [2,4,4,4].
+    """
+    result = []
+    for i in range(0, len(nums), 2):
+        if i + 1 < len(nums):
+            result.extend([nums[i+1]] * nums[i])
+    return result
