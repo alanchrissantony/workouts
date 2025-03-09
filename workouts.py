@@ -25633,3 +25633,12 @@ def helper(arr, start, end):
     helper(arr, start,right-1)
     helper(arr, right+1, end)
     return arr
+
+
+# --- Next Function Block ---
+
+
+def quick(arr):
+    start=0
+    end=len(arr)-1
+    return helper(arr, start, end)
