@@ -19233,3 +19233,66 @@ def binary_search_value(array: list, target) -> int:
     if arr and arr[0] == target:
         return arr[0]
     raise ValueError("Target not found in array")
+
+
+# --- Next Function Block ---
+
+
+
+
+
+class Node:
+    def __init__(self, data=None, next=None, prev=None):
+        self.data = data
+        self.next = next
+        self.prev = prev
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+    
+    def append(self, data):
+        node = Node(data)
+        if self.head == None:
+            self.head = node
+            self.tail = self.head
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = node
+            current.next.prev = current
+            self.tail = current.next
+
+    def print(self):
+        if self.head == None:
+            print("Linked List is empty")
+            return
+        current = self.head
+        while current:
+            print(current.data)
+            current = current.next
+    
+    def reversal(self):
+        if self.tail==None:
+            print("Linked List is empty")
+            return
+        current = self.tail
+        while current:
+            print(current.data)
+            current = current.prev
+        
+
+# patterns.py
+import string
+
+# 1. Create a dictionary mapping each letter (both lowercase and uppercase) 
+#    to an increasing integer starting at 0.
+def letter_to_index_dict() -> dict:
+    mapping = {}
+    j = 0
+    for ch in string.ascii_letters:
+        mapping[ch] = j
+        j += 1
+    return mapping
