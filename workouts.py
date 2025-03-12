@@ -1093,3 +1093,26 @@ def y(nums):
                         array.append([nums[i],nums[j],nums[k]])
     print(array,"\n")
     print(pos)
+
+
+# --- Next Function Block ---
+
+
+def z(x):
+
+    val = set(x)
+    st = list(val)
+    print(st)
+
+    s="fly me   to   the moon  "
+    a=s[::-1]
+    count=0
+    alph=False
+    for i in a:
+        if i!=" ":
+            alph=True
+        if alph and i==" ":
+            break
+        if alph and i!=" ":
+            count=count+1
+    print(count)
