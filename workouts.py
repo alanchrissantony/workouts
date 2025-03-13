@@ -8313,3 +8313,13 @@ def first_multiple_in_list(n: int, arr: list) -> int:
         if multiple in arr:
             return multiple
         i += 1
+
+
+# --- Next Function Block ---
+
+
+def first_n_evens(n: int) -> list:
+    """
+    Returns a list of the first n even numbers.
+    """
+    return [i * 2 for i in range(1, n + 1)]
