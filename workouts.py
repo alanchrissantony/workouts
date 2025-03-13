@@ -20571,3 +20571,34 @@ def remove_k_consecutive_digits(num: str, k: int) -> str:
             pass
         i += 1
     return str(min(arr)) if arr else "0"
+
+
+# --- Next Function Block ---
+
+
+# --- Remove Increasing Pairs ---
+def remove_increasing_pairs(nums: list) -> list:
+    """
+    Given a list of numbers, iterates through it.
+    For each index i, if there exists a later element j such that nums[i] < nums[j],
+    deletes both nums[i] and nums[j] (the first such occurrence) and continues.
+    Returns the modified list.
+    
+    Example:
+      nums = [2,3,4,4,4]
+    """
+    i = 0
+    # Work on a copy to avoid modifying the original list if needed.
+    while i < len(nums) - 1:
+        j = i + 1
+        while j < len(nums):
+            if nums[i] < nums[j]:
+                # Remove both elements; adjust index accordingly.
+                del nums[j]
+                del nums[i]
+                i = max(i - 1, 0)
+                break
+            else:
+                j += 1
+        i += 1
+    return nums
