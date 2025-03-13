@@ -5789,3 +5789,20 @@ def count_pairs_with_difference(nums: list, k: int) -> int:
             if abs(nums[i] - nums[j]) == k:
                 count += 1
     return count
+
+
+# --- Next Function Block ---
+
+
+
+def count_special_pairs(nums: list, k: int) -> int:
+    """
+    Counts pairs (i, j) with i < j where nums[i] equals nums[j] and (i*j) % k == 0.
+    """
+    count = 0
+    n = len(nums)
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            if nums[i] == nums[j] and (i * j) % k == 0:
+                count += 1
+    return count
