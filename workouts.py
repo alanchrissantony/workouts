@@ -8902,3 +8902,25 @@ def open_lock(target: str) -> (list, int):
         else:
             i += 1
     return lock, count
+
+
+# --- Next Function Block ---
+
+
+
+# 16. Count Pythagorean triplets (brute force) for numbers 1 to num.
+def count_pythagorean_triplets(num: int) -> int:
+    """
+    Counts the number of Pythagorean triplets (idx, jdx, kdx) with 1 <= idx, jdx, kdx <= num.
+    """
+    count = 0
+    for a in range(1, num+1):
+        for b in range(1, num+1):
+            if a == b:
+                continue
+            for c in range(max(a, b) + 1, num+1):
+                if a * a + b * b == c * c:
+                    count += 1
+                    # Uncomment to print the triplet:
+                    # print(a, b, c)
+    return count
