@@ -18887,3 +18887,28 @@ def get_range(n: int) -> list:
     Returns a list of numbers from 0 to n-1.
     """
     return list(range(n))
+
+
+# --- Next Function Block ---
+
+
+
+# 4. Count the number of differing bits between two numbers (given as padded binary strings).
+def bit_difference_count(start: int, goal: int, pad_length: int = 30) -> int:
+    """
+    Converts start and goal into binary strings padded to pad_length,
+    then counts the number of bit positions where they differ.
+    """
+    bin_start = list(str(0) * (pad_length - len(bin(start)[2:])) + str(bin(start)[2:])
+                   )
+    bin_goal = list(str(0) * (pad_length - len(bin(goal)[2:])) + str(bin(goal)[2:])
+                  )
+    count = 0
+    i = pad_length - 1
+    while i >= 0:
+        if bin_goal[i] != bin_start[i]:
+            # "Fix" the start bit (not needed for count, but mimicking snippet)
+            bin_start[i] = bin_goal[i]
+            count += 1
+        i -= 1
+    return count
